@@ -37,10 +37,43 @@ Description of goals
 ### Roderick de Britto Heemskerk (4961269)
 
 Face picture
+Qualities:
+Perseverence
+	Once I set my mind on something I really want, I keep at this task until I am satisfied.
 
-Goals:
+	
+Quick learner
+	Generally speaking I can pick up information pretty quickly.
 
-Improving my programming. Getting better at planning. Working efficiently in a group.
+	This will help in a group to help
+
+
+Flaws:
+Easily distracted
+	Often when I am working, pretty quickly I start messing around with whatever is on my desk. This stops me from working as effectively as I can.
+
+Dependent
+	I feel like I need the approval of others to be sure that my work is done correctly.
+
+
+
+Goal:
+Working efficiently in a group.
+This is important to me as in general I think of myself as pretty messy and distracted. This generally works counterproductive within a group, and I want to tackle that problem as
+I feel I have a responsibility to do so for my group. And learning how to work more efficiently will also help me in the future of course. I will have achieved this goal at the
+point where I gain consistency in keeping up with deadlines. 
+
+I will actively work on this goal, but this is the first piece of group work we have had until this point, as such I can't say what is going well. What can still use improvement
+is my focus on the task at hand.
+
+The main thing that is in my way for reaching this goal is my mentality, up to this point I have not had to put a lot of effort to achieve a number of things, however the reason I
+did not put extra effort to do even better, and not procrastinate is because I didn't feel like I had a responsibility towards myself. But as I am working in a group for this project
+I will have to mainly realise that, and just focus on my appointed task, and try to bring all my strong suits to the table.
+
+The first step I am taking to reach this goal is formulating this plan, as this already helped me find out where I think the problems lie. As before this point I have not really focused
+on whatI really wanted to improve.
+
+
 
 ### Jesse Nieland (4880722)
 
