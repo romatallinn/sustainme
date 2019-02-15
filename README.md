@@ -57,7 +57,7 @@ Hard to be motivated, studying isn't my favorite thing to do.
 
 Goals:
 
-Tring to become better at programming, also planning.
+Trying to become better at programming, also planning.
 
 Reality:
 
