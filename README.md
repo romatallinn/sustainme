@@ -21,3 +21,19 @@ Run `maven install` ([Intellij](https://www.jetbrains.com/help/idea/2016.3/getti
 
 **Checkstyle**:  
 Run `maven site`
+
+
+## Developers
+
+### Roman Sirokov (4769470)
+![](https://firebasestorage.googleapis.com/v0/b/flist-a5d93.appspot.com/o/profile_imgs%2FNakM83PPXMfVvH0qqXpJRVOcVN83.jpg?alt=media&token=b8c5d48c-e5ab-4053-ba5a-8c46957c4e0a)
+
+Description of goals
+
+### Student 2
+
+### Student 3
+
+### Student 4
+
+### Student 5
