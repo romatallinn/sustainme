@@ -34,6 +34,12 @@ Description of goals
 
 ### Student 3
 
-### Student 4
+### Roderick de Britto Heemskerk (4961269)
+
+Face picture
+
+Goals:
+
+Improving my programming. Getting better at planning. Working efficiently in a group.
 
 ### Student 5
