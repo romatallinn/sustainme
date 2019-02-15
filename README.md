@@ -42,4 +42,19 @@ Goals:
 
 Improving my programming. Getting better at planning. Working efficiently in a group.
 
-### Student 5
+### Jesse Nieland (4880722)
+
+https://pps.whatsapp.net/v/t61.11540-24/31505309_811455935710982_8653936940514541568_n.jpg?oe=5C6AC2E7&oh=4c2a818244d15506458c16c9796446fb
+
+Strong points:
+
+Error: file not found.
+
+Weak points:
+
+Bad at planning, most of the time I'll do things last minute.
+Hard to be motivated, studying isn't my favorite thing to do.
+
+Goals:
+
+Tring to become better at programming, also planning.
