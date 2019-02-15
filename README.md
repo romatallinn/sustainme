@@ -44,7 +44,7 @@ Improving my programming. Getting better at planning. Working efficiently in a g
 
 ### Jesse Nieland (4880722)
 
-https://pps.whatsapp.net/v/t61.11540-24/31505309_811455935710982_8653936940514541568_n.jpg?oe=5C6AC2E7&oh=4c2a818244d15506458c16c9796446fb
+blob:https://web.whatsapp.com/639ca98d-fce6-4053-a3aa-cde5c1775f23
 
 Strong points:
 
@@ -58,3 +58,20 @@ Hard to be motivated, studying isn't my favorite thing to do.
 Goals:
 
 Tring to become better at programming, also planning.
+
+Reality:
+
+I'm probably behind compared to the others, for now I'm trying the best I can. 
+I'll need to learn more Java since I don't think I know enough at the moment
+
+Options:
+
+Working on Java skills.
+Motivation and complexity of the stuff we'll need to implement
+
+Will:
+
+I'll work on getting better with programming, also trying to keep up with the material that we use.
+I can work on learning Java more, my teammates can help me understand things I don't.
+
+
