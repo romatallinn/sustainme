@@ -25,10 +25,28 @@ Run `maven site`
 
 ## Developers
 
-### Roman Sirokov (4769470)
+### Roman Sirokov (4769740)
 ![](https://firebasestorage.googleapis.com/v0/b/flist-a5d93.appspot.com/o/profile_imgs%2FNakM83PPXMfVvH0qqXpJRVOcVN83.jpg?alt=media&token=b8c5d48c-e5ab-4053-ba5a-8c46957c4e0a)
+[Contacts](https://flist.me/u/rsirokov)
 
-Description of goals
+##### Strong Points
+
+As a programmer, I have experience in multiple areas, such as web development (HTML + CSS + JS + PHP),
+game development (C# + Unity Engine) and IOS development (Swift). This includes some minor experience developing real software.
+
+I believe that my second strong point is my high attention to the details. It helps me to maintain quality in what I am trying to do. I like when everything lines up perfectly.
+
+##### Weak Points
+
+One of my weaker points is quite cliche, laziness. I tend to sometimes leave everything for later. I never fail to do things on time, but if I wouldn't procrastinate, my results can be much better.
+
+My attention to details, however, can be also seen as a weak point, since nobody likes "faultfinders." Nevertheless, so far I succeed in avoiding unnecessary comments, neither I waste my time fixing very tiny flaws.
+
+##### Goals
+
+I am currently developing a personal project [Flist](https://flist.me). During the OOP project I hope to get more experience working in a group, so I will be able to apply these skills developing Flist. I expect to learn how the process of managing tasks and cooperation works from inside. I also hope to find out whether or not I possess the skills needed from the leadership point of view.
+
+In order to achieve my goal, I need to participate in the group work as much as I can and as much as needed, helping my teammates and accepting their help to me.
 
 ### Student 2
 
@@ -37,31 +55,28 @@ Description of goals
 ### Roderick de Britto Heemskerk (4961269)
 
 Face picture
-Qualities:
-Perseverence
-	Once I set my mind on something I really want, I keep at this task until I am satisfied.
 
-	
-Quick learner
-	Generally speaking I can pick up information pretty quickly.
+##### Strong Points
+- Perseverence
+	 Once I set my mind on something I really want, I keep at this task until I am satisfied.
+
+- Quick learner
+	 Generally speaking I can pick up information pretty quickly.
 
 	This will help in a group to help
 
 
-Flaws:
-Easily distracted
-	Often when I am working, pretty quickly I start messing around with whatever is on my desk. This stops me from working as effectively as I can.
+##### Weak Points
+- Easily distracted
+	 Often when I am working, pretty quickly I start messing around with whatever is on my desk. This stops me from working as effectively as I can.
 
-Dependent
-	I feel like I need the approval of others to be sure that my work is done correctly.
+- Dependent
+	 I feel like I need the approval of others to be sure that my work is done correctly.
 
-
-
-Goal:
-Working efficiently in a group.
-This is important to me as in general I think of myself as pretty messy and distracted. This generally works counterproductive within a group, and I want to tackle that problem as
+##### Goals
+Working efficiently in a group. This is important to me as in general I think of myself as pretty messy and distracted. This generally works counterproductive within a group, and I want to tackle that problem as
 I feel I have a responsibility to do so for my group. And learning how to work more efficiently will also help me in the future of course. I will have achieved this goal at the
-point where I gain consistency in keeping up with deadlines. 
+point where I gain consistency in keeping up with deadlines.
 
 I will actively work on this goal, but this is the first piece of group work we have had until this point, as such I can't say what is going well. What can still use improvement
 is my focus on the task at hand.
@@ -79,32 +94,25 @@ on whatI really wanted to improve.
 
 blob:https://web.whatsapp.com/639ca98d-fce6-4053-a3aa-cde5c1775f23
 
-Strong points:
-
+##### Strong points
 Error: file not found.
 
-Weak points:
-
+##### Weak points
 Bad at planning, most of the time I'll do things last minute.
 Hard to be motivated, studying isn't my favorite thing to do.
 
-Goals:
+##### Goals
 
 Trying to become better at programming, also planning.
 
-Reality:
+- Reality:
+    I'm probably behind compared to the others, for now I'm trying the best I can.
+    I'll need to learn more Java since I don't think I know enough at the moment
 
-I'm probably behind compared to the others, for now I'm trying the best I can. 
-I'll need to learn more Java since I don't think I know enough at the moment
+- Options:
+    Working on Java skills.
+    Motivation and complexity of the stuff we'll need to implement
 
-Options:
-
-Working on Java skills.
-Motivation and complexity of the stuff we'll need to implement
-
-Will:
-
-I'll work on getting better with programming, also trying to keep up with the material that we use.
-I can work on learning Java more, my teammates can help me understand things I don't.
-
-
+- Will:
+    I'll work on getting better with programming, also trying to keep up with the material that we use.
+    I can work on learning Java more, my teammates can help me understand things I don't.
