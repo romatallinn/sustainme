@@ -48,7 +48,23 @@ I am currently developing a personal project [Flist](https://flist.me). During t
 
 In order to achieve my goal, I need to participate in the group work as much as I can and as much as needed, helping my teammates and accepting their help to me.
 
-### Student 2
+### Nadyne Aretz (4649087)
+
+![](https://i.imgur.com/yAB1crj.jpg)
+
+#### Strong Points 
+
+One of my strong points I think is that I am very neat. I like to keep things organized and have a general overview of what needs to get done. I think this will have a positive influence on the team because I will mostly plan everything out for the coming few weeks. 
+Another strong point is my leadership skills. I already have been the chair of a few committees, and I think this will also help in leading our team in the right direction and to keep everyone focused on our project. 
+
+#### Weak Points
+
+Because I am very organized, I tend to expect that also from my teammates. That can lead to irritations on my side if someone does not fulfill that desire. I can handle it if someone still shows good motivation, but if they do not do the best they can I will quickly lose my temper.  
+Another weak point is that I am not very experienced in programming yet. I do not think that it is a huge problem, because I like to research things thoroughly if I do not understand it and I am also not shy about asking for help. 
+
+#### Goals
+
+My goal for this project is getting better at programming, but also to prove to myself that I really can make this project work. I am relatively inexperienced with programming, and because of that, I am also sometimes a bit insecure about my programming skills. I hope to be able to boast that confidence a bit by practicing and asking my teammates for help. I am very excited about this project and also hope to integrate my creativity into our designs and ideas. 
 
 ### Student 3
 
