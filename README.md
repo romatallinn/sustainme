@@ -70,7 +70,7 @@ My goal for this project is getting better at programming, but also to prove to 
 
 ### Roderick de Britto Heemskerk (4961269)
 
-Face picture
+![](https://i.imgur.com/5dDbrcn.jpg)
 
 ##### Strong Points
 - Perseverence
@@ -79,7 +79,7 @@ Face picture
 - Quick learner
 	 Generally speaking I can pick up information pretty quickly.
 
-	This will help in a group to help
+	This will help in a group if there is a new concept which we will have to use.
 
 
 ##### Weak Points
