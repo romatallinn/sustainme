@@ -26,7 +26,8 @@ Run `maven site`
 ## Developers
 
 ### Roman Sirokov (4769740)
-![](https://firebasestorage.googleapis.com/v0/b/flist-a5d93.appspot.com/o/profile_imgs%2FNakM83PPXMfVvH0qqXpJRVOcVN83.jpg?alt=media&token=b8c5d48c-e5ab-4053-ba5a-8c46957c4e0a)
+![small](https://firebasestorage.googleapis.com/v0/b/flist-a5d93.appspot.com/o/profile_imgs%2FNakM83PPXMfVvH0qqXpJRVOcVN83.jpg?alt=media&token=b8c5d48c-e5ab-4053-ba5a-8c46957c4e0a)
+
 [Contacts](https://flist.me/u/rsirokov)
 
 ##### Strong Points
@@ -50,27 +51,27 @@ In order to achieve my goal, I need to participate in the group work as much as 
 
 ### Nadyne Aretz (4649087)
 
-![](https://i.imgur.com/yAB1crj.jpg)
+![small](https://i.imgur.com/yAB1crj.jpg)
 
-##### Strong Points 
+##### Strong Points
 
-One of my strong points I think is that I am very neat. I like to keep things organized and have a general overview of what needs to get done. I think this will have a positive influence on the team because I will mostly plan everything out for the coming few weeks. 
-Another strong point is my leadership skills. I already have been the chair of a few committees, and I think this will also help in leading our team in the right direction and to keep everyone focused on our project. 
+One of my strong points I think is that I am very neat. I like to keep things organized and have a general overview of what needs to get done. I think this will have a positive influence on the team because I will mostly plan everything out for the coming few weeks.
+Another strong point is my leadership skills. I already have been the chair of a few committees, and I think this will also help in leading our team in the right direction and to keep everyone focused on our project.
 
 ##### Weak Points
 
 Because I am very organized, I tend to expect that also from my teammates. That can lead to irritations on my side if someone does not fulfill that desire. I can handle it if someone still shows good motivation, but if they do not do the best they can I will quickly lose my temper.  
-Another weak point is that I am not very experienced in programming yet. I do not think that it is a huge problem, because I like to research things thoroughly if I do not understand it and I am also not shy about asking for help. 
+Another weak point is that I am not very experienced in programming yet. I do not think that it is a huge problem, because I like to research things thoroughly if I do not understand it and I am also not shy about asking for help.
 
 ##### Goals
 
-My goal for this project is getting better at programming, but also to prove to myself that I really can make this project work. I am relatively inexperienced with programming, and because of that, I am also sometimes a bit insecure about my programming skills. I hope to be able to boast that confidence a bit by practicing and asking my teammates for help. I am very excited about this project and also hope to integrate my creativity into our designs and ideas. 
+My goal for this project is getting better at programming, but also to prove to myself that I really can make this project work. I am relatively inexperienced with programming, and because of that, I am also sometimes a bit insecure about my programming skills. I hope to be able to boast that confidence a bit by practicing and asking my teammates for help. I am very excited about this project and also hope to integrate my creativity into our designs and ideas.
 
 ### Matthijs Arnoldus (4928091)
 
-![](https://imgur.com/M8jfhW2.jpg)
+![small](https://imgur.com/M8jfhW2.jpg)
 
-#### Strong Points
+##### Strong Points
 
 - Problem-solving.
 I'm usually pretty good at finding creative solutions to problems. I think this can be useful, since we will come across a lot of errors, probably, and I think I can analyse these well and try to resolve them.
@@ -78,7 +79,7 @@ I'm usually pretty good at finding creative solutions to problems. I think this 
 - Motivation.
 I always try to reach the best result, and cannot finish when something is not done. This will help in the project, because I will try to keep improving things in order to make our product better.
 
-#### Weak points
+##### Weak points
 
 - Planning
 I usually leave things until I have just enough time to do them. I always finish in time, but my result could be improved if I started earlies. In group work this is especially important, as this makes the cooperation more structured.
@@ -86,9 +87,9 @@ I usually leave things until I have just enough time to do them. I always finish
 - Distraction
 Often I have difficulties to start working, because I get distracted by other things. However, when I have started, I can keep concentrated until I'm done with my job.
 
-#### Goals
+##### Goals
 
-My learning goal for this project is to improve my planning skills in combination with the group work. 
+My learning goal for this project is to improve my planning skills in combination with the group work.
 This is important to me because especially in group work it is necessary to clearly divide tasks and decide what needs to be done when, in order to structure the project well.
 I will have succeeded achieving this goal when there is a good cooperation within the group and we create clear deadlines and I keep finishing my work in time.
 
@@ -99,7 +100,7 @@ I think if I keep setting deadlines for myself, this will help me improve my pla
 
 ### Roderick de Britto Heemskerk (4961269)
 
-![](https://i.imgur.com/5dDbrcn.jpg)
+![small](https://i.imgur.com/5dDbrcn.jpg)
 
 ##### Strong Points
 - Perseverence
@@ -137,14 +138,14 @@ on whatI really wanted to improve.
 
 ### Jesse Nieland (4880722)
 
-blob:https://web.whatsapp.com/639ca98d-fce6-4053-a3aa-cde5c1775f23
+![small](https://goo.gl/pTpKLZ)
 
 ##### Strong points
 Error: file not found.
 
 ##### Weak points
 Bad at planning, most of the time I'll do things last minute.
-Hard to be motivated, studying isn't my favorite thing to do.
+Hard to be motivated, studying isn't my favourite thing to do.
 
 ##### Goals
 
