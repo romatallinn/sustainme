@@ -39,7 +39,7 @@ I believe that my second strong point is my high attention to the details. It he
 
 ##### Weak Points
 
-One of my weaker points is quite cliche, laziness. I tend to sometimes leave everything for later. I never fail to do things on time, but if I wouldn't procrastinate, my results can be much better.
+One of my weaker points is quite cliche, laziness. I tend to sometimes leave everything for later. I never fail to do things on time, but if I wouldn't procrastinate, my results would be much better.
 
 My attention to details, however, can be also seen as a weak point, since nobody likes "faultfinders." Nevertheless, so far I succeed in avoiding unnecessary comments, neither I waste my time fixing very tiny flaws.
 
