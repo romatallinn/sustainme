@@ -51,7 +51,7 @@ In order to achieve my goal, I need to participate in the group work as much as 
 
 ### Nadyne Aretz (4649087)
 
-![small](https://i.imgur.com/yAB1crj.jpg)
+<img src="https://i.imgur.com/yAB1crj.jpg" height="100px">
 
 ##### Strong Points
 
