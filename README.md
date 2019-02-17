@@ -26,8 +26,7 @@ Run `maven site`
 ## Developers
 
 ### Roman Sirokov (4769740)
-![small](https://firebasestorage.googleapis.com/v0/b/flist-a5d93.appspot.com/o/profile_imgs%2FNakM83PPXMfVvH0qqXpJRVOcVN83.jpg?alt=media&token=b8c5d48c-e5ab-4053-ba5a-8c46957c4e0a)
-
+<img src="https://firebasestorage.googleapis.com/v0/b/flist-a5d93.appspot.com/o/profile_imgs%2FNakM83PPXMfVvH0qqXpJRVOcVN83.jpg?alt=media&token=b8c5d48c-e5ab-4053-ba5a-8c46957c4e0a" height="300px">
 [Contacts](https://flist.me/u/rsirokov)
 
 ##### Strong Points
@@ -51,7 +50,7 @@ In order to achieve my goal, I need to participate in the group work as much as 
 
 ### Nadyne Aretz (4649087)
 
-<img src="https://i.imgur.com/yAB1crj.jpg" height="100px">
+<img src="https://i.imgur.com/yAB1crj.jpg" height="300px">
 
 ##### Strong Points
 
@@ -69,7 +68,7 @@ My goal for this project is getting better at programming, but also to prove to 
 
 ### Matthijs Arnoldus (4928091)
 
-![small](https://imgur.com/M8jfhW2.jpg)
+<img src="https://imgur.com/M8jfhW2.jpg" height="300px">
 
 ##### Strong Points
 
@@ -100,7 +99,8 @@ I think if I keep setting deadlines for myself, this will help me improve my pla
 
 ### Roderick de Britto Heemskerk (4961269)
 
-![small](https://i.imgur.com/5dDbrcn.jpg)
+<img src="https://i.imgur.com/5dDbrcn.jpg" height="300px">
+
 
 ##### Strong Points
 - Perseverence
@@ -138,7 +138,8 @@ on whatI really wanted to improve.
 
 ### Jesse Nieland (4880722)
 
-![small](https://goo.gl/pTpKLZ)
+<img src="https://goo.gl/pTpKLZ" height="300px">
+
 
 ##### Strong points
 Error: file not found.
