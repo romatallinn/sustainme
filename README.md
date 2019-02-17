@@ -68,7 +68,7 @@ My goal for this project is getting better at programming, but also to prove to 
 
 ### Matthijs Arnoldus (4928091)
 
-![](https://imgur.com/a/Yt6arPd)
+![](https://imgur.com/M8jfhW2.jpg)
 
 #### Strong Points
 
