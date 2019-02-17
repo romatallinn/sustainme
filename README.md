@@ -143,7 +143,7 @@ on whatI really wanted to improve.
 
 
 ##### Strong points
-Error: file not found.
+I feel like I'm pretty good socially, that should help with communicating as a team.
 
 ##### Weak points
 Bad at planning, most of the time I'll do things last minute.
