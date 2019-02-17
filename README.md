@@ -27,6 +27,7 @@ Run `maven site`
 
 ### Roman Sirokov (4769740)
 <img src="https://firebasestorage.googleapis.com/v0/b/flist-a5d93.appspot.com/o/profile_imgs%2FNakM83PPXMfVvH0qqXpJRVOcVN83.jpg?alt=media&token=b8c5d48c-e5ab-4053-ba5a-8c46957c4e0a" height="300px">
+
 [Contacts](https://flist.me/u/rsirokov)
 
 ##### Strong Points
