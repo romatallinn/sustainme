@@ -66,7 +66,36 @@ Another weak point is that I am not very experienced in programming yet. I do no
 
 My goal for this project is getting better at programming, but also to prove to myself that I really can make this project work. I am relatively inexperienced with programming, and because of that, I am also sometimes a bit insecure about my programming skills. I hope to be able to boast that confidence a bit by practicing and asking my teammates for help. I am very excited about this project and also hope to integrate my creativity into our designs and ideas. 
 
-### Student 3
+### Matthijs Arnoldus (4928091)
+
+![](blob:https://web.whatsapp.com/7f707fb4-5833-4871-8ed4-504cb626106a)
+
+#### Strong Points
+
+- Problem-solving.
+I'm usually pretty good at finding creative solutions to problems. I think this can be useful, since we will come across a lot of errors, probably, and I think I can analyse these well and try to resolve them.
+
+- Motivation.
+I always try to reach the best result, and cannot finish when something is not done. This will help in the project, because I will try to keep improving things in order to make our product better.
+
+#### Weak points
+
+- Planning
+I usually leave things until I have just enough time to do them. I always finish in time, but my result could be improved if I started earlies. In group work this is especially important, as this makes the cooperation more structured.
+
+- Distraction
+Often I have difficulties to start working, because I get distracted by other things. However, when I have started, I can keep concentrated until I'm done with my job.
+
+#### Goals
+
+My learning goal for this project is to improve my planning skills in combination with the group work. 
+This is important to me because especially in group work it is necessary to clearly divide tasks and decide what needs to be done when, in order to structure the project well.
+I will have succeeded achieving this goal when there is a good cooperation within the group and we create clear deadlines and I keep finishing my work in time.
+
+At this point I don't have much experience in working in groups on such a large project, so I am curious to see how this works out.
+I think if I keep setting deadlines for myself, this will help me improve my planning and make sure I can deliver my work on time.
+
+
 
 ### Roderick de Britto Heemskerk (4961269)
 
