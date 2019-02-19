@@ -27,8 +27,8 @@ public class UserProfile {
     }
     public void CheckLevel(){
         while (experience >= 10*pow(2,level-1)) {
-            level++;
             experience -= 10 * pow(2, level - 1);
+            level++;
         }
     }
     public String getFirstName(){
