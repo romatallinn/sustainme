@@ -1,0 +1,15 @@
+image: java:8
+
+stages:
+  - compile
+  - test
+
+build:
+  stage: compile
+  script:
+    - mvn compile
+
+test:
+  stage: test
+  script:
+    - mvn test
