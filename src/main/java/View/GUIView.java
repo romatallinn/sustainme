@@ -1,3 +1,5 @@
+package View;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -5,13 +7,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 
-
-public class View extends Application {
+public class GUIView extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("application.fxml"));
-        primaryStage.setTitle("Hello World");
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI.fxml"));
+        primaryStage.setTitle("Application");
         primaryStage.setScene(new Scene(root));
         primaryStage.setMaximized(true);
         primaryStage.show();
@@ -21,4 +22,5 @@ public class View extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
 }
