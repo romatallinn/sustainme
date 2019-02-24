@@ -1,5 +1,6 @@
 package Model;
 
+import SupportingFiles.DatabaseConnection;
 import net.thegreshams.firebase4j.error.FirebaseException;
 import net.thegreshams.firebase4j.error.JacksonUtilityException;
 import net.thegreshams.firebase4j.model.FirebaseResponse;

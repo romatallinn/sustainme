@@ -1,6 +1,7 @@
-package View;
+package View.Implementation.Terminal;
 
-import Controller.DemoTerminalController;
+import Controller.DemoController;
+import View.Interfaces.IDemoView;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -10,21 +11,21 @@ import java.util.Scanner;
  * The view class for the terminal demonstration purposes.
  * Displays the ascii menu and asks to input the option, then handles it.
  */
-public class TerminalView {
+public class TerminalDemoView implements IDemoView {
 
-    private DemoTerminalController controller;
+    private DemoController controller;
 
     // Console Color Formatting Tags
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_RED = "\u001B[31m";
-    public static final String ANSI_GREEN = "\u001B[32m";
+    private static final String ANSI_RESET = "\u001B[0m";
+    private static final String ANSI_RED = "\u001B[31m";
+    private static final String ANSI_GREEN = "\u001B[32m";
 
 
     /**
      * Constructor for the view class.
      * @param controller class which acts upon the actions taken in the view.
      */
-    public TerminalView(DemoTerminalController controller)
+    public TerminalDemoView(DemoController controller)
     {
         this.controller = controller;
     }
@@ -32,15 +33,20 @@ public class TerminalView {
     /**
      * Displays the terminal menu for user. Then requests the input of the option and sends it to handling controller.
      */
-    public void InitializeMenuInteraction()
+    public void Show()
     {
         String content =    "Application Menu: \n" +
-                            "      1 - Retrieve Data from DB\n" +
-                            "      2 - Add New Entry to DB\n" +
-                            "      3 - Shutdown\n";
+
+                            "      1 - Sign Up\n" +
+                            "      2 - Sign In\n" +
+
+                            "      3 - Retrieve Data from DB\n" +
+                            "      4 - Add New Entry to DB\n" +
+
+                            "      5 - Shutdown\n";
 
 
-        while(true) {
+        while (true) {
 
             System.out.println(content);
 
@@ -62,23 +68,29 @@ public class TerminalView {
     {
         switch (option)
         {
-//            case 0:
-//                DisplayErrorMessage("Test Error Message");
 
             case 1:
-                RetrieveDataViewHandler();
-
+                SignUpViewHandler();
                 break;
 
             case 2:
-                PutDataViewHandler();
+                SignInViewHandler();
                 break;
 
             case 3:
+                RetrieveDataViewHandler();
+                break;
+
+            case 4:
+                PutDataViewHandler();
+                break;
+
+            case 5:
                 controller.ApplicationShutdown();
                 break;
 
             default: System.out.println("Unknown option. Please try again!");
+
         }
     }
 
@@ -124,13 +136,47 @@ public class TerminalView {
         controller.PutDataActionCallback(path, dataMap);
     }
 
+    private void SignUpViewHandler() {
+
+        Scanner in = new Scanner(System.in);
+
+        System.out.print("\n");
+
+        System.out.print("Email: ");
+        String email = in.nextLine();
+
+        System.out.print("Password: ");
+        String pass = in.nextLine();
+
+
+        controller.SignUpCallback(email, pass);
+
+    }
+
+    private void SignInViewHandler() {
+
+        Scanner in = new Scanner(System.in);
+
+        System.out.print("\n");
+
+        System.out.print("Email: ");
+        String email = in.nextLine();
+
+        System.out.print("Password: ");
+        String pass = in.nextLine();
+
+
+        controller.SignInCallback(email, pass);
+
+    }
+
     /**
      * Displays the error message to the console with the red color format.
-     * @param err - the body of the error message.
+     * @param status - the body of the error message.
      */
-    public void DisplayErrorMessage(String err)
+    public void DisplayStatus(String status)
     {
-        System.out.println(ANSI_RED + err + ANSI_RESET);
+        System.out.println("\n\n" + ANSI_RED + status + ANSI_RESET + "\n\n");
     }
 
 

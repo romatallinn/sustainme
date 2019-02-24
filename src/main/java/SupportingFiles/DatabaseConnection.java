@@ -1,4 +1,4 @@
-package Model;
+package SupportingFiles;
 
 import SupportingFiles.AppConfig;
 import net.thegreshams.firebase4j.error.FirebaseException;

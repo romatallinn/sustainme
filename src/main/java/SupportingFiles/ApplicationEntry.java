@@ -1,8 +1,7 @@
 package SupportingFiles;
 
 
-import Controller.DemoTerminalController;
-import SupportingFiles.AppConfig;
+import Controller.DemoController;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.log4j.Level;
@@ -28,12 +27,8 @@ public class ApplicationEntry {
             DisableLogging();
 
 
-        // Indicate that the application is setup and running.
-        System.out.println("Application is running...\n\n");
-
-
         // Instantiate the initial controller of the application
-        DemoTerminalController controller = new DemoTerminalController();
+        DemoController controller = new DemoController();
 
     }
 
