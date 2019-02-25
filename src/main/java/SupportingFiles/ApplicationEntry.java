@@ -1,8 +1,11 @@
 package SupportingFiles;
 
 
+import Controller.DemoGUIController;
 import Controller.DemoTerminalController;
 import SupportingFiles.AppConfig;
+import View.GUIView;
+import javafx.application.Application;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.log4j.Level;
@@ -33,7 +36,8 @@ public class ApplicationEntry {
 
 
         // Instantiate the initial controller of the application
-        DemoTerminalController controller = new DemoTerminalController();
+        DemoGUIController controller = new DemoGUIController();
+        Application.launch(GUIView.class);
 
     }
 

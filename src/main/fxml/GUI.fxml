@@ -20,6 +20,6 @@
       <TextField fx:id="sendPathField" layoutX="14.0" layoutY="290.0" prefHeight="25.0" prefWidth="688.0" promptText="Path" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
       <TextField fx:id="keyField" layoutX="14.0" layoutY="325.0" prefHeight="25.0" prefWidth="688.0" promptText="Key" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
       <TextField fx:id="valueField" layoutX="14.0" layoutY="360.0" prefHeight="25.0" prefWidth="688.0" promptText="Value" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
-      <Text fx:id="textField" layoutX="21.0" layoutY="501.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="259.6708984375" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="485.0" />
+      <Text fx:id="textField" layoutX="21.0" layoutY="501.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="259.6708984375" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="485.0" />
    </children>
 </AnchorPane>
