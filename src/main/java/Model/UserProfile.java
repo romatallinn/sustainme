@@ -5,7 +5,7 @@ import static java.lang.Math.pow;
 /**
  *
  */
-public class UserProfile {
+class UserProfile {
     private String firstName;
     private String lastName;
     private String emailAddress;
@@ -13,7 +13,7 @@ public class UserProfile {
     private int experience;
 
 
-    public UserProfile(String first, String last, String email){
+    UserProfile(String first, String last, String email){
         firstName = first;
         lastName = last;
         emailAddress = email;
@@ -21,29 +21,31 @@ public class UserProfile {
         experience = 0;
     }
 
-    public void IncreaseScore(int score){
+    void IncreaseScore(int score){
         experience += score;
         this.CheckLevel();
     }
-    public void CheckLevel(){
+
+    private void CheckLevel(){
         while (experience >= 10*pow(2,level-1)) {
             experience -= 10 * pow(2, level - 1);
             level++;
         }
     }
-    public String getFirstName(){
+
+    String getFirstName(){
         return firstName;
     }
-    public String getLastName(){
+    String getLastName(){
         return lastName;
     }
-    public String getEmailAddress(){
+    String getEmailAddress(){
         return emailAddress;
     }
-    public int getLevel(){
+    int getLevel(){
         return level;
     }
-    public int getExperience(){
+    int getExperience(){
         return experience;
     }
 
