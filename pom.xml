@@ -42,6 +42,20 @@
                         <version>${checkstyle.version}</version>
                     </dependency>
                 </dependencies>
+                <configuration>
+                    <configLocation>CSE1105.checkstyle.xml</configLocation>
+                    <consoleOutput>true</consoleOutput>
+                    <violationSeverity>warning</violationSeverity>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
             <plugin>
@@ -96,6 +110,7 @@
                      but will not take effect on the execution of "mvn checkstyle:checkstyle"  -->
                 <configuration>
                     <configLocation>CSE1105.checkstyle.xml</configLocation>
+                    <consoleOutput>true</consoleOutput>
                 </configuration>
             </plugin>
         </plugins>
