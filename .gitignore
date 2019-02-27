@@ -11,3 +11,10 @@ buildNumber.properties
 
 # Exclude maven wrapper
 !/.mvn/wrapper/maven-wrapper.jar
+
+# gitlab-runner
+builds/
+
+.idea
+*.iml
+.DS_STORE

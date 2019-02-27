@@ -25,15 +25,142 @@ Run `maven site`
 
 ## Developers
 
-### Roman Sirokov (4769470)
-![](https://firebasestorage.googleapis.com/v0/b/flist-a5d93.appspot.com/o/profile_imgs%2FNakM83PPXMfVvH0qqXpJRVOcVN83.jpg?alt=media&token=b8c5d48c-e5ab-4053-ba5a-8c46957c4e0a)
+### Roman Sirokov (4769740)
+<img src="https://firebasestorage.googleapis.com/v0/b/flist-a5d93.appspot.com/o/profile_imgs%2FNakM83PPXMfVvH0qqXpJRVOcVN83.jpg?alt=media&token=b8c5d48c-e5ab-4053-ba5a-8c46957c4e0a" height="300px">
 
-Description of goals
+[Contacts](https://flist.me/u/rsirokov)
 
-### Student 2
+##### Strong Points
 
-### Student 3
+As a programmer, I have experience in multiple areas, such as web development (HTML + CSS + JS + PHP),
+game development (C# + Unity Engine) and IOS development (Swift). This includes some minor experience developing real software.
 
-### Student 4
+I believe that my second strong point is my high attention to the details. It helps me to maintain quality in what I am trying to do. I like when everything lines up perfectly.
 
-### Student 5
+##### Weak Points
+
+One of my weaker points is quite cliche, laziness. I tend to sometimes leave everything for later. I never fail to do things on time, but if I wouldn't procrastinate, my results would be much better.
+
+My attention to details, however, can be also seen as a weak point, since nobody likes "faultfinders." Nevertheless, so far I succeed in avoiding unnecessary comments, neither I waste my time fixing very tiny flaws.
+
+##### Goals
+
+I am currently developing a personal project [Flist](https://flist.me). During the OOP project I hope to get more experience working in a group, so I will be able to apply these skills developing Flist. I expect to learn how the process of managing tasks and cooperation works from inside. I also hope to find out whether or not I possess the skills needed from the leadership point of view.
+
+In order to achieve my goal, I need to participate in the group work as much as I can and as much as needed, helping my teammates and accepting their help to me.
+
+### Nadyne Aretz (4649087)
+
+<img src="https://i.imgur.com/yAB1crj.jpg" height="300px">
+
+##### Strong Points
+
+One of my strong points I think is that I am very neat. I like to keep things organized and have a general overview of what needs to get done. I think this will have a positive influence on the team because I will mostly plan everything out for the coming few weeks.
+Another strong point is my leadership skills. I already have been the chair of a few committees, and I think this will also help in leading our team in the right direction and to keep everyone focused on our project.
+
+##### Weak Points
+
+Because I am very organized, I tend to expect that also from my teammates. That can lead to irritations on my side if someone does not fulfill that desire. I can handle it if someone still shows good motivation, but if they do not do the best they can I will quickly lose my temper.  
+Another weak point is that I am not very experienced in programming yet. I do not think that it is a huge problem, because I like to research things thoroughly if I do not understand it and I am also not shy about asking for help.
+
+##### Goals
+
+My goal for this project is getting better at programming, but also to prove to myself that I really can make this project work. I am relatively inexperienced with programming, and because of that, I am also sometimes a bit insecure about my programming skills. I hope to be able to boast that confidence a bit by practicing and asking my teammates for help. I am very excited about this project and also hope to integrate my creativity into our designs and ideas.
+
+### Matthijs Arnoldus (4928091)
+
+<img src="https://imgur.com/M8jfhW2.jpg" height="300px">
+
+##### Strong Points
+
+- Problem-solving.
+I'm usually pretty good at finding creative solutions to problems. I think this can be useful, since we will come across a lot of errors, probably, and I think I can analyse these well and try to resolve them.
+
+- Motivation.
+I always try to reach the best result, and cannot finish when something is not done. This will help in the project, because I will try to keep improving things in order to make our product better.
+
+##### Weak points
+
+- Planning
+I usually leave things until I have just enough time to do them. I always finish in time, but my result could be improved if I started earlies. In group work this is especially important, as this makes the cooperation more structured.
+
+- Distraction
+Often I have difficulties to start working, because I get distracted by other things. However, when I have started, I can keep concentrated until I'm done with my job.
+
+##### Goals
+
+My learning goal for this project is to improve my planning skills in combination with the group work.
+This is important to me because especially in group work it is necessary to clearly divide tasks and decide what needs to be done when, in order to structure the project well.
+I will have succeeded achieving this goal when there is a good cooperation within the group and we create clear deadlines and I keep finishing my work in time.
+
+At this point I don't have much experience in working in groups on such a large project, so I am curious to see how this works out.
+I think if I keep setting deadlines for myself, this will help me improve my planning and make sure I can deliver my work on time.
+
+
+
+### Roderick de Britto Heemskerk (4961269)
+
+<img src="https://i.imgur.com/5dDbrcn.jpg" height="300px">
+
+
+##### Strong Points
+- Perseverence
+	 Once I set my mind on something I really want, I keep at this task until I am satisfied.
+
+- Quick learner
+	 Generally speaking I can pick up information pretty quickly.
+
+	This will help in a group if there is a new concept which we will have to use.
+
+
+##### Weak Points
+- Easily distracted
+	 Often when I am working, pretty quickly I start messing around with whatever is on my desk. This stops me from working as effectively as I can.
+
+- Dependent
+	 I feel like I need the approval of others to be sure that my work is done correctly.
+
+##### Goals
+Working efficiently in a group. This is important to me as in general I think of myself as pretty messy and distracted. This generally works counterproductive within a group, and I want to tackle that problem as
+I feel I have a responsibility to do so for my group. And learning how to work more efficiently will also help me in the future of course. I will have achieved this goal at the
+point where I gain consistency in keeping up with deadlines.
+
+I will actively work on this goal, but this is the first piece of group work we have had until this point, as such I can't say what is going well. What can still use improvement
+is my focus on the task at hand.
+
+The main thing that is in my way for reaching this goal is my mentality, up to this point I have not had to put a lot of effort to achieve a number of things, however the reason I
+did not put extra effort to do even better, and not procrastinate is because I didn't feel like I had a responsibility towards myself. But as I am working in a group for this project
+I will have to mainly realise that, and just focus on my appointed task, and try to bring all my strong suits to the table.
+
+The first step I am taking to reach this goal is formulating this plan, as this already helped me find out where I think the problems lie. As before this point I have not really focused
+on whatI really wanted to improve.
+
+
+
+### Jesse Nieland (4880722)
+
+<img src="https://goo.gl/pTpKLZ" height="300px">
+
+
+##### Strong points
+I feel like I'm pretty good socially, that should help with communicating as a team.
+
+##### Weak points
+Bad at planning, most of the time I'll do things last minute.
+Hard to be motivated, studying isn't my favourite thing to do.
+
+##### Goals
+
+Trying to become better at programming, also planning.
+
+- Reality:
+    I'm probably behind compared to the others, for now I'm trying the best I can.
+    I'll need to learn more Java since I don't think I know enough at the moment
+
+- Options:
+    Working on Java skills.
+    Motivation and complexity of the stuff we'll need to implement
+
+- Will:
+    I'll work on getting better with programming, also trying to keep up with the material that we use.
+    I can work on learning Java more, my teammates can help me understand things I don't.
