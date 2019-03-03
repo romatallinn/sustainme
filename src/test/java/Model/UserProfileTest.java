@@ -10,7 +10,6 @@ public class UserProfileTest {
         user.IncreaseScore(5);
         assertEquals(user.getExperience(),5);
     }
-
     @Test
     public void IncreaseScore1LvlUp() {
         UserProfile user = new UserProfile("Roderick","de Britto Heemskerk","Roderickmbh@gmail.com");
@@ -24,6 +23,20 @@ public class UserProfileTest {
         user.IncreaseScore(35);
         assertEquals(user.getExperience(),5);
         assertEquals(user.getLevel(),3);
+    }
+
+    @Test
+    public void testCo2Reduction(){
+        UserProfile user = new UserProfile("Roderick","de Britto Heemskerk","Roderickmbh@gmail.com");
+        user.ReduceCo2(2.2);
+        assertEquals(user.getCo2Reduction(),2.2,0.0);
+    }
+
+    @Test
+    public void TestVegMeal(){
+        UserProfile user = new UserProfile("Roderick","de Britto Heemskerk","Roderickmbh@gmail.com");
+        user.VegMeal();
+        assertEquals(user.getCo2Reduction(),3.0,0.1);
     }
 
     @Test
@@ -54,5 +67,10 @@ public class UserProfileTest {
     public void getExperience() {
         UserProfile user = new UserProfile("Roderick","de Britto Heemskerk","Roderickmbh@gmail.com");
         assertEquals(user.getExperience(),0);
+    }
+    @Test
+    public void getCo2Reduction(){
+        UserProfile user = new UserProfile("Roderick","de Britto Heemskerk","Roderickmbh@gmail.com");
+        assertEquals(user.getCo2Reduction(), 0.0, 0);
     }
 }
