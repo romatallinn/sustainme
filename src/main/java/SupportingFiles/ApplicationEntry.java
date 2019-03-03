@@ -2,10 +2,22 @@ package SupportingFiles;
 
 
 import Controller.DemoController;
+
+import View.Implementation.JavaFX.JavaFXDemoView;
+import View.Interfaces.IDemoView;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.log4j.Level;
 
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 import java.util.Collections;
 import java.util.List;
@@ -14,7 +26,7 @@ import java.util.List;
 /**
  * The entry point of the whole application; the very first class to be called.
  */
-public class ApplicationEntry {
+public class ApplicationEntry extends Application {
 
     /**
      * Entry point of the application
@@ -27,9 +39,31 @@ public class ApplicationEntry {
             DisableLogging();
 
 
-        // Instantiate the initial controller of the application
-        DemoController controller = new DemoController();
+        // Indicate that the application is setup and running.
+        System.out.println("Application is running...\n\n");
 
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+
+        // Instantiate the initial controller of the application
+        IDemoView view = new JavaFXDemoView();
+        DemoController controller = new DemoController(view);
+
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/JavaFXDemoView.fxml"));
+
+        view.initView(controller);
+        loader.setController(view);
+
+        Parent root = (Parent)loader.load();
+
+        primaryStage.setTitle("Demo Application");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.setMaximized(true);
+        primaryStage.show();
     }
 
 

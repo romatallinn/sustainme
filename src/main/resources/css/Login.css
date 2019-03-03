@@ -1,0 +1,41 @@
+.root {
+    -fx-background-color: white;
+}
+
+#top {
+    -fx-background-color: lightgreen;
+}
+
+#title {
+    -fx-font-size: 80;
+    -fx-font-family: "Lucida Calligraphy";
+}
+
+.text-field {
+    -fx-background-radius: 50px;
+    -fx-font-weight: bold;
+    -fx-font-size: 20;
+}
+
+#login {
+    -fx-text-fill: white;
+    -fx-font-size: 30;
+    -fx-background-color: none;
+    -fx-effect: dropshadow(gaussian, black, 5,0.2,0,0);
+    -fx-font-weight: bold;
+}
+
+#sign_in {
+    -fx-background-radius: 50px;
+    -fx-border-radius: 50px;
+    -fx-font-weight: bold;
+    -fx-font-size: 20;
+    -fx-text-fill: white;
+    -fx-background-color: lightgreen;
+}
+
+#welcome {
+    -fx-font-weight: bold;
+    -fx-font-size: 40;
+    -fx-fill: #505050;
+}

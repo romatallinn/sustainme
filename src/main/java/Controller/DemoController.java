@@ -4,7 +4,6 @@ import Model.DemoModel;
 
 import SupportingFiles.AuthService;
 import View.Interfaces.IDemoView;
-import View.Implementation.Terminal.TerminalDemoView;
 
 import net.thegreshams.firebase4j.error.FirebaseException;
 import net.thegreshams.firebase4j.error.JacksonUtilityException;
@@ -32,11 +31,11 @@ public class DemoController {
     /**
      * Constructor for the controller class. Instantiates the view and the model.
      */
-    public DemoController()
+    public DemoController(IDemoView view)
     {
 
-        // Instantiate the terminal demo view class
-        view = new TerminalDemoView(this);
+        this.view = view;
+
 
         // Instantiate the model
         try {
@@ -45,9 +44,6 @@ public class DemoController {
         {
             view.DisplayStatus("Firebase Connection Error:\n" + e.getMessage());
         }
-
-        // Display the view
-        view.Show();
 
     }
 
