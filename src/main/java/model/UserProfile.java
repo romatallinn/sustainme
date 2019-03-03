@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 import static java.lang.Math.pow;
 
