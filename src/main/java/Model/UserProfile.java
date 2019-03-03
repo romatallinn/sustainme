@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 import static java.lang.Math.pow;
 
@@ -48,7 +48,7 @@ class UserProfile {
 
 
     /**
-     * Checks current experience to see if the user shouldlevel up
+     * Checks current experience to see if the user shouldlevel up.
      */
     private void checkLevel(){
         while (experience >= 10 * pow(2, level - 1)) {
