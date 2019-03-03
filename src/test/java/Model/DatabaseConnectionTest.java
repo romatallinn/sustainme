@@ -1,7 +1,4 @@
-package Model;
-
-import org.junit.Assert;
-import org.junit.Test;
+package model;
 
 public class DatabaseConnectionTest {
 

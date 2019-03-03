@@ -1,11 +1,12 @@
-package Model;
+package model;
 
 import static java.lang.Math.pow;
 
 /**
- *
+ * The class representing a user profile.
  */
 class UserProfile {
+
     private String firstName;
     private String lastName;
     private String emailAddress;
@@ -13,12 +14,12 @@ class UserProfile {
     private int experience;
 
     /**
-     * Constructor for the UserProfile class, defaults level to 1, and experience to 0
-     * @param first
-     * @param last
-     * @param email
+     * Constructor for the UserProfile class, defaults level to 1, and experience to 0.
+     * @param first - first name of the user.
+     * @param last - last name of the user.
+     * @param email - emailt of the user.
      */
-    UserProfile(String first, String last, String email){
+    public UserProfile(String first, String last, String email) {
         firstName = first;
         lastName = last;
         emailAddress = email;
@@ -27,37 +28,41 @@ class UserProfile {
     }
 
     /**
-     * Increases score, calls CheckLevel
-     * @param score
+     * Increases score, calls CheckLevel.
+     * @param score - the amount on which the experience needs is to be increased.
      */
-    void IncreaseScore(int score){
+    public void increaseScore(int score) {
         experience += score;
-        this.CheckLevel();
+        this.checkLevel();
     }
 
     /**
-     * Checks current experience to see if the user shouldlevel up
+     * Checks current experience to see if the user shouldlevel up.
      */
-    private void CheckLevel(){
-        while (experience >= 10*pow(2,level-1)) {
+    private void checkLevel() {
+        while ( experience >= 10 * pow(2, level - 1) ) {
             experience -= 10 * pow(2, level - 1);
             level++;
         }
     }
     
-    String getFirstName(){
+    public String getFirstName() {
         return firstName;
     }
-    String getLastName(){
+
+    public String getLastName() {
         return lastName;
     }
-    String getEmailAddress(){
+
+    public String getEmailAddress() {
         return emailAddress;
     }
-    int getLevel(){
+
+    public int getLevel() {
         return level;
     }
-    int getExperience(){
+
+    public int getExperience() {
         return experience;
     }
 
