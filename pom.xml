@@ -35,7 +35,7 @@
         <dependency>
             <groupId>com.github.bane73</groupId>
             <artifactId>firebase4j</artifactId>
-            <version>-SNAPSHOT</version>
+            <version>b6f90e9764</version>
         </dependency>
 
         <dependency>
