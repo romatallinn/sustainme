@@ -1,6 +1,6 @@
 package supporting;
 
-import controller.DemoController;
+import controller.SignUpController;
 
 import javafx.application.Application;
 
@@ -13,8 +13,9 @@ import org.apache.log4j.Level;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import view.implementation.javafx.JavaFxDemoView;
+import view.implementation.javafx.JavaFxSignUpView;
 import view.interfaces.IDemoView;
+import view.interfaces.ISignUpView;
 
 import java.util.Collections;
 import java.util.List;
@@ -46,19 +47,22 @@ public class ApplicationEntry extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         // Instantiate the initial controller of the application
-        IDemoView view = new JavaFxDemoView();
-        DemoController controller = new DemoController(view);
+        ISignUpView view = new JavaFxSignUpView();
+        SignUpController controller = new SignUpController(view);
 
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/JavaFXDemoView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/JavaFXLoginView.fxml"));
 
         view.initView(controller);
         loader.setController(view);
 
         Parent root = (Parent)loader.load();
 
-        primaryStage.setTitle("Demo Application");
-        primaryStage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("/css/Login.css").toString());
+
+        primaryStage.setTitle("SustainMe - Login");
+        primaryStage.setScene(scene);
         primaryStage.setMaximized(true);
         primaryStage.show();
     }

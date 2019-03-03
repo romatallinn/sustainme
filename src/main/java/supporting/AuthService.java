@@ -26,7 +26,7 @@ public class AuthService {
     public static FirebaseResponse signIn(String email, String pass)
             throws FirebaseException, JacksonUtilityException, UnsupportedEncodingException {
 
-        Firebase connection = new Firebase(AppConfig.authUrl);
+        Firebase connection = new Firebase(AppConfig.authUrl, false);
         connection.addQuery("key", AppConfig.appKey);
 
 
@@ -45,7 +45,7 @@ public class AuthService {
     public static FirebaseResponse signUp(String email, String pass)
             throws FirebaseException, JacksonUtilityException, UnsupportedEncodingException {
 
-        Firebase connection = new Firebase(AppConfig.authUrl);
+        Firebase connection = new Firebase(AppConfig.authUrl, false);
         connection.addQuery("key", AppConfig.appKey);
 
         return connection.post(signUp, credentialsPostMap(email, pass));

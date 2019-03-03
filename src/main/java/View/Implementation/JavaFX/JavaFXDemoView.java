@@ -69,5 +69,4 @@ public class JavaFxDemoView implements IDemoView {
         textField.setText(data);
     }
 
-
 }
