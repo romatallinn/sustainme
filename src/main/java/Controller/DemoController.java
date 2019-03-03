@@ -1,5 +1,6 @@
 package controller;
 
+
 import model.DemoModel;
 
 import net.thegreshams.firebase4j.error.FirebaseException;
@@ -37,7 +38,6 @@ public class DemoController {
     public DemoController(IDemoView view) {
 
         this.view = view;
-
 
         // Instantiate the model
         try {
