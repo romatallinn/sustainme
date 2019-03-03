@@ -25,8 +25,12 @@ public class TerminalDemoView implements IDemoView {
      * Constructor for the view class.
      * @param controller class which acts upon the actions taken in the view.
      */
-    public TerminalDemoView(DemoController controller)
-    {
+//    public TerminalDemoView(DemoController controller)
+//    {
+//        this.controller = controller;
+//    }
+
+    public void initView(DemoController controller) {
         this.controller = controller;
     }
 
@@ -97,7 +101,7 @@ public class TerminalDemoView implements IDemoView {
     /**
      * Initiate the load of the data from the DB from an inputted by user path.
      */
-    private void RetrieveDataViewHandler() {
+    public void RetrieveDataViewHandler() {
 
         Scanner in = new Scanner(System.in);
 
@@ -113,7 +117,7 @@ public class TerminalDemoView implements IDemoView {
     /**
      * Obtain data from the user and then pass it further for uploading into the database.
      */
-    private void PutDataViewHandler()
+    public void PutDataViewHandler()
     {
 
         Map<String, Object> dataMap = new LinkedHashMap();
@@ -134,6 +138,10 @@ public class TerminalDemoView implements IDemoView {
         dataMap.put(key, value);
 
         controller.PutDataActionCallback(path, dataMap);
+    }
+
+    public void ApplicationShutdownHandler() {
+        controller.ApplicationShutdown();
     }
 
     private void SignUpViewHandler() {
