@@ -48,7 +48,7 @@ class UserProfile {
 
 
     /**
-     * Checks current experience to see if the user shouldlevel up
+     * Checks current experience to see if the user shouldlevel up.
      */
     private void checkLevel() {
         while (experience >= 10 * pow(2, level - 1)) {
@@ -58,7 +58,7 @@ class UserProfile {
     }
 
     /**
-     * Adds score based on eating a vegetarian meal
+     * Adds score based on eating a vegetarian meal.
      */
     void vegMeal() {
         increaseScore(5);
