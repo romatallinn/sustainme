@@ -31,6 +31,7 @@ public class JavaFxSignUpView implements ISignUpView {
 
         if(!pass.getText().equals(repass.getText())) {
             displayStatus("The passwords did not match!");
+            return;
         }
 
         controller.signUpCallback(email.getText(), pass.getText());
