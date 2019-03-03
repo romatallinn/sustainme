@@ -1,4 +1,4 @@
-package Model;
+package model;
 import org.junit.*;
 import static org.junit.Assert.*;
 
@@ -7,21 +7,21 @@ public class UserProfileTest {
     @Test
     public void increaseScoreNoLevelUp() {
         UserProfile user = new UserProfile("","","");
-        user.IncreaseScore(5);
+        user.increaseScore(5);
         assertEquals(user.getExperience(),5);
     }
 
     @Test
     public void IncreaseScore1LvlUp() {
         UserProfile user = new UserProfile("Roderick","de Britto Heemskerk","Roderickmbh@gmail.com");
-        user.IncreaseScore(10);
+        user.increaseScore(10);
         assertEquals(user.getExperience(),0);
         assertEquals(user.getLevel(),2);
     }
     @Test
     public void IncreaseScore2LvlUp() {
         UserProfile user = new UserProfile("Roderick","de Britto Heemskerk","Roderickmbh@gmail.com");
-        user.IncreaseScore(35);
+        user.increaseScore(35);
         assertEquals(user.getExperience(),5);
         assertEquals(user.getLevel(),3);
     }

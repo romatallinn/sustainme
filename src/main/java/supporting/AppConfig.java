@@ -1,4 +1,4 @@
-package SupportingFiles;
+package supporting;
 
 /**
  * The application configuration file.
