@@ -1,36 +1,31 @@
-package View.Interfaces;
+package view.interfaces;
 
-import Controller.DemoController;
+import controller.DemoController;
 
 /**
  * Interface of the demo view.
- * It is used in order to make a more abstracted connection
- * between the controller and possible views (mobile view, JavaFX or Terminal)
+ * It is used in order to make a more abstracted connection,
+ * between the controller and possible views (mobile view, javafx or terminal).
  */
 public interface IDemoView {
 
     void initView(DemoController controller);
 
     /**
-     * Display the view
+     * Display the view.
      */
-    void Show();
+    void show();
 
     /**
-     * Display the status line
-     * @param status
+     * Display the status line.
+     * @param status - the body of the status message to be displayed.
      */
-    void DisplayStatus(String status);
+    void displayStatus(String status);
 
     /**
-     * Display the data (json object)
-     * @param data
+     * Display the data (json object).
+     * @param data - the body of the data message to be displayed.
      */
-    void DisplayData(String data);
-
-
-    void RetrieveDataViewHandler();
-    void PutDataViewHandler();
-    void ApplicationShutdownHandler();
+    void displayData(String data);
 
 }

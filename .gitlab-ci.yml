@@ -3,6 +3,7 @@ image: maven:3-jdk-8-alpine
 stages:
   - compile
   - test
+  - checkstyle
 
 build:
   stage: compile
@@ -13,3 +14,8 @@ test:
   stage: test
   script:
     - mvn test
+
+checkstyle:
+  stage: checkstyle
+  script:
+    - mvn validate

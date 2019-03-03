@@ -1,23 +1,20 @@
-package SupportingFiles;
+package supporting;
 
-
-import Controller.DemoController;
-
-import View.Implementation.JavaFX.JavaFXDemoView;
-import View.Interfaces.IDemoView;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-import org.apache.log4j.Level;
+import controller.DemoController;
 
 import javafx.application.Application;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import org.apache.log4j.Level;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
+import view.implementation.javafx.JavaFxDemoView;
+import view.interfaces.IDemoView;
 
 import java.util.Collections;
 import java.util.List;
@@ -29,15 +26,15 @@ import java.util.List;
 public class ApplicationEntry extends Application {
 
     /**
-     * Entry point of the application
-     * @param args - not used
+     * Entry point of the application.
+     * @param args - not used.
      */
     public static void main(String[] args) {
 
         // Disable console debugging if the config file says so.
-        if(!AppConfig.debug)
-            DisableLogging();
-
+        if (!AppConfig.debug) {
+            disableLogging();
+        }
 
         // Indicate that the application is setup and running.
         System.out.println("Application is running...\n\n");
@@ -49,7 +46,7 @@ public class ApplicationEntry extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         // Instantiate the initial controller of the application
-        IDemoView view = new JavaFXDemoView();
+        IDemoView view = new JavaFxDemoView();
         DemoController controller = new DemoController(view);
 
 
@@ -70,13 +67,14 @@ public class ApplicationEntry extends Application {
     /**
      * Disables Log4j logging into the console.
      */
-    public static void DisableLogging()
-    {
+    public static void disableLogging() {
+
         List<Logger> loggers = Collections.<Logger>list(LogManager.getCurrentLoggers());
         loggers.add(LogManager.getRootLogger());
         for ( Logger logger : loggers ) {
             logger.setLevel(Level.OFF);
         }
+
     }
 
 }

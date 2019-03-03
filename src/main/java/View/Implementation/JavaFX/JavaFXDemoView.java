@@ -1,18 +1,19 @@
-package View.Implementation.JavaFX;
+package view.implementation.javafx;
 
-import View.Interfaces.IDemoView;
-import Controller.DemoController;
+import controller.DemoController;
+
+import javafx.fxml.FXML;
 
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
-import javafx.fxml.FXML;
+import view.interfaces.IDemoView;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 
-public class JavaFXDemoView implements IDemoView {
+public class JavaFxDemoView implements IDemoView {
 
     private DemoController controller;
 
@@ -34,12 +35,12 @@ public class JavaFXDemoView implements IDemoView {
     }
 
     @FXML
-    public void RetrieveDataViewHandler() {
-        controller.RetrieveDataCallback(retrievePathField.getText());
+    public void retrieveDataViewHandler() {
+        controller.retrieveDataCallback(retrievePathField.getText());
     }
 
     @FXML
-    public void PutDataViewHandler() {
+    public void putDataViewHandler() {
 
         Map<String, Object> dataMap = new LinkedHashMap();
 
@@ -50,21 +51,21 @@ public class JavaFXDemoView implements IDemoView {
 
         dataMap.put(key, value);
 
-        controller.PutDataActionCallback(path, dataMap);
+        controller.putDataActionCallback(path, dataMap);
     }
 
     @FXML
-    public void ApplicationShutdownHandler() {
-        controller.ApplicationShutdown();
+    public void applicationShutdownHandler() {
+        controller.applicationShutdown();
     }
 
-    public void Show() { }
+    public void show() { }
 
-    public void DisplayStatus(String status) {
+    public void displayStatus(String status) {
         textField.setText(status);
     }
 
-    public void DisplayData(String data) {
+    public void displayData(String data) {
         textField.setText(data);
     }
 
