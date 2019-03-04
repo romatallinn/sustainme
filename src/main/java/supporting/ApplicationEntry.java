@@ -14,7 +14,6 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import view.implementation.javafx.JavaFxSignUpView;
-import view.interfaces.IDemoView;
 import view.interfaces.ISignUpView;
 
 import java.util.Collections;

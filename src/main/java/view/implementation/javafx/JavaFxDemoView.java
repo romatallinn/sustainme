@@ -39,6 +39,9 @@ public class JavaFxDemoView implements IDemoView {
         controller.retrieveDataCallback(retrievePathField.getText());
     }
 
+    /**
+     * Requested from FXML file to upload data to DB.
+     */
     @FXML
     public void putDataViewHandler() {
 

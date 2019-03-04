@@ -1,14 +1,9 @@
 package view.implementation.javafx;
 
 import controller.SignUpController;
-import javafx.application.Application;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import view.interfaces.ISignUpView;
 
 public class JavaFxSignUpView implements ISignUpView {
@@ -29,10 +24,13 @@ public class JavaFxSignUpView implements ISignUpView {
     @FXML
     private Text statusMsg;
 
+    /**
+     * Sends email and password to controller whenever the sign up button is clicked.
+     */
     @FXML
     public void signUpAction() {
 
-        if(!pass.getText().equals(repass.getText())) {
+        if (!pass.getText().equals(repass.getText())) {
             displayStatus("The passwords did not match!");
             return;
         }

@@ -70,7 +70,7 @@ public class SignUpController {
 
         String res = "";
 
-        switch(error) {
+        switch (error) {
             case "INVALID_EMAIL":
                 res = "The email follows the wrong format!";
                 break;
