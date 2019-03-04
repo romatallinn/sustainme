@@ -1,18 +1,18 @@
-<!-- An example of how you can do a sprint review -->
-
+Note: Our original sprint review disappeared so we restored it a week later
 # Sprint Review
 
 ## Main problems  Encountered
 
-### Problem 1: Multiple members were too late
-During the lab, multiple people arrived too late. This interfered with the meeting that was scheduled at that moment and it had to be postponed.
+### Problem 1: Testing is not done enough
+We need to improve our testing, since we did not have enough tests for the demo.
 
-To mitigate this, a cake rule was added to push members to be on time
+### Problem 2: The SCRUM board is not used well
+We need to actively use the SCRUM board so everyone knows who is busy doing what.
+Everyone needs to make sure they update SCRUM whenever they have started or completed something.
 
 ## Adjustments from previous sprints
- - Increase testing effort
-    - This was not achieved. New agreements have been made.
+Since this is the first sprint review we do not have any adjustments
 
 ## Adjustments for next sprint
  - Increase testing effort
- - Add cake rule
+ - Use the SCRUM board more efficiently
