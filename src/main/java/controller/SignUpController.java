@@ -7,6 +7,7 @@ import supporting.AuthService;
 import view.interfaces.ISignUpView;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Map;
 
 public class SignUpController {
 
@@ -25,8 +26,16 @@ public class SignUpController {
 
         try {
             FirebaseResponse response = AuthService.signUp(email, pass);
-            view.displayStatus("\n\n" + response.getRawBody() + "\n\n");
-            view.clearSignUpFields();
+
+            if (!response.getSuccess()) {
+                Map<String, Object> errorObj = (Map<String, Object>)response.getBody().get("error");
+                String errorMsg = getErrorMessage(errorObj.get("message").toString());
+                view.displayStatus(errorMsg);
+            } else {
+                view.displayStatus("You was registered!");
+                view.clearSignUpFields();
+            }
+
         } catch (FirebaseException e) {
             view.displayStatus("Firebase Exception:\n" + e.getMessage());
         } catch (UnsupportedEncodingException e) {
@@ -54,6 +63,28 @@ public class SignUpController {
         } catch (JacksonUtilityException e) {
             view.displayStatus("Jackson Utility Exception:\n" + e.getMessage());
         }
+
+    }
+
+    private String getErrorMessage(String error) {
+
+        String res = "";
+
+        switch(error) {
+            case "INVALID_EMAIL":
+                res = "The email follows the wrong format!";
+                break;
+
+            case "EMAIL_EXISTS":
+                res = "The email is already signed up!";
+                break;
+
+            default:
+                res = "Unknown error has happened!";
+                break;
+        }
+
+        return res;
 
     }
 

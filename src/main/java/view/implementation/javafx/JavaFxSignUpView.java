@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import view.interfaces.ISignUpView;
 
@@ -25,6 +26,8 @@ public class JavaFxSignUpView implements ISignUpView {
     private TextField pass;
     @FXML
     private TextField repass;
+    @FXML
+    private Text statusMsg;
 
     @FXML
     public void signUpAction() {
@@ -49,6 +52,7 @@ public class JavaFxSignUpView implements ISignUpView {
 
     @Override
     public void displayStatus(String status) {
+        statusMsg.setText(status);
         System.out.print(status);
     }
 

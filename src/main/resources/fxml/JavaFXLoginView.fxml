@@ -32,7 +32,7 @@
          </padding>
       </HBox>
       <VBox spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <Text fx:id="message"/>
+         <Text fx:id="statusMsg"/>
          <HBox spacing="20.0">
             <TextField fx:id="name" layoutX="413.0" layoutY="190.0" promptText="Name:" AnchorPane.bottomAnchor="274.0" AnchorPane.rightAnchor="210.0" />
             <TextField fx:id="lastname" layoutX="553.0" layoutY="190.0" promptText="Last name:" AnchorPane.bottomAnchor="274.0" AnchorPane.rightAnchor="70.0" />
