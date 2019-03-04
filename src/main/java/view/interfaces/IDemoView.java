@@ -1,11 +1,15 @@
 package view.interfaces;
 
+import controller.DemoController;
+
 /**
  * Interface of the demo view.
  * It is used in order to make a more abstracted connection,
- * between the controller and possible views (mobile view, JavaFX or terminal).
+ * between the controller and possible views (mobile view, javafx or terminal).
  */
 public interface IDemoView {
+
+    void initView(DemoController controller);
 
     /**
      * Display the view.

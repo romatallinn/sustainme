@@ -1,5 +1,6 @@
 package controller;
 
+
 import model.DemoModel;
 
 import net.thegreshams.firebase4j.error.FirebaseException;
@@ -7,8 +8,8 @@ import net.thegreshams.firebase4j.error.JacksonUtilityException;
 import net.thegreshams.firebase4j.model.FirebaseResponse;
 
 import supporting.AuthService;
-import view.implementation.terminal.TerminalDemoView;
 import view.interfaces.IDemoView;
+
 
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
@@ -34,10 +35,9 @@ public class DemoController {
     /**
      * Constructor for the controller class. Instantiates the view and the model.
      */
-    public DemoController() {
+    public DemoController(IDemoView view) {
 
-        // Instantiate the terminal demo view class
-        view = new TerminalDemoView(this);
+        this.view = view;
 
         // Instantiate the model
         try {
@@ -45,9 +45,6 @@ public class DemoController {
         } catch (FirebaseException e) {
             view.displayStatus("Firebase Connection Error:\n" + e.getMessage());
         }
-
-        // Display the view
-        view.show();
 
     }
 
