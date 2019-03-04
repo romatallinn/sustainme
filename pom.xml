@@ -33,20 +33,9 @@
     <dependencies>
 
         <dependency>
-            <groupId>org.jogamp.gluegen</groupId>
-            <artifactId>gluegen-rt-main</artifactId>
-            <version>2.3.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jogamp.jogl</groupId>
-            <artifactId>jogl-all-main</artifactId>
-            <version>2.3.1</version>
-        </dependency>
-        
-        <dependency>
             <groupId>com.github.bane73</groupId>
             <artifactId>firebase4j</artifactId>
-            <version>b6f90e9764</version>
+            <version>-SNAPSHOT</version>
         </dependency>
 
         <dependency>
