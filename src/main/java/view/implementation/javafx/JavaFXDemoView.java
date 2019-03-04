@@ -13,7 +13,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 
-public class JavaFxDemoView implements IDemoView {
+public class JavaFXDemoView implements IDemoView {
 
     private DemoController controller;
 
