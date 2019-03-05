@@ -7,6 +7,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.SplitPane;
 import javafx.stage.Stage;
 
 import org.apache.log4j.Level;
@@ -50,7 +51,7 @@ public class ApplicationEntry extends Application {
         SignUpController controller = new SignUpController(view);
 
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/JavaFXLoginView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/JavaFXHomeView.fxml"));
 
         view.initView(controller);
         loader.setController(view);
@@ -58,7 +59,8 @@ public class ApplicationEntry extends Application {
         Parent root = (Parent)loader.load();
 
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("/css/Login.css").toString());
+
+        scene.getStylesheets().add(getClass().getResource("/css/Home.css").toString());
 
         primaryStage.setTitle("SustainMe - Login");
         primaryStage.setScene(scene);

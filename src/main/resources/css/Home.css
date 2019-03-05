@@ -1,0 +1,28 @@
+.root {
+    -fx-background-color: white;
+}
+
+#top {
+    -fx-background-color: lightgreen;
+}
+
+#title {
+    -fx-font-size: 80;
+    -fx-font-family: "Lucida Calligraphy";
+}
+
+#logout {
+    -fx-text-fill: white;
+    -fx-font-size: 30;
+    -fx-background-color: none;
+    -fx-effect: dropshadow(gaussian, black, 5,0.2,0,0);
+    -fx-font-weight: bold;
+}
+
+#names {
+    -fx-font-size: 60;
+}
+
+#level {
+    -fx-font-size: 40;
+}
