@@ -26,3 +26,14 @@
 #level {
     -fx-font-size: 40;
 }
+
+.button {
+    -fx-text-fill: black;
+    -fx-font-size: 22;
+    -fx-background-color: lightgreen;
+    -fx-effect: dropshadow(gaussian, black, 5,0.2,0,0);
+    -fx-font-weight: bold;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 25px;
+}
+
