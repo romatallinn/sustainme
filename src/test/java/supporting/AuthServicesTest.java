@@ -12,6 +12,11 @@ public class AuthServicesTest {
 
 
     @Test
+    public void classTest() {
+        Assert.assertNotNull(new AuthService());
+    }
+
+    @Test
     public void signInSuccessTest() {
 
         Boolean exThrown = false;

@@ -69,6 +69,28 @@ public class DemoModelTest {
     }
 
     @Test
+    public void retrieveWholeDataSuccessTest() {
+
+        Boolean exThrown = false;
+
+        try {
+
+            String data = model.retrieveData();
+            Assert.assertNotNull(data);
+
+        } catch (FirebaseException e) {
+            System.out.println(e.getMessage());
+            exThrown = true;
+        } catch (UnsupportedEncodingException e) {
+            System.out.println(e.getMessage());
+            exThrown = true;
+        }
+
+        Assert.assertFalse(exThrown);
+
+    }
+
+    @Test
     public void retrieveDataFailureTest() {
 
         Boolean exThrown = false;
