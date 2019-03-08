@@ -11,10 +11,6 @@ public interface IDemoView {
 
     void initView(DemoController controller);
 
-    /**
-     * Display the view.
-     */
-    void show();
 
     /**
      * Display the status line.

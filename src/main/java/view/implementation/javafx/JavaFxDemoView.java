@@ -62,8 +62,6 @@ public class JavaFxDemoView implements IDemoView {
         controller.applicationShutdown();
     }
 
-    public void show() { }
-
     public void displayStatus(String status) {
         textField.setText(status);
     }
