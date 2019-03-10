@@ -8,7 +8,6 @@ import view.interfaces.ISignUpView;
 
 public class JavaFxSignUpView implements ISignUpView {
 
-
     private SignUpController controller;
 
     @FXML
@@ -41,11 +40,6 @@ public class JavaFxSignUpView implements ISignUpView {
     @Override
     public void initView(SignUpController controller) {
         this.controller = controller;
-    }
-
-    @Override
-    public void show() {
-
     }
 
     @Override

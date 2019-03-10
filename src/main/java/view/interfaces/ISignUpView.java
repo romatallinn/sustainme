@@ -12,11 +12,6 @@ public interface ISignUpView {
     void initView(SignUpController controller);
 
     /**
-     * Display the view.
-     */
-    void show();
-
-    /**
      * Display the status line.
      * @param status - the body of the status message to be displayed.
      */

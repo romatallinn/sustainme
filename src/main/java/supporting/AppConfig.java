@@ -3,7 +3,7 @@ package supporting;
 /**
  * The application configuration file.
  */
-public class AppConfig {
+public final class AppConfig {
 
     /**
      * The URL of the Firebase Database.

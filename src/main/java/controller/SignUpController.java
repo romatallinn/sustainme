@@ -32,7 +32,7 @@ public class SignUpController {
                 String errorMsg = getErrorMessage(errorObj.get("message").toString());
                 view.displayStatus(errorMsg);
             } else {
-                view.displayStatus("You was registered!");
+                view.displayStatus("You were registered!");
                 view.clearSignUpFields();
             }
 
