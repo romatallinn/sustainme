@@ -1,0 +1,59 @@
+.root {
+    -fx-background-color: white;
+}
+
+#top {
+    -fx-background-color: lime;
+}
+
+#tab {
+    -fx-background-color: limegreen;
+}
+
+#title {
+    -fx-font-size: 80;
+    -fx-font-family: "Lucida Calligraphy";
+}
+
+.text-field {
+    -fx-background-radius: 50px;
+    -fx-font-weight: bold;
+    -fx-font-size: 20;
+}
+
+#login {
+    -fx-text-fill: white;
+    -fx-font-size: 30;
+    -fx-background-color: none;
+    -fx-effect: dropshadow(gaussian, black, 5,0.2,0,0);
+    -fx-font-weight: bold;
+    -fx-border-style: none;
+}
+
+#sign_in {
+    -fx-background-radius: 50px;
+    -fx-border-radius: 50px;
+    -fx-font-weight: bold;
+    -fx-font-size: 20;
+    -fx-text-fill: white;
+    -fx-background-color: lightgreen;
+}
+
+.button {
+    -fx-background-radius: 25px;
+    -fx-border-radius: 50px;
+    -fx-font-weight: bold;
+    -fx-font-size: 12;
+    -fx-text-fill: white;
+    -fx-background-color: lightgreen;
+    -fx-border-style: solid;
+    -fx-border-width: 1px;
+}
+
+#veggie {
+    -fx-font-size: 25;
+}
+
+#locationtab {
+    -fx-font-size: 30;
+}
