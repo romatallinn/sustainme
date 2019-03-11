@@ -24,7 +24,7 @@ public class JavaFxApplication extends Application {
         SignUpController controller = new SignUpController(view);
 
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/JavaFXLoginView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/JavaFXSignUpView.fxml"));
 
         view.initView(controller);
         loader.setController(view);
@@ -32,7 +32,7 @@ public class JavaFxApplication extends Application {
         Parent root = (Parent)loader.load();
 
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("/css/Login.css").toString());
+        scene.getStylesheets().add(getClass().getResource("/css/SignUp.css").toString());
 
         primaryStage.setTitle("SustainMe - Login");
         primaryStage.setScene(scene);
