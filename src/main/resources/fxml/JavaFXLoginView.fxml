@@ -2,9 +2,11 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.image.Image?>
@@ -27,7 +29,10 @@
             <Button fx:id="login" layoutX="650.0" layoutY="14.0" mnemonicParsing="false" text="Sign Up" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="17.0">
                 <HBox.margin>
                     <Insets right="10.0" />
-                </HBox.margin></Button>
+                </HBox.margin>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor></Button>
             <padding>
                 <Insets bottom="40.0" />
             </padding>
@@ -55,6 +60,8 @@
                 </HBox.margin>
             </VBox>
             <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+         <Separator orientation="VERTICAL" prefHeight="200.0" />
+         <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
             <VBox spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                 <Text fx:id="statusMsg" />
@@ -64,7 +71,10 @@
                 </HBox>
                 <TextField fx:id="email" layoutX="413.0" layoutY="230.0" promptText="Email:" AnchorPane.bottomAnchor="234.0" AnchorPane.rightAnchor="70.0" />
                 <PasswordField fx:id="pass" layoutX="413.0" layoutY="270.0" promptText="Password:" AnchorPane.bottomAnchor="194.0" AnchorPane.rightAnchor="70.0" />
-                <Button fx:id="sign_in" layoutX="413.0" layoutY="370.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Log in" AnchorPane.bottomAnchor="94.0" AnchorPane.rightAnchor="70.0" />
+                <Button fx:id="sign_in" layoutX="413.0" layoutY="370.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Log in" AnchorPane.bottomAnchor="94.0" AnchorPane.rightAnchor="70.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
                 <padding>
                     <Insets bottom="100.0" left="20.0" right="50.0" />
                 </padding>

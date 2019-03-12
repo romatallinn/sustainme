@@ -32,7 +32,7 @@ public class JavaFxApplication extends Application {
         Parent root = (Parent)loader.load();
 
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("/css/SignUp.css").toString());
+        scene.getStylesheets().add(getClass().getResource("/css/SignUp_Login.css").toString());
 
         primaryStage.setTitle("SustainMe - Login");
         primaryStage.setScene(scene);
