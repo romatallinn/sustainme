@@ -3,7 +3,7 @@
 }
 
 #top {
-    -fx-background-color: lightgreen;
+    -fx-background-color: #1db954;
 }
 
 #title {
@@ -28,12 +28,20 @@
 }
 
 .button {
-    -fx-text-fill: black;
+    -fx-text-fill: white;
     -fx-font-size: 22;
-    -fx-background-color: lightgreen;
+    -fx-background-color: #1db954;
     -fx-effect: dropshadow(gaussian, black, 5,0.2,0,0);
     -fx-font-weight: bold;
     -fx-border-radius: 50px;
     -fx-background-radius: 25px;
+}
+
+.progress-bar > .track{
+    -fx-background-color: black;
+}
+
+.progress-bar > .bar{
+    -fx-background-color: #1db954;
 }
 

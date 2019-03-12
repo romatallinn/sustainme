@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.effect.Blend?>
@@ -25,7 +26,10 @@
             <Button fx:id="logout" layoutX="650.0" layoutY="14.0" mnemonicParsing="false" text="Log out" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="17.0">
                 <HBox.margin>
                     <Insets right="10.0" />
-                </HBox.margin></Button><padding>
+                </HBox.margin>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor></Button><padding>
                 <Insets bottom="40.0" />
             </padding>
         </HBox>
@@ -47,7 +51,7 @@
                <children>
                   <Text fx:id="names" strokeType="OUTSIDE" strokeWidth="0.0" text="Matthijs Arnoldus" />
                   <Text fx:id="level" strokeType="OUTSIDE" strokeWidth="0.0" text="Level: 5" />
-                  <ProgressBar prefWidth="200.0" progress="0.58" />
+                  <ProgressBar prefWidth="200.0" progress="0.68" />
                </children>
                <HBox.margin>
                   <Insets left="50.0" />
@@ -67,11 +71,20 @@
                   <Insets />
                </HBox.margin>
             </Region>
-            <Button fx:id="food" mnemonicParsing="false" prefHeight="133.0" prefWidth="133.0" text="Food" HBox.hgrow="ALWAYS" />
+            <Button fx:id="food" mnemonicParsing="false" prefHeight="133.0" prefWidth="133.0" text="Food" HBox.hgrow="ALWAYS">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             <Region prefHeight="25.0" prefWidth="50.0" HBox.hgrow="ALWAYS" />
-            <Button fx:id="clothes" mnemonicParsing="false" prefHeight="133.0" prefWidth="133.0" text="Clothes" HBox.hgrow="ALWAYS" />
+            <Button fx:id="clothes" mnemonicParsing="false" prefHeight="133.0" prefWidth="133.0" text="Clothes" HBox.hgrow="ALWAYS">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             <Region prefHeight="25.0" prefWidth="50.0" HBox.hgrow="ALWAYS" />
-            <Button fx:id="house" mnemonicParsing="false" prefHeight="133.0" prefWidth="133.0" text="House" HBox.hgrow="ALWAYS" />
+            <Button fx:id="house" mnemonicParsing="false" prefHeight="133.0" prefWidth="133.0" text="House" HBox.hgrow="ALWAYS">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             <Region prefHeight="133.0" prefWidth="133.0" HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets />
@@ -89,11 +102,20 @@
                   <Insets />
                </HBox.margin>
             </Region>
-            <Button fx:id="transport" mnemonicParsing="false" prefHeight="133.0" prefWidth="133.0" text="Transport" HBox.hgrow="ALWAYS" />
+            <Button fx:id="transport" mnemonicParsing="false" prefHeight="133.0" prefWidth="133.0" text="Transport" HBox.hgrow="ALWAYS">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             <Region prefHeight="25.0" prefWidth="50.0" HBox.hgrow="ALWAYS" />
-            <Button fx:id="news" mnemonicParsing="false" prefHeight="133.0" prefWidth="133.0" text="News" HBox.hgrow="ALWAYS" />
+            <Button fx:id="news" mnemonicParsing="false" prefHeight="133.0" prefWidth="133.0" text="News" HBox.hgrow="ALWAYS">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             <Region prefHeight="25.0" prefWidth="50.0" HBox.hgrow="ALWAYS" />
-            <Button fx:id="score" mnemonicParsing="false" prefHeight="133.0" prefWidth="133.0" text="Score" HBox.hgrow="ALWAYS" />
+            <Button fx:id="score" mnemonicParsing="false" prefHeight="133.0" prefWidth="133.0" text="Score" HBox.hgrow="ALWAYS">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             <Region prefHeight="133.0" prefWidth="133.0" HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets />
