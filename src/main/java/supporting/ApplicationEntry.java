@@ -1,10 +1,13 @@
 package supporting;
 
+import controller.DemoController;
 import org.apache.log4j.Level;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import view.implementation.javafx.JavaFxApplication;
+import view.implementation.terminal.TerminalDemoView;
+import view.interfaces.IDemoView;
 
 import java.util.Collections;
 import java.util.List;
@@ -30,6 +33,9 @@ public class ApplicationEntry {
         System.out.println("Application is running...\n\n");
 
         JavaFxApplication.launchApp(args);
+//        IDemoView view = new TerminalDemoView();
+//        DemoController controller = new DemoController(view);
+//        view.initView(controller);
     }
 
 
