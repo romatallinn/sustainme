@@ -3,11 +3,11 @@
 }
 
 #top {
-    -fx-background-color: lime;
+    -fx-background-color: #1db954;
 }
 
 #tab {
-    -fx-background-color: limegreen;
+    -fx-background-color: #1db954;
 }
 
 #title {
@@ -16,9 +16,9 @@
 }
 
 .text-field {
-    -fx-background-radius: 50px;
+    -fx-background-radius: 10px;
     -fx-font-weight: bold;
-    -fx-font-size: 20;
+    -fx-font-size: 10;
 }
 
 #login {
@@ -36,7 +36,7 @@
     -fx-font-weight: bold;
     -fx-font-size: 20;
     -fx-text-fill: white;
-    -fx-background-color: lightgreen;
+    -fx-background-color: #1db954;
 }
 
 .button {
@@ -45,7 +45,7 @@
     -fx-font-weight: bold;
     -fx-font-size: 12;
     -fx-text-fill: white;
-    -fx-background-color: lightgreen;
+    -fx-background-color: #1db954;
     -fx-border-style: solid;
     -fx-border-width: 1px;
 }
