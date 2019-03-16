@@ -1,18 +1,17 @@
 package model;
 
+import static java.lang.Math.pow;
+
 import net.thegreshams.firebase4j.error.FirebaseException;
 import net.thegreshams.firebase4j.error.JacksonUtilityException;
 import net.thegreshams.firebase4j.model.FirebaseResponse;
 import net.thegreshams.firebase4j.service.Firebase;
-import org.junit.platform.commons.util.StringUtils;
 import supporting.DatabaseConnection;
 
-import javax.xml.crypto.Data;
 import java.io.UnsupportedEncodingException;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static java.lang.Math.pow;
+
 
 /**
  * The class representing a user profile.
@@ -27,9 +26,11 @@ public class UserProfile {
     private String emailAddress;
     private int level;
     private int experience;
+    private int exp;
     private double co2Reduction;                //Reduced carbon emission in kg CO2
 
     private Firebase connection;
+
     /**
      * Constructor for the UserProfile class, defaults level to 1, and experience to 0
      * @param first - first name of the user.
@@ -80,12 +81,13 @@ public class UserProfile {
 
             FirebaseResponse response = connection.get("users/" + uid );
 
-            if(response.getSuccess()) {
+            if (response.getSuccess()) {
                 Map<String, Object> data = response.getBody();
 
                 this.firstName = (String)data.get("fname");
                 this.lastName = (String)data.get("lname");
                 this.experience = (int)data.get("experience");
+                this.exp = this.experience;
                 this.co2Reduction = (double)data.get("co2red");
 
                 checkLevel();
@@ -104,9 +106,11 @@ public class UserProfile {
      * Increases score, calls CheckLevel.
      * @param score - the amount by which the experience needs to be increased.
      */
-    public void increaseScore(int score) throws UnsupportedEncodingException, FirebaseException, JacksonUtilityException {
+    public void increaseScore(int score) throws UnsupportedEncodingException,
+            FirebaseException, JacksonUtilityException {
 
         experience += score;
+        exp += score;
         this.checkLevel();
 
         String patchData = String.format("{\"experience\":%s}", experience);
@@ -118,7 +122,8 @@ public class UserProfile {
      * Increases the attribute co2Reduction.
      * @param red -amount of CO2 reduced.
      */
-    public void reduceCo2(double red) throws UnsupportedEncodingException, FirebaseException, JacksonUtilityException {
+    public void reduceCo2(double red) throws UnsupportedEncodingException,
+            FirebaseException, JacksonUtilityException {
         co2Reduction += red;
 
         String patchData = String.format("{\"co2red\":%s}", co2Reduction);
@@ -130,8 +135,8 @@ public class UserProfile {
      * Checks current experience to see if the user should level up.
      */
     private void checkLevel() {
-        while (experience >= 10 * pow(2, level - 1)) {
-            experience -= 10 * pow(2, level - 1);
+        while (exp >= 10 * pow(2, level - 1)) {
+            exp -= 10 * pow(2, level - 1);
             level++;
         }
     }
@@ -153,8 +158,8 @@ public class UserProfile {
         return level;
     }
 
-    public int getExperience() {
-        return experience;
+    public int getExp() {
+        return exp;
     }
 
     public double getCo2Reduction() {
