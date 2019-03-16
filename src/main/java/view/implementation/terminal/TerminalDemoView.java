@@ -23,13 +23,14 @@ public class TerminalDemoView implements IDemoView {
 
     public void initView(DemoController controller) {
         this.controller = controller;
+        show();
     }
 
     /**
      * Displays the terminal menu for user. Then requests the input of the option
      * and sends it to handling controller.
      */
-    public void show() {
+    private void show() {
 
         String content =    "Application Menu: \n"
                             + "      1 - Sign Up\n"

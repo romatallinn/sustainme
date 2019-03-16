@@ -9,7 +9,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class AuthService {
+public final class AuthService {
 
     private static final String signUp = "signupNewUser";
     private static final String signIn = "verifyPassword";

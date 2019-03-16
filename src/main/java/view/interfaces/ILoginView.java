@@ -1,15 +1,15 @@
 package view.interfaces;
 
-import controller.SignUpController;
+import controller.SignInController;
 
 /**
  * Interface of the demo view.
  * It is used in order to make a more abstracted connection,
  * between the controller and possible views (mobile view, javafx or terminal).
  */
-public interface ISignUpView {
+public interface ILoginView {
 
-    void initView(SignUpController controller);
+    void initView(SignInController controller);
 
     /**
      * Display the status line.

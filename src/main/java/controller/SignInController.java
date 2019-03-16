@@ -4,39 +4,47 @@ import net.thegreshams.firebase4j.error.FirebaseException;
 import net.thegreshams.firebase4j.error.JacksonUtilityException;
 import net.thegreshams.firebase4j.model.FirebaseResponse;
 import supporting.AuthService;
-import view.interfaces.ISignUpView;
+import view.interfaces.ILoginView;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
-public class SignUpController {
+public class SignInController {
 
-    private ISignUpView view;
+    private ILoginView view;
 
-    public SignUpController(ISignUpView view) {
+    public SignInController(ILoginView view) {
         this.view = view;
     }
 
     /**
-     * Sign Up callback method; requested from the view.
-     * @param email - user's email to be used for registration.
-     * @param pass - user's password to be used for registration.
+     * Sign In callback method; requested from the view.
+     * @param email - user's email to be used for goToSignin.
+     * @param pass - user's password to be used for goToSignin.
      */
-    public void signUpCallback(String email, String pass) {
+    public void signInCallback(String email, String pass) {
 
         try {
-            FirebaseResponse response = AuthService.signUp(email, pass);
+
+            FirebaseResponse response = AuthService.signIn(email, pass);
 
             if (!response.getSuccess()) {
+
                 Map<String, Object> errorObj = (Map<String, Object>)response.getBody().get("error");
                 String errorMsg = getErrorMessage(errorObj.get("message").toString());
                 view.displayStatus(errorMsg);
-            } else {
-                view.displayStatus("You were registered!");
-                view.clearSignUpFields();
 
-                // TODO: Automatic Authorization?
+                return;
+
             }
+
+
+            String token = (String)response.getBody().get("idToken");
+
+            // TODO: Initialize the user profile with the authorized token
+            // UserProfile.init(token);
+
+            // TODO: Proceed To Homescreen
 
         } catch (FirebaseException e) {
             view.displayStatus("Firebase Exception:\n" + e.getMessage());
@@ -50,7 +58,7 @@ public class SignUpController {
 
     /**
      * Method for interpreting the error code response from DB into a user-friendly message.
-     * @param error - the error code
+      * @param error - the error code
      * @return a user-friendly message that describes an occurred issue.
      */
     private String getErrorMessage(String error) {
@@ -58,12 +66,12 @@ public class SignUpController {
         String res = "";
 
         switch (error) {
-            case "INVALID_EMAIL":
-                res = "The email follows the wrong format!";
+            case "EMAIL_NOT_FOUND":
+                res = "The user with such email was not found!";
                 break;
 
-            case "EMAIL_EXISTS":
-                res = "The email is already signed up!";
+            case "INVALID_PASSWORD":
+                res = "The password for the given email is invalid!";
                 break;
 
             default:
