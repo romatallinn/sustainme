@@ -5,7 +5,7 @@ import static java.lang.Math.pow;
 /**
  * The class representing a user profile.
  */
-class UserProfile {
+public class UserProfile {
 
     private String firstName;
     private String lastName;
@@ -30,6 +30,24 @@ class UserProfile {
     }
 
     /**
+     * Constructor used to make the Singleton user.
+     * @param token - Identifying token.
+     */
+    public void init(String token) {
+        firstName = "Roderick";
+        lastName = "de Britto Heemskerk";
+        emailAddress = "Roderickmbh@gmail.com";
+        level = 1;
+        experience = 0;
+        co2Reduction = 0;
+    }
+
+    /**
+     * Empty constructor.
+     */
+    public UserProfile() {}
+
+    /**
      * Increases score, calls CheckLevel.
      * @param score - the amount by which the experience needs to be increased.
      */
@@ -48,7 +66,7 @@ class UserProfile {
 
 
     /**
-     * Checks current experience to see if the user shouldlevel up.
+     * Checks current experience to see if the user should level up.
      */
     private void checkLevel() {
         while (experience >= 10 * pow(2, level - 1)) {
