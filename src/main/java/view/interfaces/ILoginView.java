@@ -3,7 +3,7 @@ package view.interfaces;
 import controller.SignInController;
 
 /**
- * Interface of the demo view.
+ * Interface of the sign in view.
  * It is used in order to make a more abstracted connection,
  * between the controller and possible views (mobile view, javafx or terminal).
  */

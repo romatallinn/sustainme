@@ -1,30 +1,30 @@
 package controller;
 
-import view.interfaces.ISignUpView;
+import view.interfaces.IHomeView;
 
 public class HomescreenController {
 
-    // TODO: replace interfaces with the corresponding
-    private ISignUpView view;
+    private IHomeView view;
 
-    public HomescreenController(ISignUpView view) {
+    public HomescreenController(IHomeView view) {
         this.view = view;
-        updateViewWithData();
+        //updateViewWithData();
     }
 
-    public void updateViewWithData() {
 
-        // String name = UserProfile.getFirstName() + UserProfile.getLastName();
-        // String lvl = UserProfile.getLevel();
-        // String exp = UserProfile.getExperience();
-        // String reduced = UserProfile.getCo2Reduction();
+    /*public void updateViewWithData() {
 
-        // view.updateNameLabel(name);
-        // view.updateLvlLabel(lvl);
-        // view.updateExpLabel(exp);
-        // view.updateReducedLabel(reduced);
+        String name = UserProfile.getFirstName() + UserProfile.getLastName();
+        String lvl = UserProfile.getLevel();
+        String exp = UserProfile.getExperience();
+        String reduced = UserProfile.getCo2Reduction();
 
-    }
+        view.updateNameLabel(name);
+        view.updateLvlLabel(lvl);
+        view.updateExpLabel(exp);
+        view.updateReducedLabel(reduced);
+
+    }*/
 
 
 

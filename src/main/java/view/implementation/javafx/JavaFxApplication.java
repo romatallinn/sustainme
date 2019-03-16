@@ -1,5 +1,6 @@
 package view.implementation.javafx;
 
+import controller.HomescreenController;
 import controller.SignInController;
 import controller.SignUpController;
 
@@ -9,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import view.interfaces.IHomeView;
 import view.interfaces.ILoginView;
 import view.interfaces.ISignUpView;
 
@@ -80,9 +82,14 @@ public class JavaFxApplication extends Application {
 
 
 
-        //dummy = new SceneFX<>("homescreen");
-        //dummy.init("SustainMe - Home", "/fxml/JavaFXHomescreenView.fxml", "");
-        //scenes.add(dummy);
+        IHomeView homeView = new JavaFxHomeView();
+        HomescreenController homescreenController = new HomescreenController(homeView);
+        homeView.initView(homescreenController);
+
+        dummy = new SceneFx<IHomeView>("SustainMe - Home", "/fxml/JavaFXHomeView.fxml",
+                "/css/Home.css");
+        dummy.setView(homeView);
+        scenes.put("home", dummy);
 
     }
 
