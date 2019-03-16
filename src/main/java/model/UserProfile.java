@@ -30,6 +30,11 @@ public class UserProfile {
     }
 
     /**
+     * Empty constructor.
+     */
+    public UserProfile() {}
+
+    /**
      * Constructor used to make the Singleton user.
      * @param token - Identifying token.
      */
@@ -42,10 +47,7 @@ public class UserProfile {
         co2Reduction = 0;
     }
 
-    /**
-     * Empty constructor.
-     */
-    public UserProfile() {}
+
 
     /**
      * Increases score, calls CheckLevel.
