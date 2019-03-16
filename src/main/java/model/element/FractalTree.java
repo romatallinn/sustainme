@@ -1,4 +1,4 @@
-package view.element;
+package model.element;
 
 import static com.jogamp.opengl.math.FloatUtil.PI;
 import static com.jogamp.opengl.math.FloatUtil.cos;
@@ -18,16 +18,29 @@ import javax.swing.JFrame;
 
 public class FractalTree implements GLEventListener {
 
-    // @Override
+
+    /**
+     * Generates the actual lines that need to be drawn.
+     * @param drawable - opengl variable
+     */
+    @Override
     public void display(GLAutoDrawable drawable) {
         final GL2 gl = drawable.getGL().getGL2();
         gl.glBegin(GL2.GL_LINES);
 
         // drawBranch(gl, Direction.N, 0f, -1f, 0.5f, 60000);
-        drawTree(gl, 0.4f, 30f, 0.73f, new int[] {10, 10, 2, 60, 100, 21, 10});
+        drawTree(gl, 0.4f, 30f, 0.73f, new int[] {103, 112, 102, 105, 100, 123, 101});
         gl.glFlush();
     }
 
+    /**
+     * Gives variables for the drawDegBranch method.
+     * @param gl - opengl variable
+     * @param startLength - the start length of the line
+     * @param degreeOffset - the degree betwoon two branches
+     * @param lengthFactor - the length of each branch
+     * @param depth - the amount of main branches
+     */
     public void drawTree(
         GL2 gl,
         float startLength,
@@ -38,6 +51,11 @@ public class FractalTree implements GLEventListener {
         drawDegBranch(gl, 0f, 0f, -1f, startLength, degreeOffset, lengthFactor, depth);
     }
 
+    /**
+     * Calculates a number used for the random seed calculation.
+     * @param sl - name of the user
+     * @return - the calculated number that the seed uses
+     */
     public static long seedFromString(String sl) {
         char[] cl = sl.toCharArray();
         long rl = 0;
@@ -49,6 +67,17 @@ public class FractalTree implements GLEventListener {
         return rl;
     }
 
+    /**
+     * dddd.
+     * @param gl -
+     * @param dl -
+     * @param xl -
+     * @param yl -
+     * @param ll -
+     * @param dd -
+     * @param fl -
+     * @param depth -
+     */
     public void drawDegBranch(GL2 gl,
                               float dl,
                               float xl,
@@ -61,6 +90,18 @@ public class FractalTree implements GLEventListener {
         drawDegBranch(gl, dl, xl, yl, ll, dd, fl, depth, new Random(seedFromString("Roman")));
     }
 
+    /**
+     * Makes the calculations for where to draw the lines.
+     * @param gl - opengl variable
+     * @param dl -
+     * @param xl -
+     * @param yl -
+     * @param ll -
+     * @param dd -
+     * @param fl -
+     * @param depth -
+     * @param rl -
+     */
     public void drawDegBranch(GL2 gl,
                               float dl,
                               float xl,
@@ -103,21 +144,41 @@ public class FractalTree implements GLEventListener {
 
     }
 
+    /**
+     * ddd.
+     * @param arg0 -
+     */
     // @Override
     public void dispose(GLAutoDrawable arg0) {
         //method body
     }
 
+    /**
+     * ddd.
+     * @param arg0 -
+     */
     // @Override
     public void init(GLAutoDrawable arg0) {
         // method body
     }
 
+    /**
+     * dd.
+     * @param arg0 -
+     * @param arg1 -
+     * @param arg2 -
+     * @param arg3 -
+     * @param arg4 -
+     */
     // @Override
     public void reshape(GLAutoDrawable arg0, int arg1, int arg2, int arg3, int arg4) {
         // method body
     }
 
+    /**
+     * ddd.
+     * @param args -
+     */
     public static void main(String[] args) {
 
         System.out.println(sin(30));
