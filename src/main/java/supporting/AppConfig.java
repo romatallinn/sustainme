@@ -16,7 +16,7 @@ public class AppConfig {
     public static final String appKey = "AIzaSyDNyxX9eJvYEB2NVbVpffIhhzSmEbxLEfM";
 
 
-    public static final String authUrl = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/";
+    public static final String authUrl = "https://www.googleapis.com/identitytoolkit/v3/relyingparty";
 
     /**
      * Defines whether or not the application should print logging info into the console.

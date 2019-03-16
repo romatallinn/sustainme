@@ -5,6 +5,22 @@ import net.thegreshams.firebase4j.service.Firebase;
 
 public class DatabaseConnection {
 
+    private static Firebase instance;
+
+    public static Firebase init(String token) throws FirebaseException {
+
+        if(instance == null) {
+            instance = new DatabaseConnection(token).getConnection();
+        }
+
+        return instance;
+    }
+
+    public static Firebase getInstance() throws FirebaseException {
+        return instance;
+    }
+
+
     private Firebase connection;
 
 
@@ -13,15 +29,15 @@ public class DatabaseConnection {
      * and the Firebase service for URL defined in the configuration file.
      * @throws FirebaseException - database connection exception.
      */
-    public DatabaseConnection() throws FirebaseException {
-        connection = new Firebase(AppConfig.dbUrl);
+    public DatabaseConnection(String token) throws FirebaseException {
+        connection = new Firebase(AppConfig.dbUrl, token);
     }
 
     /**
      * Getter for the connection between the client and Firebase service.
      * @return Firebase connection
      */
-    public Firebase getConnection() {
+    private Firebase getConnection() {
         return connection;
     }
 
