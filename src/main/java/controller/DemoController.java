@@ -70,8 +70,8 @@ public class DemoController {
 
     /**
      * Sign In callback method; requested from the view.
-     * @param email - user's email to be used for login.
-     * @param pass - user's password to be used for login.
+     * @param email - user's email to be used for goToSignin.
+     * @param pass - user's password to be used for goToSignin.
      */
     public void signInCallback(String email, String pass) {
 
