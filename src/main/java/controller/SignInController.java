@@ -28,7 +28,7 @@ public class SignInController {
 
             FirebaseResponse response = AuthService.signIn(email, pass);
 
-            if(!response.getSuccess()) {
+            if (!response.getSuccess()) {
 
                 Map<String, Object> errorObj = (Map<String, Object>)response.getBody().get("error");
                 String errorMsg = getErrorMessage(errorObj.get("message").toString());

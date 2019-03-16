@@ -19,14 +19,18 @@ public class JavaFxLoginView implements ILoginView {
     private SignInController controller;
 
     @FXML
-    Button login;
+    private Button login;
     @FXML
-    Text statusMsg;
+    private Text statusMsg;
     @FXML
-    TextField email;
+    private TextField email;
     @FXML
-    TextField pass;
+    private TextField pass;
 
+
+    /**
+     * Changes window from login view to sign up view.
+     */
     @FXML
     public void signUp() throws IOException {
         ISignUpView view = new JavaFxSignUpView();
