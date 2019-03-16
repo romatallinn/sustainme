@@ -9,7 +9,7 @@ import view.interfaces.ISignUpView;
 
 import java.io.IOException;
 
-public class JavaFxSignUpView extends JavaFXView implements ISignUpView {
+public class JavaFxSignUpView extends JavaFxView implements ISignUpView {
 
     private SignUpController controller;
 
