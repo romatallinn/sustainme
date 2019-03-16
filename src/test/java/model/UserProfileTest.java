@@ -20,6 +20,7 @@ public class UserProfileTest {
         UserProfile user = new UserProfile("Roderick","de Britto Heemskerk","Roderickmbh@gmail.com");
         user.increaseScore(10);
         assertEquals(user.getExp(),0);
+        assertEquals(10, user.getExperience());
         assertEquals(user.getLevel(),2);
     }
     @Test
@@ -27,6 +28,7 @@ public class UserProfileTest {
         UserProfile user = new UserProfile("Roderick","de Britto Heemskerk","Roderickmbh@gmail.com");
         user.increaseScore(35);
         assertEquals(user.getExp(),5);
+        assertEquals(35, user.getExperience());
         assertEquals(user.getLevel(),3);
     }
 
@@ -77,5 +79,11 @@ public class UserProfileTest {
     public void getCo2Reduction(){
         UserProfile user = new UserProfile("Roderick","de Britto Heemskerk","Roderickmbh@gmail.com");
         assertEquals(user.getCo2Reduction(), 0.0, 0);
+    }
+
+    @Test
+    public void getExperience() {
+        UserProfile user = new UserProfile("Roderick","de Britto Heemskerk","Roderickmbh@gmail.com");
+        assertEquals(user.getExperience(),0);
     }
 }

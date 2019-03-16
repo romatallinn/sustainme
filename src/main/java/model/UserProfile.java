@@ -3,7 +3,6 @@ package model;
 import static java.lang.Math.pow;
 
 import net.thegreshams.firebase4j.error.FirebaseException;
-import net.thegreshams.firebase4j.error.JacksonUtilityException;
 import net.thegreshams.firebase4j.model.FirebaseResponse;
 import net.thegreshams.firebase4j.service.Firebase;
 import supporting.DatabaseConnection;
@@ -43,6 +42,7 @@ public class UserProfile {
         emailAddress = email;
         level = 1;
         experience = 0;
+        exp = 0;
         co2Reduction = 0;
     }
 
@@ -61,6 +61,7 @@ public class UserProfile {
         emailAddress = "Roderickmbh@gmail.com";
         level = 1;
         experience = 0;
+        exp = 0;
         co2Reduction = 0;
     }
 
@@ -107,7 +108,7 @@ public class UserProfile {
      * @param score - the amount by which the experience needs to be increased.
      */
     public void increaseScore(int score) throws UnsupportedEncodingException,
-            FirebaseException, JacksonUtilityException {
+            FirebaseException {
 
         experience += score;
         exp += score;
@@ -123,7 +124,7 @@ public class UserProfile {
      * @param red -amount of CO2 reduced.
      */
     public void reduceCo2(double red) throws UnsupportedEncodingException,
-            FirebaseException, JacksonUtilityException {
+            FirebaseException {
         co2Reduction += red;
 
         String patchData = String.format("{\"co2red\":%s}", co2Reduction);
@@ -166,4 +167,7 @@ public class UserProfile {
         return co2Reduction;
     }
 
+    public int getExperience() {
+        return experience;
+    }
 }
