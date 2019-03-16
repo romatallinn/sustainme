@@ -4,17 +4,16 @@ import net.thegreshams.firebase4j.error.FirebaseException;
 import net.thegreshams.firebase4j.error.JacksonUtilityException;
 import net.thegreshams.firebase4j.model.FirebaseResponse;
 import supporting.AuthService;
-import view.interfaces.ISignUpView;
+import view.interfaces.ILoginView;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
 public class SignInController {
 
-    // TODO: replace interfaces with the corresponding
-    private ISignUpView view;
+    private ILoginView view;
 
-    public SignInController(ISignUpView view) {
+    public SignInController(ILoginView view) {
         this.view = view;
     }
 
