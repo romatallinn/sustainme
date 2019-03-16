@@ -1,10 +1,18 @@
 package view.implementation.javafx;
 
+import controller.SignInController;
 import controller.SignUpController;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import view.interfaces.ILoginView;
 import view.interfaces.ISignUpView;
+
+import java.io.IOException;
 
 public class JavaFxSignUpView implements ISignUpView {
 
@@ -22,6 +30,8 @@ public class JavaFxSignUpView implements ISignUpView {
     private TextField repass;
     @FXML
     private Text statusMsg;
+    @FXML
+    private Button login;
 
     /**
      * Sends email and password to controller whenever the sign up button is clicked.
@@ -35,6 +45,24 @@ public class JavaFxSignUpView implements ISignUpView {
         }
 
         controller.signUpCallback(email.getText(), pass.getText());
+    }
+
+    /**
+     * Changes window from sign up view to login view.
+     */
+    @FXML
+    public void login() throws IOException {
+        ILoginView view = new JavaFxLoginView();
+        SignInController controller = new SignInController(view);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/JavaFXLoginView.fxml"));
+
+        view.initView(controller);
+        loader.setController(view);
+
+        Scene scene = login.getScene();
+        Parent root = loader.load();
+        scene.setRoot(root);
+
     }
 
     @Override
