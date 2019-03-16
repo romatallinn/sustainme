@@ -4,6 +4,7 @@ import net.thegreshams.firebase4j.error.FirebaseException;
 import net.thegreshams.firebase4j.error.JacksonUtilityException;
 import net.thegreshams.firebase4j.model.FirebaseResponse;
 
+import net.thegreshams.firebase4j.service.Firebase;
 import supporting.DatabaseConnection;
 
 import java.io.UnsupportedEncodingException;
@@ -14,15 +15,14 @@ import java.util.Map;
  */
 public class DemoModel {
 
-    private DatabaseConnection connection;
+    private Firebase connection;
 
     /**
      * Constructor for the model class. Instantiates a local DB connection.
-     * TODO: Make a singleton/global db connection instead of local instances for every model.
      * @throws FirebaseException - exception in establishing the database connection.
      */
     public DemoModel() throws FirebaseException {
-        this.connection = new DatabaseConnection();
+        this.connection = DatabaseConnection.getInstance();
     }
 
 
@@ -45,7 +45,7 @@ public class DemoModel {
      * @throws UnsupportedEncodingException - unsupported encoding exception in the response.
      */
     public String retrieveData(String path) throws FirebaseException, UnsupportedEncodingException {
-        return connection.getConnection().get(path).getRawBody();
+        return connection.get(path).getRawBody();
     }
 
 
@@ -60,7 +60,7 @@ public class DemoModel {
      */
     public FirebaseResponse putData(String path, Map<String, Object> data)
             throws FirebaseException, UnsupportedEncodingException, JacksonUtilityException {
-        return connection.getConnection().put(path, data);
+        return connection.put(path, data);
     }
 
 }
