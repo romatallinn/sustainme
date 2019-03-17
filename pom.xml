@@ -38,18 +38,7 @@
 
     <dependencies>
 
-        <dependency>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-site-plugin</artifactId>
-            <version>3.7.1</version>
-            <type>maven-plugin</type>
-        </dependency>
 
-        <dependency>
-            <groupId>com.github.bane73</groupId>
-            <artifactId>firebase4j</artifactId>
-            <version>b6f90e9764</version>
-        </dependency>
 
         <dependency>
             <groupId>junit</groupId>
