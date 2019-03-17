@@ -40,6 +40,15 @@
     -fx-background-color: #1db954;
 }
 
+#home {
+    -fx-text-fill: white;
+    -fx-font-size: 20;
+    -fx-background-color: none;
+    -fx-effect: dropshadow(gaussian, black, 5,0.2,0,0);
+    -fx-font-weight: bold;
+    -fx-border-style: none;
+}
+
 #welcome {
     -fx-font-weight: bold;
     -fx-font-size: 40;
