@@ -6,7 +6,6 @@ public class Greeting {
     private String content;
 
     public Greeting(){
-
     }
 
     public Greeting(long id, String content) {
