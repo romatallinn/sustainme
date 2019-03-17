@@ -22,7 +22,7 @@ public class DemoControllerTest {
     @Test
     public void getGreetingTest() {
         Greeting greeting = DemoController.getGreeting("Henk");
-        
+        assertEquals(greeting.getContent(), "Hello, Henk!");
     }
 
 
