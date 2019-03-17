@@ -1,4 +1,4 @@
-package model.element;
+package view.element;
 
 import static com.jogamp.opengl.math.FloatUtil.PI;
 import static com.jogamp.opengl.math.FloatUtil.cos;
@@ -18,7 +18,6 @@ import java.awt.image.BufferedImage;
 import java.util.Random;
 
 
-
 public class FractalTree implements GLEventListener {
 
     static float startLength = 0.4f;
@@ -26,7 +25,6 @@ public class FractalTree implements GLEventListener {
     static float lengthFactor = 0.73f;
     int[] scores;
     String name;
-
 
 
     /**
@@ -209,8 +207,8 @@ public class FractalTree implements GLEventListener {
      * Unused opengl event handler.
      *
      * @param gl     - opengl variable
-     * @param theX      - x-coordinate for reshape
-     * @param myY      - y-coordinate for reshape
+     * @param theX   - x-coordinate for reshape
+     * @param myY    - y-coordinate for reshape
      * @param width  - width for reshape
      * @param height - heigt for reshape
      */
@@ -244,10 +242,7 @@ public class FractalTree implements GLEventListener {
         Image canvasImage = glcanvas.createImage(width, height);
 
         // Create a buffered image
-        BufferedImage bufferedImage = new BufferedImage(
-            canvasImage.getWidth(null),
-            canvasImage.getHeight(null),
-            BufferedImage.TYPE_INT_ARGB);
+        BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 
         // Draw the buffered image
         Graphics2D drawer = bufferedImage.createGraphics();
