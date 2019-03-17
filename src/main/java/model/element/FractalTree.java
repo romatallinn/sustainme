@@ -12,23 +12,25 @@ import com.jogamp.opengl.GLEventListener;
 import com.jogamp.opengl.GLProfile;
 import com.jogamp.opengl.awt.GLCanvas;
 
-import java.awt.*;
+import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.util.Random;
-import javax.swing.JFrame;
+
 
 
 public class FractalTree implements GLEventListener {
 
-    int[] scores;
-    String name;
     static float startLength = 0.4f;
     static float degreeOffset = 30f;
     static float lengthFactor = 0.73f;
+    int[] scores;
+    String name;
+
 
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param scores - Sets depth of fractal tree
      * @param name   - Sets name to generate random seed
@@ -40,7 +42,7 @@ public class FractalTree implements GLEventListener {
     }
 
     /**
-     * Starts drawing process
+     * Starts drawing process.
      *
      * @param drawable - opengl variable
      */
@@ -207,24 +209,24 @@ public class FractalTree implements GLEventListener {
      * Unused opengl event handler.
      *
      * @param gl     - opengl variable
-     * @param x      - x-coordinate for reshape
-     * @param y      - y-coordinate for reshape
+     * @param theX      - x-coordinate for reshape
+     * @param myY      - y-coordinate for reshape
      * @param width  - width for reshape
      * @param height - heigt for reshape
      */
     // @Override
-    public void reshape(GLAutoDrawable gl, int x, int y, int width, int height) {
+    public void reshape(GLAutoDrawable gl, int theX, int myY, int width, int height) {
         // should never be called
     }
 
     /**
-     * Makes a buffered image
+     * Makes a buffered image.
      *
      * @param width  - sets image width
      * @param height - sets image height
      * @param scores - sets depth of fractal tree
      * @param name   - used for seed calculation
-     * @return
+     * @return - returns buffered image
      */
     public static BufferedImage makeImage(int width, int height, int[] scores, String name) {
 
@@ -242,7 +244,10 @@ public class FractalTree implements GLEventListener {
         Image canvasImage = glcanvas.createImage(width, height);
 
         // Create a buffered image
-        BufferedImage bufferedImage = new BufferedImage(canvasImage.getWidth(null), canvasImage.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+        BufferedImage bufferedImage = new BufferedImage(
+            canvasImage.getWidth(null),
+            canvasImage.getHeight(null),
+            BufferedImage.TYPE_INT_ARGB);
 
         // Draw the buffered image
         Graphics2D drawer = bufferedImage.createGraphics();
