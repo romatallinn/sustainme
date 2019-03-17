@@ -21,19 +21,16 @@ public class TerminalDemoView implements IDemoView {
     private final String ansiGreen = "\u001B[32m";
 
 
-    /**
-     * Constructor for the view class.
-     * @param controller class which acts upon the actions taken in the view.
-     */
-    public TerminalDemoView(DemoController controller) {
+    public void initView(DemoController controller) {
         this.controller = controller;
+        show();
     }
 
     /**
      * Displays the terminal menu for user. Then requests the input of the option
      * and sends it to handling controller.
      */
-    public void show() {
+    private void show() {
 
         String content =    "Application Menu: \n"
                             + "      1 - Sign Up\n"
@@ -83,7 +80,7 @@ public class TerminalDemoView implements IDemoView {
                 break;
 
             case 5:
-                controller.applicationShutdown();
+                applicationShutdownHandler();
                 break;
 
             default: System.out.println("Unknown option. Please try again!");
@@ -163,6 +160,10 @@ public class TerminalDemoView implements IDemoView {
 
         controller.signInCallback(email, pass);
 
+    }
+
+    private void applicationShutdownHandler() {
+        controller.applicationShutdown();
     }
 
     /**

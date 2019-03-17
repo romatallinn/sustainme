@@ -1,10 +1,11 @@
 package supporting;
 
-import controller.DemoController;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+
+import view.implementation.javafx.JavaFxApplication;
 
 import java.util.Collections;
 import java.util.List;
@@ -26,9 +27,10 @@ public class ApplicationEntry {
             disableLogging();
         }
 
-        // Instantiate the initial controller of the application
-        DemoController controller = new DemoController();
+        // Indicate that the application is setup and running.
+        System.out.println("Application is running...\n\n");
 
+        JavaFxApplication.launchApp(args);
     }
 
 
