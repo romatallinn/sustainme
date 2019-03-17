@@ -1,59 +1,151 @@
 package view.element;
 
-import com.jogamp.opengl.*;
-import com.jogamp.opengl.awt.GLCanvas;
-import javax.swing.JFrame;
-import java.util.Random;
-import static com.jogamp.opengl.math.FloatUtil.*;
+import static com.jogamp.opengl.math.FloatUtil.PI;
+import static com.jogamp.opengl.math.FloatUtil.cos;
+import static com.jogamp.opengl.math.FloatUtil.sin;
 import static java.util.Arrays.copyOfRange;
+
+import com.jogamp.opengl.GL2;
+import com.jogamp.opengl.GLAutoDrawable;
+import com.jogamp.opengl.GLCapabilities;
+import com.jogamp.opengl.GLEventListener;
+import com.jogamp.opengl.GLProfile;
+import com.jogamp.opengl.awt.GLCanvas;
+
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.util.Random;
+
 
 public class FractalTree implements GLEventListener {
 
-    // @Override
+    static float startLength = 0.4f;
+    static float degreeOffset = 30f;
+    static float lengthFactor = 0.73f;
+    int[] scores;
+    String name;
+
+
+    /**
+     * Constructor.
+     *
+     * @param scores - Sets depth of fractal tree
+     * @param name   - Sets name to generate random seed
+     */
+    public FractalTree(int[] scores, String name) {
+
+        this.scores = scores;
+        this.name = name;
+    }
+
+    /**
+     * Starts drawing process.
+     *
+     * @param drawable - opengl variable
+     */
+    @Override
     public void display(GLAutoDrawable drawable) {
         final GL2 gl = drawable.getGL().getGL2();
-        gl.glBegin (GL2.GL_LINES);
+        gl.glBegin(GL2.GL_LINES);
 
         // drawBranch(gl, Direction.N, 0f, -1f, 0.5f, 60000);
-        drawTree(gl, 0.4f, 30f, 0.73f, new int[]{10, 10, 2, 60, 100, 21, 10});
+        drawTree(gl, this.scores);
         gl.glFlush();
     }
 
-    public void drawTree(GL2 g, float startLength, float degreeOffset, float lengthFactor, int[] depth) {
-        drawDegBranch(g, 0f, 0f, -1f, startLength, degreeOffset, lengthFactor, depth);
+    /**
+     * Gives variables for the drawDegBranch method.
+     *
+     * @param gl    - opengl variable
+     * @param depth - depth of tree (scores)
+     */
+    public void drawTree(
+        GL2 gl,
+        int[] depth
+    ) {
+        drawDegBranch(gl, 0f, 0f, -1f, depth);
     }
 
-    public static long seedFromString(String s) {
-        char[] c = s.toCharArray();
-        long r = 0;
+    /**
+     * Calculates a number used for the random seed calculation.
+     *
+     * @return - the calculated number that the seed uses
+     */
+    public long seedFromName() {
+        char[] chars = this.name.toCharArray();
+        long seed = 0;
 
-        for (int i = 0; i < c.length; i++) {
-            r += (i + 1) * c[i];
+        for (int i = 0; i < chars.length; i++) {
+            seed += (i + 1) * chars[i];
         }
 
-        return r;
+        return seed;
     }
 
-    public void drawDegBranch(GL2 g, float d, float x, float y, float l, float dd, float fl, int[] depth) {
-        drawDegBranch(g, d, x, y, l, dd, fl, depth, new Random(seedFromString("Roman")));
+    /**
+     * Makes the calculations for where to draw the lines (With starting position).
+     *
+     * @param gl        - opengl variable
+     * @param direction - direction of the line
+     * @param startX    - start x-coordinate
+     * @param startY    - start y-coordinate
+     * @param depth     - depth of tree (scores)
+     */
+    public void drawDegBranch(GL2 gl,
+                              float direction,
+                              float startX,
+                              float startY,
+                              int[] depth
+    ) {
+        drawDegBranch(
+            gl,
+            direction,
+            startX,
+            startY,
+            FractalTree.startLength,
+            depth,
+            seedFromName()
+        );
     }
-    public void drawDegBranch(GL2 g, float d, float x, float y, float l, float dd, float fl, int[] depth, Random r) {
+
+    /**
+     * Makes the calculations for where to draw the lines (recursively).
+     *
+     * @param gl         - opengl variable
+     * @param direction  - direction of the line
+     * @param startX     - start x-coordinate
+     * @param startY     - start y-coordinate
+     * @param lineLength - length of the lines
+     * @param depth      - depth of tree (scores)
+     * @param randomSeed - randomseed for the current depth
+     */
+    public void drawDegBranch(GL2 gl,
+                              float direction,
+                              float startX,
+                              float startY,
+                              float lineLength,
+                              int[] depth,
+                              long randomSeed
+    ) {
         if (depth.length == 0 || (depth.length == 1 && depth[0] <= 0)) {
             return;
         }
 
-        d = d < 0f ? d + 360f : d;
-        float rad = d / 180f * PI;
-        float nextX = x + sin(rad) * l;
-        float nextY = y + cos(rad) * l;
 
-        g.glBegin (GL2.GL_LINES);
-        g.glColor3f(0.3f, 1f, 0.3f);
-        g.glVertex3f(x, y, 0);
-        g.glVertex3f(nextX, nextY,0);
-        g.glEnd();
+        // Changes direction when a new line gets drawn
+        direction = direction < 0f ? direction + 360f : direction;
+        float rad = direction / 180f * PI;
+        float nextX = startX + sin(rad) * lineLength;
+        float nextY = startY + cos(rad) * lineLength;
 
-        float nextLen = l * fl;
+        gl.glBegin(GL2.GL_LINES);
+        gl.glColor3f(0.3f, 1f, 0.3f);
+        gl.glVertex3f(startX, startY, 0);
+        gl.glVertex3f(nextX, nextY, 0);
+        gl.glEnd();
+
+        float nextLen = lineLength * FractalTree.lengthFactor;
 
         int[] depthLeft;
         int[] depthRight;
@@ -61,53 +153,108 @@ public class FractalTree implements GLEventListener {
             depthLeft = copyOfRange(depth, 0, depth.length / 2);
             depthRight = copyOfRange(depth, depth.length / 2, depth.length);
         } else {
-            depthLeft = new int[]{(depth[0] - 1) / 2};
-            depthRight = new int[]{(depth[0] - 1) / 2};
+            depthLeft = new int[] {(depth[0] - 1) / 2};
+            depthRight = new int[] {(depth[0] - 1) / 2};
         }
 
-        drawDegBranch(g, d - dd * r.nextFloat(), nextX, nextY, nextLen, dd, fl, depthLeft, r);
-        drawDegBranch(g, d + dd * r.nextFloat(), nextX, nextY, nextLen, dd, fl, depthRight, r);
+        // Make random from seed
+        Random seededRandom = new Random(randomSeed);
+
+        // Draw left branch
+        drawDegBranch(
+            gl,
+            direction - FractalTree.degreeOffset * seededRandom.nextFloat(),
+            nextX,
+            nextY,
+            nextLen,
+            depthLeft,
+            randomSeed + 'L' // Update seed by adding L (108) for left
+        );
+        // Draw right branch
+        drawDegBranch(
+            gl,
+            direction + FractalTree.degreeOffset * seededRandom.nextFloat(),
+            nextX,
+            nextY,
+            nextLen,
+            depthRight,
+            randomSeed + 'R' // Update seed by adding R (114) for right
+        );
 
     }
 
+    /**
+     * Unused opengl event handler.
+     *
+     * @param gl - opengl variable
+     */
     // @Override
-    public void dispose(GLAutoDrawable arg0) {
-        //method body
+    public void dispose(GLAutoDrawable gl) {
+        // should never be called
     }
 
+    /**
+     * Unused opengl event handler.
+     *
+     * @param gl - opengl variable
+     */
     // @Override
-    public void init(GLAutoDrawable arg0) {
-        // method body
+    public void init(GLAutoDrawable gl) {
+        // should never be called
     }
 
+    /**
+     * Unused opengl event handler.
+     *
+     * @param gl     - opengl variable
+     * @param theX   - x-coordinate for reshape
+     * @param myY    - y-coordinate for reshape
+     * @param width  - width for reshape
+     * @param height - heigt for reshape
+     */
     // @Override
-    public void reshape(GLAutoDrawable arg0, int arg1, int arg2, int arg3, int arg4) {
-        // method body
+    public void reshape(GLAutoDrawable gl, int theX, int myY, int width, int height) {
+        // should never be called
     }
 
-    public static void main(String[] args) {
-
-        System.out.println(sin(30));
+    /**
+     * Makes a buffered image.
+     *
+     * @param width  - sets image width
+     * @param height - sets image height
+     * @param scores - sets depth of fractal tree
+     * @param name   - used for seed calculation
+     * @return - returns buffered image
+     */
+    public static BufferedImage makeImage(int width, int height, int[] scores, String name) {
 
         //getting the capabilities object of GL2 profile
         final GLProfile profile = GLProfile.get(GLProfile.GL2);
         GLCapabilities capabilities = new GLCapabilities(profile);
 
-        // The canvas
+        // Make Gl canvas
         final GLCanvas glcanvas = new GLCanvas(capabilities);
-        FractalTree l = new FractalTree();
-        glcanvas.addGLEventListener(l);
-        glcanvas.setSize(400, 400);
+        FractalTree fractalTreeDrawer = new FractalTree(scores, name);
+        glcanvas.addGLEventListener(fractalTreeDrawer);
+        glcanvas.setSize(width, height);
 
-        //creating frame
-        final JFrame frame = new JFrame ("local.nadyne.joglproj.Triangle");
+        // Make image of canvas
+        Image canvasImage = glcanvas.createImage(width, height);
 
-        //adding canvas to frame
-        frame.getContentPane().add(glcanvas);
+        // Create a buffered image
+        BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 
-        frame.setSize(frame.getContentPane().getPreferredSize());
-        frame.setVisible(true);
+        // Draw the buffered image
+        Graphics2D drawer = bufferedImage.createGraphics();
+        drawer.drawImage(canvasImage, 0, 0, null);
+        drawer.dispose();
 
-    }//end of main
+        // Return the buffered image
+        return bufferedImage;
 
-}//end of classimport javax.media.opengl.GL2;
+    }
+
+}
+
+
+
