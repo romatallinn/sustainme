@@ -12,7 +12,7 @@
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <HBox fx:id="top">
-         <Button fx:id="menu" mnemonicParsing="false" text="Back">
+         <Button fx:id="home" mnemonicParsing="false" text="Home">
             <HBox.margin>
                <Insets left="10.0" />
             </HBox.margin></Button>
