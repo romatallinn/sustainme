@@ -15,9 +15,9 @@ public class GreetingController {
     private final AtomicLong counter = new AtomicLong();
 
     /**
-     *Whooptiedoo.
-     * @param name - does something.
-     * @return - Yehees
+     * Returns a greeting based on the name.
+     *@param name - Name to be used.
+     *@return - greeting
      */
     @RequestMapping("/greeting")
     public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
