@@ -30,6 +30,15 @@
     -fx-border-style: none;
 }
 
+#menu {
+    -fx-text-fill: white;
+    -fx-font-size: 20;
+    -fx-background-color: none;
+    -fx-effect: dropshadow(gaussian, black, 5,0.2,0,0);
+    -fx-font-weight: bold;
+    -fx-border-style: none;
+}
+
 #sign_in {
     -fx-background-radius: 50px;
     -fx-border-radius: 50px;
