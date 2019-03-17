@@ -14,7 +14,7 @@ public class JavaFxDemoController {
     @FXML
     Text textField;
 
-    public void sendName(){
+    public void sendName() {
         Greeting greeting = DemoController.getGreeting(name.getText());
         textField.setText(greeting.getContent());
     }

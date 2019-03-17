@@ -1,11 +1,15 @@
 package controller;
 
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.client.RestTemplate;
 
 public class DemoController {
-
-    public static Greeting getGreeting(String name){
+    /**
+     * Returns a greeting with an id and a name.
+     * @param name - Name to be used.
+     * @return - Returns Greeting result.
+     */
+    public static Greeting getGreeting(String name) {
         final String uri = "http://localhost:8080/greeting?name=" + name;
         RestTemplate restTemplate = new RestTemplate();
 
