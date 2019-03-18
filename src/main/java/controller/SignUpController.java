@@ -38,12 +38,8 @@ public class SignUpController {
                 // TODO: Automatic Authorization?
             }
 
-        } catch (FirebaseException e) {
-            view.displayStatus("Firebase Exception:\n" + e.getMessage());
-        } catch (UnsupportedEncodingException e) {
-            view.displayStatus("Unsupported Encoding Exception:\n" + e.getMessage());
-        } catch (JacksonUtilityException e) {
-            view.displayStatus("Jackson Utility Exception:\n" + e.getMessage());
+        } catch (FirebaseException | UnsupportedEncodingException | JacksonUtilityException e) {
+            view.displayStatus("Exception:\n" + e.getMessage());
         }
 
     }
@@ -53,6 +49,17 @@ public class SignUpController {
      * @param error - the error code
      * @return a user-friendly message that describes an occurred issue.
      */
+    public void signInCallback(String email, String pass) {
+
+        try {
+            FirebaseResponse response = AuthService.signIn(email, pass);
+            view.displayStatus("\n\n" + response.getRawBody() + "\n\n");
+        } catch (FirebaseException | UnsupportedEncodingException | JacksonUtilityException e) {
+            view.displayStatus("Exception:\n" + e.getMessage());
+        }
+
+    }
+
     private String getErrorMessage(String error) {
 
         String res = "";
