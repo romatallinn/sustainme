@@ -3,7 +3,7 @@
 }
 
 #top {
-    -fx-background-color: lightgreen;
+    -fx-background-color: #1db954;
 }
 
 #title {
@@ -37,11 +37,15 @@
     -fx-font-weight: bold;
     -fx-font-size: 20;
     -fx-text-fill: white;
-    -fx-background-color: lightgreen;
+    -fx-background-color: #1db954;
 }
 
 #welcome {
     -fx-font-weight: bold;
     -fx-font-size: 40;
     -fx-fill: #505050;
+}
+
+.separator {
+    -fx-fill: white;
 }

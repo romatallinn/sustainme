@@ -44,10 +44,4 @@ public class SignUpControllerTest {
         verify(view).displayStatus(any());
     }
 
-    @Test
-    public void testSignInCallbackSuccess() {
-        controller.signInCallback("test@test.com", "123456Aa");
-        verify(view).displayStatus(any());
-    }
-
 }

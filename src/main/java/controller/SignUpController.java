@@ -28,12 +28,20 @@ public class SignUpController {
             FirebaseResponse response = AuthService.signUp(email, pass);
 
             if (!response.getSuccess()) {
+
                 Map<String, Object> errorObj = (Map<String, Object>)response.getBody().get("error");
                 String errorMsg = getErrorMessage(errorObj.get("message").toString());
-                view.displayStatus(errorMsg);
+
+                if (errorMsg != null) {
+                    view.displayStatus(errorMsg);
+                }
+
             } else {
+
                 view.displayStatus("You were registered!");
                 view.clearSignUpFields();
+
+                // TODO: Automatic Authorization?
             }
 
         } catch (FirebaseException | UnsupportedEncodingException | JacksonUtilityException e) {
@@ -43,21 +51,10 @@ public class SignUpController {
     }
 
     /**
-     * Sign In callback method; requested from the view.
-     * @param email - user's email to be used for login.
-     * @param pass - user's password to be used for login.
+     * Method for interpreting the error code response from DB into a user-friendly message.
+     * @param error - the error code.
+     * @return a user-friendly message that describes an occurred issue.
      */
-    public void signInCallback(String email, String pass) {
-
-        try {
-            FirebaseResponse response = AuthService.signIn(email, pass);
-            view.displayStatus("\n\n" + response.getRawBody() + "\n\n");
-        } catch (FirebaseException | UnsupportedEncodingException | JacksonUtilityException e) {
-            view.displayStatus("Exception:\n" + e.getMessage());
-        }
-
-    }
-
     private String getErrorMessage(String error) {
 
         String res = "";
@@ -72,7 +69,7 @@ public class SignUpController {
                 break;
 
             default:
-                res = "Unknown error has happened!";
+                res = error;
                 break;
         }
 

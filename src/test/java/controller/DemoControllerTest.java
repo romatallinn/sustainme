@@ -1,23 +1,22 @@
 package controller;
 
+
 import net.thegreshams.firebase4j.error.FirebaseException;
-import net.thegreshams.firebase4j.error.JacksonUtilityException;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
 import static org.mockito.Mockito.*;
 
-import org.junit.contrib.java.lang.system.Assertion;
 import org.junit.contrib.java.lang.system.ExpectedSystemExit;
+
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 
+import supporting.DatabaseConnection;
 import view.interfaces.IDemoView;
 
-import java.io.UnsupportedEncodingException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -36,15 +35,9 @@ public class DemoControllerTest {
     private DemoController controller;
 
     @Before
-    public void setup() {
+    public void setup() throws FirebaseException {
+        DatabaseConnection.init(null);
         controller = new DemoController(view);
-    }
-
-
-    @Test
-    public void testSignUpCallbackSuccess() {
-        controller.signUpCallback("test@test.com", "123456Aa");
-        verify(view).displayData(any());
     }
 
     @Test
@@ -53,9 +46,15 @@ public class DemoControllerTest {
         verify(view).displayData(any());
     }
 
+    @Test
+    public void testSignUpCallbackSuccess() {
+        controller.signUpCallback("test@test.com", "123456Aa");
+        verify(view).displayData(any());
+    }
+
 
     @Test
-    public void testRetrieveDataSuccess() throws Exception, FirebaseException {
+    public void testRetrieveDataSuccess() {
 
         String path = "test";
 
@@ -65,7 +64,7 @@ public class DemoControllerTest {
     }
 
     @Test
-    public void testPutDataSuccess() throws Exception, FirebaseException, JacksonUtilityException {
+    public void testPutDataSuccess() {
 
 
         String path = "test";
@@ -78,7 +77,7 @@ public class DemoControllerTest {
     }
 
     @Test
-    public void testAppShutdown() throws Exception {
+    public void testAppShutdown() {
 
         exit.expectSystemExitWithStatus(0);
 

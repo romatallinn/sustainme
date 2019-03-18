@@ -5,24 +5,39 @@ import net.thegreshams.firebase4j.service.Firebase;
 
 public class DatabaseConnection {
 
-    private Firebase connection;
-
+    private static Firebase instance;
 
     /**
      * Constructor for the class; initializes the connection between the client
      * and the Firebase service for URL defined in the configuration file.
      * @throws FirebaseException - database connection exception.
      */
-    public DatabaseConnection() throws FirebaseException {
-        connection = new Firebase(AppConfig.dbUrl);
+    public DatabaseConnection(String token) throws FirebaseException {
+        instance = new Firebase(AppConfig.dbUrl, token);
     }
 
     /**
-     * Getter for the connection between the client and Firebase service.
-     * @return Firebase connection
+     * Initializes a connection with Firebase.
+     * @param token - auth token used by Firebase to verify user.
+     * @return Firebase connection.
+     * @throws FirebaseException - database connection exception.
      */
-    public Firebase getConnection() {
-        return connection;
+    public static Firebase init(String token) throws FirebaseException {
+
+        if (instance == null) {
+            new DatabaseConnection(token);
+        }
+
+        return instance;
     }
+
+    public static Firebase getInstance() throws FirebaseException {
+        return instance;
+    }
+
+    public static void killConnection() {
+        instance = null;
+    }
+
 
 }

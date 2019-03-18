@@ -3,10 +3,13 @@ package model;
 import net.thegreshams.firebase4j.error.FirebaseException;
 import net.thegreshams.firebase4j.error.JacksonUtilityException;
 import net.thegreshams.firebase4j.model.FirebaseResponse;
+import net.thegreshams.firebase4j.service.Firebase;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import supporting.DatabaseConnection;
 
+import javax.xml.crypto.Data;
 import java.io.UnsupportedEncodingException;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -16,14 +19,9 @@ public class DemoModelTest {
     private DemoModel model;
 
     @Before
-    public void setup() {
-
-        try {
-            model = new DemoModel();
-        } catch (FirebaseException e) {
-            System.out.println(e.getMessage());
-        }
-
+    public void setup() throws FirebaseException {
+        DatabaseConnection.init(null);
+        model = new DemoModel();
     }
 
     @Test
@@ -56,10 +54,7 @@ public class DemoModelTest {
 
             Assert.assertEquals(data, result);
 
-        } catch (FirebaseException e) {
-            System.out.println(e.getMessage());
-            exThrown = true;
-        } catch (UnsupportedEncodingException e) {
+        } catch (FirebaseException | UnsupportedEncodingException e) {
             System.out.println(e.getMessage());
             exThrown = true;
         }
@@ -78,10 +73,7 @@ public class DemoModelTest {
             String data = model.retrieveData();
             Assert.assertNotNull(data);
 
-        } catch (FirebaseException e) {
-            System.out.println(e.getMessage());
-            exThrown = true;
-        } catch (UnsupportedEncodingException e) {
+        } catch (FirebaseException | UnsupportedEncodingException e) {
             System.out.println(e.getMessage());
             exThrown = true;
         }
@@ -102,10 +94,7 @@ public class DemoModelTest {
 
             Assert.assertEquals(data, result);
 
-        } catch (FirebaseException e) {
-            System.out.println(e.getMessage());
-            exThrown = true;
-        } catch (UnsupportedEncodingException e) {
+        } catch (FirebaseException | UnsupportedEncodingException e) {
             System.out.println(e.getMessage());
             exThrown = true;
         }
@@ -128,13 +117,7 @@ public class DemoModelTest {
             FirebaseResponse response = model.putData("test", putData);
             Assert.assertTrue(response.getSuccess());
 
-        } catch (FirebaseException e) {
-            System.out.println(e.getMessage());
-            exThrown = true;
-        } catch (UnsupportedEncodingException e) {
-            System.out.println(e.getMessage());
-            exThrown = true;
-        } catch (JacksonUtilityException e) {
+        } catch (FirebaseException | UnsupportedEncodingException | JacksonUtilityException e) {
             System.out.println(e.getMessage());
             exThrown = true;
         }

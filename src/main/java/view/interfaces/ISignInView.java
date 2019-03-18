@@ -1,15 +1,17 @@
 package view.interfaces;
 
-import controller.SignUpController;
+import controller.SignInController;
+
+import java.io.IOException;
 
 /**
- * Interface of the sign up view.
+ * Interface of the sign in view.
  * It is used in order to make a more abstracted connection,
  * between the controller and possible views (mobile view, javafx or terminal).
  */
-public interface ISignUpView {
+public interface ISignInView {
 
-    void initView(SignUpController controller);
+    void initView(SignInController controller);
 
     /**
      * Display the status line.
@@ -17,6 +19,6 @@ public interface ISignUpView {
      */
     void displayStatus(String status);
 
+    void goToHome() throws IOException;
 
-    void clearSignUpFields();
 }

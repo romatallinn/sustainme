@@ -59,15 +59,15 @@ public class DemoController {
             FirebaseResponse response = AuthService.signUp(email, pass);
             view.displayData("\n\n" + response.getRawBody() + "\n\n");
         } catch (FirebaseException | UnsupportedEncodingException | JacksonUtilityException e) {
-            view.displayStatus("Firebase Exception:\n" + e.getMessage());
+            view.displayStatus("Exception:\n" + e.getMessage());
         }
 
     }
 
     /**
      * Sign In callback method; requested from the view.
-     * @param email - user's email to be used for login.
-     * @param pass - user's password to be used for login.
+     * @param email - user's email to be used for goToSignin.
+     * @param pass - user's password to be used for goToSignin.
      */
     public void signInCallback(String email, String pass) {
 
@@ -89,7 +89,7 @@ public class DemoController {
             String data = model.retrieveData(path);
             view.displayData("\n\n" + data + "\n\n");
         } catch (FirebaseException | UnsupportedEncodingException e) {
-            view.displayStatus("Firebase Exception:\n" + e.getMessage());
+            view.displayStatus("Exception:\n" + e.getMessage());
         }
 
     }
