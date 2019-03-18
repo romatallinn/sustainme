@@ -15,13 +15,11 @@ public class HomescreenController {
 
     public void updateViewWithData() {
 
-        System.out.println("Homescreen updated");
-
         String name = SingletonUser.getInstance().getFirstName() + " " + SingletonUser.getInstance().getLastName();
         int lvl = SingletonUser.getInstance().getLevel();
         double expProgress = SingletonUser.getInstance().getExp();
         double reduced = SingletonUser.getInstance().getCo2Reduction();
-        
+
         view.updateNameLabel(name);
         view.updateLvlLabel(lvl);
         view.updateExpLabel(expProgress);
