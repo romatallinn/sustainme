@@ -1,20 +1,20 @@
 package view.implementation.javafx;
 
+import controller.FoodController;
 import controller.HomescreenController;
 import controller.SignInController;
 import controller.SignUpController;
 
-import controller.FoodController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import view.interfaces.IFoodView;
 import view.interfaces.IHomeView;
 import view.interfaces.ISignInView;
 import view.interfaces.ISignUpView;
-import view.interfaces.IFoodView;
 
 import java.util.HashMap;
 

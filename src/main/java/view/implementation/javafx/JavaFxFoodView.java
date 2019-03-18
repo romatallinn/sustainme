@@ -32,8 +32,8 @@ public class JavaFxFoodView extends JavaFxView implements IFoodView {
     @FXML
     private void addEatedVegMeals() {
 
-        int i = Integer.parseInt(vegMealsCount.getText());
-        controller.addEatedVegMeals(i);
+        int count = Integer.parseInt(vegMealsCount.getText());
+        controller.addEatenVegMeals(count);
 
     }
 

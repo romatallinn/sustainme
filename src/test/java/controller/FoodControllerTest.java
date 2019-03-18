@@ -7,7 +7,6 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 import view.interfaces.IFoodView;
-import view.interfaces.IHomeView;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
@@ -30,7 +29,7 @@ public class FoodControllerTest {
     @Test
     public void testAddEatedMeals() {
 
-        controller.addEatedVegMeals(1);
+        controller.addEatenVegMeals(1);
         verify(view).displayStatus(any());
 
     }

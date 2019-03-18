@@ -11,12 +11,20 @@ public class FoodController {
     private IFoodView view;
     private FeaturesModel model;
 
+    /**
+     * Constructor for the class.
+     * @param view that is represented by the controller.
+     */
     public FoodController(IFoodView view) {
         this.view = view;
         this.model = new FeaturesModel();
     }
 
-    public void addEatedVegMeals(int count) {
+    /**
+     * The method acts upon the fact of the eaten vegetarian meals.
+     * @param count of the vegetarian meals eaten.
+     */
+    public void addEatenVegMeals(int count) {
 
         try {
             model.vegMeal(count);

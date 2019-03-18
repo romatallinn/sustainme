@@ -94,7 +94,7 @@ public class UserProfile {
 
                 Object co2redObj = data.get("co2red");
 
-                if(co2redObj instanceof Double) {
+                if (co2redObj instanceof Double) {
                     this.co2Reduction = (double) co2redObj;
                 } else {
                     this.co2Reduction = 0;
@@ -122,7 +122,7 @@ public class UserProfile {
         experience += score;
         this.checkLevel();
 
-        if(connection != null) {
+        if (connection != null) {
             String patchData = String.format("{\"experience\":%s}", experience);
             connection.patch("users/" + uid, patchData);
         }
@@ -137,12 +137,31 @@ public class UserProfile {
             FirebaseException {
         co2Reduction += red;
 
-        if(connection != null) {
+        if (connection != null) {
             String patchData = String.format("{\"co2red\":%s}", co2Reduction);
             connection.patch("users/" + uid, patchData);
         }
     }
 
+    /**
+     * Signs user off from the session.
+     */
+    public void logout() {
+
+        this.authToken = "";
+        this.uid = "";
+        this.co2Reduction = 0;
+        this.exp = 0;
+        this.experience = 0;
+        this.emailAddress = "";
+        this.level = 0;
+        this.firstName = "";
+        this.lastName = "";
+
+        DatabaseConnection.killConnection();
+        connection = null;
+
+    }
 
     /**
      * Checks current experience to see if the user should level up.
@@ -173,7 +192,7 @@ public class UserProfile {
     }
 
     public double getExp() {
-        return (double)exp / (pow(2, level - 1)*10);
+        return (double)exp / (pow(2, level - 1) * 10);
     }
 
     public double getCo2Reduction() {

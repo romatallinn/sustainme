@@ -6,8 +6,6 @@ import net.thegreshams.firebase4j.service.Firebase;
 public class DatabaseConnection {
 
     private static Firebase instance;
-    private Firebase connection;
-
 
     /**
      * Constructor for the class; initializes the connection between the client
@@ -15,7 +13,7 @@ public class DatabaseConnection {
      * @throws FirebaseException - database connection exception.
      */
     public DatabaseConnection(String token) throws FirebaseException {
-        connection = new Firebase(AppConfig.dbUrl, token);
+        instance = new Firebase(AppConfig.dbUrl, token);
     }
 
     /**
@@ -27,7 +25,7 @@ public class DatabaseConnection {
     public static Firebase init(String token) throws FirebaseException {
 
         if (instance == null) {
-            instance = new DatabaseConnection(token).getConnection();
+            new DatabaseConnection(token);
         }
 
         return instance;
@@ -37,13 +35,9 @@ public class DatabaseConnection {
         return instance;
     }
 
-
-    /**
-     * Getter for the connection between the client and Firebase service.
-     * @return Firebase connection
-     */
-    private Firebase getConnection() {
-        return connection;
+    public static void killConnection() {
+        instance = null;
     }
+
 
 }
