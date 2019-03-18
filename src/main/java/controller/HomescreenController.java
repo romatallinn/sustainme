@@ -21,9 +21,7 @@ public class HomescreenController {
         int lvl = SingletonUser.getInstance().getLevel();
         double expProgress = SingletonUser.getInstance().getExp();
         double reduced = SingletonUser.getInstance().getCo2Reduction();
-
-        System.out.println("Exp %: " + expProgress);
-
+        
         view.updateNameLabel(name);
         view.updateLvlLabel(lvl);
         view.updateExpLabel(expProgress);

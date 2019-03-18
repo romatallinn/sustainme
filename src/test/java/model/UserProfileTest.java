@@ -13,13 +13,13 @@ public class UserProfileTest {
     public void increaseScoreNoLevelUp() throws UnsupportedEncodingException, FirebaseException, JacksonUtilityException {
         UserProfile user = new UserProfile("","","");
         user.increaseScore(5);
-        assertEquals(user.getExp(),5);
+        assertEquals(user.getExp(),5.0/10.0,0.0);
     }
     @Test
     public void increaseScore1LvlUp() throws UnsupportedEncodingException, FirebaseException, JacksonUtilityException {
         UserProfile user = new UserProfile("Roderick","de Britto Heemskerk","Roderickmbh@gmail.com");
         user.increaseScore(10);
-        assertEquals(user.getExp(),0);
+        assertEquals(user.getExp(),0,0.0);
         assertEquals(10, user.getExperience());
         assertEquals(user.getLevel(),2);
     }
@@ -27,7 +27,7 @@ public class UserProfileTest {
     public void increaseScore2LvlUp() throws UnsupportedEncodingException, FirebaseException, JacksonUtilityException {
         UserProfile user = new UserProfile("Roderick","de Britto Heemskerk","Roderickmbh@gmail.com");
         user.increaseScore(35);
-        assertEquals(user.getExp(),5);
+        assertEquals(user.getExp(),5.0/40.0,0.0);
         assertEquals(35, user.getExperience());
         assertEquals(user.getLevel(),3);
     }
@@ -73,7 +73,7 @@ public class UserProfileTest {
     @Test
     public void getExp() {
         UserProfile user = new UserProfile("Roderick","de Britto Heemskerk","Roderickmbh@gmail.com");
-        assertEquals(user.getExp(),0);
+        assertEquals(user.getExp(),0,0.0);
     }
     @Test
     public void getCo2Reduction(){
