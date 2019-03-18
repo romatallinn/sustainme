@@ -164,7 +164,7 @@ public class UserProfile {
     }
 
     public double getExp() {
-        return exp / (pow(10, level)-1);
+        return (double)exp / (pow(2, level - 1)*10);
     }
 
     public double getCo2Reduction() {

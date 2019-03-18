@@ -20,19 +20,23 @@ public class FeaturesModelTest {
     public void VegMealTest() throws UnsupportedEncodingException, FirebaseException {
         SingletonUser.getInstance().init();
         model.vegMeal(1);
-        assertEquals((5.0 / 9.0), SingletonUser.getInstance().getExp(), 0.1);
+        assertEquals((5.0 / 10.0), SingletonUser.getInstance().getExp(), 0.1);
         assertEquals(3.0, SingletonUser.getInstance().getCo2Reduction(),0.0);
         assertEquals(1, SingletonUser.getInstance().getLevel());
+        assertEquals(1, model.getVegMealCounter());
     }
 
     @Test
     public void MultiMealTest() throws UnsupportedEncodingException, FirebaseException {
         SingletonUser.getInstance().init();
         model.vegMeal(4);
-        assertEquals((10.0 / 99.0), SingletonUser.getInstance().getExp(), 0.1);
+        assertEquals((10.0 / 20.0), SingletonUser.getInstance().getExp(), 0.1);
         assertEquals(12.0, SingletonUser.getInstance().getCo2Reduction(),0.0);
         assertEquals(2, SingletonUser.getInstance().getLevel());
+        assertEquals(4, model.getVegMealCounter());
     }
+
+
 
 
 }
