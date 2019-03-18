@@ -59,7 +59,7 @@ public class SignUpController {
      * @param error - the error code.
      * @return a user-friendly message that describes an occurred issue.
      */
-     private String getErrorMessage(String error) {
+    private String getErrorMessage(String error) {
 
         String res = "";
 
