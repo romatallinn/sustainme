@@ -91,7 +91,14 @@ public class UserProfile {
                 this.firstName = (String)data.get("fname");
                 this.lastName = (String)data.get("lname");
                 this.experience = (int)data.get("experience");
-                this.co2Reduction = (double)data.get("co2red");
+
+                Object co2redObj = data.get("co2red");
+
+                if(co2redObj instanceof Double) {
+                    this.co2Reduction = (double) co2redObj;
+                } else {
+                    this.co2Reduction = 0;
+                }
 
                 checkLevel();
 
