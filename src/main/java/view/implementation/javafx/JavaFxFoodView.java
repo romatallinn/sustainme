@@ -1,20 +1,20 @@
 package view.implementation.javafx;
 
-import controller.VegMealController;
+import controller.FoodController;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import view.interfaces.IVegMealView;
+import view.interfaces.IFoodView;
 
 
-public class JavaFxVegMealView extends JavaFxView implements IVegMealView {
+public class JavaFxFoodView extends JavaFxView implements IFoodView {
 
-    private VegMealController controller;
+    private FoodController controller;
 
     @FXML
     private TextField mealsCount;
 
     @Override
-    public void initView(VegMealController controller) {
+    public void initView(FoodController controller) {
         this.controller = controller;
     }
 

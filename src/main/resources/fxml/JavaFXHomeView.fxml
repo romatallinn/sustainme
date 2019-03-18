@@ -71,7 +71,7 @@
                   <Insets />
                </HBox.margin>
             </Region>
-            <Button fx:id="food" onAction="#goToVegMeal" mnemonicParsing="false" prefHeight="133.0" prefWidth="133.0" text="Food" HBox.hgrow="ALWAYS">
+            <Button fx:id="food" onAction="#goToFood" mnemonicParsing="false" prefHeight="133.0" prefWidth="133.0" text="Food" HBox.hgrow="ALWAYS">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>

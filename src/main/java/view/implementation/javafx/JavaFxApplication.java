@@ -4,7 +4,7 @@ import controller.HomescreenController;
 import controller.SignInController;
 import controller.SignUpController;
 
-import controller.VegMealController;
+import controller.FoodController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import view.interfaces.IHomeView;
 import view.interfaces.ILoginView;
 import view.interfaces.ISignUpView;
-import view.interfaces.IVegMealView;
+import view.interfaces.IFoodView;
 
 import java.util.HashMap;
 
@@ -96,14 +96,14 @@ public class JavaFxApplication extends Application {
 
         //-----
 
-        IVegMealView vegView = new JavaFxVegMealView();
-        VegMealController vegController = new VegMealController(vegView);
-        vegView.initView(vegController);
+        IFoodView foodView = new JavaFxFoodView();
+        FoodController vegController = new FoodController(foodView);
+        foodView.initView(vegController);
 
-        dummy = new SceneFx<IVegMealView>("SustainMe - Food", "/fxml/JavaFXVeggieMealView.fxml",
-                "/css/VeggieMeal.css");
-        dummy.setView(vegView);
-        scenes.put("vegmeal", dummy);
+        dummy = new SceneFx<IFoodView>("SustainMe - Food", "/fxml/JavaFXFoodView.fxml",
+                "/css/Food.css");
+        dummy.setView(foodView);
+        scenes.put("food", dummy);
 
     }
 

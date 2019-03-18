@@ -44,8 +44,8 @@ public class JavaFxHomeView extends JavaFxView implements IHomeView {
     }
 
     @FXML
-    public void goToVegMeal() throws IOException {
-        this.switchScene(food.getScene(), "vegmeal");
+    public void goToFood() throws IOException {
+        this.switchScene(food.getScene(), "food");
     }
 
     @Override

@@ -2,16 +2,16 @@ package controller;
 
 import model.FeaturesModel;
 import net.thegreshams.firebase4j.error.FirebaseException;
-import view.interfaces.IVegMealView;
+import view.interfaces.IFoodView;
 
 import java.io.UnsupportedEncodingException;
 
-public class VegMealController {
+public class FoodController {
 
-    private IVegMealView view;
+    private IFoodView view;
     private FeaturesModel model;
 
-    public VegMealController(IVegMealView view) {
+    public FoodController(IFoodView view) {
         this.view = view;
         this.model = new FeaturesModel();
     }
