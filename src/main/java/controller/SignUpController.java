@@ -67,7 +67,7 @@ public class SignUpController {
                 break;
 
             default:
-                res = "Unknown error has happened!";
+                res = error;
                 break;
         }
 

@@ -49,9 +49,9 @@
             </ImageView>
             <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Text fx:id="name" strokeType="OUTSIDE" strokeWidth="0.0" text="Matthijs Arnoldus" />
-                  <Text fx:id="level" strokeType="OUTSIDE" strokeWidth="0.0" text="Level: 5" />
-                  <ProgressBar prefWidth="200.0" progress="0.68" />
+                  <Text fx:id="name" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+                  <Text fx:id="level" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+                  <ProgressBar fx:id="expBar" prefWidth="200.0" progress="0.68" />
                </children>
                <HBox.margin>
                   <Insets left="50.0" />
@@ -71,7 +71,7 @@
                   <Insets />
                </HBox.margin>
             </Region>
-            <Button fx:id="food" mnemonicParsing="false" prefHeight="133.0" prefWidth="133.0" text="Food" HBox.hgrow="ALWAYS">
+            <Button fx:id="food" onAction="#goToVegMeal" mnemonicParsing="false" prefHeight="133.0" prefWidth="133.0" text="Food" HBox.hgrow="ALWAYS">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>

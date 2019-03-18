@@ -2,6 +2,8 @@ package view.interfaces;
 
 import controller.SignInController;
 
+import java.io.IOException;
+
 /**
  * Interface of the sign in view.
  * It is used in order to make a more abstracted connection,
@@ -17,6 +19,6 @@ public interface ILoginView {
      */
     void displayStatus(String status);
 
+    void goToHome() throws IOException;
 
-    void clearSignUpFields();
 }

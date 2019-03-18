@@ -17,16 +17,16 @@ import java.util.Map;
  */
 public class UserProfile {
 
-    private String authToken;
-    private String uid;
+    private String authToken = "";
+    private String uid = "";
 
-    private String firstName;
-    private String lastName;
-    private String emailAddress;
-    private int level;
-    private int experience;
-    private int exp;
-    private double co2Reduction;                //Reduced carbon emission in kg CO2
+    private String firstName = "";
+    private String lastName = "";
+    private String emailAddress = "";
+    private int level = 0;
+    private int experience = 0;
+    private int exp = 0;
+    private double co2Reduction = 0;                //Reduced carbon emission in kg CO2
 
     private Firebase connection;
 
@@ -114,8 +114,10 @@ public class UserProfile {
         exp += score;
         this.checkLevel();
 
-        String patchData = String.format("{\"experience\":%s}", experience);
-        connection.patch("users/" + uid, patchData);
+        if(connection != null) {
+            String patchData = String.format("{\"experience\":%s}", experience);
+            connection.patch("users/" + uid, patchData);
+        }
 
     }
 
@@ -127,8 +129,10 @@ public class UserProfile {
             FirebaseException {
         co2Reduction += red;
 
-        String patchData = String.format("{\"co2red\":%s}", co2Reduction);
-        connection.patch("users/" + uid, patchData);
+        if(connection != null) {
+            String patchData = String.format("{\"co2red\":%s}", co2Reduction);
+            connection.patch("users/" + uid, patchData);
+        }
     }
 
 
@@ -159,8 +163,8 @@ public class UserProfile {
         return level;
     }
 
-    public int getExp() {
-        return exp;
+    public double getExp() {
+        return exp / (pow(10, level)-1);
     }
 
     public double getCo2Reduction() {

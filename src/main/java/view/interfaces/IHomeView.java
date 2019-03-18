@@ -11,4 +11,9 @@ public interface IHomeView {
 
     void initView(HomescreenController controller);
 
+    void updateNameLabel(String name);
+    void updateLvlLabel(int lvl);
+    void updateExpLabel(double expProgress);
+    void updateReducedLabel(double redCO2);
+
 }

@@ -31,6 +31,16 @@ public class JavaFxSignInView extends JavaFxView implements ILoginView {
         this.switchScene(login.getScene(), "signup");
     }
 
+    @FXML
+    private void signIn() {
+        controller.signInCallback(email.getText(), pass.getText());
+    }
+
+    @Override
+    public void goToHome() throws IOException {
+        this.switchScene(login.getScene(), "home");
+    }
+
     @Override
     public void initView(SignInController controller) {
         this.controller = controller;
@@ -42,9 +52,4 @@ public class JavaFxSignInView extends JavaFxView implements ILoginView {
         System.out.print(status);
     }
 
-    @Override
-    public void clearSignUpFields() {
-        email.clear();
-        pass.clear();
-    }
 }

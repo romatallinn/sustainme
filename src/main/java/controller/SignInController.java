@@ -1,11 +1,14 @@
 package controller;
 
+import model.SingletonUser;
+import model.UserProfile;
 import net.thegreshams.firebase4j.error.FirebaseException;
 import net.thegreshams.firebase4j.error.JacksonUtilityException;
 import net.thegreshams.firebase4j.model.FirebaseResponse;
 import supporting.AuthService;
 import view.interfaces.ILoginView;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
@@ -40,18 +43,15 @@ public class SignInController {
 
 
             String token = (String)response.getBody().get("idToken");
+            String emailStr = (String)response.getBody().get("email");
+            String uid = (String)response.getBody().get("localId");
 
-            // TODO: Initialize the user profile with the authorized token
-            // UserProfile.init(token);
 
-            // TODO: Proceed To Homescreen
+            SingletonUser.getInstance().init(emailStr, uid, token);
+            view.goToHome();
 
-        } catch (FirebaseException e) {
-            view.displayStatus("Firebase Exception:\n" + e.getMessage());
-        } catch (UnsupportedEncodingException e) {
-            view.displayStatus("Unsupported Encoding Exception:\n" + e.getMessage());
-        } catch (JacksonUtilityException e) {
-            view.displayStatus("Jackson Utility Exception:\n" + e.getMessage());
+        } catch (FirebaseException | JacksonUtilityException | IOException e) {
+            view.displayStatus("Exception:\n" + e.getMessage());
         }
 
     }
@@ -75,7 +75,7 @@ public class SignInController {
                 break;
 
             default:
-                res = "Unknown error has happened!";
+                res = error;
                 break;
         }
 

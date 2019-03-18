@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 
 import java.io.IOException;
 
-public class JavaFxView {
+public abstract class JavaFxView {
 
     protected void switchScene(Scene scene, String nextSceneId) throws IOException {
 
@@ -18,6 +18,10 @@ public class JavaFxView {
         Parent root = loader.load();
         scene.setRoot(root);
 
+        ((JavaFxView)nextScene.getView()).updateLabels();
+
     }
+
+    protected void updateLabels() {  }
 
 }

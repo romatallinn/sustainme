@@ -4,6 +4,7 @@ import controller.HomescreenController;
 import controller.SignInController;
 import controller.SignUpController;
 
+import controller.VegMealController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,6 +14,7 @@ import javafx.stage.Stage;
 import view.interfaces.IHomeView;
 import view.interfaces.ILoginView;
 import view.interfaces.ISignUpView;
+import view.interfaces.IVegMealView;
 
 import java.util.HashMap;
 
@@ -69,6 +71,7 @@ public class JavaFxApplication extends Application {
         dummy.setView(signUpView);
         scenes.put("signup", dummy);
 
+        //-----
 
         // Initialization of the sign in view & view
         ILoginView signInView = new JavaFxSignInView();
@@ -80,7 +83,7 @@ public class JavaFxApplication extends Application {
         dummy.setView(signInView);
         scenes.put("signin", dummy);
 
-
+        //-----
 
         IHomeView homeView = new JavaFxHomeView();
         HomescreenController homescreenController = new HomescreenController(homeView);
@@ -90,6 +93,17 @@ public class JavaFxApplication extends Application {
                 "/css/Home.css");
         dummy.setView(homeView);
         scenes.put("home", dummy);
+
+        //-----
+
+        IVegMealView vegView = new JavaFxVegMealView();
+        VegMealController vegController = new VegMealController(vegView);
+        vegView.initView(vegController);
+
+        dummy = new SceneFx<IVegMealView>("SustainMe - Food", "/fxml/JavaFXVeggieMealView.fxml",
+                "/css/VeggieMeal.css");
+        dummy.setView(vegView);
+        scenes.put("vegmeal", dummy);
 
     }
 
