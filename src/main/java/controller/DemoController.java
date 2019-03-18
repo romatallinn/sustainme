@@ -15,7 +15,7 @@ public class DemoController {
         RestTemplate restTemplate = new RestTemplate();
 
         Greeting result = restTemplate.getForObject(uri, Greeting.class);
-
         return result;
     }
+
 }

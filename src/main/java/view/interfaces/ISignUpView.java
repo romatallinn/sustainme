@@ -1,16 +1,15 @@
 package view.interfaces;
 
-import controller.OldDemoController;
+import controller.SignUpController;
 
 /**
- * Interface of the demo view.
+ * Interface of the sign up view.
  * It is used in order to make a more abstracted connection,
  * between the controller and possible views (mobile view, javafx or terminal).
  */
-public interface IDemoView {
+public interface ISignUpView {
 
-    void initView(OldDemoController controller);
-
+    void initView(SignUpController controller);
 
     /**
      * Display the status line.
@@ -18,11 +17,6 @@ public interface IDemoView {
      */
     void displayStatus(String status);
 
-    /**
-     * Display the data (json object).
-     * @param data - the body of the data message to be displayed.
-     */
-    void displayData(String data);
 
-
+    void clearSignUpFields();
 }

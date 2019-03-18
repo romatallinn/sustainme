@@ -1,16 +1,17 @@
 package view.interfaces;
 
-import controller.OldDemoController;
+import controller.SignInController;
+
+import java.io.IOException;
 
 /**
- * Interface of the demo view.
+ * Interface of the sign in view.
  * It is used in order to make a more abstracted connection,
  * between the controller and possible views (mobile view, javafx or terminal).
  */
-public interface IDemoView {
+public interface ISignInView {
 
-    void initView(OldDemoController controller);
-
+    void initView(SignInController controller);
 
     /**
      * Display the status line.
@@ -18,11 +19,6 @@ public interface IDemoView {
      */
     void displayStatus(String status);
 
-    /**
-     * Display the data (json object).
-     * @param data - the body of the data message to be displayed.
-     */
-    void displayData(String data);
-
+    void goToHome() throws IOException;
 
 }
