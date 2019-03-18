@@ -28,10 +28,16 @@ public class SignUpController {
             FirebaseResponse response = AuthService.signUp(email, pass);
 
             if (!response.getSuccess()) {
+
                 Map<String, Object> errorObj = (Map<String, Object>)response.getBody().get("error");
                 String errorMsg = getErrorMessage(errorObj.get("message").toString());
-                view.displayStatus(errorMsg);
+
+                if (errorMsg != null) {
+                    view.displayStatus(errorMsg);
+                }
+
             } else {
+
                 view.displayStatus("You were registered!");
                 view.clearSignUpFields();
 
@@ -50,10 +56,10 @@ public class SignUpController {
 
     /**
      * Method for interpreting the error code response from DB into a user-friendly message.
-     * @param error - the error code
+     * @param error - the error code.
      * @return a user-friendly message that describes an occurred issue.
      */
-    private String getErrorMessage(String error) {
+     private String getErrorMessage(String error) {
 
         String res = "";
 
