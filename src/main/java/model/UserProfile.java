@@ -63,6 +63,8 @@ public class UserProfile {
         experience = 0;
         exp = 0;
         co2Reduction = 0;
+
+        checkLevel();
     }
 
     /**
@@ -74,6 +76,7 @@ public class UserProfile {
         this.emailAddress = email;
         this.uid = uid;
         this.authToken = token;
+        this.level = 1;
 
         DatabaseConnection.init(token);
         connection = DatabaseConnection.getInstance();
@@ -88,7 +91,6 @@ public class UserProfile {
                 this.firstName = (String)data.get("fname");
                 this.lastName = (String)data.get("lname");
                 this.experience = (int)data.get("experience");
-                this.exp = this.experience;
                 this.co2Reduction = (double)data.get("co2red");
 
                 checkLevel();
@@ -111,7 +113,6 @@ public class UserProfile {
             FirebaseException {
 
         experience += score;
-        exp += score;
         this.checkLevel();
 
         if(connection != null) {
@@ -140,6 +141,7 @@ public class UserProfile {
      * Checks current experience to see if the user should level up.
      */
     private void checkLevel() {
+        this.exp = this.experience;
         while (exp >= 10 * pow(2, level - 1)) {
             exp -= 10 * pow(2, level - 1);
             level++;
@@ -164,7 +166,7 @@ public class UserProfile {
     }
 
     public double getExp() {
-        return exp / (pow(10, level)-1);
+        return (double)exp / (pow(2, level - 1)*10);
     }
 
     public double getCo2Reduction() {
