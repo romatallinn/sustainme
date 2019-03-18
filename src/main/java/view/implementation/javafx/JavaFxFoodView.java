@@ -37,4 +37,8 @@ public class JavaFxFoodView extends JavaFxView implements IFoodView {
 
     }
 
+    @Override
+    public void displayStatus(String msg) {
+        // TODO
+    }
 }

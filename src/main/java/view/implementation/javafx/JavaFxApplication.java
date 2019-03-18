@@ -12,7 +12,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import view.interfaces.IHomeView;
-import view.interfaces.ILoginView;
+import view.interfaces.ISignInView;
 import view.interfaces.ISignUpView;
 import view.interfaces.IFoodView;
 
@@ -74,11 +74,11 @@ public class JavaFxApplication extends Application {
         //-----
 
         // Initialization of the sign in view & view
-        ILoginView signInView = new JavaFxSignInView();
+        ISignInView signInView = new JavaFxSignInView();
         SignInController signIncontroller = new SignInController(signInView);
         signInView.initView(signIncontroller);
 
-        dummy = new SceneFx<ILoginView>("SustainMe - Sign In", "/fxml/JavaFXSignInView.fxml",
+        dummy = new SceneFx<ISignInView>("SustainMe - Sign In", "/fxml/JavaFXSignInView.fxml",
                 "/css/SignUpInView.css");
         dummy.setView(signInView);
         scenes.put("signin", dummy);

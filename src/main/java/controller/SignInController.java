@@ -1,22 +1,20 @@
 package controller;
 
 import model.SingletonUser;
-import model.UserProfile;
 import net.thegreshams.firebase4j.error.FirebaseException;
 import net.thegreshams.firebase4j.error.JacksonUtilityException;
 import net.thegreshams.firebase4j.model.FirebaseResponse;
 import supporting.AuthService;
-import view.interfaces.ILoginView;
+import view.interfaces.ISignInView;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
 public class SignInController {
 
-    private ILoginView view;
+    private ISignInView view;
 
-    public SignInController(ILoginView view) {
+    public SignInController(ISignInView view) {
         this.view = view;
     }
 

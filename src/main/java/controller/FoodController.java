@@ -20,6 +20,7 @@ public class FoodController {
 
         try {
             model.vegMeal(count);
+            view.displayStatus("The stat is updated!");
         } catch (FirebaseException | UnsupportedEncodingException e) {
             System.out.println(e.getLocalizedMessage());
         }

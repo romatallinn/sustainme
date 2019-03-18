@@ -9,7 +9,7 @@ import java.io.IOException;
  * It is used in order to make a more abstracted connection,
  * between the controller and possible views (mobile view, javafx or terminal).
  */
-public interface ILoginView {
+public interface ISignInView {
 
     void initView(SignInController controller);
 

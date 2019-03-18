@@ -5,11 +5,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import view.interfaces.ILoginView;
+import view.interfaces.ISignInView;
 
 import java.io.IOException;
 
-public class JavaFxSignInView extends JavaFxView implements ILoginView {
+public class JavaFxSignInView extends JavaFxView implements ISignInView {
 
     private SignInController controller;
 

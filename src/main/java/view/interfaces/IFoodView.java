@@ -6,4 +6,6 @@ public interface IFoodView {
 
     void initView(FoodController controller);
 
+    void displayStatus(String msg);
+
 }

@@ -1,7 +1,6 @@
 package controller;
 
 import model.SingletonUser;
-import model.UserProfile;
 import view.interfaces.IHomeView;
 
 public class HomescreenController {
