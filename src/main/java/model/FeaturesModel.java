@@ -6,6 +6,8 @@ import net.thegreshams.firebase4j.error.JacksonUtilityException;
 import java.io.UnsupportedEncodingException;
 
 public class FeaturesModel {
+    private int vegMealCounter;
+
     /**
      * Increases the User's reduced CO2 and score based on the amount of vegetarian meals eaten.
      * @param amount - The amount of meals eaten
@@ -13,5 +15,6 @@ public class FeaturesModel {
     public void vegMeal(int amount) throws FirebaseException, UnsupportedEncodingException {
         SingletonUser.getInstance().increaseScore(5 * amount);
         SingletonUser.getInstance().reduceCo2(3.0 * amount);
+        vegMealCounter += amount;
     }
 }
