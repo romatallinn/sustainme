@@ -91,7 +91,7 @@ public class UserProfile {
                 this.firstName = (String)data.get("fname");
                 this.lastName = (String)data.get("lname");
                 this.experience = (int)data.get("experience");
-                this.co2Reduction = (double)data.get("co2red");
+                this.co2Reduction = (int)data.get("co2red");
 
                 checkLevel();
 

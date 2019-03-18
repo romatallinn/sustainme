@@ -49,7 +49,7 @@
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
                   <Region prefHeight="20.0" prefWidth="97.0" />
-                  <TextField fx:id="mealsCount" prefHeight="25.0" prefWidth="66.0" text="Number:" />
+                  <TextField fx:id="mealsCount" prefHeight="25.0" prefWidth="66.0" promptText="Amount" />
                </children>
             </VBox>
             <Region prefHeight="64.0" prefWidth="16.0" />

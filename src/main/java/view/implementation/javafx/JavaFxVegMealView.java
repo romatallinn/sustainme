@@ -2,9 +2,9 @@ package view.implementation.javafx;
 
 import controller.VegMealController;
 import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 import view.interfaces.IVegMealView;
 
-import java.awt.*;
 
 public class JavaFxVegMealView extends JavaFxView implements IVegMealView {
 
