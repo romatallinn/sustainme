@@ -67,7 +67,7 @@ public class JavaFxApplication extends Application {
         signUpView.initView(signUpController);
 
         dummy = new SceneFx<ISignUpView>("SustainMe - Sign Up", "/fxml/JavaFXSignUpView.fxml",
-                "/css/SignUpIn.css");
+                "/css/SignUpInView.css");
         dummy.setView(signUpView);
         scenes.put("signup", dummy);
 
@@ -79,7 +79,7 @@ public class JavaFxApplication extends Application {
         signInView.initView(signIncontroller);
 
         dummy = new SceneFx<ILoginView>("SustainMe - Sign In", "/fxml/JavaFXSignInView.fxml",
-                "/css/SignUpIn.css");
+                "/css/SignUpInView.css");
         dummy.setView(signInView);
         scenes.put("signin", dummy);
 
@@ -90,7 +90,7 @@ public class JavaFxApplication extends Application {
         homeView.initView(homescreenController);
 
         dummy = new SceneFx<IHomeView>("SustainMe - Home", "/fxml/JavaFXHomeView.fxml",
-                "/css/Home.css");
+                "/css/HomeView.css");
         dummy.setView(homeView);
         scenes.put("home", dummy);
 
@@ -101,7 +101,7 @@ public class JavaFxApplication extends Application {
         foodView.initView(vegController);
 
         dummy = new SceneFx<IFoodView>("SustainMe - Food", "/fxml/JavaFXFoodView.fxml",
-                "/css/Food.css");
+                "/css/FoodView.css");
         dummy.setView(foodView);
         scenes.put("food", dummy);
 
