@@ -19,6 +19,11 @@ public final class AppConfig {
     public static final String authUrl = "https://www.googleapis.com/identitytoolkit/v3/relyingparty";
 
     /**
+     * Server host location.
+     */
+    public static final String host = "http://localhost:8080/";
+
+    /**
      * Defines whether or not the application should print logging info into the console.
      */
     public static final Boolean debug = true;

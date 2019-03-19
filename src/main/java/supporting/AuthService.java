@@ -1,6 +1,7 @@
 package supporting;
 
-import model.SingletonUser;
+
+import model.objects.UserProfile;
 import net.thegreshams.firebase4j.error.FirebaseException;
 import net.thegreshams.firebase4j.error.JacksonUtilityException;
 import net.thegreshams.firebase4j.model.FirebaseResponse;
@@ -33,7 +34,7 @@ public final class AuthService {
         FirebaseResponse response = connection.post(signIn, credentialsPostMap(email, pass));
         if (response.getSuccess()) {
             Map<String, Object> data = response.getBody();
-            SingletonUser.getInstance().init((String) data.get("email"),
+            UserProfile.getInstance().init((String) data.get("email"),
                     (String) data.get("localId"), (String) data.get("idToken"));
         }
 

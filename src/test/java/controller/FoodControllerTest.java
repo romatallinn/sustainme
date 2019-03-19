@@ -27,7 +27,7 @@ public class FoodControllerTest {
     }
 
     @Test
-    public void testAddEatedMeals() {
+    public void testAddEatenMeals() {
 
         controller.addEatenVegMeals(1);
         verify(view).displayStatus(any());

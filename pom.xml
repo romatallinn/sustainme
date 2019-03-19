@@ -134,6 +134,12 @@
             <version>b6f90e9764</version>
         </dependency>
 
+        <!-- Firebase Admin SDK for Server -->
+        <dependency>
+            <groupId>com.google.firebase</groupId>
+            <artifactId>firebase-admin</artifactId>
+            <version>6.8.0</version>
+        </dependency>
 
 
         <!-- Springframework Essentials: Server/Network libraries -->

@@ -1,9 +1,6 @@
 package model;
-import net.thegreshams.firebase4j.error.FirebaseException;
-import net.thegreshams.firebase4j.error.JacksonUtilityException;
+import model.objects.UserProfile;
 import org.junit.*;
-
-import java.io.UnsupportedEncodingException;
 
 import static org.junit.Assert.*;
 
@@ -17,23 +14,28 @@ public class FeaturesModelTest {
     }
 
     @Test
-    public void VegMealTest() throws UnsupportedEncodingException, FirebaseException {
-        SingletonUser.getInstance().init();
+    public void VegMealTest() {
+
+        UserProfile.getInstance().clean();
+
         model.vegMeal(1);
-        assertEquals((5.0 / 10.0), SingletonUser.getInstance().getExp(), 0.1);
-        assertEquals(3.0, SingletonUser.getInstance().getCo2Reduction(),0.0);
-        assertEquals(1, SingletonUser.getInstance().getLevel());
+        assertEquals((10.0 / 20.0), UserProfile.getInstance().getExpProgress(), 0.1);
+        assertEquals(8.0, UserProfile.getInstance().getCo2Reduction(),0.0);
+        assertEquals(2, UserProfile.getInstance().getLevel());
         assertEquals(1, model.getVegMealCounter());
     }
 
     @Test
-    public void MultiMealTest() throws UnsupportedEncodingException, FirebaseException {
-        SingletonUser.getInstance().init();
-        model.vegMeal(4);
-        assertEquals((10.0 / 20.0), SingletonUser.getInstance().getExp(), 0.1);
-        assertEquals(12.0, SingletonUser.getInstance().getCo2Reduction(),0.0);
-        assertEquals(2, SingletonUser.getInstance().getLevel());
-        assertEquals(4, model.getVegMealCounter());
+    public void MultiMealTest() {
+
+        UserProfile.getInstance().clean();
+
+        model.vegMeal(2);
+        assertEquals((15.0 / 20.0), UserProfile.getInstance().getExpProgress(), 0.1);
+        assertEquals(11.0, UserProfile.getInstance().getCo2Reduction(),0.0);
+        assertEquals(2, UserProfile.getInstance().getLevel());
+        assertEquals(2, model.getVegMealCounter());
+
     }
 
 

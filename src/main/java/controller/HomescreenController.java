@@ -1,6 +1,6 @@
 package controller;
 
-import model.SingletonUser;
+import model.objects.UserProfile;
 import view.interfaces.IHomeView;
 
 /**
@@ -22,11 +22,11 @@ public class HomescreenController {
      */
     public void updateViewWithData() {
 
-        String name = SingletonUser.getInstance().getFirstName() + " "
-                + SingletonUser.getInstance().getLastName();
-        int lvl = SingletonUser.getInstance().getLevel();
-        double expProgress = SingletonUser.getInstance().getExp();
-        double reduced = SingletonUser.getInstance().getCo2Reduction();
+        String name = UserProfile.getInstance().getFirstName() + " "
+                + UserProfile.getInstance().getLastName();
+        int lvl = UserProfile.getInstance().getLevel();
+        double expProgress = UserProfile.getInstance().getExpProgress();
+        double reduced = UserProfile.getInstance().getCo2Reduction();
 
         view.updateNameLabel(name);
         view.updateLvlLabel(lvl);
@@ -39,7 +39,7 @@ public class HomescreenController {
      * Signs user off the session.
      */
     public void logout() {
-        SingletonUser.getInstance().logout();
+        UserProfile.getInstance().logout();
     }
 
 

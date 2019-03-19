@@ -1,6 +1,6 @@
 package controller;
 
-import model.SingletonUser;
+import model.objects.UserProfile;
 import net.thegreshams.firebase4j.error.FirebaseException;
 import net.thegreshams.firebase4j.error.JacksonUtilityException;
 import net.thegreshams.firebase4j.model.FirebaseResponse;
@@ -44,8 +44,7 @@ public class SignInController {
             String emailStr = (String)response.getBody().get("email");
             String uid = (String)response.getBody().get("localId");
 
-
-            SingletonUser.getInstance().init(emailStr, uid, token);
+            UserProfile.getInstance().init(emailStr, uid, token);
             view.goToHome();
 
         } catch (FirebaseException | JacksonUtilityException | IOException e) {

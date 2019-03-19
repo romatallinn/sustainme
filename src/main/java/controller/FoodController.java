@@ -1,10 +1,8 @@
 package controller;
 
 import model.FeaturesModel;
-import net.thegreshams.firebase4j.error.FirebaseException;
 import view.interfaces.IFoodView;
 
-import java.io.UnsupportedEncodingException;
 
 public class FoodController {
 
@@ -26,12 +24,8 @@ public class FoodController {
      */
     public void addEatenVegMeals(int count) {
 
-        try {
-            model.vegMeal(count);
-            view.displayStatus("The stat is updated!");
-        } catch (FirebaseException | UnsupportedEncodingException e) {
-            System.out.println(e.getLocalizedMessage());
-        }
+        model.vegMeal(count);
+        view.displayStatus("The stat is updated!");
 
     }
 
