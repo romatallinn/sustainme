@@ -2,14 +2,15 @@ package model.objects;
 
 public class UserData {
 
-    public String authToken = "";
+    // Assigned Locally (for master user)
     public String uid = "";
-
-    public String firstName = "";
-    public String lastName = "";
     public String emailAddress = "";
     public int level = 0;
+
+    // Loaded From DB
+    public String fname = "";
+    public String lname = "";
     public int experience = 0;
-    public double co2Reduction = 0;
+    public double co2red = 0;
 
 }

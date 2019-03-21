@@ -10,6 +10,7 @@ public class UserProfile {
 
     private static UserProfile instance = new UserProfile();
 
+    public String authToken = "";
     private UserData data;
 
 
@@ -21,12 +22,12 @@ public class UserProfile {
 
         data = new UserData();
 
-        data.firstName = "Firstname";
-        data.lastName = "Lastname";
+        data.fname = "Firstname";
+        data.lname = "Lastname";
         data.emailAddress = "test@test.com";
         data.level = 1;
         data.experience = 15;
-        data.co2Reduction = 5;
+        data.co2red = 5;
 
         checkLevel();
 
@@ -52,14 +53,15 @@ public class UserProfile {
      */
     public void init(String email, String uid, String token) {
 
-        data = new UserData();
+        authToken = token;
+
+        // TODO: Retrieve UserData object from Server
 
         data.emailAddress = email;
         data.uid = uid;
-        data.authToken = token;
         data.level = 1;
 
-        // TODO: Server API, data load.
+        checkLevel();
 
     }
 
@@ -73,19 +75,19 @@ public class UserProfile {
         data.experience += score;
         this.checkLevel();
 
-        // TODO: Request to Server to Increase Score by Amount
+        // TODO: Request Server to Increase Experience by Amount
 
     }
 
     /**
-     * Increases the attribute co2Reduction.
+     * Increases the attribute co2red.
      * @param red -amount of CO2 reduced.
      */
     public void reduceCo2(double red) {
 
-        data.co2Reduction += red;
+        data.co2red += red;
 
-        // TODO: Request to Server to Reduce CO2 by Amount
+        // TODO: Request Server to Reduce CO2 by Amount
 
     }
 
@@ -117,11 +119,11 @@ public class UserProfile {
 
 
     public String getFirstName() {
-        return data.firstName;
+        return data.fname;
     }
 
     public String getLastName() {
-        return data.lastName;
+        return data.lname;
     }
 
     public String getEmailAddress() {
@@ -133,7 +135,7 @@ public class UserProfile {
     }
 
     public double getCo2Reduction() {
-        return data.co2Reduction;
+        return data.co2red;
     }
 
     public int getExperience() {

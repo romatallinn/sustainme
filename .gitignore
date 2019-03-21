@@ -18,3 +18,5 @@ builds/
 .idea
 *.iml
 .DS_STORE
+
+firebase-secretKey.json
