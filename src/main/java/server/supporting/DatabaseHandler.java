@@ -18,8 +18,9 @@ public class DatabaseHandler {
     private static CountDownLatch latch;
     private static FirebaseDatabase db;
 
-    // Returned Classes
+    // Returned Data (for sync purposes)
     private static UserData userData;
+    private static int vegMeals;
 
     /**
      * Initializes the database connection.
@@ -83,6 +84,48 @@ public class DatabaseHandler {
 
         DatabaseReference ref = db.getReference("users").child(uid).child("co2red");
         increaseIntegerDataBy(ref, amount);
+
+    }
+
+    /**
+     * Increases the feature count of the vegetarian meals of the user with given uid by the given amount.
+     * @param uid - user id
+     * @param amount - increasing amount.
+     */
+    public static void increaseVegMealCounter(String uid, int amount) {
+        DatabaseReference ref = db.getReference("users").child(uid).child("features/vegmeals");
+        increaseIntegerDataBy(ref, amount);
+    }
+
+    /**
+     * Retrieves the amount of eaten vegetarian meals by the user with given uid from DB.
+     * @param uid - user id.
+     * @return number of eaten vegetarian meals.
+     * @throws InterruptedException
+     */
+    public static int retrieveVegMealCounter(String uid) throws InterruptedException {
+
+        latch = new CountDownLatch(1);
+
+        DatabaseReference ref = db.getReference("users").child(uid).child("features/vegmeals");
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                latch.countDown();
+                vegMeals = dataSnapshot.getValue(Integer.class);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("DatabaseError: " + databaseError.getMessage());
+            }
+
+        });
+
+        latch.await();
+
+        return vegMeals;
 
     }
 

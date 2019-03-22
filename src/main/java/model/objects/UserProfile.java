@@ -55,7 +55,7 @@ public class UserProfile {
 
         authToken = token;
 
-        // TODO: Retrieve UserData object from Server
+        // TODO: Retrieve UserData object from Server. Assign it to this.data.
 
         data.emailAddress = email;
         data.uid = uid;
@@ -75,7 +75,7 @@ public class UserProfile {
         data.experience += score;
         this.checkLevel();
 
-        // TODO: Request Server to Increase Experience by Amount
+        // TODO: Request Server to Increase Experience by Amount.
 
     }
 
@@ -87,7 +87,7 @@ public class UserProfile {
 
         data.co2red += red;
 
-        // TODO: Request Server to Reduce CO2 by Amount
+        // TODO: Request Server to Reduce CO2 by Amount.
 
     }
 
@@ -98,7 +98,7 @@ public class UserProfile {
 
         clean();
 
-        // TODO: Kill Session with Server
+        // TODO: Kill Session with Server.
 
     }
 
