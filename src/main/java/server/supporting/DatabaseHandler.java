@@ -15,12 +15,10 @@ import java.util.concurrent.CountDownLatch;
  */
 public class DatabaseHandler {
 
-    private static CountDownLatch latch;
     private static FirebaseDatabase db;
 
     // Returned Data (for sync purposes)
-    private static UserData userData;
-    private static int featureCounter;
+    private static Object valueObj;
 
     /**
      * Initializes the database connection.
@@ -38,28 +36,13 @@ public class DatabaseHandler {
      */
     public static UserData getUserData(String uid) throws InterruptedException {
 
-        latch = new CountDownLatch(1);
-
         DatabaseReference ref = db.getReference("users").child(uid);
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+        DataSnapshot snapshot = retrieveDataSnapshotAt(ref);
 
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                userData = dataSnapshot.getValue(UserData.class);
-                userData.uid = dataSnapshot.getKey();
-                latch.countDown();
-            }
+        UserData data = snapshot.getValue(UserData.class);
+        data.uid = snapshot.getKey();
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                System.out.println("DatabaseError: " + databaseError.getMessage());
-            }
-
-        });
-
-        latch.await();
-
-        return userData;
+        return data;
 
     }
 
@@ -68,10 +51,14 @@ public class DatabaseHandler {
      * @param uid - user id
      * @param amount - increasing amount.
      */
-    public static void increaseExpBy(String uid, int amount) {
+    public static int increaseExpBy(String uid, int amount) throws InterruptedException {
 
         DatabaseReference ref = db.getReference("users").child(uid).child("experience");
-        increaseIntegerDataBy(ref, amount);
+
+        int newVal = retrieveValueAt(ref, Integer.class) + amount;
+        ref.setValueAsync(newVal);
+
+        return newVal;
 
     }
 
@@ -80,10 +67,14 @@ public class DatabaseHandler {
      * @param uid - user id
      * @param amount - increasing amount.
      */
-    public static void increaseCO2RedBy(String uid, int amount) {
+    public static double increaseCO2RedBy(String uid, double amount) throws InterruptedException {
 
         DatabaseReference ref = db.getReference("users").child(uid).child("co2red");
-        increaseIntegerDataBy(ref, amount);
+
+        double newVal = retrieveValueAt(ref, Double.class) + amount;
+        ref.setValueAsync(newVal);
+
+        return newVal;
 
     }
 
@@ -93,9 +84,16 @@ public class DatabaseHandler {
      * @param uid - user id
      * @param amount - increasing amount.
      */
-    public static void increaseFeatureCounter(String uid, String feature, int amount) {
+    public static int increaseFeatureCounter(String uid, String feature, int amount)
+            throws InterruptedException {
+
         DatabaseReference ref = db.getReference("users").child(uid).child("features/" + feature);
-        increaseIntegerDataBy(ref, amount);
+
+        int newVal = retrieveValueAt(ref, Integer.class) + amount;
+        ref.setValueAsync(newVal);
+
+        return  newVal;
+
     }
 
     /**
@@ -107,14 +105,51 @@ public class DatabaseHandler {
     public static int retrieveFeatureCounter(String uid, String feature)
             throws InterruptedException {
 
-        latch = new CountDownLatch(1);
-
         DatabaseReference ref = db.getReference("users").child(uid).child("features/" + feature);
+        int val = retrieveValueAt(ref, Integer.class);
+
+        return val;
+
+    }
+
+
+    /**
+     * Retrieve value at the specific reference from the database.
+     * @param ref - reference to the value.
+     * @param retClass - the class that the value represents.
+     * @param <T> - the class that the value represents.
+     * @return the value of the given type from the given reference.
+     * @throws InterruptedException - exception.
+     */
+    public static <T> T retrieveValueAt(DatabaseReference ref, Class<T> retClass)
+            throws InterruptedException {
+
+        DataSnapshot snapshot = retrieveDataSnapshotAt(ref);
+
+        if (retClass.equals(DataSnapshot.class)) {
+            return (T)snapshot;
+        }
+
+        return snapshot.getValue(retClass);
+
+    }
+
+    /**
+     * The method retrieves the DataSnapshot from the given reference at DB.
+     * @param ref - reference to the data location.
+     * @return DataSnapshot from the given reference.
+     * @throws InterruptedException - exception.
+     */
+    public static DataSnapshot retrieveDataSnapshotAt(DatabaseReference ref)
+            throws  InterruptedException {
+
+        CountDownLatch latch = new CountDownLatch(1);
+
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                featureCounter = dataSnapshot.getValue(Integer.class);
+                valueObj = dataSnapshot;
                 latch.countDown();
             }
 
@@ -127,32 +162,9 @@ public class DatabaseHandler {
 
         latch.await();
 
-        return featureCounter;
+        return (DataSnapshot)valueObj;
 
     }
 
-    /**
-     * Helper function that increases the integer value in the DB by the given amount.
-     * @param ref - reference to the attribute in DB.
-     * @param amount - increasing amount.
-     */
-    private static void increaseIntegerDataBy(DatabaseReference ref, int amount) {
-
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Integer val = dataSnapshot.getValue(Integer.class);
-                ref.setValueAsync(val + amount);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                System.out.println("DatabaseError: " + databaseError.getMessage());
-            }
-
-        });
-
-    }
 
 }
