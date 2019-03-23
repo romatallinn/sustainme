@@ -2,24 +2,24 @@ package model.objects;
 
 public class VegetarianResponse {
 
-    private int expIncrease;
-    private double co2Reduction;
+    private int experience;
+    private double co2Reduced;
     private int amount;
 
     public VegetarianResponse(){}
 
-    public VegetarianResponse(int expIncrease, double co2Reduction, int amount) {
-        this.expIncrease = expIncrease;
-        this.co2Reduction = co2Reduction;
+    public VegetarianResponse(int experience, double co2Reduced, int amount) {
+        this.experience = experience;
+        this.co2Reduced = co2Reduced;
         this.amount = amount;
     }
 
-    public int getExpIncrease() {
-        return expIncrease;
+    public int getExperience() {
+        return experience;
     }
 
-    public double getCo2Reduction() {
-        return co2Reduction;
+    public double getCo2Reduced() {
+        return co2Reduced;
     }
 
     public int getAmount() {

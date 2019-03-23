@@ -91,6 +91,10 @@ public class UserProfile {
 
     }
 
+    public void increaseVegMeals(int amount){
+        data.vegmeals += amount;
+    }
+
     /**
      * Signs user off from the session.
      */
@@ -147,5 +151,7 @@ public class UserProfile {
     public double getExpProgress() {
         return (double)data.experience / (pow(2, data.level - 1) * 10);
     }
+
+    public int getVegMeals() { return data.vegmeals; }
 
 }

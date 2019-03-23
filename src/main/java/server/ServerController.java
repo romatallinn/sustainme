@@ -3,8 +3,6 @@ package server;
 import model.objects.UserData;
 import model.objects.VegetarianRequest;
 import model.objects.VegetarianResponse;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,10 +21,11 @@ public class ServerController {
 
     //TODO: increase score in db.
     @RequestMapping(value = "/vegmeal", method = RequestMethod.POST)
-    public VegetarianResponse vegetarianMeal(@RequestBody VegetarianRequest vegetarianRequest) {
-        DatabaseHandler.increaseExpBy(vegetarianRequest.getUid(), vegetarianRequest.getAmount() * 5);
-        DatabaseHandler.increaseExpBy(vegetarianRequest.getUid(), vegetarianRequest.getAmount() * 3);
-        return new VegetarianResponse(vegetarianRequest.getAmount() * 5, 3.0 * vegetarianRequest.getAmount(), vegetarianRequest.getAmount());
+    public VegetarianResponse vegetarianMeal(@RequestBody VegetarianRequest vegetarianRequest) throws InterruptedException {
+        int score = DatabaseHandler.increaseExpBy(vegetarianRequest.getUid(), vegetarianRequest.getAmount() * 5);
+        double co2 = DatabaseHandler.increaseCO2RedBy(vegetarianRequest.getUid(), vegetarianRequest.getAmount() * 3.0);
+        int amount = DatabaseHandler.increaseFeatureCounter(vegetarianRequest.getUid(), "vegmeals", vegetarianRequest.getAmount());
+        return new VegetarianResponse(score, co2, amount);
     }
 
 }

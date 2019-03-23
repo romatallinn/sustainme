@@ -20,16 +20,14 @@ public class FeaturesModel {
     public void vegMeal(int amount) {
         final String uri = "http://localhost:8080/vegmeal";
 
-        UserProfile.getInstance().increaseExp(5 * amount);
-        UserProfile.getInstance().reduceCo2(3.0 * amount);
-        vegMealCounter += amount;
-
         VegetarianRequest vegetarianRequest = new VegetarianRequest(UserProfile.getInstance().getUid(), amount);
 
         RestTemplate restTemplate = new RestTemplate();
 
         VegetarianResponse result = restTemplate.postForObject(uri, vegetarianRequest, VegetarianResponse.class);
-        System.out.println(result.getExpIncrease());
+        UserProfile.getInstance().increaseExp(result.getExperience());
+        UserProfile.getInstance().increaseVegMeals(result.getAmount());
+        UserProfile.getInstance().reduceCo2(result.getCo2Reduced());
     }
 
     public int getVegMealCounter() {

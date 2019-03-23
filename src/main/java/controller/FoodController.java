@@ -1,6 +1,7 @@
 package controller;
 
 import model.FeaturesModel;
+import model.objects.UserProfile;
 import view.interfaces.IFoodView;
 
 
@@ -18,6 +19,13 @@ public class FoodController {
         this.model = new FeaturesModel();
     }
 
+    public void updateViewWithData() {
+
+        int vegmeals = UserProfile.getInstance().getVegMeals();
+        view.updateVegCounter(vegmeals);
+
+    }
+
     /**
      * The method acts upon the fact of the eaten vegetarian meals.
      * @param count of the vegetarian meals eaten.
@@ -26,7 +34,7 @@ public class FoodController {
 
         model.vegMeal(count);
         view.displayStatus("The stat is updated!");
-
+        updateViewWithData();
     }
 
 }
