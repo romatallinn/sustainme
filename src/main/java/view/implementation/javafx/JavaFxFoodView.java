@@ -4,6 +4,7 @@ import controller.FoodController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import view.interfaces.IFoodView;
 
 import java.io.IOException;
@@ -18,6 +19,9 @@ public class JavaFxFoodView extends JavaFxView implements IFoodView {
 
     @FXML
     private TextField vegMealsCount;
+
+    @FXML
+    private Text vegCounter;
 
     @Override
     public void initView(FoodController controller) {

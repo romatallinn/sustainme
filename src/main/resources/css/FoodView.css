@@ -73,8 +73,8 @@
 .button {
     -fx-background-color: #03A9F4;
     -fx-text-fill: #FFFFFF;
-    -fx-border-radius: 10;
-    -fx-background-radius: 10;
+    -fx-border-radius: 50;
+    -fx-background-radius: 50;
     -fx-font-weight: bold;
 }
 
