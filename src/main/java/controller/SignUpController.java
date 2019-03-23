@@ -1,5 +1,6 @@
 package controller;
 
+import model.objects.UserProfile;
 import net.thegreshams.firebase4j.error.FirebaseException;
 import net.thegreshams.firebase4j.error.JacksonUtilityException;
 import net.thegreshams.firebase4j.model.FirebaseResponse;
@@ -29,20 +30,37 @@ public class SignUpController {
 
             if (!response.getSuccess()) {
 
-                Map<String, Object> errorObj = (Map<String, Object>)response.getBody().get("error");
+                Map<String, Object> errorObj = (Map<String, Object>) response.getBody().get("error");
                 String errorMsg = getErrorMessage(errorObj.get("message").toString());
 
                 if (errorMsg != null) {
                     view.displayStatus(errorMsg);
                 }
 
-            } else {
-
-                view.displayStatus("You were registered!");
-                view.clearSignUpFields();
-
-                // TODO: Automatic Authorization?
+                return;
             }
+
+            view.clearSignUpFields();
+
+            response = AuthService.signIn(email, pass);
+
+            if (!response.getSuccess()) {
+
+                Map<String, Object> errorObj = (Map<String, Object>)response.getBody().get("error");
+                String errorMsg = getErrorMessage(errorObj.get("message").toString());
+                view.displayStatus(errorMsg);
+
+                return;
+
+            }
+
+            String token = (String)response.getBody().get("idToken");
+            String emailStr = (String)response.getBody().get("email");
+            String uid = (String)response.getBody().get("localId");
+
+            UserProfile.getInstance().init(emailStr, uid, token);
+//                view.goToHome();
+
 
         } catch (FirebaseException | UnsupportedEncodingException | JacksonUtilityException e) {
             view.displayStatus("Exception:\n" + e.getMessage());
