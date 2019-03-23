@@ -20,7 +20,7 @@ public class DatabaseHandler {
 
     // Returned Data (for sync purposes)
     private static UserData userData;
-    private static int vegMeals;
+    private static int featureCounter;
 
     /**
      * Initializes the database connection.
@@ -45,9 +45,9 @@ public class DatabaseHandler {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                latch.countDown();
                 userData = dataSnapshot.getValue(UserData.class);
                 userData.uid = dataSnapshot.getKey();
+                latch.countDown();
             }
 
             @Override
@@ -88,12 +88,13 @@ public class DatabaseHandler {
     }
 
     /**
-     * Increases the feature count of the vegetarian meals of the user with given uid by the given amount.
+     * Increases the feature count of the vegetarian meals of the user
+     * with given uid by the given amount.
      * @param uid - user id
      * @param amount - increasing amount.
      */
-    public static void increaseVegMealCounter(String uid, int amount) {
-        DatabaseReference ref = db.getReference("users").child(uid).child("features/vegmeals");
+    public static void increaseFeatureCounter(String uid, String feature, int amount) {
+        DatabaseReference ref = db.getReference("users").child(uid).child("features/" + feature);
         increaseIntegerDataBy(ref, amount);
     }
 
@@ -101,19 +102,20 @@ public class DatabaseHandler {
      * Retrieves the amount of eaten vegetarian meals by the user with given uid from DB.
      * @param uid - user id.
      * @return number of eaten vegetarian meals.
-     * @throws InterruptedException
+     * @throws InterruptedException - exception.
      */
-    public static int retrieveVegMealCounter(String uid) throws InterruptedException {
+    public static int retrieveFeatureCounter(String uid, String feature)
+            throws InterruptedException {
 
         latch = new CountDownLatch(1);
 
-        DatabaseReference ref = db.getReference("users").child(uid).child("features/vegmeals");
+        DatabaseReference ref = db.getReference("users").child(uid).child("features/" + feature);
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                featureCounter = dataSnapshot.getValue(Integer.class);
                 latch.countDown();
-                vegMeals = dataSnapshot.getValue(Integer.class);
             }
 
             @Override
@@ -125,7 +127,7 @@ public class DatabaseHandler {
 
         latch.await();
 
-        return vegMeals;
+        return featureCounter;
 
     }
 
