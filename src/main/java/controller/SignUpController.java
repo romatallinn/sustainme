@@ -1,15 +1,14 @@
 package controller;
 
 import model.objects.UserProfile;
-import net.thegreshams.firebase4j.error.FirebaseException;
-import net.thegreshams.firebase4j.error.JacksonUtilityException;
-import net.thegreshams.firebase4j.model.FirebaseResponse;
-import supporting.AuthService;
+
+import com.google.gson.JsonObject;
+
+import supporting.FirebaseAuth;
+
 import view.interfaces.ISignUpView;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.Map;
 
 public class SignUpController {
 
@@ -24,46 +23,43 @@ public class SignUpController {
      * @param email - user's email to be used for registration.
      * @param pass - user's password to be used for registration.
      */
-    public void signUpCallback(String email, String pass) throws IOException {
+    public void signUpCallback(String email, String pass, String fname, String lname) {
 
         try {
-            FirebaseResponse response = AuthService.signUp(email, pass);
 
-            if (!response.getSuccess()) {
+            JsonObject jsonObj = FirebaseAuth.getInstance().register(email, pass);
+            String err = FirebaseAuth.parseError(jsonObj);
 
-                Map<String, Object> errorObj = (Map<String, Object>) response.getBody().get("error");
-                String errorMsg = getErrorMessage(errorObj.get("message").toString());
+            if (err != null) {
 
-                if (errorMsg != null) {
-                    view.displayStatus(errorMsg);
-                }
-
-                return;
-            }
-
-            view.clearSignUpFields();
-
-            response = AuthService.signIn(email, pass);
-
-            if (!response.getSuccess()) {
-
-                Map<String, Object> errorObj = (Map<String, Object>)response.getBody().get("error");
-                String errorMsg = getErrorMessage(errorObj.get("message").toString());
-                view.displayStatus(errorMsg);
-
+                view.displayStatus(err);
                 return;
 
             }
 
-            String token = (String)response.getBody().get("idToken");
-            String emailStr = (String)response.getBody().get("email");
-            String uid = (String)response.getBody().get("localId");
+            String uid = jsonObj.get("localId").getAsString();
 
-            UserProfile.getInstance().init(emailStr, uid, token);
+            // TODO: Send Registration Request to Server to Init User in DB.
+            // Needs to be sent together with uid, fname and lname.
+
+
+            jsonObj = FirebaseAuth.getInstance().auth(email, pass);
+            err = FirebaseAuth.parseError(jsonObj);
+
+            if (err != null) {
+
+                view.displayStatus(err);
+                return;
+
+            }
+
+            String token = jsonObj.get("idToken").getAsString();
+            UserProfile.getInstance().init(email, uid, token);
+
             view.goToHome();
 
 
-        } catch (FirebaseException | UnsupportedEncodingException | JacksonUtilityException e) {
+        } catch (IOException e) {
             view.displayStatus("Exception:\n" + e.getMessage());
         }
 

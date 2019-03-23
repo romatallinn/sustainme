@@ -32,14 +32,14 @@ public class JavaFxSignUpView extends JavaFxView implements ISignUpView {
      * Sends email and password to controller whenever the sign up button is clicked.
      */
     @FXML
-    public void signUpAction() throws IOException {
+    public void signUpAction() {
 
         if (!pass.getText().equals(repass.getText())) {
             displayStatus("The passwords did not match!");
             return;
         }
 
-        controller.signUpCallback(email.getText(), pass.getText());
+        controller.signUpCallback(email.getText(), pass.getText(), name.getText(), lastname.getText());
     }
 
     /**

@@ -8,6 +8,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import model.objects.UserData;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 
 /**
@@ -43,6 +45,31 @@ public class DatabaseHandler {
         data.uid = snapshot.getKey();
 
         return data;
+
+    }
+
+    /**
+     * Initialize the user's data location in db with default variables.
+     * @param uid - user id.
+     * @param fname - first name.
+     * @param lname - last name.
+     */
+    public static void initUser(String uid, String fname, String lname) {
+
+        final DatabaseReference ref = db.getReference("users").child(uid);
+
+        Map<String, Object> features = new HashMap<>();
+        features.put("vegmeals", 0);
+
+        Map<String, Object> data = new HashMap<>();
+        data.put("fname", fname);
+        data.put("lname", lname);
+        data.put("experience", 0);
+        data.put("co2red", 0);
+        data.put("features", features);
+
+
+        ref.setValueAsync(data);
 
     }
 
@@ -121,7 +148,7 @@ public class DatabaseHandler {
      * @return the value of the given type from the given reference.
      * @throws InterruptedException - exception.
      */
-    public static <T> T retrieveValueAt(DatabaseReference ref, Class<T> retClass)
+    private static <T> T retrieveValueAt(DatabaseReference ref, Class<T> retClass)
             throws InterruptedException {
 
         DataSnapshot snapshot = retrieveDataSnapshotAt(ref);
@@ -140,7 +167,7 @@ public class DatabaseHandler {
      * @return DataSnapshot from the given reference.
      * @throws InterruptedException - exception.
      */
-    public static DataSnapshot retrieveDataSnapshotAt(DatabaseReference ref)
+    private static DataSnapshot retrieveDataSnapshotAt(DatabaseReference ref)
             throws  InterruptedException {
 
         CountDownLatch latch = new CountDownLatch(1);

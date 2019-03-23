@@ -1,5 +1,6 @@
 package server.supporting;
 
+import com.google.firebase.database.DatabaseReference;
 import model.objects.UserData;
 import org.junit.Assert;
 import org.junit.Before;
@@ -54,6 +55,22 @@ public class DatabaseHandlerTest {
 
         Assert.assertEquals(initial, end-2);
 
+
+    }
+
+    @Test
+    public void testUserInit() throws InterruptedException {
+
+        String fname = "Testname";
+        String lname = "Lastname";
+        String uid = "testid";
+
+        DatabaseHandler.initUser(uid, fname, lname);
+        UserData data = DatabaseHandler.getUserData(uid);
+
+        Assert.assertEquals(uid, data.uid);
+        Assert.assertEquals(fname, data.fname);
+        Assert.assertEquals(lname, data.lname);
 
     }
 
