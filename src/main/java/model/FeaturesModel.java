@@ -6,6 +6,7 @@ import java.io.UnsupportedEncodingException;
 
 public class FeaturesModel {
     private int vegMealCounter;
+    private int bikeDistance;
 
     public FeaturesModel() {
         vegMealCounter = 0;
@@ -19,6 +20,12 @@ public class FeaturesModel {
         SingletonUser.getInstance().increaseScore(5 * amount);
         SingletonUser.getInstance().reduceCo2(3.0 * amount);
         vegMealCounter += amount;
+    }
+
+    public void travelBike(int distance, double efficiency) throws UnsupportedEncodingException, FirebaseException {
+        SingletonUser.getInstance().increaseScore(distance);
+        SingletonUser.getInstance().reduceCo2(distance*efficiency);
+        bikeDistance += distance;
     }
 
     public int getVegMealCounter() {
