@@ -7,6 +7,7 @@ import net.thegreshams.firebase4j.model.FirebaseResponse;
 import supporting.AuthService;
 import view.interfaces.ISignUpView;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
@@ -23,7 +24,7 @@ public class SignUpController {
      * @param email - user's email to be used for registration.
      * @param pass - user's password to be used for registration.
      */
-    public void signUpCallback(String email, String pass) {
+    public void signUpCallback(String email, String pass) throws IOException {
 
         try {
             FirebaseResponse response = AuthService.signUp(email, pass);
@@ -59,7 +60,7 @@ public class SignUpController {
             String uid = (String)response.getBody().get("localId");
 
             UserProfile.getInstance().init(emailStr, uid, token);
-//                view.goToHome();
+            view.goToHome();
 
 
         } catch (FirebaseException | UnsupportedEncodingException | JacksonUtilityException e) {

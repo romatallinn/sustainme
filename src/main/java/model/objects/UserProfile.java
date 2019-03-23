@@ -118,6 +118,8 @@ public class UserProfile {
     }
 
 
+    public String getUid() { return data.uid; }
+
     public String getFirstName() {
         return data.fname;
     }
