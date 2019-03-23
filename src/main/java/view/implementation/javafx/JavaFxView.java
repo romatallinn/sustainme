@@ -17,6 +17,8 @@ public abstract class JavaFxView {
 
         Parent root = loader.load();
         scene.setRoot(root);
+        scene.getStylesheets().removeAll();
+        scene.getStylesheets().add(nextScene.getCssPath());
 
         ((JavaFxView)nextScene.getView()).updateLabels();
 
