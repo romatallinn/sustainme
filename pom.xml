@@ -163,13 +163,6 @@
     <build>
         <plugins>
 
-            <!-- Surefire plugin (for tests) -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M3</version>
-            </plugin>
-
             <!-- Jococo Test Coverage report (excludes view package) -->
             <plugin>
                 <groupId>org.jacoco</groupId>
