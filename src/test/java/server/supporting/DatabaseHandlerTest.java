@@ -1,6 +1,5 @@
 package server.supporting;
 
-import com.google.firebase.database.DatabaseReference;
 import model.objects.UserData;
 import org.junit.Assert;
 import org.junit.Before;
@@ -8,7 +7,9 @@ import org.junit.Test;
 
 public class DatabaseHandlerTest {
 
-    private final String uid = "5An25iOCs5bisQ2ORzaaoUD9nNo2";
+    private final String staticUid = "staticTestUser";
+    private final String dynamicUid = "dynamicTestUser";
+
 
 
     @Before
@@ -19,12 +20,12 @@ public class DatabaseHandlerTest {
     @Test
     public void testGetUserData() throws InterruptedException {
 
-        String fname = "Firstname";
-        String lname = "Lastname";
+        String fname = "Static";
+        String lname = "Testuser";
 
-        UserData data = DatabaseHandler.getUserData(uid);
+        UserData data = DatabaseHandler.getUserData(staticUid);
 
-        Assert.assertEquals(data.uid, uid);
+        Assert.assertEquals(data.uid, staticUid);
         Assert.assertEquals(data.fname, fname);
         Assert.assertEquals(data.lname, lname);
 
@@ -33,36 +34,20 @@ public class DatabaseHandlerTest {
     @Test
     public void testRetrieveVegMealsCount() throws InterruptedException {
 
-        int count = 3;
+        int count = 4;
 
-        int testCount = DatabaseHandler.retrieveFeatureCounter(uid, "vegmeals");
+        int testCount = DatabaseHandler.retrieveFeatureCounter(staticUid, "vegmeals");
 
         Assert.assertEquals(count, testCount);
 
     }
 
     @Test
-    public void testFeatureCounterIncrease() throws InterruptedException {
-
-        String feature = "test";
-
-        int initial = DatabaseHandler.retrieveFeatureCounter(uid, feature);
-
-        int newVal = DatabaseHandler.increaseFeatureCounter(uid, feature, 2);
-
-        Assert.assertEquals(initial, newVal-2);
-
-
-    }
-
-    @Test
     public void testExpIncrease() throws InterruptedException {
 
-        String tUid = "testid";
+        UserData initial = DatabaseHandler.getUserData(dynamicUid);
 
-        UserData initial = DatabaseHandler.getUserData(tUid);
-
-        int newVal = DatabaseHandler.increaseExpBy(tUid, 5);
+        int newVal = DatabaseHandler.increaseExpBy(dynamicUid, 5);
 
         Assert.assertEquals(initial.experience, newVal-5);
 
@@ -72,11 +57,9 @@ public class DatabaseHandlerTest {
     @Test
     public void testCo2Increase() throws InterruptedException {
 
-        String tUid = "testid";
+        UserData initial = DatabaseHandler.getUserData(dynamicUid);
 
-        UserData initial = DatabaseHandler.getUserData(tUid);
-
-        double newVal = DatabaseHandler.increaseCO2RedBy(tUid, 5.0);
+        double newVal = DatabaseHandler.increaseCO2RedBy(dynamicUid, 5.0);
 
         Assert.assertEquals(initial.co2red, newVal-5, 0.1);
 
@@ -86,9 +69,9 @@ public class DatabaseHandlerTest {
     @Test
     public void testUserInit() throws InterruptedException {
 
-        String fname = "Testname";
-        String lname = "Lastname";
-        String uid = "testid";
+        String fname = "Static";
+        String lname = "Testuser";
+        String uid = "initTestUser";
 
         DatabaseHandler.initUser(uid, fname, lname);
         UserData data = DatabaseHandler.getUserData(uid);
