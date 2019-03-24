@@ -1,6 +1,6 @@
 package supporting;
 
-public class ServerAPI {
+public class ServerApi {
 
     public static final String appKey = "AIzaSyDNyxX9eJvYEB2NVbVpffIhhzSmEbxLEfM";
 

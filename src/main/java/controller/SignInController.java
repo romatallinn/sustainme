@@ -32,7 +32,8 @@ public class SignInController {
 
             if (err != null) {
 
-                view.displayStatus(err);
+                String msg = getErrorMessage(err);
+                view.displayStatus(msg);
                 return;
 
             }

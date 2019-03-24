@@ -15,6 +15,12 @@ import server.supporting.DatabaseHandler;
 @RestController
 public class ServerController {
 
+    /**
+     * Retrieving the user's data by id.
+     * @param uid - user id.
+     * @return UserData object.
+     * @throws InterruptedException - exception.
+     */
     @RequestMapping(value = "/retrieve", method = RequestMethod.POST)
     public UserData retrieve_user_data(@RequestBody String uid) throws InterruptedException {
 

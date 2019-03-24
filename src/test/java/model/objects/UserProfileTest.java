@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 public class UserProfileTest {
 
     @Test
-    public void increaseScoreNoLevelUp() {
+    public void testExpSetter() {
 
         UserProfile user = new UserProfile();
         
@@ -14,30 +14,19 @@ public class UserProfileTest {
         user.setLocalExp(5);
 
         // Assert Final Stats
-        assertEquals(10, user.getExperience());
-        assertEquals(2, user.getLevel());
+        assertEquals(5, user.getExperience());
 
     }
 
-    @Test
-    public void increaseScore1LvlUp() {
-
-        UserProfile user = new UserProfile();
-
-        user.setLocalExp(16);
-
-        assertEquals(1, user.getExperience(),0.0);
-        assertEquals(3, user.getLevel());
-
-    }
 
     @Test
-    public void testCo2Reduction() {
+    public void testCo2Setter() {
 
         UserProfile user = new UserProfile();
 
         user.setLocalCo2Stats(2.2);
-        assertEquals(user.getCo2Reduction(),7.2,0.0);
+
+        assertEquals(2.2, user.getCo2Reduction(),0.0);
 
     }
 
@@ -53,7 +42,7 @@ public class UserProfileTest {
     public void getLastName() {
 
         UserProfile user = new UserProfile();
-        assertEquals(user.getLastName(),"Lastname");
+        assertEquals("Lastname", user.getLastName());
 
     }
 
@@ -61,7 +50,7 @@ public class UserProfileTest {
     public void getEmailAddress() {
 
         UserProfile user = new UserProfile();
-        assertEquals(user.getEmailAddress(),"test@test.com");
+        assertEquals("test@test.com", user.getEmailAddress());
 
     }
 
@@ -69,7 +58,7 @@ public class UserProfileTest {
     public void getLevel() {
 
         UserProfile user = new UserProfile();
-        assertEquals(user.getLevel(),2);
+        assertEquals(2, user.getLevel());
 
     }
 
@@ -77,7 +66,7 @@ public class UserProfileTest {
     public void getExpProgress() {
 
         UserProfile user = new UserProfile();
-        assertEquals(user.getExpProgress(),0.25,0.0);
+        assertEquals(0.25, user.getExpProgress(),0.0);
 
     }
 

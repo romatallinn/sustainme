@@ -92,7 +92,7 @@ public class FirebaseAuth {
 
         try {
 
-            URL url = new URL(BASE_URL + operation + "?key=" + ServerAPI.appKey);
+            URL url = new URL(BASE_URL + operation + "?key=" + ServerApi.appKey);
             urlRequest = (HttpURLConnection) url.openConnection();
             urlRequest.setDoOutput(true);
             urlRequest.setRequestProperty("Content-Type", "application/json; charset=UTF-8");

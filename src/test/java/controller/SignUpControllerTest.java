@@ -28,22 +28,22 @@ public class SignUpControllerTest {
         controller = new SignUpController(view);
     }
 
-    /*@Test
-    public void testSignUpCallbackExist() throws IOException {
+    @Test
+    public void testSignUpCallbackExist() {
         controller.signUpCallback("test@test.com", "123456Aa", "John", "Smith");
         verify(view).displayStatus(any());
-    }*/
+    }
 
-    /*@Test
-    public void testSignUpCallbackWrongEmailFormat() throws IOException {
+    @Test
+    public void testSignUpCallbackWrongEmailFormat() {
         controller.signUpCallback("awd", "123456Aa", "John", "Smith");
         verify(view).displayStatus(any());
-    }*/
+    }
 
-    /*@Test
-    public void testSignUpCallbackMissingEmail() throws IOException {
+    @Test
+    public void testSignUpCallbackMissingEmail() {
         controller.signUpCallback("", "123456Aa", "John", "Smith");
         verify(view).displayStatus(any());
-    }*/
+    }
 
 }

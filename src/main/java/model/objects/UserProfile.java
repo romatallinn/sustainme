@@ -3,7 +3,7 @@ package model.objects;
 import static java.lang.Math.pow;
 
 import org.springframework.web.client.RestTemplate;
-import supporting.ServerAPI;
+import supporting.ServerApi;
 
 
 
@@ -61,7 +61,7 @@ public class UserProfile {
 
         authToken = token;
 
-        final String uri = ServerAPI.HOST + ServerAPI.RETRIEVE_USER;
+        final String uri = ServerApi.HOST + ServerApi.RETRIEVE_USER;
         RestTemplate restTemplate = new RestTemplate();
 
         data = restTemplate.postForObject(uri, uid, UserData.class);

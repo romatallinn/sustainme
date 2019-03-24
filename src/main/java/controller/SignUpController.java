@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import supporting.FirebaseAuth;
 
-import supporting.ServerAPI;
+import supporting.ServerApi;
 import view.interfaces.ISignUpView;
 
 import java.io.IOException;
@@ -36,14 +36,15 @@ public class SignUpController {
 
             if (err != null) {
 
-                view.displayStatus(err);
+                String msg = getErrorMessage(err);
+                view.displayStatus(msg);
                 return;
 
             }
 
             String uid = jsonObj.get("localId").getAsString();
 
-            final String uri = ServerAPI.HOST + ServerAPI.USER_DB_INIT;
+            final String uri = ServerApi.HOST + ServerApi.USER_DB_INIT;
 
             InitRequest initRequest = new InitRequest(uid, fname, lname);
 

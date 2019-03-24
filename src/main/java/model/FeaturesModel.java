@@ -4,7 +4,7 @@ import model.objects.UserProfile;
 import model.objects.VegetarianRequest;
 import model.objects.VegetarianResponse;
 import org.springframework.web.client.RestTemplate;
-import supporting.ServerAPI;
+import supporting.ServerApi;
 
 public class FeaturesModel {
 
@@ -20,7 +20,7 @@ public class FeaturesModel {
      */
     public void vegMeal(int amount) {
 
-        final String uri = ServerAPI.HOST + ServerAPI.VEGMEAL_EATEN;
+        final String uri = ServerApi.HOST + ServerApi.VEGMEAL_EATEN;
 
         VegetarianRequest vegetarianRequest =
                 new VegetarianRequest(UserProfile.getInstance().getUid(), amount);

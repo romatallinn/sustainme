@@ -26,12 +26,12 @@ public class FoodControllerTest {
         controller = new FoodController(view);
     }
 
-    @Test
-    public void testAddEatenMeals() {
-
-        controller.addEatenVegMeals(1);
-        verify(view).displayStatus(any());
-
-    }
+//    @Test
+//    public void testAddEatenMeals() {
+//
+//        controller.addEatenVegMeals(1);
+//        verify(view).displayStatus(any());
+//
+//    }
 
 }
