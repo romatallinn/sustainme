@@ -1,11 +1,11 @@
 package model.objects;
 
-import org.springframework.http.ResponseEntity;
+import static java.lang.Math.pow;
+
 import org.springframework.web.client.RestTemplate;
 
-import javax.jws.soap.SOAPBinding;
 
-import static java.lang.Math.pow;
+
 
 /**
  * The class representing a user profile.
@@ -93,7 +93,7 @@ public class UserProfile {
         data.co2red += red;
     }
 
-    public void increaseVegMeals(int amount){
+    public void increaseVegMeals(int amount) {
         data.vegmeals += amount;
     }
 
@@ -121,7 +121,9 @@ public class UserProfile {
     }
 
 
-    public String getUid() { return data.uid; }
+    public String getUid() {
+        return data.uid;
+    }
 
     public String getFirstName() {
         return data.fname;
@@ -151,6 +153,8 @@ public class UserProfile {
         return (double)data.experience / (pow(2, data.level - 1) * 10);
     }
 
-    public int getVegMeals() { return data.vegmeals; }
+    public int getVegMeals() {
+        return data.vegmeals;
+    }
 
 }

@@ -1,9 +1,9 @@
 package controller;
 
+import com.google.gson.JsonObject;
+
 import model.objects.InitRequest;
 import model.objects.UserProfile;
-
-import com.google.gson.JsonObject;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
@@ -48,7 +48,8 @@ public class SignUpController {
 
             RestTemplate restTemplate = new RestTemplate();
 
-            ResponseEntity response = restTemplate.postForObject(uri, initRequest, ResponseEntity.class);
+            ResponseEntity response = restTemplate.postForObject(uri, initRequest,
+                    ResponseEntity.class);
             System.out.println(response);
 
 
