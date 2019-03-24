@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import supporting.FirebaseAuth;
 
+import supporting.ServerAPI;
 import view.interfaces.ISignUpView;
 
 import java.io.IOException;
@@ -42,7 +43,7 @@ public class SignUpController {
 
             String uid = jsonObj.get("localId").getAsString();
 
-            final String uri = "http://localhost:8080/init";
+            final String uri = ServerAPI.HOST + ServerAPI.USER_DB_INIT;
 
             InitRequest initRequest = new InitRequest(uid, fname, lname);
 

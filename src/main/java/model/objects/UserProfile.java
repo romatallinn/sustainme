@@ -1,10 +1,10 @@
 package model.objects;
 
-import static java.lang.Math.pow;
 
 import org.springframework.web.client.RestTemplate;
+import supporting.ServerAPI;
 
-
+import static java.lang.Math.pow;
 
 
 /**
@@ -60,7 +60,7 @@ public class UserProfile {
 
         authToken = token;
 
-        final String uri = "http://localhost:8080/retrieve";
+        final String uri = ServerAPI.HOST + ServerAPI.RETRIEVE_USER;
         RestTemplate restTemplate = new RestTemplate();
 
         data = restTemplate.postForObject(uri, uid, UserData.class);
@@ -75,33 +75,36 @@ public class UserProfile {
 
 
     /**
-     * Increases score, calls CheckLevel.
-     * @param score - the amount by which the experience needs to be increased.
+     * Sets the local experience amount, then distrubutes the level.
+     * @param exp - new value of experience.
      */
-    public void increaseExp(int score) {
+    public void setLocalExp(int exp) {
 
-        data.experience += score;
+        data.experience = exp;
         this.checkLevel();
+
     }
 
     /**
-     * Increases the attribute co2red.
-     * @param red -amount of CO2 reduced.
+     * Sets the local attribute of the amount of the reduced CO2.
+     * @param red - new value of CO2 reduction.
      */
-    public void reduceCo2(double red) {
-
-        data.co2red += red;
+    public void setLocalCo2Stats(double red) {
+        data.co2red = red;
     }
 
-    public void increaseVegMeals(int amount) {
-        data.vegmeals += amount;
+    /**
+     * Sets the local counter of the veg meals eaten.
+     * @param amount - new value for the veg meals eaten counter.
+     */
+    public void setLocalVegMealsCounter(int amount){
+        data.vegmeals = amount;
     }
 
     /**
      * Signs user off from the session.
      */
     public void logout() {
-
         clean();
     }
 

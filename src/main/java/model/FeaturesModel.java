@@ -4,6 +4,7 @@ import model.objects.UserProfile;
 import model.objects.VegetarianRequest;
 import model.objects.VegetarianResponse;
 import org.springframework.web.client.RestTemplate;
+import supporting.ServerAPI;
 
 public class FeaturesModel {
 
@@ -18,18 +19,19 @@ public class FeaturesModel {
      * @param amount - The amount of meals eaten
      */
     public void vegMeal(int amount) {
-        final String uri = "http://localhost:8080/vegmeal";
+
+        final String uri = ServerAPI.HOST + ServerAPI.VEGMEAL_EATEN;
 
         VegetarianRequest vegetarianRequest =
                 new VegetarianRequest(UserProfile.getInstance().getUid(), amount);
 
         RestTemplate restTemplate = new RestTemplate();
+        VegetarianResponse result = restTemplate.postForObject(uri, vegetarianRequest, VegetarianResponse.class);
 
-        VegetarianResponse result = restTemplate.postForObject(uri, vegetarianRequest,
-                VegetarianResponse.class);
-        UserProfile.getInstance().increaseExp(result.getExperience());
-        UserProfile.getInstance().increaseVegMeals(result.getAmount());
-        UserProfile.getInstance().reduceCo2(result.getCo2Reduced());
+        UserProfile.getInstance().setLocalExp(result.getExperience());
+        UserProfile.getInstance().setLocalCo2Stats(result.getCo2Reduced());
+
+        UserProfile.getInstance().setLocalVegMealsCounter(result.getAmount());
     }
 
     public int getVegMealCounter() {
