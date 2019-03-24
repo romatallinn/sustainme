@@ -31,11 +31,15 @@ public class ServerController {
      * @throws InterruptedException exception could be thrown by database handler
      */
     @RequestMapping(value = "/vegmeal", method = RequestMethod.POST)
-    public VegetarianResponse vegetarianMeal(@RequestBody VegetarianRequest vegetarianRequest) throws InterruptedException {
+    public VegetarianResponse vegetarianMeal(@RequestBody VegetarianRequest vegetarianRequest)
+            throws InterruptedException {
 
-        int exp = DatabaseHandler.increaseExpBy(vegetarianRequest.getUid(), vegetarianRequest.getAmount() * 5);
-        double co2 = DatabaseHandler.increaseCO2RedBy(vegetarianRequest.getUid(), vegetarianRequest.getAmount() * 3.0);
-        int amount = DatabaseHandler.increaseFeatureCounter(vegetarianRequest.getUid(), "vegmeals", vegetarianRequest.getAmount());
+        int exp = DatabaseHandler.increaseExpBy(vegetarianRequest.getUid(),
+                vegetarianRequest.getAmount() * 5);
+        double co2 = DatabaseHandler.increaseCO2RedBy(vegetarianRequest.getUid(),
+                vegetarianRequest.getAmount() * 3.0);
+        int amount = DatabaseHandler.increaseFeatureCounter(vegetarianRequest.getUid(),
+                "vegmeals", vegetarianRequest.getAmount());
         return new VegetarianResponse(exp, co2, amount);
 
     }

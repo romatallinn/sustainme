@@ -1,10 +1,11 @@
 package model.objects;
 
+import static java.lang.Math.pow;
 
 import org.springframework.web.client.RestTemplate;
 import supporting.ServerAPI;
 
-import static java.lang.Math.pow;
+
 
 
 /**
@@ -97,7 +98,7 @@ public class UserProfile {
      * Sets the local counter of the veg meals eaten.
      * @param amount - new value for the veg meals eaten counter.
      */
-    public void setLocalVegMealsCounter(int amount){
+    public void setLocalVegMealsCounter(int amount) {
         data.vegmeals = amount;
     }
 

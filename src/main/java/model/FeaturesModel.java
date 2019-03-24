@@ -26,7 +26,8 @@ public class FeaturesModel {
                 new VegetarianRequest(UserProfile.getInstance().getUid(), amount);
 
         RestTemplate restTemplate = new RestTemplate();
-        VegetarianResponse result = restTemplate.postForObject(uri, vegetarianRequest, VegetarianResponse.class);
+        VegetarianResponse result =
+                restTemplate.postForObject(uri, vegetarianRequest, VegetarianResponse.class);
 
         UserProfile.getInstance().setLocalExp(result.getExperience());
         UserProfile.getInstance().setLocalCo2Stats(result.getCo2Reduced());
