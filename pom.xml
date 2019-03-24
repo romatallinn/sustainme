@@ -125,15 +125,6 @@
             <version>2.3.1</version>
         </dependency>
 
-
-
-        <!-- Firebase4j: db & auth services from Google's Firebase -->
-        <dependency>
-            <groupId>com.github.bane73</groupId>
-            <artifactId>firebase4j</artifactId>
-            <version>b6f90e9764</version>
-        </dependency>
-
         <!-- Firebase Admin SDK for Server -->
         <dependency>
             <groupId>com.google.firebase</groupId>

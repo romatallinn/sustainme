@@ -11,19 +11,15 @@ public class AppConfigTest {
         Assert.assertNotNull(new AppConfig());
     }
 
+
     @Test
-    public void assertExistDbUrl() {
-        Assert.assertTrue(StringUtils.isNotBlank(AppConfig.dbUrl));
+    public void assertExistHost() {
+        Assert.assertNotNull(AppConfig.host);
     }
 
     @Test
     public void assertExistAppKey() {
         Assert.assertTrue(StringUtils.isNotBlank(AppConfig.appKey));
-    }
-
-    @Test
-    public void assertExistAuthUrl() {
-        Assert.assertTrue(StringUtils.isNotBlank(AppConfig.authUrl));
     }
 
     @Test
