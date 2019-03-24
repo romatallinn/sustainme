@@ -39,7 +39,8 @@ public class JavaFxSignUpView extends JavaFxView implements ISignUpView {
             return;
         }
 
-        controller.signUpCallback(email.getText(), pass.getText(), name.getText(), lastname.getText());
+        controller.signUpCallback(email.getText(), pass.getText(),
+                name.getText(), lastname.getText());
     }
 
     /**

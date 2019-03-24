@@ -8,6 +8,12 @@ public class VegetarianResponse {
 
     public VegetarianResponse(){}
 
+    /**
+     * The constructor for a vegetarian response.
+     * @param experience new experience of the user
+     * @param co2Reduced new co2 reduction of the user
+     * @param amount new amount of vegetarian meals of the user
+     */
     public VegetarianResponse(int experience, double co2Reduced, int amount) {
         this.experience = experience;
         this.co2Reduced = co2Reduced;

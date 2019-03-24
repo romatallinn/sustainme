@@ -19,8 +19,10 @@ public class FoodController {
         this.model = new FeaturesModel();
     }
 
+    /**
+     * Retrieves amount of meals eaten and sends this to the view to update.
+     */
     public void updateViewWithData() {
-
         int vegmeals = UserProfile.getInstance().getVegMeals();
         view.updateVegCounter(vegmeals);
 

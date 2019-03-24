@@ -22,7 +22,8 @@ public class FeaturesModel {
 
         final String uri = ServerAPI.HOST + ServerAPI.VEGMEAL_EATEN;
 
-        VegetarianRequest vegetarianRequest = new VegetarianRequest(UserProfile.getInstance().getUid(), amount);
+        VegetarianRequest vegetarianRequest =
+                new VegetarianRequest(UserProfile.getInstance().getUid(), amount);
 
         RestTemplate restTemplate = new RestTemplate();
         VegetarianResponse result = restTemplate.postForObject(uri, vegetarianRequest, VegetarianResponse.class);
@@ -31,7 +32,6 @@ public class FeaturesModel {
         UserProfile.getInstance().setLocalCo2Stats(result.getCo2Reduced());
 
         UserProfile.getInstance().setLocalVegMealsCounter(result.getAmount());
-
     }
 
     public int getVegMealCounter() {

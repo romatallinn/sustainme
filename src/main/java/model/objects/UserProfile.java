@@ -1,10 +1,11 @@
 package model.objects;
 
+
 import org.springframework.web.client.RestTemplate;
 import supporting.ServerAPI;
 
-
 import static java.lang.Math.pow;
+
 
 /**
  * The class representing a user profile.
@@ -123,7 +124,9 @@ public class UserProfile {
     }
 
 
-    public String getUid() { return data.uid; }
+    public String getUid() {
+        return data.uid;
+    }
 
     public String getFirstName() {
         return data.fname;
@@ -153,6 +156,8 @@ public class UserProfile {
         return (double)data.experience / (pow(2, data.level - 1) * 10);
     }
 
-    public int getVegMeals() { return data.vegmeals; }
+    public int getVegMeals() {
+        return data.vegmeals;
+    }
 
 }
