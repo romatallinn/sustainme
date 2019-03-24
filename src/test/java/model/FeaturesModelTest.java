@@ -19,7 +19,4 @@ public class FeaturesModelTest {
         Assert.assertEquals(0, emptyModel.getVegMealCounter());
     }
 
-
-
-
 }

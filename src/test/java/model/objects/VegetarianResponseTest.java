@@ -22,4 +22,11 @@ public class VegetarianResponseTest {
         VegetarianResponse vegetarianResponse = new VegetarianResponse(1, 2.5, 7);
         assertEquals(vegetarianResponse.getAmount(), 7);
     }
+
+    @Test
+    public void emptyConstructorTest() {
+        VegetarianResponse vegetarianResponse = new VegetarianResponse();
+        assertEquals(vegetarianResponse.getExperience(), 0);
+    }
+
 }

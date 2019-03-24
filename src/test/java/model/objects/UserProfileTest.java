@@ -78,4 +78,45 @@ public class UserProfileTest {
 
     }
 
+    @Test
+    public void cleanTest() {
+        UserProfile user = new UserProfile();
+
+        user.setLocalExp(5);
+        user.clean();
+        assertEquals(user.getExpProgress(), 0.25, 0);
+    }
+
+    @Test
+    public void getVegMealsTest() {
+        UserProfile user = new UserProfile();
+
+        assertEquals(0, user.getVegMeals());
+    }
+
+    @Test
+    public void setLocalVegMealsCounterTest() {
+        UserProfile user = new UserProfile();
+
+        user.setLocalVegMealsCounter(5);
+
+        assertEquals(5, user.getVegMeals());
+    }
+
+    @Test
+    public void getUidTest() {
+        UserProfile user = new UserProfile();
+
+        assertEquals("", user.getUid());
+    }
+
+    @Test
+    public void logoutTest() {
+        UserProfile user = new UserProfile();
+
+        user.setLocalExp(5);
+        user.logout();
+        assertEquals(user.getExpProgress(), 0.25, 0);
+    }
+
 }
