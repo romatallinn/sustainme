@@ -2,6 +2,7 @@ package model.objects;
 
 import static java.lang.Math.pow;
 
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import supporting.ServerApi;
 
@@ -64,7 +65,12 @@ public class UserProfile {
         final String uri = ServerApi.HOST + ServerApi.RETRIEVE_USER;
         RestTemplate restTemplate = new RestTemplate();
 
-        data = restTemplate.postForObject(uri, uid, UserData.class);
+        try {
+            data = restTemplate.postForObject(uri, uid, UserData.class);
+        } catch (RestClientException e) {
+            System.out.println("Exception: " + e.getLocalizedMessage());
+            data = new UserData();
+        }
 
         data.emailAddress = email;
         data.uid = uid;

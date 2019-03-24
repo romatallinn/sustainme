@@ -9,7 +9,9 @@ public class FirebaseConnectionTest {
     @Test
     public void testInit() {
 
-        Assert.assertEquals(0, FirebaseApp.getApps().size());
+        for (FirebaseApp app : FirebaseApp.getApps()) {
+            app.delete();
+        }
 
         FirebaseConnection.initApp();
 
