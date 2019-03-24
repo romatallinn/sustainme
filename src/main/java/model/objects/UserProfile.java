@@ -1,5 +1,10 @@
 package model.objects;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
+
+import javax.jws.soap.SOAPBinding;
+
 import static java.lang.Math.pow;
 
 /**
@@ -55,7 +60,10 @@ public class UserProfile {
 
         authToken = token;
 
-        // TODO: Retrieve UserData object from Server. Assign it to this.data.
+        final String uri = "http://localhost:8080/retrieve";
+        RestTemplate restTemplate = new RestTemplate();
+
+        data = restTemplate.postForObject(uri, uid, UserData.class);
 
         data.emailAddress = email;
         data.uid = uid;
@@ -74,9 +82,6 @@ public class UserProfile {
 
         data.experience += score;
         this.checkLevel();
-
-        // TODO: Request Server to Increase Experience by Amount.
-
     }
 
     /**
@@ -86,9 +91,6 @@ public class UserProfile {
     public void reduceCo2(double red) {
 
         data.co2red += red;
-
-        // TODO: Request Server to Reduce CO2 by Amount.
-
     }
 
     public void increaseVegMeals(int amount){
@@ -101,9 +103,6 @@ public class UserProfile {
     public void logout() {
 
         clean();
-
-        // TODO: Kill Session with Server.
-
     }
 
 

@@ -1,9 +1,12 @@
 package controller;
 
+import model.objects.InitRequest;
 import model.objects.UserProfile;
 
 import com.google.gson.JsonObject;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
 import supporting.FirebaseAuth;
 
 import view.interfaces.ISignUpView;
@@ -39,8 +42,14 @@ public class SignUpController {
 
             String uid = jsonObj.get("localId").getAsString();
 
-            // TODO: Send Registration Request to Server to Init User in DB.
-            // Needs to be sent together with uid, fname and lname.
+            final String uri = "http://localhost:8080/init";
+
+            InitRequest initRequest = new InitRequest(uid, fname, lname);
+
+            RestTemplate restTemplate = new RestTemplate();
+
+            ResponseEntity response = restTemplate.postForObject(uri, initRequest, ResponseEntity.class);
+            System.out.println(response);
 
 
             jsonObj = FirebaseAuth.getInstance().auth(email, pass);

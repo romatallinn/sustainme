@@ -1,8 +1,11 @@
 package server;
 
+import model.objects.InitRequest;
 import model.objects.UserData;
 import model.objects.VegetarianRequest;
 import model.objects.VegetarianResponse;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,7 +28,13 @@ public class ServerController {
         int score = DatabaseHandler.increaseExpBy(vegetarianRequest.getUid(), vegetarianRequest.getAmount() * 5);
         double co2 = DatabaseHandler.increaseCO2RedBy(vegetarianRequest.getUid(), vegetarianRequest.getAmount() * 3.0);
         int amount = DatabaseHandler.increaseFeatureCounter(vegetarianRequest.getUid(), "vegmeals", vegetarianRequest.getAmount());
-        return new VegetarianResponse(score, co2, amount);
+        return new VegetarianResponse(vegetarianRequest.getAmount() * 5, vegetarianRequest.getAmount() * 3.0, vegetarianRequest.getAmount());
+    }
+
+    @RequestMapping(value = "/init", method = RequestMethod.POST)
+    public ResponseEntity initUser(@RequestBody InitRequest initRequest) {
+        DatabaseHandler.initUser(initRequest.getUid(), initRequest.getFname(), initRequest.getLname());
+        return new ResponseEntity(HttpStatus.CREATED);
     }
 
 }
