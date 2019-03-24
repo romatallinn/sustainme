@@ -30,19 +30,19 @@ public class SignUpControllerTest {
 
     @Test
     public void testSignUpCallbackExist() throws IOException {
-        controller.signUpCallback("test@test.com", "123456Aa");
+        controller.signUpCallback("test@test.com", "123456Aa", "John", "Smith");
         verify(view).displayStatus(any());
     }
 
     @Test
     public void testSignUpCallbackWrongEmailFormat() throws IOException {
-        controller.signUpCallback("awd", "123456Aa");
+        controller.signUpCallback("awd", "123456Aa", "John", "Smith");
         verify(view).displayStatus(any());
     }
 
     @Test
     public void testSignUpCallbackMissingEmail() throws IOException {
-        controller.signUpCallback("", "123456Aa");
+        controller.signUpCallback("", "123456Aa", "John", "Smith");
         verify(view).displayStatus(any());
     }
 
