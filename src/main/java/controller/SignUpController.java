@@ -1,13 +1,18 @@
 package controller;
 
-import net.thegreshams.firebase4j.error.FirebaseException;
-import net.thegreshams.firebase4j.error.JacksonUtilityException;
-import net.thegreshams.firebase4j.model.FirebaseResponse;
-import supporting.AuthService;
+import com.google.gson.JsonObject;
+
+import model.objects.InitRequest;
+import model.objects.UserProfile;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
+import supporting.FirebaseAuth;
+
+import supporting.ServerApi;
 import view.interfaces.ISignUpView;
 
-import java.io.UnsupportedEncodingException;
-import java.util.Map;
+import java.io.IOException;
 
 public class SignUpController {
 
@@ -22,29 +27,51 @@ public class SignUpController {
      * @param email - user's email to be used for registration.
      * @param pass - user's password to be used for registration.
      */
-    public void signUpCallback(String email, String pass) {
+    public void signUpCallback(String email, String pass, String fname, String lname) {
 
         try {
-            FirebaseResponse response = AuthService.signUp(email, pass);
 
-            if (!response.getSuccess()) {
+            JsonObject jsonObj = FirebaseAuth.getInstance().register(email, pass);
+            String err = FirebaseAuth.parseError(jsonObj);
 
-                Map<String, Object> errorObj = (Map<String, Object>)response.getBody().get("error");
-                String errorMsg = getErrorMessage(errorObj.get("message").toString());
+            if (err != null) {
 
-                if (errorMsg != null) {
-                    view.displayStatus(errorMsg);
-                }
+                String msg = getErrorMessage(err);
+                view.displayStatus(msg);
+                return;
 
-            } else {
-
-                view.displayStatus("You were registered!");
-                view.clearSignUpFields();
-
-                // TODO: Automatic Authorization?
             }
 
-        } catch (FirebaseException | UnsupportedEncodingException | JacksonUtilityException e) {
+            String uid = jsonObj.get("localId").getAsString();
+
+            final String uri = ServerApi.HOST + ServerApi.USER_DB_INIT;
+
+            InitRequest initRequest = new InitRequest(uid, fname, lname);
+
+            RestTemplate restTemplate = new RestTemplate();
+
+            ResponseEntity response = restTemplate.postForObject(uri, initRequest,
+                    ResponseEntity.class);
+            System.out.println(response);
+
+
+            jsonObj = FirebaseAuth.getInstance().auth(email, pass);
+            err = FirebaseAuth.parseError(jsonObj);
+
+            if (err != null) {
+
+                view.displayStatus(err);
+                return;
+
+            }
+
+            String token = jsonObj.get("idToken").getAsString();
+            UserProfile.getInstance().init(email, uid, token);
+
+            view.goToHome();
+
+
+        } catch (IOException e) {
             view.displayStatus("Exception:\n" + e.getMessage());
         }
 

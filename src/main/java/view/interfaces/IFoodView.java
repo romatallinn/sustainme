@@ -8,4 +8,6 @@ public interface IFoodView {
 
     void displayStatus(String msg);
 
+    void updateVegCounter(int counter);
+
 }

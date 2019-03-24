@@ -1,14 +1,14 @@
 package controller;
 
-import model.SingletonUser;
-import net.thegreshams.firebase4j.error.FirebaseException;
-import net.thegreshams.firebase4j.error.JacksonUtilityException;
-import net.thegreshams.firebase4j.model.FirebaseResponse;
-import supporting.AuthService;
+import com.google.gson.JsonObject;
+
+import model.objects.UserProfile;
+
+import supporting.FirebaseAuth;
+
 import view.interfaces.ISignInView;
 
 import java.io.IOException;
-import java.util.Map;
 
 public class SignInController {
 
@@ -27,28 +27,24 @@ public class SignInController {
 
         try {
 
-            FirebaseResponse response = AuthService.signIn(email, pass);
+            JsonObject jsonObj = FirebaseAuth.getInstance().auth(email, pass);
+            String err = FirebaseAuth.parseError(jsonObj);
 
-            if (!response.getSuccess()) {
+            if (err != null) {
 
-                Map<String, Object> errorObj = (Map<String, Object>)response.getBody().get("error");
-                String errorMsg = getErrorMessage(errorObj.get("message").toString());
-                view.displayStatus(errorMsg);
-
+                String msg = getErrorMessage(err);
+                view.displayStatus(msg);
                 return;
 
             }
 
+            String token = jsonObj.get("idToken").getAsString();
+            String uid = jsonObj.get("localId").getAsString();
 
-            String token = (String)response.getBody().get("idToken");
-            String emailStr = (String)response.getBody().get("email");
-            String uid = (String)response.getBody().get("localId");
-
-
-            SingletonUser.getInstance().init(emailStr, uid, token);
+            UserProfile.getInstance().init(email, uid, token);
             view.goToHome();
 
-        } catch (FirebaseException | JacksonUtilityException | IOException e) {
+        } catch (IOException e) {
             view.displayStatus("Exception:\n" + e.getMessage());
         }
 
