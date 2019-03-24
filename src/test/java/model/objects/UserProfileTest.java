@@ -11,7 +11,7 @@ public class UserProfileTest {
         UserProfile user = new UserProfile();
         
         // Increase Exp
-        user.increaseExp(5);
+        user.setLocalExp(5);
 
         // Assert Final Stats
         assertEquals(10, user.getExperience());
@@ -24,7 +24,7 @@ public class UserProfileTest {
 
         UserProfile user = new UserProfile();
 
-        user.increaseExp(16);
+        user.setLocalExp(16);
 
         assertEquals(1, user.getExperience(),0.0);
         assertEquals(3, user.getLevel());
@@ -36,7 +36,7 @@ public class UserProfileTest {
 
         UserProfile user = new UserProfile();
 
-        user.reduceCo2(2.2);
+        user.setLocalCo2Stats(2.2);
         assertEquals(user.getCo2Reduction(),7.2,0.0);
 
     }
