@@ -11,9 +11,10 @@ import com.jogamp.opengl.GLCapabilities;
 import com.jogamp.opengl.GLEventListener;
 import com.jogamp.opengl.GLProfile;
 import com.jogamp.opengl.awt.GLCanvas;
+import com.jogamp.opengl.awt.GLJPanel;
 
-import java.awt.Graphics2D;
-import java.awt.Image;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 
@@ -49,8 +50,13 @@ public class FractalTree implements GLEventListener {
         final GL2 gl = drawable.getGL().getGL2();
         gl.glBegin(GL2.GL_LINES);
 
+        System.out.println("drawing tree");
+
         // drawBranch(gl, Direction.N, 0f, -1f, 0.5f, 60000);
         drawTree(gl, this.scores);
+
+        System.out.println("done traw tree");
+
         gl.glFlush();
     }
 
@@ -232,22 +238,37 @@ public class FractalTree implements GLEventListener {
         final GLProfile profile = GLProfile.get(GLProfile.GL2);
         GLCapabilities capabilities = new GLCapabilities(profile);
 
-        // Make Gl canvas
+//         Make Gl canvas
         final GLCanvas glcanvas = new GLCanvas(capabilities);
         FractalTree fractalTreeDrawer = new FractalTree(scores, name);
         glcanvas.addGLEventListener(fractalTreeDrawer);
         glcanvas.setSize(width, height);
 
-        // Make image of canvas
-        Image canvasImage = glcanvas.createImage(width, height);
+        // Creating a frame
+        final JFrame frame = new JFrame(" Basic Frame");
+
+        // Adding canvas to frame
+        frame.getContentPane().add(glcanvas);
+        frame.setSize(frame.getContentPane().getPreferredSize());
+        frame.setVisible(true);
 
         // Create a buffered image
         BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 
+        System.out.println("painting");
+        frame.update(bufferedImage.createGraphics());
+
+        System.out.println("Painted");
+
+
+        // Make image of canvas
+        //Image canvasImage = glcanvas.createImage(width, height);
+
+
         // Draw the buffered image
-        Graphics2D drawer = bufferedImage.createGraphics();
-        drawer.drawImage(canvasImage, 0, 0, null);
-        drawer.dispose();
+        //Graphics2D drawer = bufferedImage.createGraphics();
+        //drawer.drawImage(canvasImage, 0, 0, null);
+        //drawer.dispose();
 
         // Return the buffered image
         return bufferedImage;
