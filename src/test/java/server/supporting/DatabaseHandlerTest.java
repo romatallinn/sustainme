@@ -48,12 +48,37 @@ public class DatabaseHandlerTest {
 
         int initial = DatabaseHandler.retrieveFeatureCounter(uid, feature);
 
-        DatabaseHandler.increaseFeatureCounter(uid, feature, 2);
-        Thread.sleep(3000);
+        int newVal = DatabaseHandler.increaseFeatureCounter(uid, feature, 2);
 
-        int end = DatabaseHandler.retrieveFeatureCounter(uid, feature);
+        Assert.assertEquals(initial, newVal-2);
 
-        Assert.assertEquals(initial, end-2);
+
+    }
+
+    @Test
+    public void testExpIncrease() throws InterruptedException {
+
+        String tUid = "testid";
+
+        UserData initial = DatabaseHandler.getUserData(tUid);
+
+        int newVal = DatabaseHandler.increaseExpBy(tUid, 5);
+
+        Assert.assertEquals(initial.experience, newVal-5);
+
+
+    }
+
+    @Test
+    public void testCo2Increase() throws InterruptedException {
+
+        String tUid = "testid";
+
+        UserData initial = DatabaseHandler.getUserData(tUid);
+
+        double newVal = DatabaseHandler.increaseCO2RedBy(tUid, 5.0);
+
+        Assert.assertEquals(initial.co2red, newVal-5, 0.1);
 
 
     }
