@@ -27,9 +27,10 @@ public class ServerControllerTest {
         assertEquals("staticTestUser", userData.uid);
         assertEquals("Static", userData.fname);
         assertEquals("Testuser", userData.lname);
-        assertNotNull(userData.level);
-        assertNotNull(userData.experience);
-        assertNotNull(userData.vegmeals);
+        assertEquals(0, userData.level);
+        assertEquals(34,userData.experience);
+        assertEquals(4,userData.vegmeals);
+        assertEquals(13,userData.co2red,0.0);
     }
 
     @Test

@@ -30,13 +30,22 @@ public class FoodController {
 
     /**
      * The method acts upon the fact of the eaten vegetarian meals.
-     * @param count of the vegetarian meals eaten.
+     * @param countString of the vegetarian meals eaten.
      */
-    public void addEatenVegMeals(int count) {
-
-        model.vegMeal(count);
-        view.displayStatus("The stat is updated!");
-        updateViewWithData();
+    public void addEatenVegMeals(String countString) {
+        int count = 0;
+        try {
+            count = Integer.parseInt(countString);
+            if (count < 0 || count > 3) {
+                view.displayStatus("Please enter a  number in the range 0-3");
+                return;
+            }
+            model.vegMeal(count);
+            view.displayStatus("The stat is updated!");
+            updateViewWithData();
+        } catch (NumberFormatException e) {
+            view.displayStatus("Please enter an integer number");
+        }
     }
 
 }

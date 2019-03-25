@@ -42,6 +42,7 @@ public class UserProfile {
 
     public void clean() {
         UserProfile.instance = new UserProfile();
+        data = new UserData();
     }
 
     /**
@@ -121,6 +122,7 @@ public class UserProfile {
      */
     private void checkLevel() {
 
+        data.level = 1;
         while (data.experience >= 10 * pow(2, data.level - 1)) {
 
             data.experience -= 10 * pow(2, data.level - 1);
