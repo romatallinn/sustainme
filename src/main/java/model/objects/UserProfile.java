@@ -42,6 +42,7 @@ public class UserProfile {
 
     public void clean() {
         UserProfile.instance = new UserProfile();
+        data = new UserData();
     }
 
     /**

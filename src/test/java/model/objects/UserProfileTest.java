@@ -83,8 +83,9 @@ public class UserProfileTest {
         UserProfile user = new UserProfile();
 
         user.setLocalExp(5);
+        assertEquals(0.5, user.getExpProgress(), 0);
         user.clean();
-        assertEquals(user.getExpProgress(), 0.25, 0);
+        assertEquals(0, user.getExpProgress(), 0);
     }
 
     @Test
@@ -116,7 +117,7 @@ public class UserProfileTest {
 
         user.setLocalExp(5);
         user.logout();
-        assertEquals(user.getExpProgress(), 0.25, 0);
+        assertEquals(0, user.getExpProgress(), 0);
     }
 
 }
