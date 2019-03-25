@@ -45,4 +45,14 @@ public class JavaFxFoodView extends JavaFxView implements IFoodView {
     public void displayStatus(String msg) {
         // TODO
     }
+
+    @Override
+    protected void updateLabels() {
+        controller.updateViewWithData();
+    }
+
+    @Override
+    public void updateVegCounter(int counter) {
+        vegCounter.setText("Counter: " + counter);
+    }
 }

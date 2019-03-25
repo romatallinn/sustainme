@@ -2,6 +2,8 @@ package view.interfaces;
 
 import controller.SignUpController;
 
+import java.io.IOException;
+
 /**
  * Interface of the sign up view.
  * It is used in order to make a more abstracted connection,
@@ -19,4 +21,6 @@ public interface ISignUpView {
 
 
     void clearSignUpFields();
+
+    void goToHome() throws IOException;
 }

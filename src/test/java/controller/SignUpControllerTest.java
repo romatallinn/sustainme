@@ -8,6 +8,8 @@ import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 import view.interfaces.ISignUpView;
 
+import java.io.IOException;
+
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 
@@ -28,19 +30,19 @@ public class SignUpControllerTest {
 
     @Test
     public void testSignUpCallbackExist() {
-        controller.signUpCallback("test@test.com", "123456Aa");
+        controller.signUpCallback("test@test.com", "123456Aa", "John", "Smith");
         verify(view).displayStatus(any());
     }
 
     @Test
     public void testSignUpCallbackWrongEmailFormat() {
-        controller.signUpCallback("awd", "123456Aa");
+        controller.signUpCallback("awd", "123456Aa", "John", "Smith");
         verify(view).displayStatus(any());
     }
 
     @Test
     public void testSignUpCallbackMissingEmail() {
-        controller.signUpCallback("", "123456Aa");
+        controller.signUpCallback("", "123456Aa", "John", "Smith");
         verify(view).displayStatus(any());
     }
 

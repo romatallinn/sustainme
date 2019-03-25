@@ -39,7 +39,8 @@ public class JavaFxSignUpView extends JavaFxView implements ISignUpView {
             return;
         }
 
-        controller.signUpCallback(email.getText(), pass.getText());
+        controller.signUpCallback(email.getText(), pass.getText(),
+                name.getText(), lastname.getText());
     }
 
     /**
@@ -48,6 +49,10 @@ public class JavaFxSignUpView extends JavaFxView implements ISignUpView {
     @FXML
     public void goToSignIn() throws IOException {
         this.switchScene(login.getScene(), "signin");
+    }
+
+    public void goToHome() throws IOException {
+        this.switchScene(login.getScene(), "home");
     }
 
     @Override
