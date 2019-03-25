@@ -1,40 +1,62 @@
 .root {
-    -fx-background-color: white;
+    -fx-background-color: #FFFFFF;
 }
 
 #top {
-    -fx-background-color: #1db954;
+    -fx-background-color: #4CAF50;
+}
+
+#tab {
+    -fx-background-color: #388E3C;
 }
 
 #title {
     -fx-font-size: 80;
     -fx-font-family: "Lucida Calligraphy";
+    -fx-fill: #FFFFFF;
+}
+
+#locationtab {
+    -fx-fill: #C8E6C9;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
 }
 
 #logout {
-    -fx-text-fill: white;
+    -fx-text-fill: #FFFFFF;
     -fx-font-size: 30;
     -fx-background-color: none;
-    -fx-effect: dropshadow(gaussian, black, 5,0.2,0,0);
+    -fx-font-weight: bold;
+    -fx-border-style: none;
+}
+
+#homeBtn {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 30;
+    -fx-background-color: none;
+    -fx-font-weight: bold;
+    -fx-border-style: none;
+}
+
+.header {
+    -fx-fill: #212121;
+    -fx-font-size: 50;
     -fx-font-weight: bold;
 }
 
-#names {
-    -fx-font-size: 60;
-}
-
-#level {
-    -fx-font-size: 40;
+.description {
+    -fx-fill: #757575;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
 }
 
 .button {
-    -fx-text-fill: white;
-    -fx-font-size: 22;
-    -fx-background-color: #1db954;
-    -fx-effect: dropshadow(gaussian, black, 5,0.2,0,0);
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-radius: 50 0 50 0;
+    -fx-background-radius: 50 0 50 0;
     -fx-font-weight: bold;
-    -fx-border-radius: 50px;
-    -fx-background-radius: 25px;
+    -fx-font-size: 20;
 }
 
 .progress-bar > .track{
@@ -42,6 +64,11 @@
 }
 
 .progress-bar > .bar{
-    -fx-background-color: #1db954;
+    -fx-background-color: #03A9F4;
+}
+
+#profilePic {
+    -fx-border-radius: 50;
+    -fx-background-radius: 50;
 }
 
