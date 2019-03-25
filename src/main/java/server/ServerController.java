@@ -39,13 +39,16 @@ public class ServerController {
     @RequestMapping(value = "/vegmeal", method = RequestMethod.POST)
     public VegetarianResponse vegetarianMeal(@RequestBody VegetarianRequest vegetarianRequest)
             throws InterruptedException {
-
+        int upAmount = vegetarianRequest.getAmount();
+        if (upAmount <= 0 || upAmount > 3) {
+            upAmount = 0;
+        }
         int exp = DatabaseHandler.increaseExpBy(vegetarianRequest.getUid(),
-                vegetarianRequest.getAmount() * 5);
+                upAmount * 5);
         double co2 = DatabaseHandler.increaseCO2RedBy(vegetarianRequest.getUid(),
-                vegetarianRequest.getAmount() * 3.0);
+                upAmount * 3.0);
         int amount = DatabaseHandler.increaseFeatureCounter(vegetarianRequest.getUid(),
-                "vegmeals", vegetarianRequest.getAmount());
+                "vegmeals", upAmount);
         return new VegetarianResponse(exp, co2, amount);
 
     }
