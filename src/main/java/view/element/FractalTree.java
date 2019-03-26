@@ -1,16 +1,19 @@
 package view.element;
 
-import com.sun.tools.javac.util.ArrayUtils;
+
+import static java.lang.Math.PI;
+import static java.lang.Math.cos;
+import static java.lang.Math.sin;
+import static java.util.Arrays.copyOfRange;
+
 import javafx.geometry.Point3D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.StrokeLineCap;
 
-import java.util.*;
+import java.util.Random;
 
-import static java.lang.Math.*;
-import static java.util.Arrays.copyOfRange;
 
 public class FractalTree {
     private static final double degreeOffset = 30;
@@ -25,7 +28,7 @@ public class FractalTree {
     private Color[] colors;
 
     public FractalTree(String seed) {
-        this(seed, new int[]{}, new Color[]{});
+        this(seed, new int[] {}, new Color[] {});
     }
 
     public FractalTree(String seed, int[] scores, Color[] colors) {
@@ -37,6 +40,11 @@ public class FractalTree {
         return scores;
     }
 
+    /**
+     * Sets the scores and makes sure that there are as much colors as scores.
+     * @param scores - sets depth of the tree with the scores
+     * @param colors - gives every category a specified color
+     */
     public void setScores(int[] scores, Color[] colors) {
         if (scores.length > colors.length) {
             throw new IllegalArgumentException("FractalTree colors cannot be smaller than scores");
@@ -57,30 +65,38 @@ public class FractalTree {
         drawTree(canvas, 0, 0, canvas.getWidth(), canvas.getHeight());
     }
 
+    /**
+     * Starts drawing the tree in the canvas.
+     * @param canvas    - javafx canvas
+     * @param startX    - start x-coordinate
+     * @param startY    - start y-coordinate
+     * @param width     - width of canvas
+     * @param height    - height of canvas
+     */
     public void drawTree(Canvas canvas, double startX, double startY, double width, double height) {
         GraphicsContext gc = canvas.getGraphicsContext2D();
         Point3D vec = new Point3D(width / 2, height, deg(180));
         drawBranch(
-                gc,
-                vec,
-                startLength * height,
-                scores,
-                startColor,
-                colors,
-                seedAsLong(),
-                0
+            gc,
+            vec,
+            startLength * height,
+            scores,
+            startColor,
+            colors,
+            seedAsLong(),
+            0
         );
     }
 
     private void drawBranch(
-            GraphicsContext gc,
-            Point3D vec,
-            double length,
-            int[] scores,
-            Color color,
-            Color[] colors,
-            long randomSeed,
-            int level
+        GraphicsContext gc,
+        Point3D vec,
+        double length,
+        int[] scores,
+        Color color,
+        Color[] colors,
+        long randomSeed,
+        int level
     ) {
         if (scores.length == 0 || (scores.length == 1 && scores[0] <= 0)) {
             return;
@@ -93,7 +109,7 @@ public class FractalTree {
 
         Color local = fade(color, colors.length > 1 ? startColor : colors[0]);
         gc.setStroke(local);
-        double width = startWidth * gc.getCanvas().getWidth() - (level * 4);
+        double width = startWidth * gc.getCanvas().getWidth() - (level * 3.25);
         gc.setLineWidth(width < 1 ? 1 : width);
         gc.setLineCap(StrokeLineCap.ROUND);
         gc.strokeLine(vec.getX(), vec.getY(), nextX, nextY);
@@ -112,10 +128,10 @@ public class FractalTree {
             scoresRight = copyOfRange(scores, scores.length / 2, scores.length);
             colorsRight = copyOfRange(colors, scores.length / 2, scores.length);
         } else {
-            scoresLeft = new int[]{(scores[0] - 1) / 2};
-            colorsLeft = new Color[]{colors[0]};
-            scoresRight = new int[]{(scores[0] - 1) / 2};
-            colorsRight = new Color[]{colors[0]};
+            scoresLeft = new int[] {(scores[0] - 1) / 2};
+            colorsLeft = new Color[] {colors[0]};
+            scoresRight = new int[] {(scores[0] - 1) / 2};
+            colorsRight = new Color[] {colors[0]};
         }
 
         // Make random from seed
@@ -128,34 +144,34 @@ public class FractalTree {
 
         // Draw left branch
         drawBranch(
-                gc,
-                new Point3D(
-                        nextX,
-                        nextY,
-                        deg(vec.getZ() - degreeOffset * random.nextDouble())
-                ),
-                nextLength,
-                scoresLeft,
-                local,
-                colorsLeft,
-                randomSeed + 857 * level, // Update seed by adding prime 857 for left
-                level + 1
+            gc,
+            new Point3D(
+                nextX,
+                nextY,
+                deg(vec.getZ() - degreeOffset * random.nextDouble())
+            ),
+            nextLength,
+            scoresLeft,
+            local,
+            colorsLeft,
+            randomSeed + 857 * level, // Update seed by adding prime 857 for left
+            level + 1
         );
 
         // Draw right branch
         drawBranch(
-                gc,
-                new Point3D(
-                        nextX,
-                        nextY,
-                        deg(vec.getZ() + degreeOffset * random.nextDouble())
-                ),
-                nextLength,
-                scoresRight,
-                local,
-                colorsRight,
-                randomSeed + 151 * level, // Update seed by adding prime 151 for right
-                level + 1
+            gc,
+            new Point3D(
+                nextX,
+                nextY,
+                deg(vec.getZ() + degreeOffset * random.nextDouble())
+            ),
+            nextLength,
+            scoresRight,
+            local,
+            colorsRight,
+            randomSeed + 151 * level, // Update seed by adding prime 151 for right
+            level + 1
         );
     }
 
@@ -175,6 +191,11 @@ public class FractalTree {
         return seed;
     }
 
+    /**
+     * Makes sure that the angle between the branches has a normal value.
+     * @param in    - angle between the branches
+     * @return      - new value for the degrees
+     */
     public double deg(double in) {
         if (in < 0) {
             return in + 360;
@@ -185,12 +206,18 @@ public class FractalTree {
         return in;
     }
 
+    /**
+     * Fades the color of the branches along the growth of the tree.
+     * @param source - original color
+     * @param target - color that it must become
+     * @return       - new color
+     */
     public Color fade(Color source, Color target) {
         return new Color(
-                source.getRed() * (1.0 - blendSpeed) + target.getRed() * blendSpeed,
-                source.getGreen() * (1.0 - blendSpeed) + target.getGreen() * blendSpeed,
-                source.getBlue() * (1.0 - blendSpeed) + target.getBlue() * blendSpeed,
-                source.getOpacity() * (1.0 - blendSpeed) + target.getOpacity() * blendSpeed
+            source.getRed() * (1.0 - blendSpeed) + target.getRed() * blendSpeed,
+            source.getGreen() * (1.0 - blendSpeed) + target.getGreen() * blendSpeed,
+            source.getBlue() * (1.0 - blendSpeed) + target.getBlue() * blendSpeed,
+            source.getOpacity() * (1.0 - blendSpeed) + target.getOpacity() * blendSpeed
         );
     }
 }

@@ -9,19 +9,13 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import view.element.FractalTree;
 
-import java.awt.image.BufferedImage;
-
 
 public class JavaFxFractalTreeView extends Application {
 
     @Override
     public void start(Stage primaryStage) {
 
-//        BufferedImage fractalTree = FractalTreeOld.makeImage(300, 200, new int[] {3, 90}, "nadyne");
-//        WritableImage fractalTreeImage = SwingFXUtils.toFXImage(fractalTree, null);
-
         // Creates the canvas
-        Group root = new Group();
         Canvas canvas = new Canvas(800, 800);
 
         GraphicsContext gc = canvas.getGraphicsContext2D();
@@ -36,11 +30,16 @@ public class JavaFxFractalTreeView extends Application {
 
         FractalTree ft = new FractalTree(
                 "paul",
-                new int[]{250, 250, 2000, 2000, 10000},
-                new Color[]{new Color(0.953, 0.694, 0.31, 1), Color.PALEGREEN, Color.BLUE, Color.RED, Color.PINK}
+                new int[]{250, 250, 130, 79, 450},
+                new Color[]{
+                    new Color(0.953, 0.694, 0.31, 1),
+                    Color.PALEGREEN,
+                    Color.BLUE,
+                    Color.RED,
+                    Color.PINK}
         );
         ft.drawTree(canvas);
-//        gc.drawImage(fractalTreeImage, 0, 0);
+        Group root = new Group();
         root.getChildren().add(canvas);
 
 
