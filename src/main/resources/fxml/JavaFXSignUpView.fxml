@@ -61,7 +61,7 @@
             <Label fx:id="welcome" text="Become more aware of your carbon footprint and start a more sustainable life!" wrapText="true" />
             <ImageView fitWidth="300.0" layoutX="70.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="79.0" AnchorPane.leftAnchor="70.0">
                <image>
-                  <Image url="https://www.wpclipart.com/cartoon/food/Cartoon_Tree.png" />
+                  <Image url="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Leaf_Simple_Green_L.svg/1280px-Leaf_Simple_Green_L.svg.png" />
                </image>
                <effect>
                   <Blend />
