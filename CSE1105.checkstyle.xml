@@ -163,7 +163,9 @@ Checkstyle configurartion that checks the Google coding conventions (https://goo
     <module name="UnusedImports"/>
     <module name="RedundantImport"/>
     <module name="MethodLength"/>
-    <module name="ParameterNumber"/>
+    <module name="ParameterNumber">
+      <property name="max" value="8"/>
+    </module>
     <module name="MethodCount">
       <property name="maxTotal" value="50"/>
       <property name="maxPrivate" value="50"/>

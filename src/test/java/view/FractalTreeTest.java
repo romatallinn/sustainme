@@ -8,32 +8,32 @@ import static org.junit.Assert.*;
 public class FractalTreeTest {
 
     @Test
-    public void seedFromNameEmpty() {
-        FractalTree testTree = new FractalTree(new int[] {}, "");
-        assertEquals(testTree.seedFromName(), 0);
+    public void seedAsLongEmpty() {
+        FractalTree testTree = new FractalTree("");
+        assertEquals(testTree.seedAsLong(), 0);
     }
 
     @Test
-    public void seedFromNameA() {
-        FractalTree testTree = new FractalTree(new int[] {}, "a");
-        assertEquals(testTree.seedFromName(), 97);
+    public void seedAsLongA() {
+        FractalTree testTree = new FractalTree("a");
+        assertEquals(testTree.seedAsLong(), 97);
     }
 
     @Test
-    public void seedFromNameB() {
-        FractalTree testTree = new FractalTree(new int[] {}, "b");
-        assertEquals(testTree.seedFromName(), 98);
+    public void seedAsLongB() {
+        FractalTree testTree = new FractalTree("b");
+        assertEquals(testTree.seedAsLong(), 98);
     }
 
     @Test
-    public void seedFromNameAB() {
-        FractalTree testTree = new FractalTree(new int[] {}, "ab");
-        assertEquals(testTree.seedFromName(), 97 + 2 * 98);
+    public void seedAsLongAB() {
+        FractalTree testTree = new FractalTree("ab");
+        assertEquals(testTree.seedAsLong(), 97 + 2 * 98);
     }
 
     @Test
-    public void seedFromNameNadyne() {
-        FractalTree testTree = new FractalTree(new int[] {}, "nadyne");
-        assertEquals(testTree.seedFromName(), 110 + 2 * 97 + 3 * 100 + 4 * 121 + 5 * 110 + 6 * 101);
+    public void seedAsLongNadyne() {
+        FractalTree testTree = new FractalTree("nadyne");
+        assertEquals(testTree.seedAsLong(), 110 + 2 * 97 + 3 * 100 + 4 * 121 + 5 * 110 + 6 * 101);
     }
 }
