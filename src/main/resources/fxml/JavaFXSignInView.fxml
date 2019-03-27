@@ -54,7 +54,24 @@
         </HBox>
         <HBox>
             <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-            <Label fx:id="welcome" text="Become more aware of your carbon footprint and start a more sustainable life!" wrapText="true" />
+         <VBox maxWidth="1000.0" spacing="100.0">
+            <children>
+               <Label fx:id="welcome" text="Become more aware of your carbon footprint and start a more sustainable life!" wrapText="true" />
+               <ImageView fitHeight="150.0" fitWidth="300.0" layoutX="70.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Leaf_Simple_Green_L.svg/1280px-Leaf_Simple_Green_L.svg.png" />
+                  </image>
+                  <effect>
+                     <Blend />
+                  </effect>
+                  <viewport>
+                     <Rectangle2D />
+                  </viewport></ImageView>
+            </children>
+            <padding>
+               <Insets bottom="50.0" left="200.0" />
+            </padding>
+         </VBox>
             <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
          <Separator orientation="VERTICAL" prefHeight="200.0" />
          <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
