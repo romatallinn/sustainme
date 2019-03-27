@@ -14,7 +14,7 @@
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <HBox fx:id="top">
-            <Button fx:id="home" mnemonicParsing="false" onAction="#goToHome" text="Home   " HBox.hgrow="ALWAYS">
+            <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#goToHome" text="Home   " HBox.hgrow="ALWAYS">
                 <HBox.margin>
                     <Insets left="10.0" />
                 </HBox.margin></Button>
@@ -35,7 +35,7 @@
         <HBox fx:id="tab" prefHeight="30.0">
             <children>
                 <Region prefHeight="187.0" prefWidth="716.0" HBox.hgrow="ALWAYS" />
-                <Text fx:id="locationtab" strokeType="OUTSIDE" strokeWidth="0.0" text="Energy" textAlignment="CENTER" wrappingWidth="220.13671875" HBox.hgrow="ALWAYS">
+                <Text fx:id="locationtab" strokeType="OUTSIDE" strokeWidth="0.0" text="Transport" textAlignment="CENTER" wrappingWidth="220.13671875" HBox.hgrow="ALWAYS">
                     <HBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                     </HBox.margin></Text>
@@ -70,7 +70,7 @@
                         </HBox>
                         <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Total distance in kilometers:" />
-                        <Text fx:id="vegCounter" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="21" />
+                        <Text fx:id="distanceBikeCounter" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="21" />
                         <Region layoutX="10.0" layoutY="82.0" prefHeight="200.0" prefWidth="200.0" />
                     </children>
                     <HBox.margin>
@@ -104,7 +104,7 @@
                         </HBox>
                         <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Total distance in kilometers:" />
-                        <Text fx:id="vegCounter" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="21" />
+                        <Text fx:id="distancePublicCounter" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="21" />
                         <Region layoutX="10.0" layoutY="82.0" prefHeight="200.0" prefWidth="200.0" />
                     </children>
                     <HBox.margin>
