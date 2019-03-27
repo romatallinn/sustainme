@@ -150,8 +150,8 @@ public class ApiRequest {
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("accept", "application/json");
-            conn.setRequestProperty("app_id", "bca8cc1a"); //insert app_id
-            conn.setRequestProperty("app_key", "7d58f5d3a0247bd9fdf90094cbbfa5c7"); //insert app_key
+            conn.setRequestProperty("app_id", ""); //insert app_id
+            conn.setRequestProperty("app_key", ""); //insert app_key
             BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             String line;
             while ((line = rd.readLine()) != null) {
