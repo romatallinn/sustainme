@@ -64,8 +64,8 @@ public class ServerController {
     }
 
     @RequestMapping(value = "/bike", method = RequestMethod.POST)
-    public BikeResponse useBike(@RequestBody BikeRequest bikeRequest) throws Exception {
-        double result = ApiRequest.requestBike(Integer.toString(bikeRequest.getDistance())); //Should be result from api request
+    public BikeResponse useBike(@RequestBody BikeRequest bikeRequest) throws InterruptedException {
+        double result = 0; //Should be result from api request
         int exp =  DatabaseHandler.increaseExpBy(bikeRequest.getUid(),
                 bikeRequest.getDistance());
         double co2 = DatabaseHandler.increaseCO2RedBy(bikeRequest.getUid(),
