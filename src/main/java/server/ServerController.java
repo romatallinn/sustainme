@@ -1,9 +1,7 @@
 package server;
 
-import model.objects.InitRequest;
-import model.objects.UserData;
-import model.objects.VegetarianRequest;
-import model.objects.VegetarianResponse;
+import api.ApiRequest;
+import model.objects.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -63,6 +61,19 @@ public class ServerController {
         DatabaseHandler.initUser(initRequest.getUid(), initRequest.getFname(),
                 initRequest.getLname());
         return new ResponseEntity(HttpStatus.CREATED);
+    }
+
+    @RequestMapping(value = "/bike", method = RequestMethod.POST)
+    public BikeResponse useBike(@RequestBody BikeRequest bikeRequest) throws InterruptedException {
+        double result = 0; //Should be result from api request
+        int exp =  DatabaseHandler.increaseExpBy(bikeRequest.getUid(),
+                bikeRequest.getDistance());
+        double co2 = DatabaseHandler.increaseCO2RedBy(bikeRequest.getUid(),
+                result);
+        int distance = bikeRequest.getDistance();
+
+        return new BikeResponse(exp,co2,distance);
+
     }
 
 }

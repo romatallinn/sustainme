@@ -9,6 +9,7 @@ import supporting.ServerApi;
 public class FeaturesModel {
 
     private int vegMealCounter;
+    private int bikeDistance;
 
     public FeaturesModel() {
         vegMealCounter = 0;
