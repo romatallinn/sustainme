@@ -1,7 +1,12 @@
 package server;
 
 import api.ApiRequest;
-import model.objects.*;
+import model.objects.BikeRequest;
+import model.objects.BikeResponse;
+import model.objects.InitRequest;
+import model.objects.UserData;
+import model.objects.VegetarianRequest;
+import model.objects.VegetarianResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -63,9 +68,16 @@ public class ServerController {
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
+    /**
+     * Sends a request to the database handler for updating the vegetarian meal stats.
+     * @param bikeRequest request received by client
+     * @return bikeResponse for user with updated stats
+     * @throws Exception exception could be thrown by database handler
+     */
     @RequestMapping(value = "/bike", method = RequestMethod.POST)
     public BikeResponse useBike(@RequestBody BikeRequest bikeRequest) throws Exception {
-        double result = ApiRequest.requestBike(Integer.toString(bikeRequest.getDistance())); //Should be result from api request
+        double result = ApiRequest.requestBike(Integer
+                .toString(bikeRequest.getDistance())); //Should be result from api request
         int exp =  DatabaseHandler.increaseExpBy(bikeRequest.getUid(),
                 bikeRequest.getDistance());
         double co2 = DatabaseHandler.increaseCO2RedBy(bikeRequest.getUid(),

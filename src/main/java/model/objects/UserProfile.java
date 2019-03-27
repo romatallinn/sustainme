@@ -109,6 +109,10 @@ public class UserProfile {
         data.vegmeals = amount;
     }
 
+    public void setLocalBikeDistance(int distance) {
+        data.bikedistance = distance;
+    }
+
     /**
      * Signs user off from the session.
      */
@@ -167,6 +171,10 @@ public class UserProfile {
 
     public int getVegMeals() {
         return data.vegmeals;
+    }
+
+    public int getBikeKms() {
+        return data.bikedistance;
     }
 
 }

@@ -8,6 +8,12 @@ public class BikeResponse {
 
     public BikeResponse() {}
 
+    /**
+     * The constructor for a bike response.
+     * @param experience new experience of the user
+     * @param co2Reduced new co2 reduction of the user
+     * @param distance new cycled distance of the user
+     */
     public BikeResponse(int experience, double co2Reduced, int distance) {
         this.experience = experience;
         this.co2Reduced = co2Reduced;

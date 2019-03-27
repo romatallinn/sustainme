@@ -13,5 +13,6 @@ public class UserData {
     public int experience = 0;
     public double co2red = 0;
     public int vegmeals = 0;
+    public int bikedistance = 0;
 
 }
