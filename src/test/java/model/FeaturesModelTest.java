@@ -12,11 +12,4 @@ public class FeaturesModelTest {
         model = new FeaturesModel();
     }
 
-
-    @Test
-    public void testGetter() {
-        FeaturesModel emptyModel = new FeaturesModel();
-        Assert.assertEquals(0, emptyModel.getVegMealCounter());
-    }
-
 }
