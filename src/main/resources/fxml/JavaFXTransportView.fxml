@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<?import javafx.scene.control.TextField?>
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <HBox fx:id="top">
@@ -56,7 +59,7 @@
                                 <TextField fx:id="bikeDistance" maxHeight="1.7976931348623157E308" promptText="Amount:" HBox.hgrow="NEVER" />
                                 <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                                     <children>
-                                        <Button onAction="#addCycledKilometers" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Add" VBox.vgrow="ALWAYS">
+                                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addCycledKilometers" text="Add" VBox.vgrow="ALWAYS">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor></Button>
@@ -84,6 +87,16 @@
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description" text="Travel by public transport instead of your car" />
                         <Separator maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="2.0" />
                         <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Type of public transport:" />
+                        <ChoiceBox prefWidth="150.0" value="Bus">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Bus" />
+                                    <String fx:value="Train" />
+                                </FXCollections>
+                            </items>
+                        </ChoiceBox>
+                  <Region layoutX="10.0" layoutY="277.0" prefHeight="200.0" prefWidth="200.0" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Add or remove distance in kilometers:" />
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                             <children>
