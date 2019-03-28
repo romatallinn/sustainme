@@ -1,9 +1,6 @@
 package view.implementation.javafx;
 
-import controller.FoodController;
-import controller.HomescreenController;
-import controller.SignInController;
-import controller.SignUpController;
+import controller.*;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,10 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import view.interfaces.IFoodView;
-import view.interfaces.IHomeView;
-import view.interfaces.ISignInView;
-import view.interfaces.ISignUpView;
+import view.interfaces.*;
 
 import java.util.HashMap;
 
@@ -34,7 +28,7 @@ public class JavaFxApplication extends Application {
 
         initScenes();
 
-        SceneFx initialScene = JavaFxApplication.scenes.get("signup");
+        SceneFx initialScene = JavaFxApplication.scenes.get("transport");
 
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource(initialScene.getFxmlPath()));
@@ -105,6 +99,16 @@ public class JavaFxApplication extends Application {
         dummy.setView(foodView);
         scenes.put("food", dummy);
 
+        //----
+
+        ITransportView transportView = new JavaFxTransportView();
+        TransportController transportController = new TransportController(transportView);
+        transportView.initView(transportController);
+
+        dummy = new SceneFx<ITransportView>("SustainMe - Transport", "/fxml/JavaFXTransportView.fxml",
+                "/css/TransportView.css");
+        dummy.setView(transportView);
+        scenes.put("transport", dummy);
     }
 
 
