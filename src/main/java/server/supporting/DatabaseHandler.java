@@ -60,6 +60,7 @@ public class DatabaseHandler {
 
         Map<String, Object> features = new HashMap<>();
         features.put("vegmeals", 0);
+        features.put("bike", 0);
 
         Map<String, Object> data = new HashMap<>();
         data.put("fname", fname);

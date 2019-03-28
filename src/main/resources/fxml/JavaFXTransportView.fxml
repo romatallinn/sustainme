@@ -53,10 +53,10 @@
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Add or remove distance in kilometers:" />
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                             <children>
-                                <TextField fx:id="vegMealsCount" maxHeight="1.7976931348623157E308" promptText="Amount:" HBox.hgrow="NEVER" />
+                                <TextField fx:id="bikeDistance" maxHeight="1.7976931348623157E308" promptText="Amount:" HBox.hgrow="NEVER" />
                                 <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                                     <children>
-                                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Add" VBox.vgrow="ALWAYS">
+                                        <Button onAction="#addCycledKilometers" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Add" VBox.vgrow="ALWAYS">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor></Button>

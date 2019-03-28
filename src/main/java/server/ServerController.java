@@ -47,7 +47,7 @@ public class ServerController {
             upAmount = 0;
         }
         int exp = DatabaseHandler.increaseExpBy(vegetarianRequest.getUid(),
-                upAmount * 5);
+                upAmount * 20);
         double co2 = DatabaseHandler.increaseCO2RedBy(vegetarianRequest.getUid(),
                 upAmount * 3.0);
         int amount = DatabaseHandler.increaseFeatureCounter(vegetarianRequest.getUid(),
@@ -81,8 +81,9 @@ public class ServerController {
         int exp =  DatabaseHandler.increaseExpBy(bikeRequest.getUid(),
                 bikeRequest.getDistance());
         double co2 = DatabaseHandler.increaseCO2RedBy(bikeRequest.getUid(),
-                result);
-        int distance = bikeRequest.getDistance();
+                result * 1000);
+        int distance = DatabaseHandler.increaseFeatureCounter(bikeRequest.getUid(), "bike",
+                bikeRequest.getDistance());
 
         return new BikeResponse(exp,co2,distance);
 

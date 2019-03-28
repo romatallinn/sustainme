@@ -25,7 +25,6 @@ public class FoodController {
     public void updateViewWithData() {
         int vegmeals = UserProfile.getInstance().getVegMeals();
         view.updateVegCounter(vegmeals);
-
     }
 
     /**
