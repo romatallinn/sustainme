@@ -18,6 +18,10 @@ public class FriendsModel {
 
     }
 
+    public void addFriendByEmail(String email) {
+        // TODO: Implement Request to Server to add a friend to the friends list. (NB! Receive the response if user doesn't exist!)
+    }
+
     public void loadFriends() {
         // TODO: Implement Request to Server to retrieve the friends objects from the db.
     }

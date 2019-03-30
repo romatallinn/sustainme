@@ -21,4 +21,8 @@ public class FriendsController {
         // view.updateFriendsList(friends);
     }
 
+    public void addFriendByEmail(String email) {
+        model.addFriendByEmail(email);
+    }
+
 }
