@@ -51,4 +51,15 @@ public class TransportModel {
         bikeDistance = result.getDistance();
     }
 
+
+    public void addTrainDistanceTraveled(int distance) {
+
+
+    }
+
+    public void addBusDistanceTraveled(int distance) {
+
+
+    }
+
 }
