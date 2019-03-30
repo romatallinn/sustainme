@@ -19,7 +19,6 @@ public class FoodModel {
             return;
         }
 
-        // TODO: Replace this workaround of initialization of variables with real logic.
         addEatenVegMeal(0);
         addEatenLocalProduce(0);
 
@@ -74,6 +73,8 @@ public class FoodModel {
     public void addEatenLocalProduce(float kg) {
 
         final String uri = ServerApi.HOST + ServerApi.LOCAL_PRODUCE_EATEN;
+
+        // TODO: Implement Request to Server to invoke eaten local produce calculations.
 
     }
 

@@ -25,7 +25,6 @@ public class TransportModel {
             return;
         }
 
-        // TODO: fix workaround
         addDistanceCycled(0);
     }
 
@@ -53,13 +52,11 @@ public class TransportModel {
 
 
     public void addTrainDistanceTraveled(int distance) {
-
-
+        // TODO: Implement Request to Server to invoke calculations of traveled distance by train.
     }
 
     public void addBusDistanceTraveled(int distance) {
-
-
+        // TODO: Implement Request to Server to invoke calculations of traveled distance by bus.
     }
 
 }

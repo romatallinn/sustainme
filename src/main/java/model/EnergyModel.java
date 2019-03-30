@@ -30,7 +30,7 @@ public class EnergyModel {
     }
 
     public void addAreaSolarPanels(int area) {
-        // TODO
+        // TODO: Implement Request to Server to invoke calculations of increased solar panel area coverage.
     }
 
 
