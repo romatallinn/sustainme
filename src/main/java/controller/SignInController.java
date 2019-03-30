@@ -65,17 +65,21 @@ public class SignInController {
         String res = "";
 
         switch (error) {
+
             case "EMAIL_NOT_FOUND":
-                res = "The user with such email was not found!";
+            case "INVALID_EMAIL":
+                res = "Invalid email address";
                 break;
 
             case "INVALID_PASSWORD":
-                res = "The password for the given email is invalid!";
+                res = "Invalid password";
                 break;
+
 
             default:
                 res = error;
                 break;
+
         }
 
         return res;

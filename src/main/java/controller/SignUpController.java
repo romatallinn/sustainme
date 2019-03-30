@@ -28,7 +28,12 @@ public class SignUpController {
      * @param email - user's email to be used for registration.
      * @param pass - user's password to be used for registration.
      */
-    public void signUpCallback(String email, String pass, String fname, String lname) {
+    public void signUpCallback(String email, String pass, String repass, String fname, String lname) {
+
+        if (!pass.equals(repass)) {
+            view.displayStatus("Passwords do not match!");
+            return;
+        }
 
         try {
 
@@ -94,11 +99,11 @@ public class SignUpController {
 
         switch (error) {
             case "INVALID_EMAIL":
-                res = "The email follows the wrong format!";
+                res = "Invalid email address";
                 break;
 
             case "EMAIL_EXISTS":
-                res = "The email is already signed up!";
+                res = "Email already in use";
                 break;
 
             default:
