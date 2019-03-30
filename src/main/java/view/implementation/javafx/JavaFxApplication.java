@@ -1,5 +1,6 @@
 package view.implementation.javafx;
 
+
 import controller.*;
 
 import javafx.application.Application;
@@ -9,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import view.interfaces.*;
+
 
 import java.util.HashMap;
 
@@ -109,6 +111,16 @@ public class JavaFxApplication extends Application {
                 "/css/TransportView.css");
         dummy.setView(transportView);
         scenes.put("transport", dummy);
+
+        IEnergyView energyView = new JavaFxEnergyView();
+        EnergyController energyController = new EnergyController(energyView);
+        energyView.initView(energyController);
+
+        dummy = new SceneFx<IEnergyView>("SustainMe - Energy", "/fxml/JavaFXEnergyView.fxml",
+                "/css/EnergyView.css");
+        dummy.setView(energyView);
+        scenes.put("energy", dummy);
+
     }
 
 

@@ -1,51 +1,81 @@
 .root {
-    -fx-background-color: white;
+    -fx-background-color: #FFFFFF;
 }
 
 #top {
-    -fx-background-color: #1db954;
+    -fx-background-color: #4CAF50;
+}
+
+#tab {
+    -fx-background-color: #388E3C;
+}
+
+#locationtab {
+    -fx-fill: #C8E6C9;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
 }
 
 #title {
     -fx-font-size: 80;
     -fx-font-family: "Lucida Calligraphy";
+    -fx-fill: #FFFFFF;
 }
 
 .text-field {
-    -fx-background-radius: 50px;
+    -fx-background-color: #BDBDBD, white ;
+    -fx-background-insets: 0, 0 0 1 0 ;
+    -fx-background-radius: 0 ;
     -fx-font-weight: bold;
-    -fx-font-size: 20;
+    -fx-font-size: 30;
+    -fx-text-fill: #212121;
+    -fx-prompt-text-fill: #757575;
 }
 
-#message {
+.text-field:focused {
+    -fx-background-color: #03A9F4, white ;
+    -fx-background-insets: 0, 0 0 1 0 ;
+    -fx-background-radius: 0 ;
+}
+
+#statusMsg {
     -fx-font-size: 20;
     -fx-font-weight: bold;
-    -fx-fill: red;
+    -fx-fill: #03A9F4;
 }
 
 #login {
-    -fx-text-fill: white;
+    -fx-text-fill: #FFFFFF;
     -fx-font-size: 30;
     -fx-background-color: none;
-    -fx-effect: dropshadow(gaussian, black, 5,0.2,0,0);
     -fx-font-weight: bold;
+    -fx-border-style: none;
 }
 
-#sign_in {
-    -fx-background-radius: 50px;
-    -fx-border-radius: 50px;
+#homeBtn {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 30;
+    -fx-background-color: none;
+    -fx-font-weight: bold;
+    -fx-border-style: none;
+}
+
+.separator {
+    -fx-fill: #BDBDBD;
+}
+
+.button {
+    -fx-background-color: #03A9F4;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-radius: 50;
+    -fx-background-radius: 50;
     -fx-font-weight: bold;
     -fx-font-size: 20;
-    -fx-text-fill: white;
-    -fx-background-color: #1db954;
 }
 
 #welcome {
     -fx-font-weight: bold;
-    -fx-font-size: 40;
-    -fx-fill: #505050;
+    -fx-font-size: 30;
+    -fx-fill: #212121;
 }
 
-.separator {
-    -fx-fill: white;
-}
