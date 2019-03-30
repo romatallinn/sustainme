@@ -29,4 +29,9 @@ public class JavaFxEnergyView extends JavaFxView implements IEnergyView {
     public void displayStatus(String msg) {
         // TODO
     }
+
+    @Override
+    public void updateSolarPanelArea(int area) {
+        // TODO
+    }
 }

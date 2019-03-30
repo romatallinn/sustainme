@@ -8,4 +8,6 @@ public interface IEnergyView {
 
     void displayStatus(String msg);
 
+    void updateSolarPanelArea(int area);
+
 }
