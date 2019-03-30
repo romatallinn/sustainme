@@ -81,12 +81,12 @@
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
             <Region prefHeight="25.0" prefWidth="50.0" HBox.hgrow="ALWAYS" />
-            <Button fx:id="clothes" mnemonicParsing="false" prefHeight="133.0" prefWidth="133.0" text="Energy" HBox.hgrow="ALWAYS">
+            <Button fx:id="energy" onAction="#goToEnergy" mnemonicParsing="false" prefHeight="133.0" prefWidth="133.0" text="Energy" HBox.hgrow="ALWAYS">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
             <Region prefHeight="25.0" prefWidth="50.0" HBox.hgrow="ALWAYS" />
-            <Button fx:id="house" mnemonicParsing="false" prefHeight="133.0" prefWidth="133.0" text="Transport" HBox.hgrow="ALWAYS">
+            <Button fx:id="transport" mnemonicParsing="false" prefHeight="133.0" prefWidth="133.0" text="Transport" HBox.hgrow="ALWAYS">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
@@ -107,7 +107,7 @@
                   <Insets />
                </HBox.margin>
             </Region>
-            <Button fx:id="transport" mnemonicParsing="false" prefHeight="133.0" prefWidth="133.0" text="Transport" HBox.hgrow="ALWAYS">
+            <Button fx:id="clothes" mnemonicParsing="false" prefHeight="133.0" prefWidth="133.0" text="Transport" HBox.hgrow="ALWAYS">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>

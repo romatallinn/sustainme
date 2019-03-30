@@ -17,9 +17,19 @@
 }
 
 .text-field {
-    -fx-background-radius: 10px;
+    -fx-background-color: #BDBDBD, white ;
+    -fx-background-insets: 0, 0 0 1 0 ;
+    -fx-background-radius: 0 ;
     -fx-font-weight: bold;
-    -fx-font-size: 10;
+    -fx-font-size: 30;
+    -fx-text-fill: #212121;
+    -fx-prompt-text-fill: #757575;
+}
+
+.text-field:focused {
+    -fx-background-color: #03A9F4, white ;
+    -fx-background-insets: 0, 0 0 1 0 ;
+    -fx-background-radius: 0 ;
 }
 
 #login {
@@ -58,4 +68,18 @@
 
 .separator {
     -fx-fill: #BDBDBD;
+}
+
+.button {
+    -fx-background-color: #03A9F4;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-radius: 50;
+    -fx-background-radius: 50;
+    -fx-font-weight: bold;
+}
+
+.primaryText {
+    -fx-fill: #212121;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
 }

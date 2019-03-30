@@ -27,7 +27,7 @@ public class JavaFxHomeView extends JavaFxView implements IHomeView {
     @FXML
     private Button clothes;
     @FXML
-    private Button house;
+    private Button energy;
     @FXML
     private Button transport;
     @FXML
@@ -52,6 +52,11 @@ public class JavaFxHomeView extends JavaFxView implements IHomeView {
     @FXML
     public void goToFood() throws IOException {
         this.switchScene(food.getScene(), "food");
+    }
+
+    @FXML
+    public void goToEnergy() throws IOException {
+        this.switchScene(food.getScene(), "energy");
     }
 
     @Override
