@@ -2,7 +2,7 @@ package controller;
 
 import com.google.gson.JsonObject;
 
-import model.objects.UserProfile;
+import model.UserProfile;
 
 import supporting.FirebaseAuth;
 

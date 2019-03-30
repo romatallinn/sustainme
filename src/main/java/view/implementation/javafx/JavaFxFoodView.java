@@ -54,4 +54,9 @@ public class JavaFxFoodView extends JavaFxView implements IFoodView {
     public void updateVegCounter(int counter) {
         vegCounter.setText(Integer.toString(counter));
     }
+
+    @Override
+    public void updateLocalProduceCounter(float kg) {
+        // TODO
+    }
 }

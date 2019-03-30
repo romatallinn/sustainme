@@ -29,7 +29,6 @@ public class ServerControllerTest {
         assertEquals("Testuser", userData.lname);
         assertEquals(0, userData.level);
         assertEquals(34,userData.experience);
-        assertEquals(4,userData.vegmeals);
         assertEquals(13,userData.co2red,0.0);
     }
 

@@ -20,7 +20,10 @@
             <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#goToHome" text="Home   " HBox.hgrow="ALWAYS">
                 <HBox.margin>
                     <Insets left="10.0" />
-                </HBox.margin></Button>
+                </HBox.margin>
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor></Button>
             <Region HBox.hgrow="ALWAYS" />
             <Text fx:id="title" layoutX="14.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SustainMe" textAlignment="CENTER" wrappingWidth="521.35546875" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0" HBox.hgrow="ALWAYS">
                 <HBox.margin>

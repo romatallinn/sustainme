@@ -1,6 +1,6 @@
 package controller;
 
-import model.objects.UserProfile;
+import model.UserProfile;
 import view.interfaces.IHomeView;
 
 /**

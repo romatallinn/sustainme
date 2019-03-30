@@ -1,14 +1,13 @@
 package controller;
 
-import model.FeaturesModel;
-import model.objects.UserProfile;
+import model.FoodModel;
 import view.interfaces.IFoodView;
 
 
 public class FoodController {
 
     private IFoodView view;
-    private FeaturesModel model;
+    private FoodModel model;
 
     /**
      * Constructor for the class.
@@ -16,14 +15,14 @@ public class FoodController {
      */
     public FoodController(IFoodView view) {
         this.view = view;
-        this.model = new FeaturesModel();
+        this.model = new FoodModel();
     }
 
     /**
      * Retrieves amount of meals eaten and sends this to the view to update.
      */
     public void updateViewWithData() {
-        int vegmeals = UserProfile.getInstance().getVegMeals();
+        int vegmeals = model.getVegMealsCount();
         view.updateVegCounter(vegmeals);
     }
 
@@ -36,15 +35,37 @@ public class FoodController {
         try {
             count = Integer.parseInt(countString);
             if (count < 0 || count > 3) {
-                view.displayStatus("Please enter a  number in the range 0-3");
+                view.displayStatus("Please enter a  number in the range 0-3 meals.");
                 return;
             }
-            model.vegMeal(count);
-            view.displayStatus("The stat is updated!");
+            model.addEatenVegMeal(count);
+            view.displayStatus("The stat of the vegetarian meals is updated!");
             updateViewWithData();
         } catch (NumberFormatException e) {
-            view.displayStatus("Please enter an integer number");
+            view.displayStatus("Please enter an integer number.");
         }
+    }
+
+
+    /**
+     * The method acts upon the fact of the eaten local produces.
+     * @param weightString - weight of the eaten produces in kg.
+     */
+    public void addEatenLocalProduce(String weightString) {
+        float kg = 0;
+
+        try {
+            kg = Float.parseFloat(weightString);
+            if(kg < 0 || kg > 10) {
+                view.displayStatus("Please enter the weight in the range 0-10kg.");
+                return;
+            }
+            view.displayStatus("The stat of the local produce is updated!");
+            updateViewWithData();
+        } catch (NumberFormatException e) {
+            view.displayStatus("Please enter a number.");
+        }
+
     }
 
 }

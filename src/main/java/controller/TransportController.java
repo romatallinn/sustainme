@@ -1,13 +1,13 @@
 package controller;
 
-import model.FeaturesModel;
-import model.objects.UserProfile;
+import model.TransportModel;
+import model.UserProfile;
 import view.interfaces.ITransportView;
 
 public class TransportController {
 
     private ITransportView view;
-    private FeaturesModel model;
+    private TransportModel model;
 
     /**
      * Constructor for the class.
@@ -15,14 +15,14 @@ public class TransportController {
      */
     public TransportController(ITransportView view) {
         this.view = view;
-        this.model = new FeaturesModel();
+        this.model = new TransportModel();
     }
 
     /**
      * Retrieves amount of kilometers cycled and sends this to the view to update.
      */
     public void updateViewWithData() {
-        int distance = UserProfile.getInstance().getBikeKms();
+        int distance = model.getBikeDistance();
         view.updateBikeDistance(distance);
     }
 
@@ -35,14 +35,14 @@ public class TransportController {
         try {
             distance = Integer.parseInt(distanceString);
             if (distance < 0 || distance > 200) {
-                view.displayStatus("Please enter a number in the range 0-200");
+                view.displayStatus("Please enter a number in the range 0-200.");
                 return;
             }
-            model.bike(distance);
-            view.displayStatus("The stat is updated!");
+            model.addDistanceCycled(distance);
+            view.displayStatus("The stat of the cycled distance is updated!");
             updateViewWithData();
         } catch (NumberFormatException e) {
-            view.displayStatus("Please enter an integer number");
+            view.displayStatus("Please enter an integer number.");
         }
     }
 }

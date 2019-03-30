@@ -1,4 +1,5 @@
-package model.objects;
+package model;
+
 import org.junit.*;
 
 import static org.junit.Assert.*;
@@ -86,22 +87,6 @@ public class UserProfileTest {
         assertEquals(0.5, user.getExpProgress(), 0);
         user.clean();
         assertEquals(0, user.getExpProgress(), 0);
-    }
-
-    @Test
-    public void getVegMealsTest() {
-        UserProfile user = new UserProfile();
-
-        assertEquals(0, user.getVegMeals());
-    }
-
-    @Test
-    public void setLocalVegMealsCounterTest() {
-        UserProfile user = new UserProfile();
-
-        user.setLocalVegMealsCounter(5);
-
-        assertEquals(5, user.getVegMeals());
     }
 
     @Test

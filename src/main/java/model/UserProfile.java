@@ -1,7 +1,8 @@
-package model.objects;
+package model;
 
 import static java.lang.Math.pow;
 
+import model.objects.UserData;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import supporting.ServerApi;
@@ -102,18 +103,6 @@ public class UserProfile {
     }
 
     /**
-     * Sets the local counter of the veg meals eaten.
-     * @param amount - new value for the veg meals eaten counter.
-     */
-    public void setLocalVegMealsCounter(int amount) {
-        data.vegmeals = amount;
-    }
-
-    public void setLocalBikeDistance(int distance) {
-        data.bikedistance = distance;
-    }
-
-    /**
      * Signs user off from the session.
      */
     public void logout() {
@@ -169,12 +158,5 @@ public class UserProfile {
         return (double)data.experience / (pow(2, data.level - 1) * 10);
     }
 
-    public int getVegMeals() {
-        return data.vegmeals;
-    }
-
-    public int getBikeKms() {
-        return data.bikedistance;
-    }
 
 }

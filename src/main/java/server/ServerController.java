@@ -28,9 +28,8 @@ public class ServerController {
     public UserData retrieve_user_data(@RequestBody String uid) throws InterruptedException {
 
         UserData user = DatabaseHandler.getUserData(uid);
-        user.vegmeals = DatabaseHandler.retrieveFeatureCounter(uid,"vegmeals");
-
         return user;
+
     }
 
     /**

@@ -3,7 +3,7 @@ package controller;
 import com.google.gson.JsonObject;
 
 import model.objects.InitRequest;
-import model.objects.UserProfile;
+import model.UserProfile;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
