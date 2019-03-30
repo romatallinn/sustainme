@@ -10,11 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import view.interfaces.IEnergyView;
-import view.interfaces.IFoodView;
-import view.interfaces.IHomeView;
-import view.interfaces.ISignInView;
-import view.interfaces.ISignUpView;
+import view.interfaces.*;
 
 
 import java.util.HashMap;
@@ -106,6 +102,8 @@ public class JavaFxApplication extends Application {
         dummy.setView(foodView);
         scenes.put("food", dummy);
 
+        //-----
+
         IEnergyView energyView = new JavaFxEnergyView();
         EnergyController energyController = new EnergyController(energyView);
         energyView.initView(energyController);
@@ -114,6 +112,17 @@ public class JavaFxApplication extends Application {
                 "/css/EnergyView.css");
         dummy.setView(energyView);
         scenes.put("energy", dummy);
+
+        //-----
+
+//        IFriendView friendView = new JavaFxEnergyView();
+//        FriendsController friendController = new FriendsController(friendView);
+//        friendView.initView(friendController);
+//
+//        dummy = new SceneFx<IEnergyView>("SustainMe", "/fxml/JavaFXFriendView.fxml",
+//                "/css/FriendView.css");
+//        dummy.setView(friendView);
+//        scenes.put("friends", dummy);
 
     }
 
