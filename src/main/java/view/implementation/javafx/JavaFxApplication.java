@@ -42,7 +42,7 @@ public class JavaFxApplication extends Application {
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource(initialScene.getCssPath()).toString());
 
-        primaryStage.setTitle(initialScene.getTitle());
+        primaryStage.setTitle("SustainMe - Green and Happy!");
         primaryStage.setScene(scene);
         primaryStage.setMaximized(true);
         primaryStage.show();

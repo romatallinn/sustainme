@@ -39,6 +39,11 @@ public class SignInController {
             }
 
             String token = jsonObj.get("idToken").getAsString();
+            if (token.isEmpty()) {
+                view.displayStatus("Could not sign in for unknown reason!");
+                return;
+            }
+
             String uid = jsonObj.get("localId").getAsString();
 
             UserProfile.getInstance().init(email, uid, token);
