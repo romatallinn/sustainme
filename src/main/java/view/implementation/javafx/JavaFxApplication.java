@@ -1,20 +1,21 @@
 package view.implementation.javafx;
 
+import controller.EnergyController;
 import controller.FoodController;
 import controller.HomescreenController;
 import controller.SignInController;
 import controller.SignUpController;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+import view.interfaces.IEnergyView;
 import view.interfaces.IFoodView;
 import view.interfaces.IHomeView;
 import view.interfaces.ISignInView;
 import view.interfaces.ISignUpView;
+
 
 import java.util.HashMap;
 
@@ -104,6 +105,15 @@ public class JavaFxApplication extends Application {
                 "/css/FoodView.css");
         dummy.setView(foodView);
         scenes.put("food", dummy);
+
+        IEnergyView energyView = new JavaFxEnergyView();
+        EnergyController energyController = new EnergyController(energyView);
+        energyView.initView(energyController);
+
+        dummy = new SceneFx<IEnergyView>("SustainMe - Energy", "/fxml/JavaFXEnergyView.fxml",
+                "/css/EnergyView.css");
+        dummy.setView(energyView);
+        scenes.put("energy", dummy);
 
     }
 
