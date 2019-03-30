@@ -45,7 +45,7 @@
         <HBox fx:id="tab" prefHeight="30.0">
             <children>
                 <Region prefHeight="187.0" prefWidth="716.0" HBox.hgrow="ALWAYS" />
-                <Text fx:id="locationtab" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign up" textAlignment="CENTER" wrappingWidth="220.13671875" HBox.hgrow="ALWAYS">
+                <Text fx:id="locationtab" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign in" textAlignment="CENTER" wrappingWidth="220.13671875" HBox.hgrow="ALWAYS">
                     <HBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                     </HBox.margin></Text>

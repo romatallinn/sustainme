@@ -4,7 +4,6 @@ import controller.FoodController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import view.interfaces.IFoodView;
 

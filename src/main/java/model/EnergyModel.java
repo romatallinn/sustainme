@@ -6,6 +6,10 @@ public class EnergyModel {
 
     private int solarPanelArea = -1;
 
+    /**
+     * returns the area of installed solar panels.
+     * @return solar panel area
+     */
     public int getSolarPanelArea() {
 
         if (solarPanelArea < 0) {
