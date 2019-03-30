@@ -2,8 +2,9 @@ package controller;
 
 import com.google.gson.JsonObject;
 
-import model.objects.InitRequest;
 import model.UserProfile;
+import model.objects.InitRequest;
+
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;

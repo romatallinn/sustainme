@@ -56,7 +56,7 @@ public class FoodController {
 
         try {
             kg = Float.parseFloat(weightString);
-            if(kg < 0 || kg > 10) {
+            if (kg < 0 || kg > 10) {
                 view.displayStatus("Please enter the weight in the range 0-10kg.");
                 return;
             }
