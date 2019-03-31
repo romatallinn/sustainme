@@ -7,7 +7,7 @@ import model.objects.PublicTransportResponse;
 import org.springframework.web.client.RestTemplate;
 import supporting.ServerApi;
 
-public class TransportModel {
+public class  TransportModel {
 
     private int bikeDistance = -1;
     private int publicDistance = -1;

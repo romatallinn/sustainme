@@ -10,6 +10,6 @@ public interface IFoodView {
 
     void updateVegCounter(int counter);
 
-    void updateLocalProduceCounter(double kg);
+    void updateLocalProduceCounter(float kg);
 
 }

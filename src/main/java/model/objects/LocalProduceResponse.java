@@ -4,7 +4,7 @@ public class LocalProduceResponse {
 
     private int experience;
     private double co2Reduced;
-    private double amount;
+    private float amount;
 
     public LocalProduceResponse(){}
 
@@ -14,7 +14,7 @@ public class LocalProduceResponse {
      * @param co2Reduced new co2 reduction of the user
      * @param amount new amount of vegetarian meals of the user
      */
-    public LocalProduceResponse(int experience, double co2Reduced, double amount) {
+    public LocalProduceResponse(int experience, double co2Reduced, float amount) {
         this.experience = experience;
         this.co2Reduced = co2Reduced;
         this.amount = amount;
@@ -28,7 +28,7 @@ public class LocalProduceResponse {
         return co2Reduced;
     }
 
-    public double getAmount() {
+    public float getAmount() {
         return amount;
     }
 }

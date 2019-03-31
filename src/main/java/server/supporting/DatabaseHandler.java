@@ -132,15 +132,15 @@ public class DatabaseHandler {
      * @param uid - user id
      * @param amount - increasing amount.
      */
-    public static double increaseFeatureCounter(String uid, String feature, double amount)
+    public static float increaseFeatureCounter(String uid, String feature, float amount)
             throws InterruptedException {
 
         DatabaseReference ref = db.getReference("users").child(uid).child("features/" + feature);
 
-        double newVal = retrieveValueAt(ref, Double.class) + amount;
+        float newVal = retrieveValueAt(ref, Float.class) + amount;
         ref.setValueAsync(newVal);
 
-        return  newVal;
+        return newVal;
 
     }
 
@@ -155,22 +155,6 @@ public class DatabaseHandler {
 
         DatabaseReference ref = db.getReference("users").child(uid).child("features/" + feature);
         int val = retrieveValueAt(ref, Integer.class);
-
-        return val;
-
-    }
-
-    /**
-     * Retrieves the amount of eaten vegetarian meals by the user with given uid from DB.
-     * @param uid - user id.
-     * @return number of eaten vegetarian meals.
-     * @throws InterruptedException - exception.
-     */
-    public static double retrieveDoubleFeatureCounter(String uid, String feature)
-            throws InterruptedException {
-
-        DatabaseReference ref = db.getReference("users").child(uid).child("features/" + feature);
-        double val = retrieveValueAt(ref, Double.class);
 
         return val;
 

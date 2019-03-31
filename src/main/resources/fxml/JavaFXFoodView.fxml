@@ -59,7 +59,7 @@
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Add or remove meals:" />
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                      <children>
-                        <TextField fx:id="vegMealsCount" maxHeight="1.7976931348623157E308" promptText="Amount:" HBox.hgrow="NEVER" />
+                        <TextField fx:id="vegMealsCountInput" maxHeight="1.7976931348623157E308" promptText="Amount:" HBox.hgrow="NEVER" />
                         <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                            <children>
                               <Button onAction="#addEatenVegMeals" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Add" VBox.vgrow="ALWAYS">
@@ -93,7 +93,7 @@
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Add or remove meals:" />
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                             <children>
-                                <TextField fx:id="localCount" maxHeight="1.7976931348623157E308" promptText="Amount:" HBox.hgrow="NEVER" />
+                                <TextField fx:id="localCountInput" maxHeight="1.7976931348623157E308" promptText="Amount:" HBox.hgrow="NEVER" />
                                 <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                                     <children>
                                         <Button onAction="#addEatenLocalProduce" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Add" VBox.vgrow="ALWAYS">

@@ -22,10 +22,13 @@ public class FoodController {
      * Retrieves amount of meals eaten and sends this to the view to update.
      */
     public void updateViewWithData() {
+
         int vegmeals = model.getVegMealsCount();
         view.updateVegCounter(vegmeals);
-        double local = model.getLocalProduceCount();
+
+        float local = model.getLocalProduceCount();
         view.updateLocalProduceCounter(local);
+
     }
 
     /**
@@ -54,10 +57,9 @@ public class FoodController {
      * @param weightString - weight of the eaten produces in kg.
      */
     public void addEatenLocalProduce(String weightString) {
-        double kg = 0;
-
+        float kg = 0;
         try {
-            kg = Double.parseDouble(weightString);
+            kg = Float.parseFloat(weightString);
             if (kg < 0 || kg > 10) {
                 view.displayStatus("Please enter the weight in the range 0-10kg.");
                 return;

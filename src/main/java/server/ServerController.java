@@ -72,8 +72,9 @@ public class ServerController {
                 (int) Math.round(localProduceRequest.getWeight()));
         double co2 = DatabaseHandler.increaseCO2RedBy(localProduceRequest.getUid(),
                 localProduceRequest.getWeight() * 0.14);
-        double amount = DatabaseHandler.increaseFeatureCounter(localProduceRequest.getUid(),
+        float amount = DatabaseHandler.increaseFeatureCounter(localProduceRequest.getUid(),
                 "localproduce", localProduceRequest.getWeight());
+
         return new LocalProduceResponse(exp, co2, amount);
 
     }
@@ -130,7 +131,7 @@ public class ServerController {
         double co2 = DatabaseHandler.increaseCO2RedBy(publicTransportRequest.getUid(),
                 result * 1000);
         int distance = DatabaseHandler.increaseFeatureCounter(
-                publicTransportRequest.getUid(), "public",
+                publicTransportRequest.getUid(), "publictransport",
                 publicTransportRequest.getDistance());
 
         return new PublicTransportResponse(exp,co2,distance);

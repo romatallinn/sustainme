@@ -10,7 +10,7 @@ import supporting.ServerApi;
 public class FoodModel {
 
     private int vegMealsCount = -1;
-    private double localProduceCount = -1;
+    private float localProduceCount = -1;
 
 
     /**
@@ -46,13 +46,13 @@ public class FoodModel {
      * Returns the total amount of local produce bought.
      * @return the amount of local produce bought.
      */
-    public double getLocalProduceCount() {
+    public float getLocalProduceCount() {
 
         if (localProduceCount < 0) {
             this.init();
         }
 
-        return  localProduceCount;
+        return localProduceCount;
 
     }
 
@@ -83,7 +83,9 @@ public class FoodModel {
      * Invokes request to server, notifying it about the action of eaten local produce.
      * @param kg - weight of the eaten local produce in kg.
      */
-    public void addEatenLocalProduce(double kg) {
+    public void addEatenLocalProduce(float kg) {
+
+        System.out.println("Kg added: " + kg);
 
         final String uri = ServerApi.HOST + ServerApi.LOCAL_PRODUCE_EATEN;
 
