@@ -11,4 +11,6 @@ public interface IFriendView {
 
     void updateFriendsList(List<UserData> friends);
 
+    void displayStatus(String msg);
+
 }

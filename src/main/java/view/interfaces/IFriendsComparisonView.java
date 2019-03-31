@@ -9,4 +9,6 @@ public interface IFriendsComparisonView {
 
     void updateFriendsData(UserData friend);
 
+    void updateLocalUserData();
+
 }

@@ -1,7 +1,6 @@
 package server.supporting;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.UserRecord;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -152,7 +151,7 @@ public class DatabaseHandler {
      * @throws InterruptedException - exception.
      * @throws ExecutionException - exception.
      */
-    public static boolean addFriendByEmail(String uid, String friendEmail) throws InterruptedException, ExecutionException {
+    public static boolean addFriendByEmail(String uid, String friendEmail) {
 
         try {
 
@@ -176,7 +175,8 @@ public class DatabaseHandler {
      * @return UserData objects of all friends.
      * @throws InterruptedException - exception.
      */
-    public static List<UserData> retrieveFriendsDataObjects(String uid) throws InterruptedException {
+    public static List<UserData> retrieveFriendsDataObjects(String uid)
+            throws InterruptedException {
 
         CountDownLatch latch = new CountDownLatch(1);
 
