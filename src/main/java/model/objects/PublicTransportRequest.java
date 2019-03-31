@@ -6,6 +6,12 @@ public class PublicTransportRequest {
     private int distance;
     private boolean type;
 
+    /**
+     * Constructor for a public transport request.
+     * @param uid the user id of the user
+     * @param distance the distance traveled by public transport
+     * @param type the type of public transport taken
+     */
     public PublicTransportRequest(String uid, int distance, boolean type) {
         this.uid = uid;
         this.distance = distance;

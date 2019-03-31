@@ -1,7 +1,16 @@
 package server;
 
 import api.ApiRequest;
-import model.objects.*;
+import model.objects.BikeRequest;
+import model.objects.BikeResponse;
+import model.objects.InitRequest;
+import model.objects.LocalProduceRequest;
+import model.objects.LocalProduceResponse;
+import model.objects.PublicTransportRequest;
+import model.objects.PublicTransportResponse;
+import model.objects.UserData;
+import model.objects.VegetarianRequest;
+import model.objects.VegetarianResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -110,15 +119,18 @@ public class ServerController {
      * @throws Exception exception could be thrown by database handler
      */
     @RequestMapping(value = "/publictransport", method = RequestMethod.POST)
-    public PublicTransportResponse usePublicTransport(@RequestBody PublicTransportRequest publicTransportRequest) throws Exception {
+    public PublicTransportResponse usePublicTransport(
+            @RequestBody PublicTransportRequest publicTransportRequest) throws Exception {
         double result = ApiRequest.requestPublicTrans(Double
-                .toString(publicTransportRequest.getDistance() * 0.621371192), publicTransportRequest.getType()); //Should be
+                .toString(publicTransportRequest.getDistance() * 0.621371192),
+                publicTransportRequest.getType()); //Should be
         // result from api request
         int exp =  DatabaseHandler.increaseExpBy(publicTransportRequest.getUid(),
                 publicTransportRequest.getDistance() / 2);
         double co2 = DatabaseHandler.increaseCO2RedBy(publicTransportRequest.getUid(),
                 result * 1000);
-        int distance = DatabaseHandler.increaseFeatureCounter(publicTransportRequest.getUid(), "public",
+        int distance = DatabaseHandler.increaseFeatureCounter(
+                publicTransportRequest.getUid(), "public",
                 publicTransportRequest.getDistance());
 
         return new PublicTransportResponse(exp,co2,distance);

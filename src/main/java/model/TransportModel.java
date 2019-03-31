@@ -79,14 +79,21 @@ public class TransportModel {
     }
 
 
+    /**
+     * Invokes request to server, notifying it about the action of distance by train.
+     * @param distance distance by train
+     */
     public void addTrainDistanceTraveled(int distance) {
         final String uri = ServerApi.HOST + ServerApi.PUBLIC_TRANSPORT;
 
-        PublicTransportRequest publicTransportRequest = new PublicTransportRequest(UserProfile.getInstance().getUid(), distance, false);
+        PublicTransportRequest publicTransportRequest =
+                new PublicTransportRequest(UserProfile.getInstance().getUid(),
+                        distance, false);
 
         RestTemplate restTemplate = new RestTemplate();
         PublicTransportResponse result =
-                restTemplate.postForObject(uri, publicTransportRequest, PublicTransportResponse.class);
+                restTemplate.postForObject(uri, publicTransportRequest,
+                        PublicTransportResponse.class);
 
         UserProfile.getInstance().setLocalExp(result.getExperience());
         UserProfile.getInstance().setLocalCo2Stats(result.getCo2Reduced());
@@ -94,14 +101,21 @@ public class TransportModel {
         publicDistance = result.getDistance();
     }
 
+    /**
+     * Invokes request to server, notifying it about the action of distance by bus.
+     * @param distance distance by bus
+     */
     public void addBusDistanceTraveled(int distance) {
         final String uri = ServerApi.HOST + ServerApi.PUBLIC_TRANSPORT;
 
-        PublicTransportRequest publicTransportRequest = new PublicTransportRequest(UserProfile.getInstance().getUid(), distance, true);
+        PublicTransportRequest publicTransportRequest =
+                new PublicTransportRequest(UserProfile.getInstance().getUid(),
+                        distance, true);
 
         RestTemplate restTemplate = new RestTemplate();
         PublicTransportResponse result =
-                restTemplate.postForObject(uri, publicTransportRequest, PublicTransportResponse.class);
+                restTemplate.postForObject(uri, publicTransportRequest,
+                        PublicTransportResponse.class);
 
         UserProfile.getInstance().setLocalExp(result.getExperience());
         UserProfile.getInstance().setLocalCo2Stats(result.getCo2Reduced());
