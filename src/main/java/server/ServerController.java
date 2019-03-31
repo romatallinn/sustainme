@@ -1,9 +1,6 @@
 package server;
 
-import model.objects.InitRequest;
-import model.objects.UserData;
-import model.objects.VegetarianRequest;
-import model.objects.VegetarianResponse;
+import model.objects.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import server.supporting.DatabaseHandler;
+
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 @RestController
 public class ServerController {
@@ -63,6 +63,16 @@ public class ServerController {
         DatabaseHandler.initUser(initRequest.getUid(), initRequest.getFname(),
                 initRequest.getLname());
         return new ResponseEntity(HttpStatus.CREATED);
+    }
+
+    @RequestMapping(value = "/addfriend", method = RequestMethod.POST)
+    public boolean addFriend(@RequestBody FriendRequest friendRequest) throws ExecutionException, InterruptedException {
+        return DatabaseHandler.addFriendByEmail(friendRequest.getUid(),friendRequest.getFriendEmail());
+    }
+
+    @RequestMapping(value = "/showfriends", method = RequestMethod.POST)
+    public List<UserData> showFriend(@RequestBody String uid) throws InterruptedException {
+        return DatabaseHandler.retrieveFriendsDataObjects(uid);
     }
 
 }
