@@ -125,7 +125,7 @@ public class JavaFxFriendsView extends JavaFxView implements IFriendView {
 
     @FXML
     private void goToHome() throws IOException {
-         switchScene(homeBtn.getScene(), "home");
+        switchScene(homeBtn.getScene(), "home");
     }
 
     @FXML

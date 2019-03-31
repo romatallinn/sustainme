@@ -16,6 +16,9 @@ public class UserData {
     public double co2red = 0;
     public int vegmeals = 0;
 
+    /**
+     * Recalculates the level of the user based on his total experience.
+     */
     public void calculateLevel() {
         this.level = 1;
         while (this.experience >= 10 * pow(2, this.level - 1)) {
