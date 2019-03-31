@@ -64,21 +64,21 @@
          <content>
             <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="600.0">
                <children>
-                  <Button id="friend1" mnemonicParsing="false">
+                  <Button fx:id="friend1" mnemonicParsing="false">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button id="friend2" mnemonicParsing="false">
+                  <Button fx:id="friend2" mnemonicParsing="false">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button id="friend3" mnemonicParsing="false">
+                  <Button fx:id="friend3" mnemonicParsing="false">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>
-                  <Button id="friend4" mnemonicParsing="false">
+                  <Button fx:id="friend4" mnemonicParsing="false">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>
