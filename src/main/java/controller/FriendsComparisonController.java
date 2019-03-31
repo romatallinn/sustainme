@@ -12,7 +12,7 @@ public class FriendsComparisonController {
     }
 
     public void initData(UserData friend) {
-         view.updateFriendsData(friend);
+        view.updateFriendsData(friend);
     }
 
 }

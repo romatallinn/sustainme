@@ -7,13 +7,16 @@ import model.objects.UserProfile;
 import org.springframework.web.client.RestTemplate;
 import supporting.ServerApi;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class FriendsModel {
 
     private List<UserData> friends = null;
 
+    /**
+     * Getter for the stored list of friends.
+     * @return list of all friends that user has.
+     */
     public List<UserData> getFriends() {
 
         if (friends == null) {
@@ -24,6 +27,10 @@ public class FriendsModel {
 
     }
 
+    /**
+     * Add new friend by email address.
+     * @param email address of the friend to be added.
+     */
     public void addFriendByEmail(String email) {
 
         final String uri = ServerApi.HOST + ServerApi.ADD_FRIEND;
@@ -33,23 +40,28 @@ public class FriendsModel {
 
         RestTemplate restTemplate = new RestTemplate();
         boolean result =
-                restTemplate.postForObject(uri,friendRequest,boolean.class);
-        if (!result){
+                restTemplate.postForObject(uri, friendRequest, boolean.class);
+        if (!result) {
             // TODO: Show on screen.
         }
 
 
     }
 
+    /**
+     * Update the friend's list by requesting the server.
+     */
     public void loadFriends() {
 
         final String uri = ServerApi.HOST + ServerApi.SHOW_FRIENDS;
 
         RestTemplate restTemplate = new RestTemplate();
-        ShowFriendResponse result = restTemplate.postForObject(uri, UserProfile.getInstance().getUid(), ShowFriendResponse.class);
-        List<UserData> endresult = result.getFriends();
 
-        // TODO: Implement Request to Server to retrieve the friends objects from the db.
+        ShowFriendResponse result = restTemplate.postForObject(uri,
+                UserProfile.getInstance().getUid(), ShowFriendResponse.class);
+
+        friends = result.getFriends();
+
     }
 
 }

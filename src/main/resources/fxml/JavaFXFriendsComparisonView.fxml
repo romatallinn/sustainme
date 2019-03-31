@@ -15,7 +15,7 @@
 <VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <HBox fx:id="top">
-            <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#goToHome" text="Home   " HBox.hgrow="ALWAYS">
+            <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#goToBack" text="Back" HBox.hgrow="ALWAYS">
                 <HBox.margin>
                     <Insets left="10.0" />
                 </HBox.margin>
@@ -77,12 +77,12 @@
                 <Separator orientation="VERTICAL" prefHeight="200.0" prefWidth="2.0" />
                 <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="100.0" spacing="10.0" HBox.hgrow="ALWAYS">
                     <children>
-                        <Circle fx:id="profilePic2" fill="DODGERBLUE" radius="100.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle fx:id="friendProfilePic" fill="DODGERBLUE" radius="100.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                         <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                             <children>
-                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Jesse Niemand" />
-                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description" text="Level: 2" />
-                                <ProgressBar prefWidth="200.0" progress="0.68">
+                                <Text fx:id="friendName" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Jesse Niemand" />
+                                <Text fx:id="friendLvl" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description" text="Level: 2" />
+                                <ProgressBar fx:id="friendExpBar" prefWidth="200.0" progress="0.68">
                                     <VBox.margin>
                                         <Insets top="10.0" />
                                     </VBox.margin></ProgressBar>

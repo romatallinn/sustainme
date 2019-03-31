@@ -1,12 +1,26 @@
 package view.implementation.javafx;
 
-import controller.*;
+import controller.EnergyController;
+import controller.FoodController;
+import controller.FriendsComparisonController;
+import controller.FriendsController;
+import controller.HomescreenController;
+import controller.SignInController;
+import controller.SignUpController;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import view.interfaces.*;
+
+import view.interfaces.IEnergyView;
+import view.interfaces.IFoodView;
+import view.interfaces.IFriendView;
+import view.interfaces.IFriendsComparisonView;
+import view.interfaces.IHomeView;
+import view.interfaces.ISignInView;
+import view.interfaces.ISignUpView;
 
 
 import java.util.HashMap;
@@ -123,11 +137,16 @@ public class JavaFxApplication extends Application {
         //-----
 
         IFriendsComparisonView friendsCompareView = new JavaFxFriendsComparisonView();
-        FriendsComparisonController friendController = new FriendsComparisonController(friendsCompareView);
+
+        FriendsComparisonController friendController =
+                new FriendsComparisonController(friendsCompareView);
+
         friendsCompareView.initView(friendController);
 
-        dummy = new SceneFx<IFriendsComparisonView>("SustainMe", "/fxml/JavaFXFriendsComparisonView.fxml",
+        dummy = new SceneFx<IFriendsComparisonView>("SustainMe",
+                "/fxml/JavaFXFriendsComparisonView.fxml",
                 "/css/FriendsComparisonView.css");
+
         dummy.setView(friendsCompareView);
         scenes.put("friendsComparison", dummy);
 

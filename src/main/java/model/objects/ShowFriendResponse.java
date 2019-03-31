@@ -6,7 +6,9 @@ public class ShowFriendResponse {
 
     private List<UserData> friends;
 
-    public ShowFriendResponse(List<UserData> friends){
+    public ShowFriendResponse() { }
+
+    public ShowFriendResponse(List<UserData> friends) {
         this.friends = friends;
     }
 
