@@ -11,8 +11,4 @@ public class FriendsComparisonController {
         this.view = view;
     }
 
-    public void initData(UserData friend) {
-        view.updateFriendsData(friend);
-    }
-
 }

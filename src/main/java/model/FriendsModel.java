@@ -7,6 +7,7 @@ import model.objects.UserProfile;
 import org.springframework.web.client.RestTemplate;
 import supporting.ServerApi;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FriendsModel {
@@ -20,7 +21,13 @@ public class FriendsModel {
     public List<UserData> getFriends() {
 
         if (friends == null) {
-            loadFriends();
+
+            if (UserProfile.getInstance().authToken.isEmpty()) {
+                friends = new ArrayList<>();
+            } else {
+                loadFriends();
+            }
+
         }
 
         return friends;
@@ -32,6 +39,10 @@ public class FriendsModel {
      * @param email address of the friend to be added.
      */
     public void addFriendByEmail(String email) {
+
+        if (UserProfile.getInstance().authToken.isEmpty()) {
+            return;
+        }
 
         final String uri = ServerApi.HOST + ServerApi.ADD_FRIEND;
 

@@ -40,6 +40,11 @@ public class JavaFxFriendsView extends JavaFxView implements IFriendView {
         controller.updateViewWithData();
     }
 
+    @Override
+    public void displayStatus(String msg) {
+        System.out.println(msg);
+    }
+
     @FXML
     private void goToHome() throws IOException {
 

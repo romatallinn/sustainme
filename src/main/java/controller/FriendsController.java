@@ -23,6 +23,7 @@ public class FriendsController {
 
     public void addFriendByEmail(String email) {
         model.addFriendByEmail(email);
+        view.displayStatus("Friend was added!");
     }
 
 }
