@@ -1,10 +1,6 @@
 package view.implementation.javafx;
 
-import controller.EnergyController;
-import controller.FoodController;
-import controller.HomescreenController;
-import controller.SignInController;
-import controller.SignUpController;
+import controller.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -115,14 +111,14 @@ public class JavaFxApplication extends Application {
 
         //-----
 
-//        IFriendView friendsView = new JavaFxFriendsView();
-//        FriendsController friendsController = new FriendsController(friendsView);
-//        friendsView.initView(friendsController);
-//
-//        dummy = new SceneFx<IFriendView>("SustainMe", "/fxml/JavaFXFriendsView.fxml",
-//                "/css/FriendsView.css");
-//        dummy.setView(friendsView);
-//        scenes.put("friends", dummy);
+        IFriendView friendsView = new JavaFxFriendsView();
+        FriendsController friendsController = new FriendsController(friendsView);
+        friendsView.initView(friendsController);
+
+        dummy = new SceneFx<IFriendView>("SustainMe", "/fxml/JavaFXFriendsView.fxml",
+                "/css/FriendsView.css");
+        dummy.setView(friendsView);
+        scenes.put("friends", dummy);
 
         //-----
 
