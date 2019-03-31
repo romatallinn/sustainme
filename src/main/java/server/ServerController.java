@@ -131,7 +131,7 @@ public class ServerController {
         double co2 = DatabaseHandler.increaseCO2RedBy(publicTransportRequest.getUid(),
                 result * 1000);
         int distance = DatabaseHandler.increaseFeatureCounter(
-                publicTransportRequest.getUid(), "publictransport",
+                publicTransportRequest.getUid(), "public",
                 publicTransportRequest.getDistance());
 
         return new PublicTransportResponse(exp,co2,distance);
