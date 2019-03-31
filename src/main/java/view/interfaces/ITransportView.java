@@ -9,4 +9,6 @@ public interface ITransportView {
     void displayStatus(String msg);
 
     void updateBikeDistance(int distance);
+
+    void updatePublicDistance(int distance);
 }

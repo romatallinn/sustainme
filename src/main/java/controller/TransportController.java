@@ -23,6 +23,8 @@ public class TransportController {
     public void updateViewWithData() {
         int distance = model.getBikeDistance();
         view.updateBikeDistance(distance);
+        distance = model.getPublicDistance();
+        view.updatePublicDistance(distance);
     }
 
     /**

@@ -12,5 +12,6 @@ public class ServerApi {
     public static final String VEGMEAL_EATEN = "vegmeal";
     public static final String LOCAL_PRODUCE_EATEN = "localproduce";
     public static final String BICYCLE = "bike";
+    public static final String PUBLIC_TRANSPORT = "publictransport";
 
 }

@@ -11,6 +11,9 @@ public class FoodModel {
     private float localProduceCount = -1;
 
 
+    /**
+     * Initializes the food features of the user profile.
+     */
     public void init() {
 
         if (UserProfile.getInstance().authToken.isEmpty()) {
@@ -24,6 +27,10 @@ public class FoodModel {
 
     }
 
+    /**
+     * Returns the total amount of vegetarian meals eaten by the user.
+     * @return the amount of vegetarian meals
+     */
     public int getVegMealsCount() {
 
         if (vegMealsCount < 0) {
@@ -33,6 +40,10 @@ public class FoodModel {
         return vegMealsCount;
     }
 
+    /**
+     * Returns the total amount of local produce bought.
+     * @return the amount of local produce bought.
+     */
     public float getLocalProduceCount() {
 
         if (localProduceCount < 0) {

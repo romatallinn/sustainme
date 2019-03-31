@@ -28,7 +28,8 @@ public class SignUpController {
      * @param email - user's email to be used for registration.
      * @param pass - user's password to be used for registration.
      */
-    public void signUpCallback(String email, String pass, String repass, String fname, String lname) {
+    public void signUpCallback(String email, String pass, String repass, String fname,
+                               String lname) {
 
         if (!pass.equals(repass)) {
             view.displayStatus("Passwords do not match!");

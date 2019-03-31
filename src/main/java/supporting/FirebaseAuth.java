@@ -49,7 +49,7 @@ public class FirebaseAuth {
         String msg = obj.get("error").getAsJsonObject().get("message").getAsString();
         String[] split = msg.split(" : ");
 
-        if(split.length == 2) {
+        if (split.length == 2) {
             return split[1];
         }
 

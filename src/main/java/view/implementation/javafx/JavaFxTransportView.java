@@ -3,6 +3,7 @@ package view.implementation.javafx;
 import controller.TransportController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import view.interfaces.ITransportView;
@@ -23,6 +24,14 @@ public class JavaFxTransportView extends JavaFxView implements ITransportView {
     @FXML
     private Text distanceBikeCounter;
 
+    @FXML
+    private TextField publicDistance;
+
+    @FXML
+    private ChoiceBox<String> publicType;
+
+    @FXML Text distancePublicCounter;
+
     @Override
     public void initView(TransportController controller) {
         this.controller = controller;
@@ -34,8 +43,18 @@ public class JavaFxTransportView extends JavaFxView implements ITransportView {
     }
 
     @FXML
-    private void addCycledKilometers(){
+    private void addCycledKilometers() {
         controller.addBikeKms(bikeDistance.getText());
+    }
+
+    @FXML
+    private void addPublicKilometers() {
+        if (publicType.getValue().equals("bus")) {
+            controller.addBusKms(publicDistance.getText());
+        }
+        else {
+            controller.addTrainKms(publicDistance.getText());
+        }
     }
 
     @Override
@@ -51,5 +70,10 @@ public class JavaFxTransportView extends JavaFxView implements ITransportView {
     @Override
     public void updateBikeDistance(int distance) {
         distanceBikeCounter.setText(Integer.toString(distance));
+    }
+
+    @Override
+    public void updatePublicDistance(int distance) {
+        distancePublicCounter.setText(Integer.toString(distance));
     }
 }

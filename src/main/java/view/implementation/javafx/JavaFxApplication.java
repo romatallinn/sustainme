@@ -1,7 +1,12 @@
 package view.implementation.javafx;
 
 
-import controller.*;
+import controller.EnergyController;
+import controller.FoodController;
+import controller.HomescreenController;
+import controller.SignInController;
+import controller.SignUpController;
+import controller.TransportController;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -9,7 +14,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import view.interfaces.*;
+import view.interfaces.IEnergyView;
+import view.interfaces.IFoodView;
+import view.interfaces.IHomeView;
+import view.interfaces.ISignInView;
+import view.interfaces.ISignUpView;
+import view.interfaces.ITransportView;
 
 
 import java.util.HashMap;
@@ -107,8 +117,8 @@ public class JavaFxApplication extends Application {
         TransportController transportController = new TransportController(transportView);
         transportView.initView(transportController);
 
-        dummy = new SceneFx<ITransportView>("SustainMe - Transport", "/fxml/JavaFXTransportView.fxml",
-                "/css/TransportView.css");
+        dummy = new SceneFx<ITransportView>("SustainMe - Transport",
+                "/fxml/JavaFXTransportView.fxml","/css/TransportView.css");
         dummy.setView(transportView);
         scenes.put("transport", dummy);
 
