@@ -3,15 +3,12 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Text?>
 
 <VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
@@ -52,11 +49,11 @@
         <HBox fx:id="tabFriends" prefHeight="30.0">
             <children>
                 <Region prefHeight="100.0" prefWidth="716.0" HBox.hgrow="ALWAYS" />
-                <TextField fx:id="addFriendEmail" text="Add Friend" HBox.hgrow="ALWAYS">
+                <TextField fx:id="addFriendEmail" promptText="Add Friend (email)" HBox.hgrow="ALWAYS">
                     <HBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                     </HBox.margin></TextField>
-                <Button fx:id="updateFriends" onAction="#addFriendsAction" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Add" VBox.vgrow="ALWAYS">
+                <Button fx:id="updateFriends" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addFriendsAction" prefHeight="25.0" prefWidth="100.0" text="Add" VBox.vgrow="ALWAYS">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor></Button>
@@ -65,116 +62,35 @@
         </HBox>
       <ScrollPane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
          <content>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="600.0">
                <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Region fx:id="test" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                        <Circle fx:id="profilePic" fill="DODGERBLUE" radius="100.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                        <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
-                           <children>
-                              <Button mnemonicParsing="false" prefWidth="300.0" text="Jesse Niemand">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                              <Text fx:id="level" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description" text="Level: 2" />
-                              <ProgressBar fx:id="expBar" prefWidth="200.0" progress="0.68">
-                                 <VBox.margin>
-                                    <Insets top="10.0" />
-                                 </VBox.margin>
-                              </ProgressBar>
-                           </children>
-                           <HBox.margin>
-                              <Insets left="50.0" />
-                           </HBox.margin>
-                        </VBox>
-                        <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                        <Region layoutX="527.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                     </children>
-                  </HBox>
-                  <Separator maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="2.0" />
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                        <Circle fill="DODGERBLUE" radius="100.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                         <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
-                             <children>
-                                 <Button mnemonicParsing="false" prefWidth="300.0" text="Jesse Niemand">
-                                     <cursor>
-                                         <Cursor fx:constant="HAND" />
-                                     </cursor>
-                                 </Button>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description" text="Level: 2" />
-                              <ProgressBar prefWidth="200.0" progress="0.68">
-                                 <VBox.margin>
-                                    <Insets top="10.0" />
-                                 </VBox.margin>
-                              </ProgressBar>
-                           </children>
-                           <HBox.margin>
-                              <Insets left="50.0" />
-                           </HBox.margin>
-                        </VBox>
-                        <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                        <Region layoutX="527.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                     </children>
-                  </HBox>
-                  <Separator maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="2.0" />
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                        <Circle fill="DODGERBLUE" radius="100.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                         <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
-                             <children>
-                                 <Button mnemonicParsing="false" prefWidth="300.0" text="Jesse Niemand">
-                                     <cursor>
-                                         <Cursor fx:constant="HAND" />
-                                     </cursor>
-                                 </Button>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description" text="Level: 2" />
-                              <ProgressBar prefWidth="200.0" progress="0.68">
-                                 <VBox.margin>
-                                    <Insets top="10.0" />
-                                 </VBox.margin>
-                              </ProgressBar>
-                           </children>
-                           <HBox.margin>
-                              <Insets left="50.0" />
-                           </HBox.margin>
-                        </VBox>
-                        <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                        <Region layoutX="527.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                     </children>
-                  </HBox>
-                  <Separator maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="2.0" />
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                        <Circle fill="DODGERBLUE" radius="100.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-                         <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
-                             <children>
-                                 <Button mnemonicParsing="false" prefWidth="300.0" text="Jesse Niemand">
-                                     <cursor>
-                                         <Cursor fx:constant="HAND" />
-                                     </cursor>
-                                 </Button>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description" text="Level: 2" />
-                              <ProgressBar prefWidth="200.0" progress="0.68">
-                                 <VBox.margin>
-                                    <Insets top="10.0" />
-                                 </VBox.margin>
-                              </ProgressBar>
-                           </children>
-                           <HBox.margin>
-                              <Insets left="50.0" />
-                           </HBox.margin>
-                        </VBox>
-                        <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                        <Region layoutX="527.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                     </children>
-                  </HBox>
+                  <Button id="friend1" mnemonicParsing="false">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button id="friend2" mnemonicParsing="false">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button id="friend3" mnemonicParsing="false">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="friend4" mnemonicParsing="false">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </VBox>
          </content>
       </ScrollPane>
