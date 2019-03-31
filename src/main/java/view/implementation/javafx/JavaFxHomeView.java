@@ -25,16 +25,6 @@ public class JavaFxHomeView extends JavaFxView implements IHomeView {
     @FXML
     private Button food;
     @FXML
-    private Button clothes;
-    @FXML
-    private Button energy;
-    @FXML
-    private Button transport;
-    @FXML
-    private Button news;
-    @FXML
-    private Button score;
-    @FXML
     private ProgressBar expBar;
     @FXML
     private Circle profilePic;
@@ -57,6 +47,11 @@ public class JavaFxHomeView extends JavaFxView implements IHomeView {
     @FXML
     public void goToEnergy() throws IOException {
         this.switchScene(food.getScene(), "energy");
+    }
+
+    @FXML
+    public void goToFriends() throws IOException {
+        this.switchScene(food.getScene(), "friends");
     }
 
     @Override

@@ -1,5 +1,6 @@
 package server.supporting;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -8,9 +9,12 @@ import com.google.firebase.database.ValueEventListener;
 
 import model.objects.UserData;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutionException;
 
 /**
  * The class that handles all requests to the Firebase Database.
@@ -139,6 +143,73 @@ public class DatabaseHandler {
 
     }
 
+    /**
+     * Adds a new friend with given email to the user of the given user id.
+     * @param uid - user id.
+     * @param friendEmail - email of the friend to add.
+     * @return response message.
+     * @throws InterruptedException - exception.
+     * @throws ExecutionException - exception.
+     */
+    public static boolean addFriendByEmail(String uid, String friendEmail) {
+
+        try {
+
+            String fid = FirebaseAuth.getInstance().getUserByEmailAsync(friendEmail).get().getUid();
+            DatabaseReference ref = db.getReference("users/" + uid + "/friends/" + fid);
+
+            ref.setValueAsync(true);
+            return true;
+
+        } catch (ExecutionException | InterruptedException e) {
+            System.out.println(e.getLocalizedMessage());
+            return false;
+        }
+
+
+    }
+
+    /**
+     * Retrieves the data of the friend users of the user with given id.
+     * @param uid - user id.
+     * @return UserData objects of all friends.
+     * @throws InterruptedException - exception.
+     */
+    public static List<UserData> retrieveFriendsDataObjects(String uid)
+            throws InterruptedException {
+
+        CountDownLatch latch = new CountDownLatch(1);
+
+        List<String> fids = new ArrayList<>();
+
+        DatabaseReference ref = db.getReference("users/" + uid + "/friends");
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
+                    fids.add(child.getKey());
+                }
+
+                latch.countDown();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        latch.await();
+
+        List<UserData> friends = new ArrayList<>(fids.size());
+        for (String fid : fids) {
+            friends.add(getUserData(fid));
+        }
+
+        return friends;
+
+    }
 
     /**
      * Retrieve value at the specific reference from the database.
@@ -152,11 +223,6 @@ public class DatabaseHandler {
             throws InterruptedException {
 
         DataSnapshot snapshot = retrieveDataSnapshotAt(ref);
-
-        if (retClass.equals(DataSnapshot.class)) {
-            return (T)snapshot;
-        }
-
         return snapshot.getValue(retClass);
 
     }

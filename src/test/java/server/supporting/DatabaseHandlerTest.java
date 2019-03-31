@@ -5,6 +5,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.List;
+import java.util.concurrent.ExecutionException;
+
 public class DatabaseHandlerTest {
 
     private final String staticUid = "staticTestUser";
@@ -15,7 +18,25 @@ public class DatabaseHandlerTest {
     @Before
     public void setup() {
         FirebaseConnection.initApp();
-     }
+    }
+
+    @Test
+    public void testFriendsAdder() throws InterruptedException, ExecutionException {
+        Boolean response = DatabaseHandler.addFriendByEmail(staticUid, "test@test.com");
+        Assert.assertTrue(response);
+    }
+
+    @Test
+    public void testFriendsWrongEmail() throws InterruptedException, ExecutionException {
+        Boolean response = DatabaseHandler.addFriendByEmail(staticUid, "error@error.com");
+        Assert.assertFalse(response);
+    }
+
+    @Test
+    public void testFriendsRetriever() throws InterruptedException {
+         List<UserData> friends = DatabaseHandler.retrieveFriendsDataObjects(staticUid);
+         Assert.assertEquals(2, friends.size());
+    }
 
     @Test
     public void testGetUserData() throws InterruptedException {
@@ -39,6 +60,16 @@ public class DatabaseHandlerTest {
         int testCount = DatabaseHandler.retrieveFeatureCounter(staticUid, "vegmeals");
 
         Assert.assertEquals(count, testCount);
+
+    }
+
+    @Test
+    public void testVegMealCountIncrease() throws InterruptedException{
+
+        int count = DatabaseHandler.retrieveFeatureCounter(dynamicUid, "vegmeals");
+        int newVal = DatabaseHandler.increaseFeatureCounter(dynamicUid, "vegmeals", 1);
+
+        Assert.assertEquals(count, newVal-1);
 
     }
 

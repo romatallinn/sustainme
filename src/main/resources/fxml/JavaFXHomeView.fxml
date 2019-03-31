@@ -107,7 +107,7 @@
                   <Insets />
                </HBox.margin>
             </Region>
-            <Button fx:id="clothes" mnemonicParsing="false" prefHeight="133.0" prefWidth="133.0" text="Transport" HBox.hgrow="ALWAYS">
+            <Button fx:id="friends" onAction="#goToFriends" mnemonicParsing="false" prefHeight="133.0" prefWidth="133.0" text="Friends" HBox.hgrow="ALWAYS">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>

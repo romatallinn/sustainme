@@ -1,9 +1,12 @@
 package server;
 
+import model.objects.FriendRequest;
 import model.objects.InitRequest;
+import model.objects.ShowFriendResponse;
 import model.objects.UserData;
 import model.objects.VegetarianRequest;
 import model.objects.VegetarianResponse;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,11 +15,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import server.supporting.DatabaseHandler;
 
+import java.util.List;
+
 @RestController
 public class ServerController {
 
     /**
-     * Retrieving the user's data by id.
+     * Receives request of returning the user data.
      * @param uid - user id.
      * @return UserData object.
      * @throws InterruptedException - exception.
@@ -31,7 +36,7 @@ public class ServerController {
     }
 
     /**
-     * Sends a request to the database handler for updating the vegetarian meal stats.
+     * Receives request to update the stats for vegetarian meal.
      * @param vegetarianRequest request received by client
      * @return vegetarianResponse for user with updated stats
      * @throws InterruptedException exception could be thrown by database handler
@@ -54,7 +59,7 @@ public class ServerController {
     }
 
     /**
-     * Sends a request to the server to initialize a new user.
+     * Receives request of initializing the user's data.
      * @param initRequest contains user credentials
      * @return a response to confirm that the user has been initialized
      */
@@ -63,6 +68,31 @@ public class ServerController {
         DatabaseHandler.initUser(initRequest.getUid(), initRequest.getFname(),
                 initRequest.getLname());
         return new ResponseEntity(HttpStatus.CREATED);
+    }
+
+    /**
+     * Receives request of new friend addition.
+     * @param friendRequest contains friend's uid.
+     * @return a response to confirm that the user has been added as a friend.
+     */
+    @RequestMapping(value = "/addfriend", method = RequestMethod.POST)
+    public boolean addFriend(@RequestBody FriendRequest friendRequest) {
+        return DatabaseHandler.addFriendByEmail(friendRequest.getUid(),
+                                        friendRequest.getFriendEmail());
+    }
+
+    /**
+     * Receives request of returning the list of all friends.
+     * @param uid - user id.
+     * @return a response of the list of all friends.
+     */
+    @RequestMapping(value = "/showfriends", method = RequestMethod.POST)
+    public ShowFriendResponse showFriend(@RequestBody String uid) throws InterruptedException {
+
+        List<UserData> friends = DatabaseHandler.retrieveFriendsDataObjects(uid);
+        ShowFriendResponse response = new ShowFriendResponse(friends);
+        return response;
+
     }
 
 }

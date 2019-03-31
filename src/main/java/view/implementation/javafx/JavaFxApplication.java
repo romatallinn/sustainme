@@ -2,16 +2,22 @@ package view.implementation.javafx;
 
 import controller.EnergyController;
 import controller.FoodController;
+import controller.FriendsComparisonController;
+import controller.FriendsController;
 import controller.HomescreenController;
 import controller.SignInController;
 import controller.SignUpController;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
 import view.interfaces.IEnergyView;
 import view.interfaces.IFoodView;
+import view.interfaces.IFriendView;
+import view.interfaces.IFriendsComparisonView;
 import view.interfaces.IHomeView;
 import view.interfaces.ISignInView;
 import view.interfaces.ISignUpView;
@@ -106,6 +112,8 @@ public class JavaFxApplication extends Application {
         dummy.setView(foodView);
         scenes.put("food", dummy);
 
+        //-----
+
         IEnergyView energyView = new JavaFxEnergyView();
         EnergyController energyController = new EnergyController(energyView);
         energyView.initView(energyController);
@@ -114,6 +122,33 @@ public class JavaFxApplication extends Application {
                 "/css/EnergyView.css");
         dummy.setView(energyView);
         scenes.put("energy", dummy);
+
+        //-----
+
+        IFriendView friendsView = new JavaFxFriendsView();
+        FriendsController friendsController = new FriendsController(friendsView);
+        friendsView.initView(friendsController);
+
+        dummy = new SceneFx<IFriendView>("SustainMe", "/fxml/JavaFXFriendsView.fxml",
+                "/css/FriendsView.css");
+        dummy.setView(friendsView);
+        scenes.put("friends", dummy);
+
+        //-----
+
+        IFriendsComparisonView friendsCompareView = new JavaFxFriendsComparisonView();
+
+        FriendsComparisonController friendController =
+                new FriendsComparisonController(friendsCompareView);
+
+        friendsCompareView.initView(friendController);
+
+        dummy = new SceneFx<IFriendsComparisonView>("SustainMe",
+                "/fxml/JavaFXFriendsComparisonView.fxml",
+                "/css/FriendsComparisonView.css");
+
+        dummy.setView(friendsCompareView);
+        scenes.put("friendsComparison", dummy);
 
     }
 
