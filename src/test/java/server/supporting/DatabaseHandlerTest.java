@@ -64,6 +64,16 @@ public class DatabaseHandlerTest {
     }
 
     @Test
+    public void testVegMealCountIncrease() throws InterruptedException{
+
+        int count = DatabaseHandler.retrieveFeatureCounter(dynamicUid, "vegmeals");
+        int newVal = DatabaseHandler.increaseFeatureCounter(dynamicUid, "vegmeals", 1);
+
+        Assert.assertEquals(count, newVal-1);
+
+    }
+
+    @Test
     public void testExpIncrease() throws InterruptedException {
 
         UserData initial = DatabaseHandler.getUserData(dynamicUid);
