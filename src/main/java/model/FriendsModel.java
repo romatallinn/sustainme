@@ -64,6 +64,10 @@ public class FriendsModel {
      */
     public void loadFriends() {
 
+        if (UserProfile.getInstance().authToken.isEmpty()) {
+            return;
+        }
+
         final String uri = ServerApi.HOST + ServerApi.SHOW_FRIENDS;
 
         RestTemplate restTemplate = new RestTemplate();

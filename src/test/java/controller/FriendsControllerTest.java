@@ -31,13 +31,13 @@ public class FriendsControllerTest {
     }
 
     @Test
-    public void testVegMealsAddFailure() {
+    public void testFriendAddFailure() {
         controller.addFriendByEmail("fff");
         Mockito.verify(view).displayStatus(Mockito.anyString());
     }
 
     @Test
-    public void testVegMealsAddSuccess() {
+    public void testFriendAddSuccess() {
         controller.addFriendByEmail("test@test.com");
         Mockito.verify(view).displayStatus(Mockito.anyString());
     }
