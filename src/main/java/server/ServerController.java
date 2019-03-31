@@ -37,7 +37,6 @@ public class ServerController {
      */
     @RequestMapping(value = "/retrieve", method = RequestMethod.POST)
     public UserData retrieve_user_data(@RequestBody String uid) throws InterruptedException {
-
         UserData user = DatabaseHandler.getUserData(uid);
         return user;
 
