@@ -1,6 +1,8 @@
 package view.implementation.javafx;
 
 import controller.FriendsController;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -43,18 +45,58 @@ public class JavaFxFriendsView extends JavaFxView implements IFriendView {
     @Override
     public void updateFriendsList(List<UserData> friends) {
         this.friends = friends;
-        if (friends.get(0) != null) {
-            friend1.setText(friends.get(0).fname);
+        if (friends.size() > 0) {
+            friend1.setDisable(false);
+            friend1.setText(friends.get(0).fname + " " + friends.get(0).lname);
+            friend1.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    goToComparison(friends.get(0));
+                }
+            });
+        } else {
+            friend1.setDisable(true);
         }
-        if (friends.get(1) != null) {
-            friend2.setText(friends.get(1).fname);
+
+        if (friends.size() > 1) {
+            friend2.setDisable(false);
+            friend2.setText(friends.get(1).fname + " " + friends.get(1).lname);
+            friend2.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    goToComparison(friends.get(1));
+                }
+            });
+        } else {
+            friend2.setDisable(true);
         }
-        if (friends.get(2) != null) {
-            friend3.setText(friends.get(2).fname);
+
+        if (friends.size() > 2) {
+            friend3.setDisable(false);
+            friend3.setText(friends.get(2).fname + " " + friends.get(2).lname);
+            friend3.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    goToComparison(friends.get(2));
+                }
+            });
+        } else {
+            friend3.setDisable(true);
         }
-        if (friends.get(3) != null) {
-            friend4.setText(friends.get(3).fname);
+
+        if (friends.size() > 3) {
+            friend4.setDisable(false);
+            friend4.setText(friends.get(3).fname + " " + friends.get(3).lname);
+            friend4.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    goToComparison(friends.get(3));
+                }
+            });
+        } else {
+            friend4.setDisable(true);
         }
+
     }
 
     @Override
@@ -67,28 +109,30 @@ public class JavaFxFriendsView extends JavaFxView implements IFriendView {
         System.out.println(msg);
     }
 
-    @FXML
-    private void goToHome() throws IOException {
+    private void goToComparison(UserData friend) {
 
-        // switchScene(homeBtn.getScene(), "home");
-
-        if (friends.size() == 0) {
-            return;
+        try {
+            switchScene(homeBtn.getScene(), "friendsComparison");
+        } catch (IOException e) {
+            System.out.println(e.getLocalizedMessage());
         }
-
-        switchScene(homeBtn.getScene(), "friendsComparison");
 
         SceneFx scene = JavaFxApplication.scenes.get("friendsComparison");
         IFriendsComparisonView view = (IFriendsComparisonView)scene.getView();
-        view.updateFriendsData(friends.get(0));
+        view.updateFriendsData(friend);
         view.updateLocalUserData();
-
     }
 
     @FXML
-    private void addFriendsAction() throws IOException {
+    private void goToHome() throws IOException {
+         switchScene(homeBtn.getScene(), "home");
+    }
+
+    @FXML
+    private void addFriendsAction() {
         controller.addFriendByEmail(addFriendEmail.getText());
         addFriendEmail.clear();
+        controller.updateViewWithData();
     }
 
 

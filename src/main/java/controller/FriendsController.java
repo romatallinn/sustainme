@@ -17,6 +17,7 @@ public class FriendsController {
     }
 
     public void updateViewWithData() {
+        model.loadFriends();
         List<UserData> friends = model.getFriends();
         view.updateFriendsList(friends);
     }
