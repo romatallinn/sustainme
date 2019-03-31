@@ -122,14 +122,14 @@ public class JavaFxApplication extends Application {
 
         //-----
 
-//        IFriendsComparisonView friendsCompareView = new JavaFxFriendsComparisonView();
-//        FriendsController friendController = new FriendsController(friendsCompareView);
-//        friendsCompareView.initView(friendController);
-//
-//        dummy = new SceneFx<IFriendsComparisonView>("SustainMe", "/fxml/JavaFXFriendsComparisonView.fxml",
-//                "/css/FriendsComparisonView.css");
-//        dummy.setView(friendsCompareView);
-//        scenes.put("friendsComparison", dummy);
+        IFriendsComparisonView friendsCompareView = new JavaFxFriendsComparisonView();
+        FriendsComparisonController friendController = new FriendsComparisonController(friendsCompareView);
+        friendsCompareView.initView(friendController);
+
+        dummy = new SceneFx<IFriendsComparisonView>("SustainMe", "/fxml/JavaFXFriendsComparisonView.fxml",
+                "/css/FriendsComparisonView.css");
+        dummy.setView(friendsCompareView);
+        scenes.put("friendsComparison", dummy);
 
     }
 
