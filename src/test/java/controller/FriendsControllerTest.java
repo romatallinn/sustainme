@@ -1,5 +1,6 @@
 package controller;
 
+import model.objects.UserProfile;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -21,6 +22,7 @@ public class FriendsControllerTest {
 
     @Before
     public void setup() {
+        UserProfile.getInstance().clean();
         controller = new FriendsController(view);
     }
 
