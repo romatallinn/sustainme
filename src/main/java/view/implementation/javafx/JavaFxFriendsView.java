@@ -22,7 +22,21 @@ public class JavaFxFriendsView extends JavaFxView implements IFriendView {
     @FXML
     private TextField addFriendEmail;
 
+<<<<<<< Updated upstream
     private List<UserData> friends;
+=======
+    @FXML
+    private Button friend1;
+    @FXML
+    private Button friend2;
+    @FXML
+    private Button friend3;
+    @FXML
+    private Button friend4;
+    @FXML
+    private Button friend5;
+
+>>>>>>> Stashed changes
 
     @Override
     public void initView(FriendsController controller) {
@@ -31,8 +45,26 @@ public class JavaFxFriendsView extends JavaFxView implements IFriendView {
 
     @Override
     public void updateFriendsList(List<UserData> friends) {
+<<<<<<< Updated upstream
         this.friends = friends;
         // TODO: update grid/table/scrollpane with passed data.
+=======
+        if (friend1 == null) {
+            friend1.setText(addFriendEmail.getText());
+        }
+        if (friend2 == null) {
+            friend2.setText(addFriendEmail.getText());
+        }
+        if (friend3 == null) {
+            friend3.setText(addFriendEmail.getText());
+        }
+        if (friend4 == null) {
+            friend4.setText(addFriendEmail.getText());
+        }
+        if (friend5 == null) {
+            friend5.setText(addFriendEmail.getText());
+        }
+>>>>>>> Stashed changes
     }
 
     @Override

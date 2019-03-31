@@ -78,7 +78,7 @@
     -fx-border-style: none;
 }
 
-#addFriends {
+#addFriendEmail {
     -fx-font-size: 15;
 }
 
@@ -89,9 +89,4 @@
     -fx-border-radius: 50;
     -fx-background-radius: 50;
     -fx-font-weight: bold;
-}
-
-#profilePic {
-    -fx-border-radius: 50;
-    -fx-background-radius: 50;
 }
