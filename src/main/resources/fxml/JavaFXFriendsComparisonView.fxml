@@ -67,8 +67,9 @@
                         </VBox>
                         <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="CO2" text="CO2 reduced :" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="total" text="35" />
-                        <Region layoutX="527.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />                    </children>
+                        <Text fx:id="myCO2" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="total" text="35" />
+                        <Region layoutX="527.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                    </children>
                     <HBox.margin>
                         <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
                     </HBox.margin>
@@ -92,7 +93,7 @@
                         </VBox>
                         <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="CO2" text="CO2 reduced:" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="total" text="35" />
+                        <Text fx:id="friendCO2" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="total" text="35" />
                         <Region layoutX="527.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
                     </children>
                     <HBox.margin>

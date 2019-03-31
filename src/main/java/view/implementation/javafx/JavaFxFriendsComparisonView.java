@@ -3,6 +3,7 @@ package view.implementation.javafx;
 import controller.FriendsComparisonController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import model.objects.UserData;
@@ -17,6 +18,16 @@ public class JavaFxFriendsComparisonView extends JavaFxView implements IFriendsC
 
     @FXML
     private Button homeBtn;
+    @FXML
+    private Text name;
+    @FXML
+    private Text level;
+    @FXML
+    private ProgressBar expBar;
+    @FXML
+    private Text myCO2;
+    @FXML
+    private Text friendCO2;
 
     @Override
     public void initView(FriendsComparisonController controller) {
