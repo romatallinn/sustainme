@@ -23,6 +23,12 @@ public class JavaFxFoodView extends JavaFxView implements IFoodView {
     @FXML
     private Text vegCounter;
 
+    @FXML
+    private TextField localCount;
+
+    @FXML
+    private Text localCounter;
+
     @Override
     public void initView(FoodController controller) {
         this.controller = controller;
@@ -38,6 +44,11 @@ public class JavaFxFoodView extends JavaFxView implements IFoodView {
 
         controller.addEatenVegMeals(vegMealsCount.getText());
 
+    }
+
+    @FXML
+    private void addEatenLocalProduce() {
+        controller.addEatenLocalProduce(localCount.getText());
     }
 
     @Override
@@ -57,6 +68,6 @@ public class JavaFxFoodView extends JavaFxView implements IFoodView {
 
     @Override
     public void updateLocalProduceCounter(float kg) {
-        // TODO
+        localCounter.setText(Float.toString(kg));
     }
 }

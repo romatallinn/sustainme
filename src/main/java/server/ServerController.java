@@ -51,6 +51,25 @@ public class ServerController {
     }
 
     /**
+     * Sends a request to the database handler for updating the vegetarian meal stats.
+     * @param localProduceRequest request sent by client
+     * @return LocalProduceResponse for user with updated stats
+     * @throws InterruptedException exception could be thrown by database handler
+     */
+    @RequestMapping(value = "/localproduce", method = RequestMethod.POST)
+    public LocalProduceResponse localProduce(@RequestBody LocalProduceRequest localProduceRequest)
+            throws InterruptedException {
+        int exp = DatabaseHandler.increaseExpBy(localProduceRequest.getUid(),
+                Math.round(localProduceRequest.getWeight()));
+        double co2 = DatabaseHandler.increaseCO2RedBy(localProduceRequest.getUid(),
+                localProduceRequest.getWeight() * 0.14);
+        float amount = DatabaseHandler.increaseFeatureCounter(localProduceRequest.getUid(),
+                "localproduce", localProduceRequest.getWeight());
+        return new LocalProduceResponse(exp, co2, amount);
+
+    }
+
+    /**
      * Sends a request to the server to initialize a new user.
      * @param initRequest contains user credentials
      * @return a response to confirm that the user has been initialized
@@ -91,7 +110,7 @@ public class ServerController {
      * @throws Exception exception could be thrown by database handler
      */
     @RequestMapping(value = "/publictransport", method = RequestMethod.POST)
-    public PublicTransportResponse useBike(@RequestBody PublicTransportRequest publicTransportRequest) throws Exception {
+    public PublicTransportResponse usePublicTransport(@RequestBody PublicTransportRequest publicTransportRequest) throws Exception {
         double result = ApiRequest.requestPublicTrans(Double
                 .toString(publicTransportRequest.getDistance() * 0.621371192), publicTransportRequest.getType()); //Should be
         // result from api request

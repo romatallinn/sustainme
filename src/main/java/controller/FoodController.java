@@ -24,6 +24,8 @@ public class FoodController {
     public void updateViewWithData() {
         int vegmeals = model.getVegMealsCount();
         view.updateVegCounter(vegmeals);
+        float local = model.getLocalProduceCount();
+        view.updateLocalProduceCounter(local);
     }
 
     /**
@@ -60,6 +62,7 @@ public class FoodController {
                 view.displayStatus("Please enter the weight in the range 0-10kg.");
                 return;
             }
+            model.addEatenLocalProduce(kg);
             view.displayStatus("The stat of the local produce is updated!");
             updateViewWithData();
         } catch (NumberFormatException e) {

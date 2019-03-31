@@ -1,5 +1,7 @@
 package model;
 
+import model.objects.LocalProduceRequest;
+import model.objects.LocalProduceResponse;
 import model.objects.VegetarianRequest;
 import model.objects.VegetarianResponse;
 import org.springframework.web.client.RestTemplate;
@@ -85,7 +87,17 @@ public class FoodModel {
 
         final String uri = ServerApi.HOST + ServerApi.LOCAL_PRODUCE_EATEN;
 
-        // TODO: Implement Request to Server to invoke eaten local produce calculations.
+        LocalProduceRequest localProduceRequest =
+                new LocalProduceRequest(UserProfile.getInstance().getUid(), kg);
+
+        RestTemplate restTemplate = new RestTemplate();
+        LocalProduceResponse result =
+                restTemplate.postForObject(uri, localProduceRequest, LocalProduceResponse.class);
+
+        UserProfile.getInstance().setLocalExp(result.getExperience());
+        UserProfile.getInstance().setLocalCo2Stats(result.getCo2Reduced());
+
+        localProduceCount = result.getAmount();
 
     }
 
