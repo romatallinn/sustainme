@@ -127,7 +127,7 @@ public class ServerController {
                 publicTransportRequest.getType()); //Should be
         // result from api request
         int exp =  DatabaseHandler.increaseExpBy(publicTransportRequest.getUid(),
-                (int) Math.round((result*1000/0.15)));
+                (int) Math.round(result * 1000 / 0.15));
         double co2 = DatabaseHandler.increaseCO2RedBy(publicTransportRequest.getUid(),
                 result * 1000);
         int distance = DatabaseHandler.increaseFeatureCounter(

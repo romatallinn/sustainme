@@ -33,10 +33,37 @@ public class ServerControllerTest {
     @Test
     public void vegetarianMealTest() throws InterruptedException {
         UserData userData =  serve.retrieve_user_data("dynamicTestUser");
+        int featBef = DatabaseHandler.retrieveFeatureCounter("dynamicTestUser","vegmeals");
         VegetarianRequest vegetarianRequest = new VegetarianRequest("dynamicTestUser", 2);
-        VegetarianResponse vegetarianResponse =  serve.vegetarianMeal(vegetarianRequest);
+        serve.vegetarianMeal(vegetarianRequest);
+        int featAft = DatabaseHandler.retrieveFeatureCounter("dynamicTestUser","vegmeals");
         UserData after =  serve.retrieve_user_data("dynamicTestUser");
         assertEquals(40,after.experience - userData.experience);
+        assertEquals(2,featAft - featBef);
+    }
+
+    @Test
+    public void vegMealBelowZeroTest() throws InterruptedException {
+        UserData userData =  serve.retrieve_user_data("dynamicTestUser");
+        int featBef = DatabaseHandler.retrieveFeatureCounter("dynamicTestUser","vegmeals");
+        VegetarianRequest vegetarianRequest = new VegetarianRequest("dynamicTestUser", -1);
+        serve.vegetarianMeal(vegetarianRequest);
+        int featAft = DatabaseHandler.retrieveFeatureCounter("dynamicTestUser","vegmeals");
+        UserData after =  serve.retrieve_user_data("dynamicTestUser");
+        assertEquals(0,after.experience - userData.experience);
+        assertEquals(0,featAft - featBef);
+    }
+
+    @Test
+    public void vegMealAboveThreeTest() throws InterruptedException {
+        UserData userData =  serve.retrieve_user_data("dynamicTestUser");
+        int featBef = DatabaseHandler.retrieveFeatureCounter("dynamicTestUser","vegmeals");
+        VegetarianRequest vegetarianRequest = new VegetarianRequest("dynamicTestUser", 7);
+        serve.vegetarianMeal(vegetarianRequest);
+        int featAft = DatabaseHandler.retrieveFeatureCounter("dynamicTestUser","vegmeals");
+        UserData after =  serve.retrieve_user_data("dynamicTestUser");
+        assertEquals(0,after.experience - userData.experience);
+        assertEquals(0,featAft - featBef);
     }
 
     @Test
@@ -80,6 +107,18 @@ public class ServerControllerTest {
         int featAft = DatabaseHandler.retrieveFeatureCounter("dynamicTestUser","public");
         assertEquals(7, after.experience - before.experience);
         assertEquals(20, featAft - featBef);
+    }
+
+    @Test
+    public void localProduceTest() throws Exception {
+        UserData before = serve.retrieve_user_data("dynamicTestUser");
+        double featBef = DatabaseHandler.retrieveDoubleFeatureCounter("dynamicTestUser","localproduce");
+        LocalProduceRequest lpr = new LocalProduceRequest("dynamicTestUser", 2);
+        serve.localProduce(lpr);
+        UserData after = serve.retrieve_user_data("dynamicTestUser");
+        double featAft = DatabaseHandler.retrieveFeatureCounter("dynamicTestUser","localproduce");
+        assertEquals(2, after.experience - before.experience);
+        assertEquals(2, featAft - featBef,0.0);
     }
 
 }

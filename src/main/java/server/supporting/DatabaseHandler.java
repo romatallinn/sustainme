@@ -160,6 +160,22 @@ public class DatabaseHandler {
 
     }
 
+    /**
+     * Retrieves the amount of eaten vegetarian meals by the user with given uid from DB.
+     * @param uid - user id.
+     * @return number of eaten vegetarian meals.
+     * @throws InterruptedException - exception.
+     */
+    public static double retrieveDoubleFeatureCounter(String uid, String feature)
+            throws InterruptedException {
+
+        DatabaseReference ref = db.getReference("users").child(uid).child("features/" + feature);
+        double val = retrieveValueAt(ref, Double.class);
+
+        return val;
+
+    }
+
 
     /**
      * Retrieve value at the specific reference from the database.
