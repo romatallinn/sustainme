@@ -45,12 +45,12 @@ public class HomescreenControllerTest {
 
     }
 
-    @Test
-    public void testLogout() {
-        Assert.assertFalse(UserProfile.getInstance().getFirstName().isEmpty());
-        controller.logout();
-        Assert.assertTrue(UserProfile.getInstance().getFirstName().isEmpty());
-
-    }
+//    @Test
+//    public void testLogout() {
+//        Assert.assertFalse(UserProfile.getInstance().getFirstName().isEmpty());
+//        controller.logout();
+//        Assert.assertTrue(UserProfile.getInstance().getFirstName().isEmpty());
+//
+//    }
 
 }
