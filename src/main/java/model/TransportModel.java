@@ -63,6 +63,11 @@ public class  TransportModel {
      */
     public void addDistanceCycled(int distance) {
 
+        if (UserProfile.getInstance().authToken.isEmpty()) {
+            bikeDistance = 0;
+            return;
+        }
+
         final String uri = ServerApi.HOST + ServerApi.BICYCLE;
 
         BikeRequest bikeRequest =
@@ -84,6 +89,12 @@ public class  TransportModel {
      * @param distance distance by train
      */
     public void addTrainDistanceTraveled(int distance) {
+
+        if (UserProfile.getInstance().authToken.isEmpty()) {
+            publicDistance = 0;
+            return;
+        }
+
         final String uri = ServerApi.HOST + ServerApi.PUBLIC_TRANSPORT;
 
         PublicTransportRequest publicTransportRequest =
@@ -106,6 +117,12 @@ public class  TransportModel {
      * @param distance distance by bus
      */
     public void addBusDistanceTraveled(int distance) {
+
+        if (UserProfile.getInstance().authToken.isEmpty()) {
+            publicDistance = 0;
+            return;
+        }
+
         final String uri = ServerApi.HOST + ServerApi.PUBLIC_TRANSPORT;
 
         PublicTransportRequest publicTransportRequest =

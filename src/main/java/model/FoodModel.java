@@ -63,6 +63,11 @@ public class FoodModel {
      */
     public void addEatenVegMeal(int amount) {
 
+        if (UserProfile.getInstance().authToken.isEmpty()) {
+            vegMealsCount = 0;
+            return;
+        }
+
         final String uri = ServerApi.HOST + ServerApi.VEGMEAL_EATEN;
 
         VegetarianRequest vegetarianRequest =
@@ -85,7 +90,10 @@ public class FoodModel {
      */
     public void addEatenLocalProduce(float kg) {
 
-        System.out.println("Kg added: " + kg);
+        if (UserProfile.getInstance().authToken.isEmpty()) {
+            localProduceCount = 0;
+            return;
+        }
 
         final String uri = ServerApi.HOST + ServerApi.LOCAL_PRODUCE_EATEN;
 

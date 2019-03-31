@@ -42,8 +42,8 @@ public class UserProfile {
     }
 
     public void clean() {
-        UserProfile.instance = new UserProfile();
-        data = new UserData();
+        this.authToken = "";
+        this.data = new UserData();
     }
 
     /**
