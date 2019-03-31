@@ -65,11 +65,14 @@ public class JavaFxFriendsComparisonView extends JavaFxView implements IFriendsC
     @Override
     public void updateFriendsData(UserData friend) {
 
+        friend.calculateLevel();
+
         friendName.setText(friend.fname + " " + friend.lname);
         friendLvl.setText("Level: " + friend.level);
         friendExpBar.setProgress(friend.experience);
 
         friendCO2.setText(Double.toString(friend.co2red));
+
     }
 
     @Override

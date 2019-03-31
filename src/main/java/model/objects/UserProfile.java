@@ -36,7 +36,7 @@ public class UserProfile {
         data.experience = 15;
         data.co2red = 5;
 
-        checkLevel();
+        calculateLevel();
 
     }
 
@@ -77,7 +77,7 @@ public class UserProfile {
         data.uid = uid;
         data.level = 1;
 
-        checkLevel();
+        calculateLevel();
 
     }
 
@@ -89,7 +89,7 @@ public class UserProfile {
     public void setLocalExp(int exp) {
 
         data.experience = exp;
-        this.checkLevel();
+        this.calculateLevel();
 
     }
 
@@ -120,15 +120,9 @@ public class UserProfile {
     /**
      * Checks current experience to see if the user should level up.
      */
-    private void checkLevel() {
+    private void calculateLevel() {
 
-        data.level = 1;
-        while (data.experience >= 10 * pow(2, data.level - 1)) {
-
-            data.experience -= 10 * pow(2, data.level - 1);
-            data.level++;
-
-        }
+        data.calculateLevel();
 
     }
 
