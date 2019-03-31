@@ -52,11 +52,11 @@
         <HBox fx:id="tabFriends" prefHeight="30.0">
             <children>
                 <Region prefHeight="100.0" prefWidth="716.0" HBox.hgrow="ALWAYS" />
-                <TextField fx:id="addFriends" text="Add Friend" HBox.hgrow="ALWAYS">
+                <TextField fx:id="addFriendEmail" text="Add Friend" HBox.hgrow="ALWAYS">
                     <HBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                     </HBox.margin></TextField>
-                <Button fx:id="updateFriends" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Add" VBox.vgrow="ALWAYS">
+                <Button fx:id="updateFriends" onAction="#addFriendsAction" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Add" VBox.vgrow="ALWAYS">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor></Button>
