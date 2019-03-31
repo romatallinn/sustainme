@@ -1,6 +1,6 @@
 package controller;
 
-import model.objects.UserProfile;
+import model.UserProfile;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;

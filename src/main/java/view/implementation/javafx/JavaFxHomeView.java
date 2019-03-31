@@ -34,7 +34,7 @@ public class JavaFxHomeView extends JavaFxView implements IHomeView {
      * Changes window from home view to sign in view (logout).
      */
     @FXML
-    public void goToSignIn() throws IOException {
+    public void invokeLogout() throws IOException {
         controller.logout();
         this.switchScene(logout.getScene(), "signin");
     }
@@ -42,6 +42,11 @@ public class JavaFxHomeView extends JavaFxView implements IHomeView {
     @FXML
     public void goToFood() throws IOException {
         this.switchScene(food.getScene(), "food");
+    }
+
+    @FXML
+    public void goToTransport() throws IOException {
+        this.switchScene(food.getScene(), "transport");
     }
 
     @FXML

@@ -13,10 +13,10 @@ public class EnergyModelTest {
         model = new EnergyModel();
     }
 
-    @Test
-    public void testGetters() {
-        Assert.assertEquals(0, model.getSolarPanelArea());
-    }
-
+//    @Test
+//    public void testGetters() {
+//        Assert.assertEquals(0, model.getSolarPanelArea());
+//    }
+//
 
 }

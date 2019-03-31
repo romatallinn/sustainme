@@ -84,10 +84,51 @@
     -fx-font-weight: bold;
 }
 
-#vegCounter {
+#distanceBikeCounter {
     -fx-fill: #757575;
 }
 
-#localCounter {
+#distancePublicCounter {
     -fx-fill: #757575;
 }
+
+.choice-box {
+    -fx-background-color: #03A9F4;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-radius: 50;
+    -fx-border-color: transparent;
+    -fx-border-radius: 50;
+    -fx-mark-color: #FFFFFF;
+}
+
+.choice-box > .label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+}
+
+.choice-box .context-menu {
+    -fx-background-color: #03A9F4;
+    -fx-pref-width: 150;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+}
+
+.choice-box .menu-item {
+    -fx-background-radius: 50;
+    -fx-border-radius: 50;
+}
+
+.choice-box .menu-item > .label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+}
+
+.choice-box .menu-item:focused {
+    -fx-background-color: #FFFFFF;
+}
+
+.choice-box .menu-item:focused > .label {
+    -fx-text-fill: #03A9F4;
+    -fx-font-weight: bold;
+}
+

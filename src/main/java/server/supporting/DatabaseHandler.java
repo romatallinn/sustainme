@@ -64,6 +64,9 @@ public class DatabaseHandler {
 
         Map<String, Object> features = new HashMap<>();
         features.put("vegmeals", 0);
+        features.put("localproduce", 0);
+        features.put("bike", 0);
+        features.put("public", 0);
 
         Map<String, Object> data = new HashMap<>();
         data.put("fname", fname);
@@ -124,6 +127,24 @@ public class DatabaseHandler {
         ref.setValueAsync(newVal);
 
         return  newVal;
+
+    }
+
+    /**
+     * Increases the feature count of the vegetarian meals of the user
+     * with given uid by the given amount.
+     * @param uid - user id
+     * @param amount - increasing amount.
+     */
+    public static float increaseFeatureCounter(String uid, String feature, float amount)
+            throws InterruptedException {
+
+        DatabaseReference ref = db.getReference("users").child(uid).child("features/" + feature);
+
+        float newVal = retrieveValueAt(ref, Float.class) + amount;
+        ref.setValueAsync(newVal);
+
+        return newVal;
 
     }
 
@@ -208,6 +229,22 @@ public class DatabaseHandler {
         }
 
         return friends;
+
+    }
+
+    /**
+     * Retrieves the amount of eaten vegetarian meals by the user with given uid from DB.
+     * @param uid - user id.
+     * @return number of eaten vegetarian meals.
+     * @throws InterruptedException - exception.
+     */
+    public static double retrieveDoubleFeatureCounter(String uid, String feature)
+            throws InterruptedException {
+
+        DatabaseReference ref = db.getReference("users").child(uid).child("features/" + feature);
+        double val = retrieveValueAt(ref, Double.class);
+
+        return val;
 
     }
 

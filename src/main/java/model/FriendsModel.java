@@ -3,7 +3,6 @@ package model;
 import model.objects.FriendRequest;
 import model.objects.ShowFriendResponse;
 import model.objects.UserData;
-import model.objects.UserProfile;
 import org.springframework.web.client.RestTemplate;
 import supporting.ServerApi;
 

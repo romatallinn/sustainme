@@ -18,10 +18,16 @@ public class JavaFxFoodView extends JavaFxView implements IFoodView {
     private Button homeBtn;
 
     @FXML
-    private TextField vegMealsCount;
+    private TextField vegMealsCountInput;
 
     @FXML
     private Text vegCounter;
+
+    @FXML
+    private TextField localCountInput;
+
+    @FXML
+    private Text localCounter;
 
     @Override
     public void initView(FoodController controller) {
@@ -35,14 +41,19 @@ public class JavaFxFoodView extends JavaFxView implements IFoodView {
 
     @FXML
     private void addEatenVegMeals() {
+        controller.addEatenVegMeals(vegMealsCountInput.getText());
+        vegMealsCountInput.clear();
+    }
 
-        controller.addEatenVegMeals(vegMealsCount.getText());
-
+    @FXML
+    private void addEatenLocalProduce() {
+        controller.addEatenLocalProduce(localCountInput.getText());
+        localCountInput.clear();
     }
 
     @Override
     public void displayStatus(String msg) {
-        // TODO
+        System.out.println(msg);
     }
 
     @Override
@@ -52,6 +63,11 @@ public class JavaFxFoodView extends JavaFxView implements IFoodView {
 
     @Override
     public void updateVegCounter(int counter) {
-        vegCounter.setText("Counter: " + counter);
+        vegCounter.setText(Integer.toString(counter));
+    }
+
+    @Override
+    public void updateLocalProduceCounter(float kg) {
+        localCounter.setText(Float.toString(kg));
     }
 }

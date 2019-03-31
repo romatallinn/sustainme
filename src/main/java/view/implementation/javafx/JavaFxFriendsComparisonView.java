@@ -5,8 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.text.Text;
+import model.UserProfile;
 import model.objects.UserData;
-import model.objects.UserProfile;
 import view.interfaces.IFriendsComparisonView;
 
 import java.io.IOException;

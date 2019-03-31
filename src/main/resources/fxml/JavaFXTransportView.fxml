@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
@@ -15,14 +17,13 @@
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <HBox fx:id="top">
-
             <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#goToHome" text="Home   " HBox.hgrow="ALWAYS">
                 <HBox.margin>
                     <Insets left="10.0" />
                 </HBox.margin>
-            <cursor>
-               <Cursor fx:constant="HAND" />
-            </cursor></Button>
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor></Button>
             <Region HBox.hgrow="ALWAYS" />
             <Text fx:id="title" layoutX="14.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SustainMe" textAlignment="CENTER" wrappingWidth="521.35546875" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0" HBox.hgrow="ALWAYS">
                 <HBox.margin>
@@ -32,8 +33,7 @@
             <Button fx:id="login" layoutX="650.0" layoutY="14.0" mnemonicParsing="false" opacity="0.0" text="Log out" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="17.0" HBox.hgrow="ALWAYS">
                 <HBox.margin>
                     <Insets right="10.0" />
-                </HBox.margin>
-            </Button>
+                </HBox.margin></Button>
             <padding>
                 <Insets bottom="40.0" />
             </padding>
@@ -41,7 +41,7 @@
         <HBox fx:id="tab" prefHeight="30.0">
             <children>
                 <Region prefHeight="187.0" prefWidth="716.0" HBox.hgrow="ALWAYS" />
-                <Text fx:id="locationtab" strokeType="OUTSIDE" strokeWidth="0.0" text="Food" textAlignment="CENTER" wrappingWidth="220.13671875" HBox.hgrow="ALWAYS">
+                <Text fx:id="locationtab" strokeType="OUTSIDE" strokeWidth="0.0" text="Transport" textAlignment="CENTER" wrappingWidth="220.13671875" HBox.hgrow="ALWAYS">
                     <HBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                     </HBox.margin></Text>
@@ -52,51 +52,17 @@
             <children>
                 <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="100.0" spacing="10.0" HBox.hgrow="ALWAYS">
                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Vegetarian meals" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description" text="Eat a vegetarian meal for lunch or dinner" />
-                  <Separator maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="2.0" />
-                  <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Add or remove meals:" />
-                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-                     <children>
-                        <TextField fx:id="vegMealsCountInput" maxHeight="1.7976931348623157E308" promptText="Amount:" HBox.hgrow="NEVER" />
-                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
-                           <children>
-                              <Button onAction="#addEatenVegMeals" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Add" VBox.vgrow="ALWAYS">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor></Button>
-                              <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Remove" VBox.vgrow="ALWAYS">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor></Button>
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
-                  <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Total vegetarian meals eaten:" />
-                  <Text fx:id="vegCounter" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="21" />
-                  <Region layoutX="10.0" layoutY="82.0" prefHeight="200.0" prefWidth="200.0" />
-                    </children>
-                    <HBox.margin>
-                        <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
-                    </HBox.margin>
-                </VBox>
-                <Separator orientation="VERTICAL" prefHeight="200.0" prefWidth="2.0" />
-                <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="100.0" spacing="10.0" HBox.hgrow="ALWAYS">
-                    <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Local produce" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description" text="Buy local produce instead of imported produce" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Bike" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description" text="Travel by bike instead of your car" />
                         <Separator maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="2.0" />
                         <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Add or remove meals:" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Add or remove distance in kilometers:" />
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                             <children>
-                                <TextField fx:id="localCountInput" maxHeight="1.7976931348623157E308" promptText="Amount:" HBox.hgrow="NEVER" />
+                                <TextField fx:id="bikeDistance" maxHeight="1.7976931348623157E308" promptText="Amount:" HBox.hgrow="NEVER" />
                                 <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                                     <children>
-                                        <Button onAction="#addEatenLocalProduce" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Add" VBox.vgrow="ALWAYS">
+                                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addCycledKilometers" text="Add" VBox.vgrow="ALWAYS">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor></Button>
@@ -109,8 +75,52 @@
                             </children>
                         </HBox>
                         <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Total vegetarian meals eaten:" />
-                        <Text fx:id="localCounter" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="21" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Total distance in kilometers:" />
+                        <Text fx:id="distanceBikeCounter" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="21" />
+                        <Region layoutX="10.0" layoutY="82.0" prefHeight="200.0" prefWidth="200.0" />
+                    </children>
+                    <HBox.margin>
+                        <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                    </HBox.margin>
+                </VBox>
+                <Separator orientation="VERTICAL" prefHeight="200.0" prefWidth="2.0" />
+                <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="100.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                    <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Public Transport" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description" text="Travel by public transport instead of your car" />
+                        <Separator maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="2.0" />
+                        <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Type of public transport:" />
+                        <ChoiceBox fx:id="publicType" prefWidth="150.0" value="Bus">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Bus" />
+                                    <String fx:value="Train" />
+                                </FXCollections>
+                            </items>
+                        </ChoiceBox>
+                  <Region layoutX="10.0" layoutY="277.0" prefHeight="200.0" prefWidth="200.0" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Add or remove distance in kilometers:" />
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                            <children>
+                                <TextField fx:id="publicDistance" maxHeight="1.7976931348623157E308" promptText="Amount:" HBox.hgrow="NEVER" />
+                                <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                                    <children>
+                                        <Button onAction="#addPublicKilometers" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Add" VBox.vgrow="ALWAYS">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor></Button>
+                                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Remove" VBox.vgrow="ALWAYS">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor></Button>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                        <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Total distance in kilometers:" />
+                        <Text fx:id="distancePublicCounter" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="21" />
                         <Region layoutX="10.0" layoutY="82.0" prefHeight="200.0" prefWidth="200.0" />
                     </children>
                     <HBox.margin>

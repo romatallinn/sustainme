@@ -12,7 +12,7 @@ public class VegetarianRequestTest {
         }
 
         @Test
-        public void getContentTest() {
+        public void getAmountTest() {
             VegetarianRequest vegetarianRequest = new VegetarianRequest("testId", 1);
             assertEquals(vegetarianRequest.getAmount(), 1);
         }
