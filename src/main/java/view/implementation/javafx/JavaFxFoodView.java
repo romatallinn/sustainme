@@ -67,7 +67,7 @@ public class JavaFxFoodView extends JavaFxView implements IFoodView {
     }
 
     @Override
-    public void updateLocalProduceCounter(float kg) {
-        localCounter.setText(Float.toString(kg));
+    public void updateLocalProduceCounter(double kg) {
+        localCounter.setText(Double.toString(kg));
     }
 }

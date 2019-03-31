@@ -69,10 +69,10 @@ public class ServerController {
     public LocalProduceResponse localProduce(@RequestBody LocalProduceRequest localProduceRequest)
             throws InterruptedException {
         int exp = DatabaseHandler.increaseExpBy(localProduceRequest.getUid(),
-                Math.round(localProduceRequest.getWeight()));
+                (int) Math.round(localProduceRequest.getWeight()));
         double co2 = DatabaseHandler.increaseCO2RedBy(localProduceRequest.getUid(),
                 localProduceRequest.getWeight() * 0.14);
-        float amount = DatabaseHandler.increaseFeatureCounter(localProduceRequest.getUid(),
+        double amount = DatabaseHandler.increaseFeatureCounter(localProduceRequest.getUid(),
                 "localproduce", localProduceRequest.getWeight());
         return new LocalProduceResponse(exp, co2, amount);
 

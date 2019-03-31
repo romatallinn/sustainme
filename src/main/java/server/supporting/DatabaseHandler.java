@@ -132,12 +132,12 @@ public class DatabaseHandler {
      * @param uid - user id
      * @param amount - increasing amount.
      */
-    public static float increaseFeatureCounter(String uid, String feature, float amount)
+    public static double increaseFeatureCounter(String uid, String feature, double amount)
             throws InterruptedException {
 
         DatabaseReference ref = db.getReference("users").child(uid).child("features/" + feature);
 
-        float newVal = retrieveValueAt(ref, Float.class) + amount;
+        double newVal = retrieveValueAt(ref, Double.class) + amount;
         ref.setValueAsync(newVal);
 
         return  newVal;
@@ -166,11 +166,11 @@ public class DatabaseHandler {
      * @return number of eaten vegetarian meals.
      * @throws InterruptedException - exception.
      */
-    public static float retrieveFloatFeatureCounter(String uid, String feature)
+    public static double retrieveDoubleFeatureCounter(String uid, String feature)
             throws InterruptedException {
 
         DatabaseReference ref = db.getReference("users").child(uid).child("features/" + feature);
-        float val = retrieveValueAt(ref, Float.class);
+        double val = retrieveValueAt(ref, Double.class);
 
         return val;
 

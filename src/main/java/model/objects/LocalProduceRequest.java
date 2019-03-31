@@ -3,9 +3,9 @@ package model.objects;
 public class LocalProduceRequest {
 
     private String uid;
-    private float weight;
+    private double weight;
 
-    public LocalProduceRequest(String uid, float weight) {
+    public LocalProduceRequest(String uid, double weight) {
         this.uid = uid;
         this.weight = weight;
     }
@@ -14,7 +14,7 @@ public class LocalProduceRequest {
         return uid;
     }
 
-    public float getWeight() {
+    public double getWeight() {
         return weight;
     }
 }
