@@ -10,6 +10,7 @@ import model.objects.UserData;
 import view.interfaces.IFriendsComparisonView;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 
 
 public class JavaFxFriendsComparisonView extends JavaFxView implements IFriendsComparisonView {
@@ -71,7 +72,8 @@ public class JavaFxFriendsComparisonView extends JavaFxView implements IFriendsC
         friendLvl.setText("Level: " + friend.level);
         friendExpBar.setProgress(friend.experience);
 
-        friendCO2.setText(Double.toString(friend.co2red));
+        String str = new DecimalFormat("#.##").format(friend.co2red);
+        friendCO2.setText(str);
 
     }
 
@@ -84,7 +86,8 @@ public class JavaFxFriendsComparisonView extends JavaFxView implements IFriendsC
         level.setText("Level: " + profile.getLevel());
         expBar.setProgress(profile.getExpProgress());
 
-        myCO2.setText(Double.toString(profile.getCo2Reduction()));
+        String str = new DecimalFormat("#.##").format(profile.getCo2Reduction());
+        myCO2.setText(str);
 
     }
 }

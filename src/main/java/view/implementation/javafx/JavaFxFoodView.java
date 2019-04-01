@@ -8,6 +8,7 @@ import javafx.scene.text.Text;
 import view.interfaces.IFoodView;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 
 
 public class JavaFxFoodView extends JavaFxView implements IFoodView {
@@ -68,6 +69,7 @@ public class JavaFxFoodView extends JavaFxView implements IFoodView {
 
     @Override
     public void updateLocalProduceCounter(float kg) {
-        localCounter.setText(Float.toString(kg));
+        String str = new DecimalFormat("#.##").format(kg);
+        localCounter.setText(str);
     }
 }
