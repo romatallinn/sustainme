@@ -11,4 +11,6 @@ public interface ITransportView {
     void updateBikeDistance(int distance);
 
     void updatePublicDistance(int distance);
+
+    void clearInputFields();
 }

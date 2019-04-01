@@ -1,7 +1,7 @@
 package server;
 
 
-import api.ApiRequest;
+//import api.ApiRequest;
 
 import model.objects.BikeRequest;
 import model.objects.BikeResponse;
@@ -130,13 +130,13 @@ public class ServerController {
      */
     @RequestMapping(value = "/bike", method = RequestMethod.POST)
     public BikeResponse useBike(@RequestBody BikeRequest bikeRequest) throws Exception {
-        double result = ApiRequest.requestBike(Double
-                .toString(bikeRequest.getDistance() * 0.621371192)); //Should be
+        //double result = ApiRequest.requestBike(Double
+        //      .toString(bikeRequest.getDistance() * 0.621371192)); //Should be
         // result from api request
         int exp =  DatabaseHandler.increaseExpBy(bikeRequest.getUid(),
                 bikeRequest.getDistance());
         double co2 = DatabaseHandler.increaseCO2RedBy(bikeRequest.getUid(),
-                result * 1000);
+                bikeRequest.getDistance() * 0.15);
         int distance = DatabaseHandler.increaseFeatureCounter(bikeRequest.getUid(), "bike",
                 bikeRequest.getDistance());
 
@@ -153,14 +153,14 @@ public class ServerController {
     @RequestMapping(value = "/publictransport", method = RequestMethod.POST)
     public PublicTransportResponse usePublicTransport(
             @RequestBody PublicTransportRequest publicTransportRequest) throws Exception {
-        double result = ApiRequest.requestPublicTrans(Double
-                .toString(publicTransportRequest.getDistance() * 0.621371192),
-                publicTransportRequest.getType()); //Should be
+        //double result = ApiRequest.requestPublicTrans(Double
+        //        .toString(publicTransportRequest.getDistance() * 0.621371192),
+        //         publicTransportRequest.getType()); //Should be
         // result from api request
         int exp =  DatabaseHandler.increaseExpBy(publicTransportRequest.getUid(),
-                (int) Math.round(result * 1000 / 0.15));
+                publicTransportRequest.getDistance());
         double co2 = DatabaseHandler.increaseCO2RedBy(publicTransportRequest.getUid(),
-                result * 1000);
+                publicTransportRequest.getDistance() * 0.15);
         int distance = DatabaseHandler.increaseFeatureCounter(
                 publicTransportRequest.getUid(), "public",
                 publicTransportRequest.getDistance());

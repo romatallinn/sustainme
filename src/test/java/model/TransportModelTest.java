@@ -12,6 +12,8 @@ import server.Application;
 import server.supporting.FirebaseConnection;
 import supporting.FirebaseAuth;
 
+import java.util.concurrent.TimeUnit;
+
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
@@ -61,7 +63,8 @@ public class TransportModelTest {
     }
 
     @Test
-    public void testAddTrainDistanceTraveled() {
+    public void testAddTrainDistanceTraveled() throws InterruptedException {
+        TimeUnit.SECONDS.sleep(5);
         int before = model.getPublicDistance();
         int expBef = UserProfile.getInstance().getExperience()
                 + (int) (10 * Math.pow(2,(UserProfile.getInstance().getLevel() - 1)));
@@ -70,7 +73,7 @@ public class TransportModelTest {
                 + (int) (10 * Math.pow(2,(UserProfile.getInstance().getLevel() - 1)));
         int after = model.getPublicDistance();
         assertEquals(20,after - before);
-        assertEquals(7, expAft - expBef);
+        assertEquals(20, expAft - expBef);
 
     }
 
@@ -82,7 +85,8 @@ public class TransportModelTest {
     }
 
     @Test
-    public void testAddBusDistanceTraveled() {
+    public void testAddBusDistanceTraveled() throws InterruptedException {
+        TimeUnit.SECONDS.sleep(5);
         int before = model.getPublicDistance();
         int expBef = UserProfile.getInstance().getExperience()
                 + (int) (10 * Math.pow(2,(UserProfile.getInstance().getLevel() - 1)));

@@ -42,6 +42,7 @@ public class TransportController {
             }
             model.addDistanceCycled(distance);
             view.displayStatus("The stat of the cycled distance is updated!");
+            view.clearInputFields();
             updateViewWithData();
         } catch (NumberFormatException e) {
             view.displayStatus("Please enter an integer number.");
@@ -64,6 +65,7 @@ public class TransportController {
             }
             model.addTrainDistanceTraveled(distance);
             view.displayStatus("The stat of the distance traveled by train is updated!");
+            view.clearInputFields();
             updateViewWithData();
         } catch (NumberFormatException e) {
             view.displayStatus("Please enter an integer number.");
@@ -86,6 +88,7 @@ public class TransportController {
             }
             model.addBusDistanceTraveled(distance);
             view.displayStatus("The stat of the distance traveled by bus is updated!");
+            view.clearInputFields();
             updateViewWithData();
         } catch (NumberFormatException e) {
             view.displayStatus("Please enter an integer number.");

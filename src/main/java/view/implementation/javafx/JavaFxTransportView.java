@@ -76,4 +76,10 @@ public class JavaFxTransportView extends JavaFxView implements ITransportView {
     public void updatePublicDistance(int distance) {
         distancePublicCounter.setText(Integer.toString(distance));
     }
+
+    @Override
+    public void clearInputFields() {
+        bikeDistance.clear();
+        publicDistance.clear();
+    }
 }
