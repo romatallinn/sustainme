@@ -78,6 +78,7 @@ public class ServerControllerTest {
 
     @Test
     public void useBikeTest() throws Exception {
+        TimeUnit.SECONDS.sleep(5);
         UserData before = serve.retrieve_user_data("dynamicTestUser");
         int featBef = DatabaseHandler.retrieveFeatureCounter("dynamicTestUser","bike");
         BikeRequest bikeRequest = new BikeRequest("dynamicTestUser", 20);
@@ -110,7 +111,7 @@ public class ServerControllerTest {
         serve.usePublicTransport(ptr);
         UserData after = serve.retrieve_user_data("dynamicTestUser");
         int featAft = DatabaseHandler.retrieveFeatureCounter("dynamicTestUser","public");
-        assertEquals(7, after.experience - before.experience);
+        assertEquals(20, after.experience - before.experience);
         assertEquals(20, featAft - featBef);
     }
 
