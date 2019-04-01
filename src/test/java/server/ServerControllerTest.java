@@ -6,6 +6,9 @@ import server.supporting.DatabaseHandler;
 import server.supporting.FirebaseConnection;
 
 import org.junit.*;
+
+import java.util.concurrent.TimeUnit;
+
 import static org.junit.Assert.*;
 
 
@@ -87,6 +90,7 @@ public class ServerControllerTest {
 
     @Test
     public void usePublicTransportTestBus() throws Exception {
+        TimeUnit.SECONDS.sleep(5);
         UserData before = serve.retrieve_user_data("dynamicTestUser");
         int featBef = DatabaseHandler.retrieveFeatureCounter("dynamicTestUser","public");
         PublicTransportRequest ptr = new PublicTransportRequest("dynamicTestUser",20,true);
@@ -99,6 +103,7 @@ public class ServerControllerTest {
 
     @Test
     public void usePublicTransportTestRail() throws Exception {
+        TimeUnit.SECONDS.sleep(5);
         UserData before = serve.retrieve_user_data("dynamicTestUser");
         int featBef = DatabaseHandler.retrieveFeatureCounter("dynamicTestUser","public");
         PublicTransportRequest ptr = new PublicTransportRequest("dynamicTestUser",20,false);
