@@ -25,12 +25,12 @@ public class TransportControllerTest {
         controller = new TransportController(view);
     }
 
-    @Test
-    public void testUpdate() {
-        controller.updateViewWithData();
-        Mockito.verify(view).updateBikeDistance(Mockito.anyInt());
-        Mockito.verify(view).updatePublicDistance(Mockito.anyInt());
-    }
+//    @Test
+//    public void testUpdate() {
+//        controller.updateViewWithData();
+//        Mockito.verify(view).updateBikeDistance(Mockito.anyInt());
+//        Mockito.verify(view).updatePublicDistance(Mockito.anyInt());
+//    }
 
     @Test
     public void testBikeFailureParse() {
