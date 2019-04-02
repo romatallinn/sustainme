@@ -7,6 +7,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import model.objects.UserProfile;
 import view.element.FractalTree;
 
 
@@ -28,9 +29,15 @@ public class JavaFxFractalTreeView extends Application {
         gc.setFill(Color.BLACK);
         gc.fillRect(600, 0, 200, 800);
 
+        String firstName = UserProfile.getInstance().getFirstName();
+        double reduced = UserProfile.getInstance().getCo2Reduction();
+        double veggie = UserProfile.getInstance().getVegMeals();
+
+
+
         FractalTree ft = new FractalTree(
-                "paul",
-                new int[]{250, 250, 130, 79, 450},
+                firstName,
+                new double[]{reduced, veggie, 130, 79, 450},
                 new Color[]{
                     new Color(0.953, 0.694, 0.31, 1),
                     Color.PALEGREEN,
