@@ -20,13 +20,21 @@
 <VBox prefHeight="489.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox fx:id="top" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <Button fx:id="homeBtn" mnemonicParsing="false" opacity="0.0" text="Home " HBox.hgrow="ALWAYS">
+            <HBox.margin>
+               <Insets left="10.0" />
+            </HBox.margin>
+            <padding>
+               <Insets left="1.0" />
+            </padding>
+         </Button>
          <Region HBox.hgrow="ALWAYS" />
          <Text fx:id="title" layoutX="14.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SustainMe" textAlignment="CENTER" wrappingWidth="521.35546875" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0">
             <HBox.margin>
                <Insets top="50.0" />
             </HBox.margin></Text>
          <Region HBox.hgrow="ALWAYS" />
-         <Button onAction="#goToSignIn" fx:id="login" layoutX="650.0" layoutY="14.0" mnemonicParsing="false" text="Log in" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="17.0">
+         <Button fx:id="login" layoutX="650.0" layoutY="14.0" mnemonicParsing="false" onAction="#goToSignIn" text="Sign in" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="17.0">
             <HBox.margin>
                <Insets right="10.0" />
             </HBox.margin>
@@ -37,13 +45,23 @@
             <Insets bottom="40.0" />
          </padding>
       </HBox>
+      <HBox fx:id="tab" prefHeight="30.0">
+         <children>
+            <Region prefHeight="187.0" prefWidth="716.0" HBox.hgrow="ALWAYS" />
+            <Text fx:id="locationtab" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign up" textAlignment="CENTER" wrappingWidth="220.13671875" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </HBox.margin></Text>
+            <Region prefHeight="187.0" prefWidth="716.0" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
       <HBox>
          <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
          <VBox maxWidth="1000.0" spacing="100.0">
             <Label fx:id="welcome" text="Become more aware of your carbon footprint and start a more sustainable life!" wrapText="true" />
             <ImageView fitWidth="300.0" layoutX="70.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="79.0" AnchorPane.leftAnchor="70.0">
                <image>
-                  <Image url="https://www.wpclipart.com/cartoon/food/Cartoon_Tree.png" />
+                  <Image url="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Leaf_Simple_Green_L.svg/1280px-Leaf_Simple_Green_L.svg.png" />
                </image>
                <effect>
                   <Blend />

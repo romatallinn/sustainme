@@ -1,9 +1,13 @@
 package view.implementation.javafx;
 
+
 import controller.FoodController;
+import controller.FriendsComparisonController;
+import controller.FriendsController;
 import controller.HomescreenController;
 import controller.SignInController;
 import controller.SignUpController;
+import controller.TransportController;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -12,9 +16,13 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import view.interfaces.IFoodView;
+import view.interfaces.IFriendView;
+import view.interfaces.IFriendsComparisonView;
 import view.interfaces.IHomeView;
 import view.interfaces.ISignInView;
 import view.interfaces.ISignUpView;
+import view.interfaces.ITransportView;
+
 
 import java.util.HashMap;
 
@@ -46,7 +54,7 @@ public class JavaFxApplication extends Application {
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource(initialScene.getCssPath()).toString());
 
-        primaryStage.setTitle(initialScene.getTitle());
+        primaryStage.setTitle("SustainMe - Green and Happy!");
         primaryStage.setScene(scene);
         primaryStage.setMaximized(true);
         primaryStage.show();
@@ -104,6 +112,55 @@ public class JavaFxApplication extends Application {
                 "/css/FoodView.css");
         dummy.setView(foodView);
         scenes.put("food", dummy);
+
+        //----
+
+        ITransportView transportView = new JavaFxTransportView();
+        TransportController transportController = new TransportController(transportView);
+        transportView.initView(transportController);
+
+        dummy = new SceneFx<ITransportView>("SustainMe - Transport",
+                "/fxml/JavaFXTransportView.fxml","/css/TransportView.css");
+        dummy.setView(transportView);
+        scenes.put("transport", dummy);
+
+        //-----
+
+        //    IEnergyView energyView = new JavaFxEnergyView();
+        //    EnergyController energyController = new EnergyController(energyView);
+        //    energyView.initView(energyController);
+        //
+        //    dummy = new SceneFx<IEnergyView>("SustainMe - Energy", "/fxml/JavaFXEnergyView.fxml",
+        //            "/css/EnergyView.css");
+        //    dummy.setView(energyView);
+        //    scenes.put("energy", dummy);
+
+        //-----
+
+        IFriendView friendsView = new JavaFxFriendsView();
+        FriendsController friendsController = new FriendsController(friendsView);
+        friendsView.initView(friendsController);
+
+        dummy = new SceneFx<IFriendView>("SustainMe", "/fxml/JavaFXFriendsView.fxml",
+                "/css/FriendsView.css");
+        dummy.setView(friendsView);
+        scenes.put("friends", dummy);
+
+        //-----
+
+        IFriendsComparisonView friendsCompareView = new JavaFxFriendsComparisonView();
+
+        FriendsComparisonController friendController =
+                new FriendsComparisonController(friendsCompareView);
+
+        friendsCompareView.initView(friendController);
+
+        dummy = new SceneFx<IFriendsComparisonView>("SustainMe",
+                "/fxml/JavaFXFriendsComparisonView.fxml",
+                "/css/FriendsComparisonView.css");
+
+        dummy.setView(friendsCompareView);
+        scenes.put("friendsComparison", dummy);
 
     }
 

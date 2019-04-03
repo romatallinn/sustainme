@@ -2,7 +2,7 @@ package controller;
 
 import com.google.gson.JsonObject;
 
-import model.objects.UserProfile;
+import model.UserProfile;
 
 import supporting.FirebaseAuth;
 
@@ -39,6 +39,11 @@ public class SignInController {
             }
 
             String token = jsonObj.get("idToken").getAsString();
+            if (token.isEmpty()) {
+                view.displayStatus("Could not sign in for unknown reason!");
+                return;
+            }
+
             String uid = jsonObj.get("localId").getAsString();
 
             UserProfile.getInstance().init(email, uid, token);
@@ -60,17 +65,21 @@ public class SignInController {
         String res = "";
 
         switch (error) {
+
             case "EMAIL_NOT_FOUND":
-                res = "The user with such email was not found!";
+            case "INVALID_EMAIL":
+                res = "Invalid email address";
                 break;
 
             case "INVALID_PASSWORD":
-                res = "The password for the given email is invalid!";
+                res = "Invalid password";
                 break;
+
 
             default:
                 res = error;
                 break;
+
         }
 
         return res;

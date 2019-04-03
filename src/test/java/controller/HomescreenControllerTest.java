@@ -1,5 +1,7 @@
 package controller;
 
+import model.UserProfile;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -12,6 +14,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 
 
+import supporting.FirebaseAuth;
 import view.interfaces.IHomeView;
 
 
@@ -33,12 +36,21 @@ public class HomescreenControllerTest {
     @Test
     public void testUpdateLabels() {
 
-//        controller.updateViewWithData();
-//        verify(view).updateExpLabel(any());
+        controller.updateViewWithData();
+
+        verify(view).updateNameLabel(any());
 //        verify(view).updateLvlLabel(any());
-//        verify(view).updateNameLabel(any());
+//        verify(view).updateExpLabel(any());
 //        verify(view).updateReducedLabel(any());
 
     }
+
+//    @Test
+//    public void testLogout() {
+//        Assert.assertFalse(UserProfile.getInstance().getFirstName().isEmpty());
+//        controller.logout();
+//        Assert.assertTrue(UserProfile.getInstance().getFirstName().isEmpty());
+//
+//    }
 
 }

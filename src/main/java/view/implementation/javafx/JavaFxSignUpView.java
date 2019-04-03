@@ -34,12 +34,7 @@ public class JavaFxSignUpView extends JavaFxView implements ISignUpView {
     @FXML
     public void signUpAction() {
 
-        if (!pass.getText().equals(repass.getText())) {
-            displayStatus("The passwords did not match!");
-            return;
-        }
-
-        controller.signUpCallback(email.getText(), pass.getText(),
+        controller.signUpCallback(email.getText(), pass.getText(), repass.getText(),
                 name.getText(), lastname.getText());
     }
 
@@ -63,7 +58,7 @@ public class JavaFxSignUpView extends JavaFxView implements ISignUpView {
     @Override
     public void displayStatus(String status) {
         statusMsg.setText(status);
-        System.out.print(status);
+        System.out.println(status);
     }
 
     @Override

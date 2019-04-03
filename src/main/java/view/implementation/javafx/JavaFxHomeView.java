@@ -4,6 +4,9 @@ import controller.HomescreenController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.image.Image;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import view.interfaces.IHomeView;
 
@@ -22,24 +25,16 @@ public class JavaFxHomeView extends JavaFxView implements IHomeView {
     @FXML
     private Button food;
     @FXML
-    private Button clothes;
-    @FXML
-    private Button house;
-    @FXML
-    private Button transport;
-    @FXML
-    private Button news;
-    @FXML
-    private Button score;
-    @FXML
     private ProgressBar expBar;
+    @FXML
+    private Circle profilePic;
 
 
     /**
      * Changes window from home view to sign in view (logout).
      */
     @FXML
-    public void goToSignIn() throws IOException {
+    public void invokeLogout() throws IOException {
         controller.logout();
         this.switchScene(logout.getScene(), "signin");
     }
@@ -47,6 +42,21 @@ public class JavaFxHomeView extends JavaFxView implements IHomeView {
     @FXML
     public void goToFood() throws IOException {
         this.switchScene(food.getScene(), "food");
+    }
+
+    @FXML
+    public void goToTransport() throws IOException {
+        this.switchScene(food.getScene(), "transport");
+    }
+
+    @FXML
+    public void goToEnergy() throws IOException {
+        this.switchScene(food.getScene(), "energy");
+    }
+
+    @FXML
+    public void goToFriends() throws IOException {
+        this.switchScene(food.getScene(), "friends");
     }
 
     @Override
@@ -57,6 +67,8 @@ public class JavaFxHomeView extends JavaFxView implements IHomeView {
     @Override
     protected void updateLabels() {
         controller.updateViewWithData();
+        Image im = new Image("https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png", false);
+        profilePic.setFill(new ImagePattern(im));
     }
 
     @Override
