@@ -9,13 +9,14 @@ import model.objects.FriendRequest;
 import model.objects.InitRequest;
 import model.objects.LocalProduceRequest;
 import model.objects.LocalProduceResponse;
+import model.objects.PaperRecyclingRequest;
+import model.objects.PaperRecyclingResponse;
 import model.objects.PublicTransportRequest;
 import model.objects.PublicTransportResponse;
 import model.objects.ShowFriendResponse;
 import model.objects.UserData;
 import model.objects.VegetarianRequest;
 import model.objects.VegetarianResponse;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -169,4 +170,20 @@ public class ServerController {
 
     }
 
+
+    @RequestMapping(value = "/paperrecycling", method = RequestMethod.POST)
+    public PaperRecyclingResponse paperRecycling(
+        @RequestBody PaperRecyclingRequest paperRecyclingRequest)
+        throws InterruptedException {
+        int exp = DatabaseHandler.increaseExpBy(paperRecyclingRequest.getUid(),
+            (int) Math.round(paperRecyclingRequest.getAmount()));
+        double co2 = DatabaseHandler.increaseCO2RedBy(paperRecyclingRequest.getUid(),
+            paperRecyclingRequest.getAmount() * 0.091125);
+        double amount = DatabaseHandler.increaseFeatureCounter(
+            paperRecyclingRequest.getUid(), "paperrecycling",
+            paperRecyclingRequest.getAmount());
+
+        return new PaperRecyclingResponse(exp, co2, amount);
+
+    }
 }

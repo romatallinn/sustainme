@@ -136,7 +136,7 @@ public class DatabaseHandler {
      * @param uid - user id
      * @param amount - increasing amount.
      */
-    public static float increaseFeatureCounter(String uid, String feature, float amount)
+    public static float increaseFeatureCounter(String uid, String feature, double amount)
             throws InterruptedException {
 
         DatabaseReference ref = db.getReference("users").child(uid).child("features/" + feature);

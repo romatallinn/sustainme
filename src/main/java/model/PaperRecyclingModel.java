@@ -5,8 +5,6 @@ import model.objects.PaperRecyclingResponse;
 import org.springframework.web.client.RestTemplate;
 import supporting.ServerApi;
 
-import javax.jws.soap.SOAPBinding;
-
 public class PaperRecyclingModel {
 
     private double paperRecyclingCount = -1;
