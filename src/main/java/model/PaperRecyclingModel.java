@@ -39,7 +39,7 @@ public class PaperRecyclingModel {
      * Invokes request to server, notifying it about the action of amount of recycled paper.
      * @param - weight of recycled paper in kg
      */
-    private void addAmountPaperRecycling(double kg) {
+    public void addAmountPaperRecycling(double kg) {
 
         if (UserProfile.getInstance().authToken.isEmpty()) {
             paperRecyclingCount = 0;
