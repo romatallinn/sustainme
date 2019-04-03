@@ -7,7 +7,7 @@ import supporting.ServerApi;
 
 public class PaperRecyclingModel {
 
-    private double paperRecyclingCount = -1;
+    private float paperRecyclingCount = -1;
 
     /**
      * Initializes the PaperRecycling feature of the user profile.
@@ -26,7 +26,7 @@ public class PaperRecyclingModel {
      * Returns the total amount of recycled paper.
      * @return - the amount of recycled paper
      */
-    public double getPaperRecyclingCount() {
+    public float getPaperRecyclingCount() {
 
         if (paperRecyclingCount < 0) {
             this.init();
@@ -39,7 +39,7 @@ public class PaperRecyclingModel {
      * Invokes request to server, notifying it about the action of amount of recycled paper.
      * @param - weight of recycled paper in kg
      */
-    public void addAmountPaperRecycling(double kg) {
+    public void addAmountPaperRecycling(float kg) {
 
         if (UserProfile.getInstance().authToken.isEmpty()) {
             paperRecyclingCount = 0;

@@ -23,7 +23,7 @@ public class PaperRecyclingController {
      */
     public void updateViewWithDate(){
 
-        double paperRecycling = model.getPaperRecyclingCount();
+        float paperRecycling = model.getPaperRecyclingCount();
         view.updatePaperRecyclingCounter(paperRecycling);
     }
 
@@ -32,9 +32,9 @@ public class PaperRecyclingController {
      * @param amountString - amount of the produced recycled paper
      */
     public void addPaperRecycling(String amountString) {
-        double kg = 0;
+        float kg = 0;
         try{
-            kg = Double.parseDouble(amountString);
+            kg = Float.parseFloat(amountString);
             if (kg < 0){
                 view.displayStatus("Please enter the weight above 0 kg");
                 return;

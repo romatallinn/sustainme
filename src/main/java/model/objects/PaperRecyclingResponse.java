@@ -4,7 +4,7 @@ public class PaperRecyclingResponse {
 
     private int experience;
     private double co2Reduced;
-    private double amount;
+    private float amount;
 
     public PaperRecyclingResponse() {
     }
@@ -15,7 +15,7 @@ public class PaperRecyclingResponse {
      * @param co2Reduced - new co2 reduction of the user
      * @param amount     - new amount of paper recycling of the user
      */
-    public PaperRecyclingResponse(int experience, double co2Reduced, double amount) {
+    public PaperRecyclingResponse(int experience, double co2Reduced, float amount) {
         this.experience = experience;
         this.co2Reduced = co2Reduced;
         this.amount = amount;
@@ -29,7 +29,7 @@ public class PaperRecyclingResponse {
         return co2Reduced;
     }
 
-    public double getAmount() {
+    public float getAmount() {
         return amount;
     }
 }
