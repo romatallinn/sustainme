@@ -142,7 +142,7 @@ public class DatabaseHandler {
 
         DatabaseReference ref = db.getReference("users").child(uid).child("features/" + feature);
 
-        float newVal = (retrieveValueAt(ref, Float.class) + amount);
+        float newVal = retrieveValueAt(ref, Float.class) + amount;
         ref.setValueAsync(newVal);
 
         return newVal;

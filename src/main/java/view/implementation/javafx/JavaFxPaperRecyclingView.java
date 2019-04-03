@@ -10,7 +10,7 @@ import view.interfaces.IPaperRecyclingView;
 import java.io.IOException;
 import java.text.DecimalFormat;
 
-public class JavaFxPaperRecyclingView extends JavaFxView implements IPaperRecyclingView{
+public class JavaFxPaperRecyclingView extends JavaFxView implements IPaperRecyclingView {
 
     private PaperRecyclingController controller;
 
@@ -24,33 +24,33 @@ public class JavaFxPaperRecyclingView extends JavaFxView implements IPaperRecycl
     private Text paperRecyclingCounter;
 
     @Override
-    public void initView(PaperRecyclingController controller){
+    public void initView(PaperRecyclingController controller) {
         this.controller = controller;
     }
 
     @FXML
-    private void goToHome() throws IOException{
-        switchScene(homeBtn.getScene(),"home");
+    private void goToHome() throws IOException {
+        switchScene(homeBtn.getScene(), "home");
     }
 
     @FXML
-    private void addPaperRecycling(){
+    private void addPaperRecycling() {
         controller.addPaperRecycling(paperRecyclingCountInput.getText());
         paperRecyclingCountInput.clear();
     }
 
     @Override
-    public void displayStatus(String msg){
+    public void displayStatus(String msg) {
         System.out.println(msg);
     }
 
-    @Override
-    protected void updatLabels(){
-        controller.updateViewWithDate();
-    }
+    //    @Override
+    //    protected void updatLabels(){
+    //        controller.updateViewWithDate();
+    //    }
 
     @Override
-    public void updatePaperRecyclingCounter(float counter){
+    public void updatePaperRecyclingCounter(float counter) {
         String str = new DecimalFormat("#.##").format(counter);
         paperRecyclingCounter.setText(str);
     }

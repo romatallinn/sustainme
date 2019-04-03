@@ -37,7 +37,7 @@ public class PaperRecyclingModel {
 
     /**
      * Invokes request to server, notifying it about the action of amount of recycled paper.
-     * @param - weight of recycled paper in kg
+     * @param kg - weight of amount in kg
      */
     public void addAmountPaperRecycling(float kg) {
 
