@@ -42,7 +42,8 @@ public class JavaFxFractalTreeView extends Application {
         // double solarPanels = new ;
 
 
-        // Scores: bike-fuchsia, localProduce-blueviolet, publicTransport-azure, veggie-lime, temperature-darkorange, solarPanels-red
+        // Scores: bike-fuchsia, localProduce-blueviolet, publicTransport-azure,
+        // veggie-lime, temperature-darkorange, solarPanels-red
         FractalTree ft = new FractalTree(
                 firstName,
                 new double[]{bike, localProduce, publicTransport, veggie, 450, 500},

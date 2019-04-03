@@ -61,6 +61,8 @@ public class ServerController {
                 upAmount * 3.0);
         int amount = DatabaseHandler.increaseFeatureCounter(vegetarianRequest.getUid(),
                 "vegmeals", upAmount);
+        double vegCo2 = DatabaseHandler.increaseFeatureCounter(vegetarianRequest.getUid(),
+                "vegmealsCO2", upAmount * 3.0);
         return new VegetarianResponse(exp, co2, amount);
 
     }
@@ -79,9 +81,10 @@ public class ServerController {
                 (int) Math.round(localProduceRequest.getWeight()));
         double co2 = DatabaseHandler.increaseCO2RedBy(localProduceRequest.getUid(),
                 localProduceRequest.getWeight() * 0.14);
-        float amount = DatabaseHandler.increaseFeatureCounter(localProduceRequest.getUid(),
+        double amount = DatabaseHandler.increaseFeatureCounter(localProduceRequest.getUid(),
                 "localproduce", localProduceRequest.getWeight());
-
+        double localCO2 = DatabaseHandler.increaseFeatureCounter(localProduceRequest.getUid(),
+                "localproduceCO2", localProduceRequest.getWeight() * 0.14);
         return new LocalProduceResponse(exp, co2, amount);
 
     }
@@ -139,7 +142,8 @@ public class ServerController {
                 bikeRequest.getDistance() * 0.15);
         int distance = DatabaseHandler.increaseFeatureCounter(bikeRequest.getUid(), "bike",
                 bikeRequest.getDistance());
-
+        double bikeCo2 = DatabaseHandler.increaseFeatureCounter(bikeRequest.getUid(),
+                "bikeCO2" ,bikeRequest.getDistance() * 0.15);
         return new BikeResponse(exp,co2,distance);
 
     }
@@ -164,7 +168,8 @@ public class ServerController {
         int distance = DatabaseHandler.increaseFeatureCounter(
                 publicTransportRequest.getUid(), "public",
                 publicTransportRequest.getDistance());
-
+        double publicCo2 = DatabaseHandler.increaseFeatureCounter(publicTransportRequest.getUid(),
+                "publicCO2", publicTransportRequest.getDistance() * 0.15);
         return new PublicTransportResponse(exp,co2,distance);
 
     }
