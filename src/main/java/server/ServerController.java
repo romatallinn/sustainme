@@ -170,7 +170,13 @@ public class ServerController {
 
     }
 
-
+    /**
+     * Receives request of initializing the user's data.
+     * Sends a request to the database handler for updating the recycled paper stats.
+     * @param paperRecyclingRequest     - request send by client
+     * @return PaperRecyclingResponse   - for user with updated stats
+     * @throws InterruptedException     - exception
+     */
     @RequestMapping(value = "/paperrecycling", method = RequestMethod.POST)
     public PaperRecyclingResponse paperRecycling(
         @RequestBody PaperRecyclingRequest paperRecyclingRequest)
