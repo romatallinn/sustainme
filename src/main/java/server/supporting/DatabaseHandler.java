@@ -296,5 +296,17 @@ public class DatabaseHandler {
 
     }
 
+    public static double setTemperature(String uid, double temperature)
+            throws InterruptedException {
+
+        DatabaseReference ref = db.getReference("users").child(uid).child("features/" + "temperature");
+
+        ref.setValueAsync(temperature);
+        double newVal = retrieveValueAt(ref, Double.class);
+
+        return newVal;
+
+    }
+
 
 }
