@@ -44,10 +44,10 @@ public class JavaFxPaperRecyclingView extends JavaFxView implements IPaperRecycl
         System.out.println(msg);
     }
 
-    //    @Override
-    //    protected void updatLabels(){
-    //        controller.updateViewWithDate();
-    //    }
+    @Override
+    protected void updateLabels(){
+        controller.updateViewWithDate();
+    }
 
     @Override
     public void updatePaperRecyclingCounter(float counter) {
