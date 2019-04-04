@@ -156,7 +156,7 @@ public class JavaFxApplication extends Application {
 
         dummy = new SceneFx<IPaperRecyclingView>(
             "SustainMe - Recycled Paper",
-            "/fxml/JavaFxPaperRecycling.fxml",
+            "/fxml/JavaFXPaperRecyclingView.fxml",
             "/css/FoodView.css");
         dummy.setView(paperRecyclingView);
         scenes.put("paperrecycling", dummy);
