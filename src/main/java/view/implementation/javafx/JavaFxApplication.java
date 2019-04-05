@@ -43,7 +43,7 @@ public class JavaFxApplication extends Application {
 
         initScenes();
 
-        SceneFx initialScene = JavaFxApplication.scenes.get("signup");
+        SceneFx initialScene = JavaFxApplication.scenes.get("recycling");
 
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource(initialScene.getFxmlPath()));
@@ -155,11 +155,11 @@ public class JavaFxApplication extends Application {
         paperRecyclingView.initView(paperRecyclingController);
 
         dummy = new SceneFx<IPaperRecyclingView>(
-            "SustainMe - Recycled Paper",
+            "SustainMe - Recycling",
             "/fxml/JavaFXPaperRecyclingView.fxml",
             "/css/FoodView.css");
         dummy.setView(paperRecyclingView);
-        scenes.put("paperrecycling", dummy);
+        scenes.put("recycling", dummy);
 
         //----
 

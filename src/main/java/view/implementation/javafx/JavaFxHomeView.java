@@ -60,8 +60,8 @@ public class JavaFxHomeView extends JavaFxView implements IHomeView {
     }
 
     @FXML
-    public void goToPaperRecycling() throws IOException {
-        this.switchScene(food.getScene(), "paperrecycling");
+    public void goToRecycling() throws IOException {
+        this.switchScene(food.getScene(), "recycling");
     }
 
     @Override
