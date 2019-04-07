@@ -5,10 +5,10 @@ import controller.FoodController;
 import controller.FriendsComparisonController;
 import controller.FriendsController;
 import controller.HomescreenController;
+import controller.PaperRecyclingController;
 import controller.SignInController;
 import controller.SignUpController;
 import controller.TransportController;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,6 +19,7 @@ import view.interfaces.IFoodView;
 import view.interfaces.IFriendView;
 import view.interfaces.IFriendsComparisonView;
 import view.interfaces.IHomeView;
+import view.interfaces.IPaperRecyclingView;
 import view.interfaces.ISignInView;
 import view.interfaces.ISignUpView;
 import view.interfaces.ITransportView;
@@ -49,7 +50,7 @@ public class JavaFxApplication extends Application {
 
         loader.setController(initialScene.getView());
 
-        Parent root = (Parent)loader.load();
+        Parent root = (Parent) loader.load();
 
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource(initialScene.getCssPath()).toString());
@@ -75,7 +76,7 @@ public class JavaFxApplication extends Application {
         signUpView.initView(signUpController);
 
         dummy = new SceneFx<ISignUpView>("SustainMe - Sign Up", "/fxml/JavaFXSignUpView.fxml",
-                "/css/SignUpInView.css");
+            "/css/SignUpInView.css");
         dummy.setView(signUpView);
         scenes.put("signup", dummy);
 
@@ -87,7 +88,7 @@ public class JavaFxApplication extends Application {
         signInView.initView(signIncontroller);
 
         dummy = new SceneFx<ISignInView>("SustainMe - Sign In", "/fxml/JavaFXSignInView.fxml",
-                "/css/SignUpInView.css");
+            "/css/SignUpInView.css");
         dummy.setView(signInView);
         scenes.put("signin", dummy);
 
@@ -98,7 +99,7 @@ public class JavaFxApplication extends Application {
         homeView.initView(homescreenController);
 
         dummy = new SceneFx<IHomeView>("SustainMe - Home", "/fxml/JavaFXHomeView.fxml",
-                "/css/HomeView.css");
+            "/css/HomeView.css");
         dummy.setView(homeView);
         scenes.put("home", dummy);
 
@@ -109,7 +110,7 @@ public class JavaFxApplication extends Application {
         foodView.initView(vegController);
 
         dummy = new SceneFx<IFoodView>("SustainMe - Food", "/fxml/JavaFXFoodView.fxml",
-                "/css/FoodView.css");
+            "/css/FoodView.css");
         dummy.setView(foodView);
         scenes.put("food", dummy);
 
@@ -120,7 +121,7 @@ public class JavaFxApplication extends Application {
         transportView.initView(transportController);
 
         dummy = new SceneFx<ITransportView>("SustainMe - Transport",
-                "/fxml/JavaFXTransportView.fxml","/css/TransportView.css");
+            "/fxml/JavaFXTransportView.fxml", "/css/TransportView.css");
         dummy.setView(transportView);
         scenes.put("transport", dummy);
 
@@ -142,22 +143,37 @@ public class JavaFxApplication extends Application {
         friendsView.initView(friendsController);
 
         dummy = new SceneFx<IFriendView>("SustainMe", "/fxml/JavaFXFriendsView.fxml",
-                "/css/FriendsView.css");
+            "/css/FriendsView.css");
         dummy.setView(friendsView);
         scenes.put("friends", dummy);
 
         //-----
 
+        IPaperRecyclingView paperRecyclingView = new JavaFxPaperRecyclingView();
+        PaperRecyclingController paperRecyclingController =
+            new PaperRecyclingController(paperRecyclingView);
+        paperRecyclingView.initView(paperRecyclingController);
+
+        dummy = new SceneFx<IPaperRecyclingView>(
+            "SustainMe - Recycled Paper",
+            "/fxml/JavaFXPaperRecyclingView.fxml",
+            "/css/FoodView.css");
+        dummy.setView(paperRecyclingView);
+        scenes.put("paperrecycling", dummy);
+
+        //----
+
+
         IFriendsComparisonView friendsCompareView = new JavaFxFriendsComparisonView();
 
         FriendsComparisonController friendController =
-                new FriendsComparisonController(friendsCompareView);
+            new FriendsComparisonController(friendsCompareView);
 
         friendsCompareView.initView(friendController);
 
         dummy = new SceneFx<IFriendsComparisonView>("SustainMe",
-                "/fxml/JavaFXFriendsComparisonView.fxml",
-                "/css/FriendsComparisonView.css");
+            "/fxml/JavaFXFriendsComparisonView.fxml",
+            "/css/FriendsComparisonView.css");
 
         //-----
 
@@ -185,7 +201,6 @@ public class JavaFxApplication extends Application {
         return JavaFxApplication.scenes.get(sceneId);
 
     }
-
 
 
 }

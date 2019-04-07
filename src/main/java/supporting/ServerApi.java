@@ -17,5 +17,6 @@ public class ServerApi {
     public static final String BICYCLE = "bike";
     public static final String PUBLIC_TRANSPORT = "publictransport";
     public static final String FRACTAL_TREE = "fractalTree";
+    public static final String PAPER_RECYCLING = "paperrecycling";
 
 }

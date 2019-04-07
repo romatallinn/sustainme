@@ -11,6 +11,8 @@ import model.objects.FriendRequest;
 import model.objects.InitRequest;
 import model.objects.LocalProduceRequest;
 import model.objects.LocalProduceResponse;
+import model.objects.PaperRecyclingRequest;
+import model.objects.PaperRecyclingResponse;
 import model.objects.PublicTransportRequest;
 import model.objects.PublicTransportResponse;
 import model.objects.ShowFriendResponse;
@@ -208,6 +210,27 @@ public class ServerController {
 
     }
 
+    /**
+     * Receives request of initializing the user's data.
+     * Sends a request to the database handler for updating the recycled paper stats.
+     *
+     * @param paperRecyclingRequest - request send by client
+     * @return PaperRecyclingResponse   - for user with updated stats
+     * @throws InterruptedException - exception
+     */
+    @RequestMapping(value = "/paperrecycling", method = RequestMethod.POST)
+    public PaperRecyclingResponse paperRecycling(
+        @RequestBody PaperRecyclingRequest paperRecyclingRequest)
+        throws InterruptedException {
+        int exp = DatabaseHandler.increaseExpBy(paperRecyclingRequest.getUid(),
+            (int) Math.round(paperRecyclingRequest.getAmount()));
+        double co2 = DatabaseHandler.increaseCO2RedBy(paperRecyclingRequest.getUid(),
+            paperRecyclingRequest.getAmount() * 1.21);
+        float amount = DatabaseHandler.increaseFeatureCounter(paperRecyclingRequest.getUid(),
+            "paperrecycling",
+            paperRecyclingRequest.getAmount());
 
+        return new PaperRecyclingResponse(exp, co2, amount);
 
+    }
 }

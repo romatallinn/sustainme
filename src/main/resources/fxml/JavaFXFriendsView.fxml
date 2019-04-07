@@ -59,6 +59,9 @@
                     </cursor></Button>
                 <Region prefHeight="187.0" prefWidth="716.0" HBox.hgrow="ALWAYS" />
             </children>
+         <padding>
+            <Insets bottom="5.0" top="5.0" />
+         </padding>
         </HBox>
       <ScrollPane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
          <content>

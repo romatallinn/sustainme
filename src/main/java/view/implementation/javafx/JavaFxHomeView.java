@@ -64,6 +64,11 @@ public class JavaFxHomeView extends JavaFxView implements IHomeView {
         this.switchScene(food.getScene(), "fractalTree");
     }
 
+    @FXML
+    public void goToPaperRecycling() throws IOException {
+        this.switchScene(food.getScene(), "paperrecycling");
+    }
+
     @Override
     public void initView(HomescreenController controller) {
         this.controller = controller;
