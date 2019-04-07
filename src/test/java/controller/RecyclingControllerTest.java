@@ -9,7 +9,7 @@ import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 import view.interfaces.IRecyclingView;
 
-public class PaperRecyclingTest {
+public class RecyclingControllerTest {
 
     @Rule
     public MockitoRule mockitoRule = MockitoJUnit.rule();
@@ -45,6 +45,24 @@ public class PaperRecyclingTest {
     @Test
     public void testAddPaperRecyclingSuccess() {
         controller.addPaperRecycling("1");
+        Mockito.verify(view).displayStatus(Mockito.anyString());
+    }
+
+    @Test
+    public void testAddPlasticRecyclingFailureParse() {
+        controller.addPlasticRecycling("fff");
+        Mockito.verify(view).displayStatus(Mockito.anyString());
+    }
+
+    @Test
+    public void testAddPlasticRecyclingFailureRange() {
+        controller.addPlasticRecycling("10000");
+        Mockito.verify(view).displayStatus(Mockito.anyString());
+    }
+
+    @Test
+    public void testAddPlasticRecyclingSuccess() {
+        controller.addPlasticRecycling("1");
         Mockito.verify(view).displayStatus(Mockito.anyString());
     }
 
