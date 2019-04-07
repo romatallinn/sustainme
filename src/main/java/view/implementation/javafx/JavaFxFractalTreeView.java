@@ -11,7 +11,7 @@ import model.FractalTreeModel;
 import model.UserProfile;
 
 
-import model.objects.FractalTreeRequest;
+
 import model.objects.FractalTreeResponse;
 import view.element.FractalTree;
 
