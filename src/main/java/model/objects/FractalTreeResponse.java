@@ -8,13 +8,18 @@ public class FractalTreeResponse {
     private double publicCO2;
 
     /**
-     * Constructor for a fractalTree response
-     * @param bikeCo2 - new co2 reduction for bike
-     * @param vegmealsCO2 - new co2 reduction vor vegetarian meals
+     * Constructor for a fractalTree response.
+     *
+     * @param bikeCo2         - new co2 reduction for bike
+     * @param vegmealsCO2     - new co2 reduction vor vegetarian meals
      * @param localproduceCO2 - new co2 reduction for local produce
-     * @param publicCO2 - new co2 reduction for public transport
+     * @param publicCO2       - new co2 reduction for public transport
      */
-    public FractalTreeResponse(double bikeCo2, double vegmealsCO2, double localproduceCO2, double publicCO2) {
+    public FractalTreeResponse(
+        double bikeCo2,
+        double vegmealsCO2,
+        double localproduceCO2,
+        double publicCO2) {
         this.bikeCo2 = bikeCo2;
         this.localproduceCO2 = localproduceCO2;
         this.vegmealsCO2 = vegmealsCO2;

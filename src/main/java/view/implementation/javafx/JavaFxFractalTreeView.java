@@ -34,6 +34,7 @@ public class JavaFxFractalTreeView extends Application {
         gc.fillRect(600, 0, 200, 800);
 
         String firstName = UserProfile.getInstance().getFirstName();
+
         double bike = new BikeResponse().getCo2Reduced();
         double localProduce = new LocalProduceResponse().getCo2Reduced();
         double publicTransport = new PublicTransportResponse().getCo2Reduced();
