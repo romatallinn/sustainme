@@ -3,9 +3,9 @@ package model.objects;
 public class PlasticRecyclingRequest {
 
     private String uid;
-    private float amount;
+    private double amount;
 
-    public PlasticRecyclingRequest(String uid, float amount) {
+    public PlasticRecyclingRequest(String uid, double amount) {
         this.uid = uid;
         this.amount = amount;
     }
@@ -14,7 +14,7 @@ public class PlasticRecyclingRequest {
         return uid;
     }
 
-    public float getAmount() {
+    public double getAmount() {
         return amount;
     }
 }

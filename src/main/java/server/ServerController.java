@@ -252,7 +252,7 @@ public class ServerController {
                 (int) Math.round(plasticRecyclingRequest.getAmount()));
         double co2 = DatabaseHandler.increaseCO2RedBy(plasticRecyclingRequest.getUid(),
                 plasticRecyclingRequest.getAmount() * 6.0);
-        float amount = DatabaseHandler.increaseFeatureCounter(plasticRecyclingRequest.getUid(),
+        double amount = DatabaseHandler.increaseFeatureCounter(plasticRecyclingRequest.getUid(),
                 "plasticrecycling",
                 plasticRecyclingRequest.getAmount());
 

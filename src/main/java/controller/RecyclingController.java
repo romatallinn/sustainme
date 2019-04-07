@@ -27,7 +27,7 @@ public class RecyclingController {
         double paperRecycling = model.getPaperRecyclingCount();
         view.updatePaperRecyclingCounter(paperRecycling);
 
-        float plasticRecycling = model.getPlasticRecyclingCount();
+        double plasticRecycling = model.getPlasticRecyclingCount();
         view.updatePlasticRecyclingCounter(plasticRecycling);
     }
 
