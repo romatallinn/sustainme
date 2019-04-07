@@ -3,20 +3,7 @@ package server;
 
 //import api.ApiRequest;
 
-import model.objects.BikeRequest;
-import model.objects.BikeResponse;
-import model.objects.FriendRequest;
-import model.objects.InitRequest;
-import model.objects.LocalProduceRequest;
-import model.objects.LocalProduceResponse;
-import model.objects.PaperRecyclingRequest;
-import model.objects.PaperRecyclingResponse;
-import model.objects.PublicTransportRequest;
-import model.objects.PublicTransportResponse;
-import model.objects.ShowFriendResponse;
-import model.objects.UserData;
-import model.objects.VegetarianRequest;
-import model.objects.VegetarianResponse;
+import model.objects.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -199,6 +186,30 @@ public class ServerController {
             paperRecyclingRequest.getAmount());
 
         return new PaperRecyclingResponse(exp, co2, amount);
+
+    }
+
+    /**
+     * Receives request of initializing the user's data.
+     * Sends a request to the database handler for updating the recycled plastic stats.
+     *
+     * @param plasticRecyclingRequest - request send by client
+     * @return PlasticRecyclingResponse   - for user with updated stats
+     * @throws InterruptedException - exception
+     */
+    @RequestMapping(value = "/plasticrecycling", method = RequestMethod.POST)
+    public PlasticRecyclingResponse plasticRecycling(
+            @RequestBody PlasticRecyclingRequest plasticRecyclingRequest)
+            throws InterruptedException {
+        int exp = DatabaseHandler.increaseExpBy(plasticRecyclingRequest.getUid(),
+                (int) Math.round(plasticRecyclingRequest.getAmount()));
+        double co2 = DatabaseHandler.increaseCO2RedBy(plasticRecyclingRequest.getUid(),
+                plasticRecyclingRequest.getAmount() * 6.0);
+        float amount = DatabaseHandler.increaseFeatureCounter(plasticRecyclingRequest.getUid(),
+                "plasticrecycling",
+                plasticRecyclingRequest.getAmount());
+
+        return new PlasticRecyclingResponse(exp, co2, amount);
 
     }
 }

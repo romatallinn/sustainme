@@ -58,7 +58,7 @@
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Add or remove weight of paper:" />
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                      <children>
-                        <TextField fx:id="vegMealsCountInput" maxHeight="1.7976931348623157E308" promptText="Weight (in kg):" HBox.hgrow="NEVER" />
+                        <TextField fx:id="paperRecyclingCountInput" maxHeight="1.7976931348623157E308" promptText="Weight (in kg):" HBox.hgrow="NEVER" />
                         <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                            <children>
                               <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addPaperRecycling" text="Add" VBox.vgrow="ALWAYS">
@@ -77,7 +77,7 @@
                   </HBox>
                   <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Total recycled paper:" />
-                  <Text fx:id="vegCounter" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="21" />
+                  <Text fx:id="paperRecyclingCounter" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="21" />
                   <Region layoutX="10.0" layoutY="82.0" prefHeight="200.0" prefWidth="200.0" />
                </children>
                <HBox.margin>
@@ -94,10 +94,10 @@
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Add or remove weight of plastic:" />
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                      <children>
-                        <TextField fx:id="localCountInput" maxHeight="1.7976931348623157E308" promptText="Weight (in kg):" HBox.hgrow="NEVER" />
+                        <TextField fx:id="plasticRecyclingCountInput" maxHeight="1.7976931348623157E308" promptText="Weight (in kg):" HBox.hgrow="NEVER" />
                         <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                            <children>
-                              <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Add" VBox.vgrow="ALWAYS">
+                              <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addPlasticRecycling" text="Add" VBox.vgrow="ALWAYS">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -113,7 +113,7 @@
                   </HBox>
                   <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Total recycled plastic:" />
-                  <Text fx:id="localCounter" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="21" />
+                  <Text fx:id="plasticRecyclingCounter" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="21" />
                   <Region layoutX="10.0" layoutY="82.0" prefHeight="200.0" prefWidth="200.0" />
                </children>
                <HBox.margin>

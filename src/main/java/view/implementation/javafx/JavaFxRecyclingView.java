@@ -23,6 +23,12 @@ public class JavaFxRecyclingView extends JavaFxView implements IRecyclingView {
     @FXML
     private Text paperRecyclingCounter;
 
+    @FXML
+    private TextField plasticRecyclingCountInput;
+
+    @FXML
+    private Text plasticRecyclingCounter;
+
     @Override
     public void initView(RecyclingController controller) {
         this.controller = controller;
@@ -39,6 +45,12 @@ public class JavaFxRecyclingView extends JavaFxView implements IRecyclingView {
         paperRecyclingCountInput.clear();
     }
 
+    @FXML
+    private void addPlasticRecycling() {
+        controller.addPlasticRecycling(plasticRecyclingCountInput.getText());
+        plasticRecyclingCountInput.clear();
+    }
+
     @Override
     public void displayStatus(String msg) {
         System.out.println(msg);
@@ -53,6 +65,12 @@ public class JavaFxRecyclingView extends JavaFxView implements IRecyclingView {
     public void updatePaperRecyclingCounter(float counter) {
         String str = new DecimalFormat("#.##").format(counter);
         paperRecyclingCounter.setText(str);
+    }
+
+    @Override
+    public void updatePlasticRecyclingCounter(float counter) {
+        String str = new DecimalFormat("#.##").format(counter);
+        plasticRecyclingCounter.setText(str);
     }
 
 }

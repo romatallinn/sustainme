@@ -26,6 +26,9 @@ public class RecyclingController {
 
         float paperRecycling = model.getPaperRecyclingCount();
         view.updatePaperRecyclingCounter(paperRecycling);
+
+        float plasticRecycling = model.getPlasticRecyclingCount();
+        view.updatePlasticRecyclingCounter(plasticRecycling);
     }
 
     /**
@@ -49,5 +52,25 @@ public class RecyclingController {
         }
     }
 
+    /**
+     * The method acts upon the fact of the add recycled plastic.
+     *
+     * @param amountString - amount of the produced recycled plastic
+     */
+    public void addPlasticRecycling(String amountString) {
+        float kg = 0;
+        try {
+            kg = Float.parseFloat(amountString);
+            if (kg < 0) {
+                view.displayStatus("Please enter the weight above 0 kg");
+                return;
+            }
+            model.addAmountPlasticRecycling(kg);
+            view.displayStatus("The stat of recycled plastic is updated!");
+            updateViewWithDate();
+        } catch (NumberFormatException e) {
+            view.displayStatus("Please enter a number.");
+        }
+    }
 
 }

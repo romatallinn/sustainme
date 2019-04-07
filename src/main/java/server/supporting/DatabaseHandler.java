@@ -68,6 +68,7 @@ public class DatabaseHandler {
         features.put("bike", 0);
         features.put("public", 0);
         features.put("paperrecycling", 0);
+        features.put("plasticrecycling", 0);
 
         Map<String, Object> data = new HashMap<>();
         data.put("fname", fname);

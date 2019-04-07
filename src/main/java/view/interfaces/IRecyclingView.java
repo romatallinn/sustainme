@@ -9,4 +9,6 @@ public interface IRecyclingView {
     void displayStatus(String msg);
 
     void updatePaperRecyclingCounter(float counter);
+
+    void updatePlasticRecyclingCounter(float counter);
 }
