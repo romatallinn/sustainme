@@ -13,7 +13,7 @@ public class FractalTreeModel {
      */
     public FractalTreeResponse fractalTreeGetData() {
 
-        final String uri = ServerApi.HOST + ServerApi.LOCAL_PRODUCE_EATEN;
+        final String uri = ServerApi.HOST + ServerApi.FRACTAL_TREE;
 
         FractalTreeRequest fractalTreeRequest =
             new FractalTreeRequest(UserProfile.getInstance().getUid());
