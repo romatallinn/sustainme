@@ -9,7 +9,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import model.UserProfile;
 
-import model.objects.FractalTreeRequest;
+
 import view.element.FractalTree;
 
 

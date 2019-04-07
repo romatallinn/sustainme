@@ -6,7 +6,7 @@ public class FractalTreeRequest {
 
     /**
      * Constructor for FractalTreeRequest.
-     * @param uid               - user identification
+     * @param uid - user identification
      */
     public FractalTreeRequest(
         String uid) {

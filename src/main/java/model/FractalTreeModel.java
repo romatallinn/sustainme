@@ -1,15 +1,17 @@
 package model;
 
-
-import supporting.ServerApi;
-import org.springframework.web.client.RestTemplate;
-
 import model.objects.FractalTreeRequest;
 import model.objects.FractalTreeResponse;
+import org.springframework.web.client.RestTemplate;
+import supporting.ServerApi;
 
 public class FractalTreeModel {
 
-    public void FractalTreeGetData() {
+    /**
+     * Gets the co2 reduced data out of the database.
+     * @return result - returns all the co2 reduced data per feature
+     */
+    public FractalTreeResponse fractalTreeGetData() {
 
         final String uri = ServerApi.HOST + ServerApi.LOCAL_PRODUCE_EATEN;
 
@@ -19,5 +21,7 @@ public class FractalTreeModel {
         RestTemplate restTemplate = new RestTemplate();
         FractalTreeResponse result =
             restTemplate.postForObject(uri, fractalTreeRequest, FractalTreeResponse.class);
+
+        return result;
     }
 }
