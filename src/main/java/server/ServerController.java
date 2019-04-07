@@ -193,7 +193,7 @@ public class ServerController {
         int exp = DatabaseHandler.increaseExpBy(paperRecyclingRequest.getUid(),
             (int) Math.round(paperRecyclingRequest.getAmount()));
         double co2 = DatabaseHandler.increaseCO2RedBy(paperRecyclingRequest.getUid(),
-            paperRecyclingRequest.getAmount() * 0.091125);
+            paperRecyclingRequest.getAmount() * 1.21);
         float amount = DatabaseHandler.increaseFeatureCounter(paperRecyclingRequest.getUid(),
             "paperrecycling",
             paperRecyclingRequest.getAmount());
