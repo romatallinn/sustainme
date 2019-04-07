@@ -50,7 +50,7 @@ public class JavaFxPaperRecyclingView extends JavaFxView implements IPaperRecycl
     }
 
     @Override
-    public void updatePaperRecyclingCounter(float counter) {
+    public void updatePaperRecyclingCounter(double counter) {
         String str = new DecimalFormat("#.##").format(counter);
         paperRecyclingCounter.setText(str);
     }

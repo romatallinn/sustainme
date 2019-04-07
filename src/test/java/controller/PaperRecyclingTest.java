@@ -27,7 +27,7 @@ public class PaperRecyclingTest {
     @Test
     public void testUpdateViewWithData() {
         controller.updateViewWithDate();
-        Mockito.verify(view).updatePaperRecyclingCounter(Mockito.anyFloat());
+        Mockito.verify(view).updatePaperRecyclingCounter(Mockito.anyDouble());
     }
 
     @Test
