@@ -1,21 +1,21 @@
 package controller;
 
-import model.PaperRecyclingModel;
-import view.interfaces.IPaperRecyclingView;
+import model.RecyclingModel;
+import view.interfaces.IRecyclingView;
 
-public class PaperRecyclingController {
+public class RecyclingController {
 
-    private IPaperRecyclingView view;
-    private PaperRecyclingModel model;
+    private IRecyclingView view;
+    private RecyclingModel model;
 
     /**
      * Constructor for the class.
      *
      * @param view - represented by the controller
      */
-    public PaperRecyclingController(IPaperRecyclingView view) {
+    public RecyclingController(IRecyclingView view) {
         this.view = view;
-        this.model = new PaperRecyclingModel();
+        this.model = new RecyclingModel();
 
     }
 

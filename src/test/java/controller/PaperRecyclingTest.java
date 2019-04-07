@@ -7,7 +7,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
-import view.interfaces.IPaperRecyclingView;
+import view.interfaces.IRecyclingView;
 
 public class PaperRecyclingTest {
 
@@ -15,13 +15,13 @@ public class PaperRecyclingTest {
     public MockitoRule mockitoRule = MockitoJUnit.rule();
 
     @Mock
-    private IPaperRecyclingView view;
+    private IRecyclingView view;
 
-    private PaperRecyclingController controller;
+    private RecyclingController controller;
 
     @Before
     public void setup() {
-        controller = new PaperRecyclingController(view);
+        controller = new RecyclingController(view);
     }
 
     @Test

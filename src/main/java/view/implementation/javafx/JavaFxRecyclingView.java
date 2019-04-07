@@ -1,18 +1,18 @@
 package view.implementation.javafx;
 
-import controller.PaperRecyclingController;
+import controller.RecyclingController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import view.interfaces.IPaperRecyclingView;
+import view.interfaces.IRecyclingView;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
 
-public class JavaFxPaperRecyclingView extends JavaFxView implements IPaperRecyclingView {
+public class JavaFxRecyclingView extends JavaFxView implements IRecyclingView {
 
-    private PaperRecyclingController controller;
+    private RecyclingController controller;
 
     @FXML
     private Button homeBtn;
@@ -24,7 +24,7 @@ public class JavaFxPaperRecyclingView extends JavaFxView implements IPaperRecycl
     private Text paperRecyclingCounter;
 
     @Override
-    public void initView(PaperRecyclingController controller) {
+    public void initView(RecyclingController controller) {
         this.controller = controller;
     }
 

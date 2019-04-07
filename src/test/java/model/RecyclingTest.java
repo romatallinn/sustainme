@@ -2,7 +2,6 @@ package model;
 
 
 import com.google.gson.JsonObject;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,16 +16,16 @@ import static org.junit.Assert.assertEquals;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class, webEnvironment= SpringBootTest.WebEnvironment.DEFINED_PORT)
 
-public class PaperRecyclingTest {
+public class RecyclingTest {
 
     private final String testEmail = "test@test.com";
     private final String testPass = "123456Aa";
-    private PaperRecyclingModel model;
+    private RecyclingModel model;
 
     @Before
     public void setup() {
         FirebaseConnection.initApp();
-        model = new PaperRecyclingModel();
+        model = new RecyclingModel();
         JsonObject jsonObj = FirebaseAuth.getInstance().auth(testEmail, testPass);
         String token = jsonObj.get("idToken").getAsString();
         UserProfile.getInstance().init(testEmail,"5An25iOCs5bisQ2ORzaaoUD9nNo2", token);

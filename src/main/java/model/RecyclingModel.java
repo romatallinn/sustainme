@@ -5,7 +5,7 @@ import model.objects.PaperRecyclingResponse;
 import org.springframework.web.client.RestTemplate;
 import supporting.ServerApi;
 
-public class PaperRecyclingModel {
+public class RecyclingModel {
 
     private float paperRecyclingCount = -1;
 

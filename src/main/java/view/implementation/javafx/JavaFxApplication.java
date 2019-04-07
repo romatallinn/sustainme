@@ -5,7 +5,7 @@ import controller.FoodController;
 import controller.FriendsComparisonController;
 import controller.FriendsController;
 import controller.HomescreenController;
-import controller.PaperRecyclingController;
+import controller.RecyclingController;
 import controller.SignInController;
 import controller.SignUpController;
 import controller.TransportController;
@@ -19,7 +19,7 @@ import view.interfaces.IFoodView;
 import view.interfaces.IFriendView;
 import view.interfaces.IFriendsComparisonView;
 import view.interfaces.IHomeView;
-import view.interfaces.IPaperRecyclingView;
+import view.interfaces.IRecyclingView;
 import view.interfaces.ISignInView;
 import view.interfaces.ISignUpView;
 import view.interfaces.ITransportView;
@@ -149,14 +149,14 @@ public class JavaFxApplication extends Application {
 
         //-----
 
-        IPaperRecyclingView paperRecyclingView = new JavaFxPaperRecyclingView();
-        PaperRecyclingController paperRecyclingController =
-            new PaperRecyclingController(paperRecyclingView);
-        paperRecyclingView.initView(paperRecyclingController);
+        IRecyclingView paperRecyclingView = new JavaFxRecyclingView();
+        RecyclingController recyclingController =
+            new RecyclingController(paperRecyclingView);
+        paperRecyclingView.initView(recyclingController);
 
-        dummy = new SceneFx<IPaperRecyclingView>(
+        dummy = new SceneFx<IRecyclingView>(
             "SustainMe - Recycling",
-            "/fxml/JavaFXPaperRecyclingView.fxml",
+                "/fxml/JavaFXRecyclingView.fxml",
             "/css/FoodView.css");
         dummy.setView(paperRecyclingView);
         scenes.put("recycling", dummy);
