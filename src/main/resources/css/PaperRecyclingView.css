@@ -1,0 +1,90 @@
+.root {
+    -fx-background-color: #FFFFFF;
+}
+
+#top {
+    -fx-background-color: #4CAF50;
+}
+
+#tab {
+    -fx-background-color: #388E3C;
+}
+
+#title {
+    -fx-font-size: 80;
+    -fx-font-family: "Lucida Calligraphy";
+    -fx-fill: #FFFFFF;
+}
+
+.text-field {
+    -fx-background-color: #BDBDBD, white ;
+    -fx-background-insets: 0, 0 0 1 0 ;
+    -fx-background-radius: 0 ;
+    -fx-font-weight: bold;
+    -fx-font-size: 30;
+    -fx-text-fill: #212121;
+    -fx-prompt-text-fill: #757575;
+}
+
+.text-field:focused {
+    -fx-background-color: #03A9F4, white ;
+    -fx-background-insets: 0, 0 0 1 0 ;
+    -fx-background-radius: 0 ;
+}
+
+#login {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 30;
+    -fx-background-color: none;
+    -fx-font-weight: bold;
+    -fx-border-style: none;
+}
+
+#homeBtn {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 30;
+    -fx-background-color: none;
+    -fx-font-weight: bold;
+    -fx-border-style: none;
+}
+
+#locationtab {
+    -fx-fill: #C8E6C9;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+}
+
+.header {
+    -fx-fill: #212121;
+    -fx-font-size: 50;
+    -fx-font-weight: bold;
+}
+
+.description {
+    -fx-fill: #757575;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+}
+
+.separator {
+    -fx-fill: #BDBDBD;
+}
+
+.button {
+    -fx-background-color: #03A9F4;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-radius: 50;
+    -fx-background-radius: 50;
+    -fx-font-weight: bold;
+}
+
+.primaryText {
+    -fx-fill: #212121;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+}
+
+#paperRecyclingCounter {
+    -fx-fill: #757575;
+}
+
