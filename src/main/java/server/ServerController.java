@@ -6,7 +6,6 @@ package server;
 
 import model.objects.BikeRequest;
 import model.objects.BikeResponse;
-import model.objects.FractalTreeRequest;
 import model.objects.FractalTreeResponse;
 import model.objects.FriendRequest;
 import model.objects.InitRequest;
@@ -47,7 +46,6 @@ public class ServerController {
 
     /**
      * Receives request of returning the co2 reduction per feature.
-     * @param fractalTreeRequest    - request received by client
      * @return FractalTreeResponse  - for user with updated stats
      * @throws InterruptedException - expetion could be thrown by database handler
      */

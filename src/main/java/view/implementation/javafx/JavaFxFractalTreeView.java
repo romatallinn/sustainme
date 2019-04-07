@@ -1,23 +1,17 @@
 package view.implementation.javafx;
 
-import javafx.application.Application;
+
 import javafx.fxml.FXML;
-import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 import model.FractalTreeModel;
 import model.UserProfile;
-
-
 
 import model.objects.FractalTreeResponse;
 import view.element.FractalTree;
 
-import java.awt.*;
 import java.io.IOException;
 
 
@@ -46,6 +40,7 @@ public class JavaFxFractalTreeView extends JavaFxView {
         gc.setFill(Color.BLACK);
         gc.fillRect(600, 0, 200, 800);
 
+        // Co2 data per feature out of the database
         String firstName = UserProfile.getInstance().getFirstName();
         FractalTreeResponse result = new FractalTreeModel().fractalTreeGetData();
         double bikeCO2 = result.getBikeCo2();
