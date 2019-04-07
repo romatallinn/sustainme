@@ -112,7 +112,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
             <Region prefHeight="25.0" prefWidth="50.0" HBox.hgrow="ALWAYS" />
-            <Button fx:id="news" mnemonicParsing="false" prefHeight="133.0" prefWidth="133.0" text="Tree" HBox.hgrow="ALWAYS">
+            <Button fx:id="tree" onAction="#goToTree" mnemonicParsing="false" prefHeight="133.0" prefWidth="133.0" text="Tree" HBox.hgrow="ALWAYS">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>

@@ -19,9 +19,7 @@ public class FractalTreeModel {
             new FractalTreeRequest(UserProfile.getInstance().getUid());
 
         RestTemplate restTemplate = new RestTemplate();
-        FractalTreeResponse result =
-            restTemplate.postForObject(uri, fractalTreeRequest, FractalTreeResponse.class);
 
-        return result;
+        return restTemplate.postForObject(uri, UserProfile.getInstance().getUid(), FractalTreeResponse.class);
     }
 }

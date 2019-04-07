@@ -52,20 +52,20 @@ public class ServerController {
      * @throws InterruptedException - expetion could be thrown by database handler
      */
     @RequestMapping(value = "/fractalTree", method = RequestMethod.POST)
-    public FractalTreeResponse retrieve_user_data(
-        @RequestBody FractalTreeRequest fractalTreeRequest) throws InterruptedException {
+    public FractalTreeResponse retrieve_tree_data(
+        @RequestBody String uid) throws InterruptedException {
         double bikeCo2 =
             DatabaseHandler.retrieveDoubleFeatureCounter(
-                fractalTreeRequest.getUid(), "bikeCO2");
+                uid, "bikeCO2");
         double vegmealsCO2 =
             DatabaseHandler.retrieveDoubleFeatureCounter(
-                fractalTreeRequest.getUid(), "vegmealsCO2");
+                uid, "vegmealsCO2");
         double localproduceCO2 =
             DatabaseHandler.retrieveDoubleFeatureCounter(
-                fractalTreeRequest.getUid(), "localproduceCO2");
+                uid, "localproduceCO2");
         double publicCO2 =
             DatabaseHandler.retrieveDoubleFeatureCounter(
-                fractalTreeRequest.getUid(), "publicCO2");
+                uid, "publicCO2");
 
         return new FractalTreeResponse(bikeCo2, vegmealsCO2, localproduceCO2, publicCO2);
 

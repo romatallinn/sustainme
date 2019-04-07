@@ -7,6 +7,10 @@ public class FractalTreeResponse {
     private double localproduceCO2;
     private double publicCO2;
 
+    public FractalTreeResponse(){
+        
+    }
+
     /**
      * Constructor for a fractalTree response.
      *
