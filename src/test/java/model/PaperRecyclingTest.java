@@ -32,13 +32,13 @@ public class PaperRecyclingTest {
         UserProfile.getInstance().init(testEmail,"5An25iOCs5bisQ2ORzaaoUD9nNo2", token);
     }
 
-//    @Test
-//    public void testGetPaperRecyclingCount() {
-//        JsonObject jsonObj = FirebaseAuth.getInstance().auth("stat@test.com", "letsgo");
-//        String token = jsonObj.get("idToken").getAsString();
-//        UserProfile.getInstance().init("stat@test.com","rGYZg8W9IYOjvYwYvdFsvqUuruZ2", token);
-//        Assert.assertEquals(0, model.getPaperRecyclingCount(), 0);
-//    }
+    @Test
+    public void testGetPaperRecyclingCount() {
+        JsonObject jsonObj = FirebaseAuth.getInstance().auth("stat@test.com", "letsgo");
+        String token = jsonObj.get("idToken").getAsString();
+        UserProfile.getInstance().init("stat@test.com","rGYZg8W9IYOjvYwYvdFsvqUuruZ2", token);
+        Assert.assertEquals(0, model.getPaperRecyclingCount(), 0);
+    }
 
     @Test
     public void testEmptyAddAmountPaperRecycling(){
@@ -47,16 +47,16 @@ public class PaperRecyclingTest {
         assertEquals(0,model.getPaperRecyclingCount(),0.0);
     }
 
-//    @Test
-//    public void testAddAmountPaperRecycling() {
-//        double before = model.getPaperRecyclingCount();
-//        int expBef = UserProfile.getInstance().getExperience()
-//            + (int) (10 * Math.pow(2,(UserProfile.getInstance().getLevel() - 1)));
-//        model.addAmountPaperRecycling(5);
-//        double after = model.getPaperRecyclingCount();
-//        int expAft = UserProfile.getInstance().getExperience()
-//            + (int) (10 * Math.pow(2,(UserProfile.getInstance().getLevel() - 1)));
-//        assertEquals(5,after - before,0.0);
-//        assertEquals(5, expAft - expBef);
-//    }
+    @Test
+    public void testAddAmountPaperRecycling() {
+        double before = model.getPaperRecyclingCount();
+        int expBef = UserProfile.getInstance().getExperience()
+            + (int) (10 * Math.pow(2,(UserProfile.getInstance().getLevel() - 1)));
+        model.addAmountPaperRecycling(5);
+        double after = model.getPaperRecyclingCount();
+        int expAft = UserProfile.getInstance().getExperience()
+            + (int) (10 * Math.pow(2,(UserProfile.getInstance().getLevel() - 1)));
+        assertEquals(5,after - before,0.0);
+        assertEquals(5, expAft - expBef);
+    }
 }
