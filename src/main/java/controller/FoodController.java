@@ -26,7 +26,7 @@ public class FoodController {
         int vegmeals = model.getVegMealsCount();
         view.updateVegCounter(vegmeals);
 
-        float local = model.getLocalProduceCount();
+        double local = model.getLocalProduceCount();
         view.updateLocalProduceCounter(local);
 
     }

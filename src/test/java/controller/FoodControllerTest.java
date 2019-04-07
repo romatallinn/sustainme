@@ -31,7 +31,7 @@ public class FoodControllerTest {
     @Test
     public void testUpdate() {
         controller.updateViewWithData();
-        Mockito.verify(view).updateLocalProduceCounter(Mockito.anyFloat());
+        Mockito.verify(view).updateLocalProduceCounter(Mockito.anyDouble());
         Mockito.verify(view).updateVegCounter(Mockito.anyInt());
     }
 
