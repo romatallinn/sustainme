@@ -48,6 +48,12 @@ public class FoodControllerTest {
     }
 
     @Test
+    public void testVegMealsAddFailureRangeBelow() {
+        controller.addEatenVegMeals("-1");
+        Mockito.verify(view).displayStatus(Mockito.anyString());
+    }
+
+    @Test
     public void testVegMealsAddSuccess() {
         controller.addEatenVegMeals("1");
         Mockito.verify(view).displayStatus(Mockito.anyString());
@@ -62,6 +68,12 @@ public class FoodControllerTest {
     @Test
     public void testLocalProduceAddFailureRange() {
         controller.addEatenLocalProduce("10000");
+        Mockito.verify(view).displayStatus(Mockito.anyString());
+    }
+
+    @Test
+    public void testLocalProduceAddFailureRangeBelow() {
+        controller.addEatenLocalProduce("-1");
         Mockito.verify(view).displayStatus(Mockito.anyString());
     }
 
