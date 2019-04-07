@@ -12,6 +12,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({ URL.class, HttpURLConnection.class, ApiRequest.class})
@@ -28,6 +29,12 @@ public class ApiRequestTest {
         HttpURLConnection huc = PowerMockito.mock(HttpURLConnection.class);
         PowerMockito.when(u.openConnection()).thenReturn(huc);
         PowerMockito.when(huc.getInputStream()).thenReturn(new ByteArrayInputStream(string.getBytes()));
+    }
+
+    @Test
+    public void classInitializeTest() {
+        ApiRequest api = new ApiRequest();
+        assertNotNull(api);
     }
 
     @Test
