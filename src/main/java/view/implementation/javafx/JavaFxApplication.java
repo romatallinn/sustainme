@@ -110,7 +110,7 @@ public class JavaFxApplication extends Application {
         foodView.initView(vegController);
 
         dummy = new SceneFx<IFoodView>("SustainMe - Food", "/fxml/JavaFXFoodView.fxml",
-            "/css/RecyclingView.css");
+            "/css/FoodView.css");
         dummy.setView(foodView);
         scenes.put("food", dummy);
 
@@ -157,7 +157,7 @@ public class JavaFxApplication extends Application {
         dummy = new SceneFx<IRecyclingView>(
             "SustainMe - Recycling",
                 "/fxml/JavaFXRecyclingView.fxml",
-            "/css/FoodView.css");
+            "/css/RecyclingView.css");
         dummy.setView(paperRecyclingView);
         scenes.put("recycling", dummy);
 
