@@ -3,7 +3,22 @@ package server;
 
 //import api.ApiRequest;
 
-import model.objects.*;
+import model.objects.BikeRequest;
+import model.objects.BikeResponse;
+import model.objects.FriendRequest;
+import model.objects.InitRequest;
+import model.objects.LocalProduceRequest;
+import model.objects.LocalProduceResponse;
+import model.objects.PaperRecyclingRequest;
+import model.objects.PaperRecyclingResponse;
+import model.objects.PlasticRecyclingRequest;
+import model.objects.PlasticRecyclingResponse;
+import model.objects.PublicTransportRequest;
+import model.objects.PublicTransportResponse;
+import model.objects.ShowFriendResponse;
+import model.objects.UserData;
+import model.objects.VegetarianRequest;
+import model.objects.VegetarianResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;

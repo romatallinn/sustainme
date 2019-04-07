@@ -97,7 +97,8 @@ public class RecyclingModel {
 
         RestTemplate restTemplate = new RestTemplate();
         PlasticRecyclingResponse result =
-                restTemplate.postForObject(uri, plasticRecyclingRequest, PlasticRecyclingResponse.class);
+                restTemplate.postForObject(
+                    uri, plasticRecyclingRequest, PlasticRecyclingResponse.class);
 
         UserProfile.getInstance().setLocalExp(result.getExperience());
         UserProfile.getInstance().setLocalCo2Stats(result.getCo2Reduced());
