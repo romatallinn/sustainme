@@ -8,11 +8,10 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import model.UserProfile;
-import model.objects.BikeResponse;
-import model.objects.LocalProduceResponse;
-import model.objects.PublicTransportResponse;
-import model.objects.VegetarianResponse;
+
+import model.objects.FractalTreeRequest;
 import view.element.FractalTree;
+
 
 
 public class JavaFxFractalTreeView extends Application {
@@ -35,19 +34,12 @@ public class JavaFxFractalTreeView extends Application {
 
         String firstName = UserProfile.getInstance().getFirstName();
 
-        double bike = new BikeResponse().getCo2Reduced();
-        double localProduce = new LocalProduceResponse().getCo2Reduced();
-        double publicTransport = new PublicTransportResponse().getCo2Reduced();
-        double veggie = new VegetarianResponse().getCo2Reduced();
-        // double temperature = new ;
-        // double solarPanels = new ;
-
 
         // Scores: bike-fuchsia, localProduce-blueviolet, publicTransport-azure,
         // veggie-lime, temperature-darkorange, solarPanels-red
         FractalTree ft = new FractalTree(
                 firstName,
-                new double[]{bike, localProduce, publicTransport, veggie, 450, 500},
+                new double[]{30, 39, 20, 40, 450, 500},
                 new Color[]{
                     Color.FUCHSIA,
                     Color.BLUEVIOLET,
