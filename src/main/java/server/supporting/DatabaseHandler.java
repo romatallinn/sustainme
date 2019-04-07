@@ -9,6 +9,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import model.objects.UserData;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -69,6 +71,7 @@ public class DatabaseHandler {
         features.put("public", 0);
         features.put("solararea", 0);
         features.put("temperature", 20);
+        features.put("lastupdate", LocalDate.now().toString());
 
         Map<String, Object> data = new HashMap<>();
         data.put("fname", fname);
@@ -308,6 +311,16 @@ public class DatabaseHandler {
 
         return newVal;
 
+    }
+
+    public static int updateTime(String uid) throws InterruptedException {
+        DatabaseReference ref = db.getReference("users").child(uid).child("features/"+"lastupdate");
+
+        LocalDate oldTime = LocalDate.parse(retrieveValueAt(ref, String.class));
+        LocalDate newTime = LocalDate.now();
+        ref.setValueAsync(newTime.toString());
+
+        return (int) ChronoUnit.DAYS.between(oldTime, newTime);
     }
 
 

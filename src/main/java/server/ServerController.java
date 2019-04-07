@@ -26,6 +26,11 @@ public class ServerController {
      */
     @RequestMapping(value = "/retrieve", method = RequestMethod.POST)
     public UserData retrieve_user_data(@RequestBody String uid) throws InterruptedException {
+        int update = DatabaseHandler.updateTime(uid);
+        DatabaseHandler.increaseExpBy(uid,
+                (int) Math.round((0.782644*0.355*update)/0.15)
+                        * DatabaseHandler.retrieveFeatureCounter(uid, "solararea"));
+        DatabaseHandler.increaseCO2RedBy(uid, 0.782644*0.355*update);
         UserData user = DatabaseHandler.getUserData(uid);
         return user;
 

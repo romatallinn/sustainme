@@ -3,7 +3,6 @@ package model;
 import model.objects.SolarRequest;
 import model.objects.SolarResponse;
 import model.objects.TemperatureRequest;
-import org.apache.catalina.User;
 import org.springframework.web.client.RestTemplate;
 import supporting.ServerApi;
 
@@ -22,7 +21,7 @@ public class EnergyModel {
         }
 
         addSolarArea(0);
-        lowerTemperature(20);
+        lowerTemperature(21);
     }
 
     /**
@@ -68,7 +67,7 @@ public class EnergyModel {
     public void lowerTemperature(double temp) {
 
         if (UserProfile.getInstance().authToken.isEmpty()) {
-            homeTemperature = 20;
+            homeTemperature = 21;
             return;
         }
 
