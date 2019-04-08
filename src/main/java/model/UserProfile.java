@@ -6,8 +6,10 @@ import model.objects.UserData;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import supporting.ServerApi;
+import view.element.WindowsNotifications;
 
-
+import java.awt.*;
+import java.net.MalformedURLException;
 
 
 /**
@@ -20,6 +22,9 @@ public class UserProfile {
 
     public String authToken = "";
     private UserData data;
+
+    public Boolean badgeLevel = new BadgeModel().receiveBadge("levelHundredBadge");
+    public Boolean badgeCo2 = new BadgeModel().receiveBadge("co2ReducedBadge");
 
 
     /**
@@ -48,6 +53,7 @@ public class UserProfile {
 
     /**
      * Retrieving the instance of UserProfile.
+     *
      * @return UserProfile object of the client's user.
      */
     public static UserProfile getInstance() {
@@ -55,9 +61,9 @@ public class UserProfile {
     }
 
 
-
     /**
      * Initialization method used to make the Singleton user with data from DB.
+     *
      * @param token auth token used by Firebase to verify user.
      */
     public void init(String email, String uid, String token) {
@@ -85,6 +91,7 @@ public class UserProfile {
 
     /**
      * Sets the local experience amount, then distrubutes the level.
+     *
      * @param exp - new value of experience.
      */
     public void setLocalExp(int exp) {
@@ -96,6 +103,7 @@ public class UserProfile {
 
     /**
      * Sets the local attribute of the amount of the reduced CO2.
+     *
      * @param red - new value of CO2 reduction.
      */
     public void setLocalCo2Stats(double red) {
@@ -118,7 +126,7 @@ public class UserProfile {
 
         data.calculateLevel();
 
-        checkBadgeLevelHunred();
+        checkBadgeLevelHundred();
 
     }
 
@@ -152,19 +160,46 @@ public class UserProfile {
     }
 
     public double getExpProgress() {
-        return (double)data.experience / (pow(2, data.level - 1) * 10);
+        return (double) data.experience / (pow(2, data.level - 1) * 10);
     }
 
-    public void checkBadgeCo2Reduction(){
-        if (getCo2Reduction() >= 100){
+    public void checkBadgeCo2Reduction() {
 
+        if (badgeCo2 = true) {
+            return;
+        } else if (getCo2Reduction() >= 100) {
+
+            new BadgeModel().updateBadge("co2ReducedBadge");
+            try {
+                new WindowsNotifications().notification(
+                    "4.png",
+                    "Congrats! You have reduced 100kg of CO2!");
+            } catch (AWTException e) {
+                e.printStackTrace();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    public void checkBadgeLevelHunred(){
-        if (getLevel() >= 100){
+    public void checkBadgeLevelHundred() {
 
+        if (badgeLevel = true) {
+            return;
+        } else if (getLevel() >= 100) {
+
+            new BadgeModel().updateBadge("levelHundredBadge");
+            try {
+                new WindowsNotifications().notification(
+                    "6.png",
+                    "Congrats! You are at level 100!");
+            } catch (AWTException e) {
+                e.printStackTrace();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
         }
     }
+
 
 }
