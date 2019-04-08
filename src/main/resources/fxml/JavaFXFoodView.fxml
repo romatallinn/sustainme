@@ -6,7 +6,6 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
@@ -16,7 +15,7 @@
     <children>
         <HBox fx:id="top">
 
-            <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#goToHome" text="Home   " HBox.hgrow="ALWAYS">
+            <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#goToHome" text=" Home  " HBox.hgrow="ALWAYS">
                 <HBox.margin>
                     <Insets left="10.0" />
                 </HBox.margin>
@@ -62,14 +61,12 @@
                         <TextField fx:id="vegMealsCountInput" maxHeight="1.7976931348623157E308" promptText="Amount:" HBox.hgrow="NEVER" />
                         <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                            <children>
-                              <Button onAction="#addEatenVegMeals" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Add" VBox.vgrow="ALWAYS">
+                              <Region prefHeight="200.0" prefWidth="200.0" />
+                              <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addEatenVegMeals" text="Add" VBox.vgrow="ALWAYS">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></Button>
-                              <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Remove" VBox.vgrow="ALWAYS">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor></Button>
+                              <Region prefHeight="200.0" prefWidth="200.0" />
                            </children>
                         </VBox>
                      </children>
@@ -96,14 +93,12 @@
                                 <TextField fx:id="localCountInput" maxHeight="1.7976931348623157E308" promptText="Amount:" HBox.hgrow="NEVER" />
                                 <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                                     <children>
-                                        <Button onAction="#addEatenLocalProduce" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Add" VBox.vgrow="ALWAYS">
+                              <Region prefHeight="200.0" prefWidth="200.0" />
+                                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addEatenLocalProduce" text="Add" VBox.vgrow="ALWAYS">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor></Button>
-                                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Remove" VBox.vgrow="ALWAYS">
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor></Button>
+                              <Region prefHeight="200.0" prefWidth="200.0" />
                                     </children>
                                 </VBox>
                             </children>
@@ -118,5 +113,9 @@
                     </HBox.margin></VBox>
             </children>
         </HBox>
+      <Text fx:id="statusMsg">
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" />
+         </VBox.margin></Text>
     </children>
 </VBox>

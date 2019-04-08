@@ -30,6 +30,9 @@ public class JavaFxFoodView extends JavaFxView implements IFoodView {
     @FXML
     private Text localCounter;
 
+    @FXML
+    private Text statusMsg;
+
     @Override
     public void initView(FoodController controller) {
         this.controller = controller;
@@ -54,6 +57,7 @@ public class JavaFxFoodView extends JavaFxView implements IFoodView {
 
     @Override
     public void displayStatus(String msg) {
+        statusMsg.setText(msg);
         System.out.println(msg);
     }
 
