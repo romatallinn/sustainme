@@ -100,6 +100,7 @@ public class UserProfile {
      */
     public void setLocalCo2Stats(double red) {
         data.co2red = red;
+        checkBadgeCo2Reduction();
     }
 
     /**
@@ -116,6 +117,8 @@ public class UserProfile {
     private void calculateLevel() {
 
         data.calculateLevel();
+
+        checkBadgeLevelHunred();
 
     }
 
@@ -152,5 +155,17 @@ public class UserProfile {
         return (double)data.experience / (pow(2, data.level - 1) * 10);
     }
 
+    public void checkBadgeCo2Reduction(){
+        if ()
+        if (getCo2Reduction() >= 100){
+
+        }
+    }
+
+    public void checkBadgeLevelHunred(){
+        if (getLevel() >= 100){
+
+        }
+    }
 
 }

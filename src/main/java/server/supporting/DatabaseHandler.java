@@ -65,11 +65,10 @@ public class DatabaseHandler {
         Map<String, Boolean> badges = new HashMap<>();
         badges.put("distanceByBikeBadge", false);
         badges.put("vegetarianMealBadge", false);
-        badges.put("temperatureBadge", false);
         badges.put("kmNoCarUsedBadge", false);
         badges.put("co2ReducedBadge", false);
         badges.put("levelHundredBadge", false);
-        badges.put("distanceByTrainBadge", false);
+        badges.put("distancePublicBadge", false);
 
 
         Map<String, Object> features = new HashMap<>();

@@ -5,6 +5,7 @@ import model.objects.BikeResponse;
 import model.objects.PublicTransportRequest;
 import model.objects.PublicTransportResponse;
 import org.springframework.web.client.RestTemplate;
+import server.supporting.DatabaseHandler;
 import supporting.ServerApi;
 
 public class  TransportModel {
@@ -81,6 +82,8 @@ public class  TransportModel {
         UserProfile.getInstance().setLocalCo2Stats(result.getCo2Reduced());
 
         bikeDistance = result.getDistance();
+
+        checkBadgeBike();
     }
 
 
@@ -110,6 +113,8 @@ public class  TransportModel {
         UserProfile.getInstance().setLocalCo2Stats(result.getCo2Reduced());
 
         publicDistance = result.getDistance();
+
+        checkBadgeNoCar();
     }
 
     /**
@@ -138,6 +143,28 @@ public class  TransportModel {
         UserProfile.getInstance().setLocalCo2Stats(result.getCo2Reduced());
 
         publicDistance = result.getDistance();
+
+        checkBadgeNoCar();
+        checkBadgePublic();
+    }
+
+    public void checkBadgeBike(){
+        if (DatabaseHandler.retrieveBadges())
+        if(getBikeDistance() >= 100){
+
+        }
+    }
+
+    public void checkBadgeNoCar(){
+        if (getBikeDistance() + getPublicDistance() >= 500) {
+
+        }
+    }
+
+    public void checkBadgePublic(){
+        if(getPublicDistance() >= 600){
+
+        }
     }
 
 }
