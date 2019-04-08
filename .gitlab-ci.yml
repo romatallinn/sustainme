@@ -13,7 +13,10 @@ build:
 test:
   stage: test
   script:
-    - mvn surefire:test
+    - mvn test
+  artifacts:
+    paths:
+      - build/reports/jacoco/
 
 checkstyle:
   stage: checkstyle
