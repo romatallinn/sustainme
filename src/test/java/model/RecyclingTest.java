@@ -71,7 +71,7 @@ public class RecyclingTest {
         int expAft = UserProfile.getInstance().getExperience()
             + (int) (10 * Math.pow(2,(UserProfile.getInstance().getLevel() - 1)));
         assertEquals(5,after - before,0.0);
-        assertEquals(5, expAft - expBef);
+        assertEquals(40, expAft - expBef);
     }
 
     @Test
@@ -84,6 +84,6 @@ public class RecyclingTest {
         int expAft = UserProfile.getInstance().getExperience()
             + (int) (10 * Math.pow(2,(UserProfile.getInstance().getLevel() - 1)));
         assertEquals(5,after - before,0.0);
-        assertEquals(5, expAft - expBef);
+        assertEquals(200, expAft - expBef);
     }
 }

@@ -135,7 +135,7 @@ public class ServerControllerTest {
         serve.paperRecycling(lpr);
         UserData after = serve.retrieve_user_data("dynamicTestUser");
         double featAft = DatabaseHandler.retrieveFeatureCounter("dynamicTestUser","paperrecycling");
-        assertEquals(2, after.experience - before.experience);
+        assertEquals(16, after.experience - before.experience);
         assertEquals(2, featAft - featBef,0.0);
     }
 
@@ -147,7 +147,7 @@ public class ServerControllerTest {
         serve.plasticRecycling(lpr);
         UserData after = serve.retrieve_user_data("dynamicTestUser");
         double featAft = DatabaseHandler.retrieveFeatureCounter("dynamicTestUser","plasticrecycling");
-        assertEquals(2, after.experience - before.experience);
+        assertEquals(80, after.experience - before.experience);
         assertEquals(2, featAft - featBef,0.0);
     }
 
