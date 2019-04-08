@@ -13,7 +13,7 @@ build:
 test:
   stage: test
   script:
-    - mvn test
+    - mvn test -Dcheckstyle.skip
   artifacts:
     paths:
       - build/reports/jacoco/
