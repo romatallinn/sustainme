@@ -1,14 +1,14 @@
-package model;
+package view.element;
 
 import java.awt.*;
 import java.net.MalformedURLException;
 
-public class NotificationModel {
+public class WindowsNotifications {
 
         public void notification(String image, String message) throws AWTException, MalformedURLException {
             try {
                 if (SystemTray.isSupported()) {
-                    NotificationModel td = new NotificationModel();
+                    WindowsNotifications td = new WindowsNotifications();
                     td.displayTray(image, message);
                 } else {
                     System.err.println("System tray not supported!");

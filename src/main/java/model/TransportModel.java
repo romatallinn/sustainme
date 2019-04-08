@@ -5,9 +5,8 @@ import model.objects.BikeResponse;
 import model.objects.PublicTransportRequest;
 import model.objects.PublicTransportResponse;
 import org.springframework.web.client.RestTemplate;
-import server.ServerController;
-import server.supporting.DatabaseHandler;
 import supporting.ServerApi;
+import view.element.WindowsNotifications;
 
 import java.awt.*;
 import java.net.MalformedURLException;
@@ -17,7 +16,9 @@ public class TransportModel {
     private int bikeDistance = -1;
     private int publicDistance = -1;
 
-    private Boolean badgeBike = new BadgeModel().receiveBadge("distanceByBikeBadge");
+    public Boolean badgeBike = new BadgeModel().receiveBadge("distanceByBikeBadge");
+    public Boolean badgeNoCar = new BadgeModel().receiveBadge("kmNoCarUsedBadge");
+    public Boolean badgePublic = new BadgeModel().receiveBadge("distancePublicBadge");
 
     /**
      * Returns the total distance cycled in kilometers.
@@ -165,7 +166,7 @@ public class TransportModel {
 
             new BadgeModel().updateBadge("distanceByBikeBadge");
             try {
-                new NotificationModel().notification(
+                new WindowsNotifications().notification(
                     "3.png",
                     "Congrats! You have cycled 100 km!");
             } catch (AWTException e) {
@@ -179,29 +180,42 @@ public class TransportModel {
     }
 
     public void checkBadgeNoCar() {
-        if (badgeBike = true) {
+        if (badgeNoCar = true) {
             return;
-        } else if (getBikeDistance() >= 100) {
+        } else if (getBikeDistance() + getPublicDistance() >= 500) {
 
-            new BadgeModel().updateBadge("distanceByBikeBadge");
+            new BadgeModel().updateBadge("kmNoCarUsedBadge");
             try {
-                new NotificationModel().notification(
-                    "3.png",
-                    "Congrats! You have cycled 100 km!");
+                new WindowsNotifications().notification(
+                    "2.png",
+                    "Congrats! You did not use your car for already 500km!");
             } catch (AWTException e) {
                 e.printStackTrace();
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
-            if (getBikeDistance() + getPublicDistance() >= 500) {
-
-            }
         }
-
-        public void checkBadgePublic () {
-            if (getPublicDistance() >= 600) {
-
-            }
-        }
-
     }
+
+    public void checkBadgePublic() {
+        if (badgePublic = true) {
+            return;
+        } else if (getPublicDistance() >= 600) {
+
+            new BadgeModel().updateBadge("distancePublicBadge");
+            try {
+                new WindowsNotifications().notification(
+                    "7.png",
+                    "Congrats! You did use public transportation for already 600km!");
+            } catch (AWTException e) {
+                e.printStackTrace();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+
+
+
