@@ -4,6 +4,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -62,11 +63,19 @@
                   <Insets left="50.0" />
                </HBox.margin>
             </VBox>
-            <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Reduced CO2" />
+                  <Text fx:id="myCO2" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="amount" text="21 kg" />
+               </children>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></VBox>
             <Region layoutX="527.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
          </children>
          <VBox.margin>
-            <Insets bottom="50.0" top="50.0" />
+            <Insets bottom="10.0" top="50.0" />
          </VBox.margin>
       </HBox>
       <HBox prefHeight="133.0" prefWidth="716.0">
@@ -100,7 +109,7 @@
             </Region>
          </children>
          <VBox.margin>
-            <Insets bottom="50.0" top="50.0" />
+            <Insets bottom="50.0" top="10.0" />
          </VBox.margin>
       </HBox>
       <HBox prefHeight="133.0" prefWidth="716.0">
@@ -116,7 +125,7 @@
                  </cursor>
              </Button>
             <Region prefHeight="25.0" prefWidth="50.0" HBox.hgrow="ALWAYS" />
-            <Button fx:id="tree" onAction="#goToTree" mnemonicParsing="false" prefHeight="133.0" prefWidth="133.0" text="Tree" HBox.hgrow="ALWAYS">
+            <Button fx:id="tree" mnemonicParsing="false" onAction="#goToTree" prefHeight="133.0" prefWidth="133.0" text="Tree" HBox.hgrow="ALWAYS">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>

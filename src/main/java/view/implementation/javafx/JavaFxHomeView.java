@@ -28,6 +28,8 @@ public class JavaFxHomeView extends JavaFxView implements IHomeView {
     private ProgressBar expBar;
     @FXML
     private Circle profilePic;
+    @FXML
+    private Text myCO2;
 
 
     /**
@@ -98,6 +100,6 @@ public class JavaFxHomeView extends JavaFxView implements IHomeView {
 
     @Override
     public void updateReducedLabel(double redCO2) {
-        // Update reduced CO2
+        this.myCO2.setText(redCO2 + " kg");
     }
 }
