@@ -225,7 +225,7 @@ public class ServerController {
         @RequestBody PaperRecyclingRequest paperRecyclingRequest)
         throws InterruptedException {
         int exp = DatabaseHandler.increaseExpBy(paperRecyclingRequest.getUid(),
-            (int) Math.round(paperRecyclingRequest.getAmount()));
+            (int) Math.round(paperRecyclingRequest.getAmount() * 8));
         double co2 = DatabaseHandler.increaseCO2RedBy(paperRecyclingRequest.getUid(),
             paperRecyclingRequest.getAmount() * 1.21);
         double amount = DatabaseHandler.increaseFeatureCounter(paperRecyclingRequest.getUid(),
@@ -249,7 +249,7 @@ public class ServerController {
             @RequestBody PlasticRecyclingRequest plasticRecyclingRequest)
             throws InterruptedException {
         int exp = DatabaseHandler.increaseExpBy(plasticRecyclingRequest.getUid(),
-                (int) Math.round(plasticRecyclingRequest.getAmount()));
+                (int) Math.round(plasticRecyclingRequest.getAmount() * 40));
         double co2 = DatabaseHandler.increaseCO2RedBy(plasticRecyclingRequest.getUid(),
                 plasticRecyclingRequest.getAmount() * 6.0);
         double amount = DatabaseHandler.increaseFeatureCounter(plasticRecyclingRequest.getUid(),
