@@ -1,15 +1,19 @@
 package controller;
 
+import model.TransportModel;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
-import supporting.FirebaseAuth;
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.modules.junit4.PowerMockRunner;
 import view.interfaces.ITransportView;
 
+@RunWith(PowerMockRunner.class)
 public class TransportControllerTest {
 
     @Rule
@@ -21,16 +25,19 @@ public class TransportControllerTest {
     private TransportController controller;
 
     @Before
-    public void setup() {
+    public void setup() throws Exception {
+        TransportModel model = Mockito.mock(TransportModel.class);
+        PowerMockito.whenNew(TransportModel.class).withAnyArguments().thenReturn(model);
+        Mockito.doNothing().when(model).addDistanceCycled(Mockito.anyInt());
         controller = new TransportController(view);
     }
 
-//    @Test
-//    public void testUpdate() {
-//        controller.updateViewWithData();
-//        Mockito.verify(view).updateBikeDistance(Mockito.anyInt());
-//        Mockito.verify(view).updatePublicDistance(Mockito.anyInt());
-//    }
+    @Test
+    public void testUpdate() {
+        controller.updateViewWithData();
+        Mockito.verify(view).updateBikeDistance(Mockito.anyInt());
+        Mockito.verify(view).updatePublicDistance(Mockito.anyInt());
+    }
 
     @Test
     public void testBikeFailureParse() {
@@ -44,12 +51,19 @@ public class TransportControllerTest {
         Mockito.verify(view).displayStatus(Mockito.anyString());
     }
 
-//    @Test
-//    public void testBikeSuccess() {
-//        controller.addBikeKms("1");
-//        Mockito.verify(view).displayStatus(Mockito.anyString());
-//        Mockito.verify(controller).updateViewWithData();
-//    }
+    @Test
+    public void testBikeFailureRangeBelow() {
+        controller.addBikeKms("-1");
+        Mockito.verify(view).displayStatus(Mockito.anyString());
+    }
+
+    @Test
+    public void testBikeSuccess() {
+        controller.addBikeKms("1");
+        Mockito.verify(view).displayStatus(Mockito.anyString());
+        Mockito.verify(view).updateBikeDistance(Mockito.anyInt());
+        Mockito.verify(view).updatePublicDistance(Mockito.anyInt());
+    }
 
     @Test
     public void testTrainFailureParse() {
@@ -63,12 +77,19 @@ public class TransportControllerTest {
         Mockito.verify(view).displayStatus(Mockito.anyString());
     }
 
-//    @Test
-//    public void testTrainSuccess() {
-//        controller.addTrainKms("1");
-//        Mockito.verify(view).displayStatus(Mockito.anyString());
-//        Mockito.verify(controller).updateViewWithData();
-//    }
+    @Test
+    public void testTrainFailureRangeBelow() {
+        controller.addTrainKms("-1");
+        Mockito.verify(view).displayStatus(Mockito.anyString());
+    }
+
+    @Test
+    public void testTrainSuccess() {
+        controller.addTrainKms("1");
+        Mockito.verify(view).displayStatus(Mockito.anyString());
+        Mockito.verify(view).updateBikeDistance(Mockito.anyInt());
+        Mockito.verify(view).updatePublicDistance(Mockito.anyInt());
+    }
 
     @Test
     public void testBusFailureParse() {
@@ -82,12 +103,21 @@ public class TransportControllerTest {
         Mockito.verify(view).displayStatus(Mockito.anyString());
     }
 
-//    @Test
-//    public void testBusSuccess() {
-//        controller.addBusKms("1");
-//        Mockito.verify(view).displayStatus(Mockito.anyString());
-//        Mockito.verify(controller).updateViewWithData();
-//    }
+    @Test
+    public void testBusFailureRangeBelow() {
+        controller.addBusKms("-1");
+        Mockito.verify(view).displayStatus(Mockito.anyString());
+    }
+
+    @Test
+    public void testBusSuccess() {
+        controller.addBusKms("1");
+        Mockito.verify(view).displayStatus(Mockito.anyString());
+        Mockito.verify(view).updateBikeDistance(Mockito.anyInt());
+        Mockito.verify(view).updatePublicDistance(Mockito.anyInt());
+    }
+
+
 
 
 }
