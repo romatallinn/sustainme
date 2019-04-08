@@ -14,9 +14,10 @@ test:
   stage: test
   script:
     - mvn test -Dcheckstyle.skip
+    - mvn jacoco:report
   artifacts:
     paths:
-      - build/reports/jacoco/
+      - build/site/jacoco/
 
 checkstyle:
   stage: checkstyle
