@@ -6,11 +6,17 @@ import model.objects.VegetarianRequest;
 import model.objects.VegetarianResponse;
 import org.springframework.web.client.RestTemplate;
 import supporting.ServerApi;
+import view.element.WindowsNotifications;
+
+import java.awt.*;
+import java.net.MalformedURLException;
 
 public class FoodModel {
 
     private int vegMealsCount = -1;
     private float localProduceCount = -1;
+
+    public Boolean badgeVeggie = new BadgeModel().receiveBadge("vegetarianMealBadge");
 
 
     /**
@@ -114,9 +120,25 @@ public class FoodModel {
     }
 
     public void checkBadges() {
-        if (vegMealsCount >= 10) {
+
+        if (badgeVeggie = true) {
+            return;
+        } else if (vegMealsCount >= 10) {
+
+            new BadgeModel().updateBadge("vegetarianMealBadge");
+            try {
+                new WindowsNotifications().notification(
+                    "5.png",
+                    "Congrats! You have eaten 10 vegetarian meals!");
+            } catch (AWTException e) {
+                e.printStackTrace();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+
 
         }
+
     }
 
 }
