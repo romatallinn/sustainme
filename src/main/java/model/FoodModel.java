@@ -82,6 +82,8 @@ public class FoodModel {
 
         vegMealsCount = result.getAmount();
 
+        checkBadges();
+
     }
 
     /**
@@ -111,5 +113,10 @@ public class FoodModel {
 
     }
 
+    public void checkBadges() {
+        if (vegMealsCount >= 10) {
+
+        }
+    }
 
 }

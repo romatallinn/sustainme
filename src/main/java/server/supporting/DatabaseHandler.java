@@ -62,6 +62,16 @@ public class DatabaseHandler {
 
         final DatabaseReference ref = db.getReference("users").child(uid);
 
+        Map<String, Boolean> badges = new HashMap<>();
+        badges.put("distanceByBikeBadge", false);
+        badges.put("vegetarianMealBadge", false);
+        badges.put("temperatureBadge", false);
+        badges.put("kmNoCarUsedBadge", false);
+        badges.put("co2ReducedBadge", false);
+        badges.put("levelHundredBadge", false);
+        badges.put("distanceByTrainBadge", false);
+
+
         Map<String, Object> features = new HashMap<>();
         features.put("vegmeals", 0);
         features.put("localproduce", 0);
@@ -79,6 +89,7 @@ public class DatabaseHandler {
         ref.setValueAsync(data);
 
     }
+
 
     /**
      * Increases experience of the user with the given id by the given amount.
@@ -159,6 +170,23 @@ public class DatabaseHandler {
 
         DatabaseReference ref = db.getReference("users").child(uid).child("features/" + feature);
         int val = retrieveValueAt(ref, Integer.class);
+
+        return val;
+
+    }
+
+    /**
+     * Retrieves badges out of database.
+     * @param uid       - user id
+     * @param badges    - badges
+     * @return          - badge
+     * @throws InterruptedException
+     */
+    public static Boolean retrieveBadges(String uid, String badges)
+        throws InterruptedException {
+
+        DatabaseReference ref = db.getReference("users").child(uid).child("badges/" + badges);
+        Boolean val = retrieveValueAt(ref, Boolean.class);
 
         return val;
 
