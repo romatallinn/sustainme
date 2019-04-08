@@ -3,18 +3,7 @@ package server;
 
 //import api.ApiRequest;
 
-import model.objects.BikeRequest;
-import model.objects.BikeResponse;
-import model.objects.FriendRequest;
-import model.objects.InitRequest;
-import model.objects.LocalProduceRequest;
-import model.objects.LocalProduceResponse;
-import model.objects.PublicTransportRequest;
-import model.objects.PublicTransportResponse;
-import model.objects.ShowFriendResponse;
-import model.objects.UserData;
-import model.objects.VegetarianRequest;
-import model.objects.VegetarianResponse;
+import model.objects.*;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -166,6 +155,29 @@ public class ServerController {
                 publicTransportRequest.getDistance());
 
         return new PublicTransportResponse(exp,co2,distance);
+
+    }
+
+    /**
+     * Sends a request to the database handler for updating the badges stats.
+     * @param badgeRequest - request sent by client
+     * @return badgecheck  - returns boolean value if the badge is already in the database
+     * @throws Exception   - exception could be thrown by database handler
+     */
+    @RequestMapping(value = "/badges", method = RequestMethod.POST)
+    public Boolean retrieveBadge (
+        @RequestBody BadgeRequest badgeRequest) throws Exception{
+
+        Boolean badgeCheck = DatabaseHandler.retrieveBadges(
+            badgeRequest.getUid(), badgeRequest.getBadges());
+
+        return badgeCheck;
+
+    }
+
+    @RequestMapping(value = "/updatebadge", method = RequestMethod.POST)
+    public void updateBadge(@RequestBody BadgeRequest badgeRequest) {
+        DatabaseHandler.updateBadges(badgeRequest.getUid(), badgeRequest.getBadges());
 
     }
 

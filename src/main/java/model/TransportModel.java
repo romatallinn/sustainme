@@ -5,6 +5,7 @@ import model.objects.BikeResponse;
 import model.objects.PublicTransportRequest;
 import model.objects.PublicTransportResponse;
 import org.springframework.web.client.RestTemplate;
+import server.ServerController;
 import server.supporting.DatabaseHandler;
 import supporting.ServerApi;
 
@@ -13,6 +14,7 @@ public class  TransportModel {
     private int bikeDistance = -1;
     private int publicDistance = -1;
 
+    private Boolean badgeBike = new BadgeModel().receiveBadge("distanceByBikeBadge");
 
     /**
      * Returns the total distance cycled in kilometers.
@@ -148,9 +150,15 @@ public class  TransportModel {
         checkBadgePublic();
     }
 
+
     public void checkBadgeBike(){
-        if (DatabaseHandler.retrieveBadges())
-        if(getBikeDistance() >= 100){
+        if (badgeBike = true){
+            return;
+        }
+        else
+            if(getBikeDistance() >= 100){
+
+                new BadgeModel().updateBadge("distanceByBikeBadge");
 
         }
     }

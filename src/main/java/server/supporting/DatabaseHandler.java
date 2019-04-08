@@ -192,6 +192,19 @@ public class DatabaseHandler {
     }
 
     /**
+     * Updates the badges in the database to true.
+     * @param uid       - user id
+     * @param badges    - badges
+     */
+    public static void updateBadges(String uid, String badges) {
+        DatabaseReference ref = db.getReference("users/" + uid + "/badges/" + badges);
+
+        ref.setValueAsync(true);
+
+    }
+
+
+    /**
      * Adds a new friend with given email to the user of the given user id.
      * @param uid - user id.
      * @param friendEmail - email of the friend to add.
