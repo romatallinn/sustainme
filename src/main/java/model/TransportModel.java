@@ -9,7 +9,10 @@ import server.ServerController;
 import server.supporting.DatabaseHandler;
 import supporting.ServerApi;
 
-public class  TransportModel {
+import java.awt.*;
+import java.net.MalformedURLException;
+
+public class TransportModel {
 
     private int bikeDistance = -1;
     private int publicDistance = -1;
@@ -18,6 +21,7 @@ public class  TransportModel {
 
     /**
      * Returns the total distance cycled in kilometers.
+     *
      * @return the total distance
      */
     public int getBikeDistance() {
@@ -31,6 +35,7 @@ public class  TransportModel {
 
     /**
      * Returns the total distance traveled by public transport.
+     *
      * @return the total distance
      */
     public int getPublicDistance() {
@@ -41,7 +46,6 @@ public class  TransportModel {
 
         return publicDistance;
     }
-
 
 
     /**
@@ -62,6 +66,7 @@ public class  TransportModel {
 
     /**
      * Invokes request to server, notifying it about the action of cycled distance.
+     *
      * @param distance distance cycled
      */
     public void addDistanceCycled(int distance) {
@@ -74,11 +79,11 @@ public class  TransportModel {
         final String uri = ServerApi.HOST + ServerApi.BICYCLE;
 
         BikeRequest bikeRequest =
-                new BikeRequest(UserProfile.getInstance().getUid(), distance);
+            new BikeRequest(UserProfile.getInstance().getUid(), distance);
 
         RestTemplate restTemplate = new RestTemplate();
         BikeResponse result =
-                restTemplate.postForObject(uri, bikeRequest, BikeResponse.class);
+            restTemplate.postForObject(uri, bikeRequest, BikeResponse.class);
 
         UserProfile.getInstance().setLocalExp(result.getExperience());
         UserProfile.getInstance().setLocalCo2Stats(result.getCo2Reduced());
@@ -91,6 +96,7 @@ public class  TransportModel {
 
     /**
      * Invokes request to server, notifying it about the action of distance by train.
+     *
      * @param distance distance by train
      */
     public void addTrainDistanceTraveled(int distance) {
@@ -103,13 +109,13 @@ public class  TransportModel {
         final String uri = ServerApi.HOST + ServerApi.PUBLIC_TRANSPORT;
 
         PublicTransportRequest publicTransportRequest =
-                new PublicTransportRequest(UserProfile.getInstance().getUid(),
-                        distance, false);
+            new PublicTransportRequest(UserProfile.getInstance().getUid(),
+                distance, false);
 
         RestTemplate restTemplate = new RestTemplate();
         PublicTransportResponse result =
-                restTemplate.postForObject(uri, publicTransportRequest,
-                        PublicTransportResponse.class);
+            restTemplate.postForObject(uri, publicTransportRequest,
+                PublicTransportResponse.class);
 
         UserProfile.getInstance().setLocalExp(result.getExperience());
         UserProfile.getInstance().setLocalCo2Stats(result.getCo2Reduced());
@@ -121,6 +127,7 @@ public class  TransportModel {
 
     /**
      * Invokes request to server, notifying it about the action of distance by bus.
+     *
      * @param distance distance by bus
      */
     public void addBusDistanceTraveled(int distance) {
@@ -133,13 +140,13 @@ public class  TransportModel {
         final String uri = ServerApi.HOST + ServerApi.PUBLIC_TRANSPORT;
 
         PublicTransportRequest publicTransportRequest =
-                new PublicTransportRequest(UserProfile.getInstance().getUid(),
-                        distance, true);
+            new PublicTransportRequest(UserProfile.getInstance().getUid(),
+                distance, true);
 
         RestTemplate restTemplate = new RestTemplate();
         PublicTransportResponse result =
-                restTemplate.postForObject(uri, publicTransportRequest,
-                        PublicTransportResponse.class);
+            restTemplate.postForObject(uri, publicTransportRequest,
+                PublicTransportResponse.class);
 
         UserProfile.getInstance().setLocalExp(result.getExperience());
         UserProfile.getInstance().setLocalCo2Stats(result.getCo2Reduced());
@@ -151,28 +158,50 @@ public class  TransportModel {
     }
 
 
-    public void checkBadgeBike(){
-        if (badgeBike = true){
+    public void checkBadgeBike() {
+        if (badgeBike = true) {
             return;
-        }
-        else
-            if(getBikeDistance() >= 100){
+        } else if (getBikeDistance() >= 100) {
 
-                new BadgeModel().updateBadge("distanceByBikeBadge");
+            new BadgeModel().updateBadge("distanceByBikeBadge");
+            try {
+                new NotificationModel().notification(
+                    "3.png",
+                    "Congrats! You have cycled 100 km!");
+            } catch (AWTException e) {
+                e.printStackTrace();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
 
-        }
-    }
-
-    public void checkBadgeNoCar(){
-        if (getBikeDistance() + getPublicDistance() >= 500) {
-
-        }
-    }
-
-    public void checkBadgePublic(){
-        if(getPublicDistance() >= 600){
 
         }
     }
 
-}
+    public void checkBadgeNoCar() {
+        if (badgeBike = true) {
+            return;
+        } else if (getBikeDistance() >= 100) {
+
+            new BadgeModel().updateBadge("distanceByBikeBadge");
+            try {
+                new NotificationModel().notification(
+                    "3.png",
+                    "Congrats! You have cycled 100 km!");
+            } catch (AWTException e) {
+                e.printStackTrace();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+            if (getBikeDistance() + getPublicDistance() >= 500) {
+
+            }
+        }
+
+        public void checkBadgePublic () {
+            if (getPublicDistance() >= 600) {
+
+            }
+        }
+
+    }

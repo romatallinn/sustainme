@@ -156,7 +156,6 @@ public class UserProfile {
     }
 
     public void checkBadgeCo2Reduction(){
-        if ()
         if (getCo2Reduction() >= 100){
 
         }
