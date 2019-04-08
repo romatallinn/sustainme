@@ -1,6 +1,6 @@
 # CSE1105: SustainMe
 
-**SustainMe** is a student project for TU Delft's course *CSE1105*. It was developed by 5 students in 8 weeks. The application is intended to promote green and healthy lifestyle. It provides the functionality of tracking people's progress of reducing CO2 production in their lives.
+**SustainMe** is a student project for TU Delft's course *CSE1105*. It was developed by 5 students in 8 weeks. The application is intended to promote green and healthy lifestyle. It provides the functionality of tracking people's progress of reducing CO2 production in their everyday lives.
 
 
 ## Reports
@@ -28,11 +28,11 @@ The pipeline contains 3 stages:
 
 
 ## Built With
--		[Maven](https://maven.apache.org/) - Dependency Management
--		[Google's Firebase](http://firebase.google.com) - Cloud Services
-- 	[Spring Boot](https://spring.io/projects/spring-boot) - Server-side
--		[JavaFX](https://openjfx.io) - Graphical User Interface
-- 	[JUnit](https://junit.org/junit5/), [Mockito](https://site.mockito.org) & [PowerMock](https://github.com/powermock/powermock/wiki) - Unit Tests
+-	[Maven](https://maven.apache.org/) - Dependency Management
+-	[Google's Firebase](http://firebase.google.com) - Cloud Services
+- [Spring Boot](https://spring.io/projects/spring-boot) - Server-side
+-	[JavaFX](https://openjfx.io) - Graphical User Interface
+- [JUnit](https://junit.org/junit5/), [Mockito](https://site.mockito.org) & [PowerMock](https://github.com/powermock/powermock/wiki) - Unit Tests
 
 
 ## Developers
