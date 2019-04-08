@@ -8,17 +8,18 @@ import org.springframework.web.client.RestTemplate;
 import supporting.ServerApi;
 import view.element.WindowsNotifications;
 
-import java.awt.*;
+import java.awt.AWTException;
 import java.net.MalformedURLException;
 
 public class TransportModel {
 
-    private int bikeDistance = -1;
-    private int publicDistance = -1;
 
     public Boolean badgeBike = new BadgeModel().receiveBadge("distanceByBikeBadge");
     public Boolean badgeNoCar = new BadgeModel().receiveBadge("kmNoCarUsedBadge");
     public Boolean badgePublic = new BadgeModel().receiveBadge("distancePublicBadge");
+    private int bikeDistance = -1;
+    private int publicDistance = -1;
+
 
     /**
      * Returns the total distance cycled in kilometers.
@@ -159,6 +160,10 @@ public class TransportModel {
     }
 
 
+    /**
+     * Checks if the badge is visible otherwise it makes the badge visible and initiates
+     * a notification.
+     */
     public void checkBadgeBike() {
         if (badgeBike = true) {
             return;
@@ -179,6 +184,10 @@ public class TransportModel {
         }
     }
 
+    /**
+     * Checks if the badge is visible otherwise it makes the badge visible and initiates
+     * a notification.
+     */
     public void checkBadgeNoCar() {
         if (badgeNoCar = true) {
             return;
@@ -197,6 +206,10 @@ public class TransportModel {
         }
     }
 
+    /**
+     * Checks if the badge is visible otherwise it makes the badge visible and initiates
+     * a notification.
+     */
     public void checkBadgePublic() {
         if (badgePublic = true) {
             return;

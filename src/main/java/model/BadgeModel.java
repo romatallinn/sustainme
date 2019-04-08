@@ -1,13 +1,16 @@
 package model;
 
 import model.objects.BadgeRequest;
-import model.objects.LocalProduceRequest;
-import model.objects.LocalProduceResponse;
 import org.springframework.web.client.RestTemplate;
 import supporting.ServerApi;
 
 public class BadgeModel {
 
+    /**
+     * Receives if the badge is set on true in the database.
+     * @param badges    - badges
+     * @return result   - true or false
+     */
     public Boolean receiveBadge(String badges) {
 
         final String uri = ServerApi.HOST + ServerApi.BADGES;
@@ -23,6 +26,10 @@ public class BadgeModel {
 
     }
 
+    /**
+     * Updates the badge in the database to true.
+     * @param badges - badges
+     */
     public void updateBadge(String badges) {
 
         final String uri = ServerApi.HOST + ServerApi.UPDATE_BADGES;

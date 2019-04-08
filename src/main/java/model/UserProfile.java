@@ -8,7 +8,7 @@ import org.springframework.web.client.RestTemplate;
 import supporting.ServerApi;
 import view.element.WindowsNotifications;
 
-import java.awt.*;
+import java.awt.AWTException;
 import java.net.MalformedURLException;
 
 
@@ -20,11 +20,12 @@ public class UserProfile {
 
     private static UserProfile instance = new UserProfile();
 
+    public Boolean badgeLevel = new BadgeModel().receiveBadge("levelHundredBadge");
+    public Boolean badgeCo2 = new BadgeModel().receiveBadge("co2ReducedBadge");
     public String authToken = "";
     private UserData data;
 
-    public Boolean badgeLevel = new BadgeModel().receiveBadge("levelHundredBadge");
-    public Boolean badgeCo2 = new BadgeModel().receiveBadge("co2ReducedBadge");
+
 
 
     /**
@@ -163,6 +164,10 @@ public class UserProfile {
         return (double) data.experience / (pow(2, data.level - 1) * 10);
     }
 
+    /**
+     * Checks if the badge is visible otherwise it makes the badge visible and initiates
+     * a notification.
+     */
     public void checkBadgeCo2Reduction() {
 
         if (badgeCo2 = true) {
@@ -182,6 +187,10 @@ public class UserProfile {
         }
     }
 
+    /**
+     * Checks if the badge is visible otherwise it makes the badge visible and initiates
+     * a notification.
+     */
     public void checkBadgeLevelHundred() {
 
         if (badgeLevel = true) {

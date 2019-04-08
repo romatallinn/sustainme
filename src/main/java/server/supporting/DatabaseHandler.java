@@ -176,10 +176,10 @@ public class DatabaseHandler {
 
     /**
      * Retrieves badges out of database.
-     * @param uid       - user id
-     * @param badges    - badges
-     * @return          - badge
-     * @throws InterruptedException
+     * @param uid                   - user id
+     * @param badges                - badges
+     * @return val                  - badge
+     * @throws InterruptedException - exception
      */
     public static Boolean retrieveBadges(String uid, String badges)
         throws InterruptedException {

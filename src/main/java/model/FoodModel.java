@@ -8,15 +8,16 @@ import org.springframework.web.client.RestTemplate;
 import supporting.ServerApi;
 import view.element.WindowsNotifications;
 
-import java.awt.*;
+import java.awt.AWTException;
 import java.net.MalformedURLException;
 
 public class FoodModel {
 
+    public Boolean badgeVeggie = new BadgeModel().receiveBadge("vegetarianMealBadge");
     private int vegMealsCount = -1;
     private float localProduceCount = -1;
 
-    public Boolean badgeVeggie = new BadgeModel().receiveBadge("vegetarianMealBadge");
+
 
 
     /**
@@ -119,6 +120,10 @@ public class FoodModel {
 
     }
 
+    /**
+     * Checks if the badge is visible otherwise it makes the badge visible and initiates
+     * a notification.
+     */
     public void checkBadges() {
 
         if (badgeVeggie = true) {
