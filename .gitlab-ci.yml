@@ -15,6 +15,9 @@ test:
   script:
     - mvn test -Dcheckstyle.skip
     - mvn io.github.handofgod94:jacoco-cov-badge-maven-plugin:1.0.0:badge
+  cache:
+    paths:
+      - target/
 
 checkstyle:
   stage: checkstyle
