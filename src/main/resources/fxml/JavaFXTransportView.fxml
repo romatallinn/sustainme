@@ -17,7 +17,7 @@
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <HBox fx:id="top">
-            <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#goToHome" text="Home   " HBox.hgrow="ALWAYS">
+            <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#goToHome" text=" Home  " HBox.hgrow="ALWAYS">
                 <HBox.margin>
                     <Insets left="10.0" />
                 </HBox.margin>
@@ -56,20 +56,18 @@
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description" text="Travel by bike instead of your car" />
                         <Separator maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="2.0" />
                         <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Add or remove distance in kilometers:" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Add distance in kilometers:" />
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                             <children>
                                 <TextField fx:id="bikeDistance" maxHeight="1.7976931348623157E308" promptText="Amount:" HBox.hgrow="NEVER" />
                                 <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                                     <children>
+                              <Region prefHeight="200.0" prefWidth="200.0" />
                                         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addCycledKilometers" text="Add" VBox.vgrow="ALWAYS">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor></Button>
-                                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Remove" VBox.vgrow="ALWAYS">
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor></Button>
+                              <Region prefHeight="200.0" prefWidth="200.0" />
                                     </children>
                                 </VBox>
                             </children>
@@ -100,20 +98,18 @@
                             </items>
                         </ChoiceBox>
                   <Region layoutX="10.0" layoutY="277.0" prefHeight="200.0" prefWidth="200.0" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Add or remove distance in kilometers:" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Add distance in kilometers:" />
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                             <children>
                                 <TextField fx:id="publicDistance" maxHeight="1.7976931348623157E308" promptText="Amount:" HBox.hgrow="NEVER" />
                                 <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                                     <children>
-                                        <Button onAction="#addPublicKilometers" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Add" VBox.vgrow="ALWAYS">
+                              <Region prefHeight="200.0" prefWidth="200.0" />
+                                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addPublicKilometers" text="Add" VBox.vgrow="ALWAYS">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor></Button>
-                                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Remove" VBox.vgrow="ALWAYS">
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor></Button>
+                              <Region prefHeight="200.0" prefWidth="200.0" />
                                     </children>
                                 </VBox>
                             </children>
@@ -128,5 +124,9 @@
                     </HBox.margin></VBox>
             </children>
         </HBox>
+        <Text fx:id="statusMsg">
+            <VBox.margin>
+                <Insets bottom="10.0" left="10.0" />
+            </VBox.margin></Text>
     </children>
 </VBox>

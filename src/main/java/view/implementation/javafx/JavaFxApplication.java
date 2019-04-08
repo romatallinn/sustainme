@@ -43,7 +43,7 @@ public class JavaFxApplication extends Application {
 
         initScenes();
 
-        SceneFx initialScene = JavaFxApplication.scenes.get("signup");
+        SceneFx initialScene = JavaFxApplication.scenes.get("transport");
 
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource(initialScene.getFxmlPath()));
