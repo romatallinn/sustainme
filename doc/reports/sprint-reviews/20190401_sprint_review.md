@@ -6,8 +6,6 @@
     - Fixed by rewriting the class, so it is now suitable for javafx
 ### Problem 2: Tests work for a while and then stop working
     - The API does not work well with the authentication part
-### Problem 3: We tend to do alle the work in the weekend
-    - We should work for in the week and not do everything at the last moment
     
     
 
