@@ -199,25 +199,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>io.github.handofgod94</groupId>
-                <artifactId>jacoco-cov-badge-maven-plugin</artifactId>
-                <version>1.0.0</version>
-                <executions>
-                    <execution>
-                        <id>generate-badge</id>
-                        <phase>post-site</phase>
-                        <configuration>
-                            <!-- Refer Goals page to know all the parameters that can be specified -->
-                            <coverageCategory>BRANCH</coverageCategory>
-                            <outputFile>${project.build.directory}/coverage.png</outputFile>
-                        </configuration>
-                        <goals>
-                            <goal>badge</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
 
 
             <!-- Bla, bla, some mvn compiler/site/checkstyle (helper) libraries -->
