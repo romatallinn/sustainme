@@ -26,3 +26,4 @@ checkstyle:
   stage: checkstyle
   script:
     - mvn checkstyle:check
+  allow_failure: true
