@@ -14,10 +14,9 @@ test:
   stage: test
   script:
     - mvn test -Dcheckstyle.skip
-    - cat target/site/jacoco/index.html
   after_script:
     - mvn jacoco:report
-    - mvn io.github.handofgod94:jacoco-cov-badge-maven-plugin:1.0.0:badge
+    - cat target/site/jacoco/index.html
 
 
 checkstyle:
