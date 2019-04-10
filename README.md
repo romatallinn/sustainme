@@ -11,7 +11,7 @@
 - [Reports](#reports)
   - [Jacoco's Test Coverage](#jacocos-test-coverage)
   - [Checkstyle](#checkstyle)
-	- [Pipeline](#pipeline)
+  - [Pipeline](#pipeline)
 
 - [Built With](#built-with)
 
@@ -68,7 +68,7 @@ Run `maven site`
 
 #### Pipeline:
 
-The pipeline contains 3 stages:
+The pipeline in Gitlab's CI contains 3 stages:
 - compile: `mvn compile`
 - test: `mvn test`
 - checkstyle: `mvn validate`
