@@ -2,6 +2,53 @@
 
 **SustainMe** is a student project for TU Delft's course *CSE1105*. It was developed by 5 students in 8 weeks. The application is intended to promote green and healthy lifestyle. It provides the functionality of tracking people's progress of reducing CO2 production in their everyday lives.
 
+## Table of Contents
+
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Run](#run)
+
+- [Reports](#reports)
+  - [Jacoco's Test Coverage](#jacocos-test-coverage)
+  - [Checkstyle](#checkstyle)
+	- [Pipeline](#pipeline)
+
+- [Built With](#built-with)
+
+- [Developers](#developers)
+	- [Roman Sirokov (4769740)](#roman-sirokov-4769740)
+	- [Nadyne Aretz (4649087)](#nadyne-aretz-4649087)
+	- [Matthijs Arnoldus (4928091)](#matthijs-arnoldus-4928091)
+	- [Roderick de Britto Heemskerk (4961269)](#roderick-de-britto-heemskerk-4961269)
+	- [Jesse Nieland (4880722)](#jesse-nieland-4880722)
+
+- [License](#license)
+
+## Getting Started
+
+### Installation
+
+##### SSH
+
+```
+// Clone this repository with SSH
+$ git clone git@gitlab.ewi.tudelft.nl:cse1105/2018-2019/oopp-group-70/template.git
+```
+
+##### HTTPS
+
+```
+// Clone this repository with HTTPS
+$ git clone https://gitlab.ewi.tudelft.nl/cse1105/2018-2019/oopp-group-70/template.git
+```
+
+### Run
+
+##### Server
+First you need to run the server-side. In order to do this, you need to run the application file located in `src/main/java/server` and called `Application.java`. This is an entrance point for the server application.
+
+##### Client
+Then you can run the client itself. In order to do this, you need to run the application file located in `src/main/java/supporting` and called `ApplicationEntry.java`. This is an entrance point for the client application.
 
 ## Reports
 
@@ -19,7 +66,7 @@ Run `maven site`
 - The configuration itself can be found in [CSE1105.checkstyle.xml](CSE1105.checkstyle.xml).
 
 
-### Pipeline:
+#### Pipeline:
 
 The pipeline contains 3 stages:
 - compile: `mvn compile`
