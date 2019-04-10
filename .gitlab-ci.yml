@@ -18,6 +18,7 @@ test:
     paths:
       - target/
   after_script:
+    - mvn jacoco:report
     - mvn io.github.handofgod94:jacoco-cov-badge-maven-plugin:1.0.0:badge
 
 
