@@ -57,17 +57,17 @@
                         <Insets />
                     </HBox.margin>
                 </Region>
-                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                <ImageView fx:id="level" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                     <image>
                         <Image url="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Leaf_Simple_Green_L.svg/1280px-Leaf_Simple_Green_L.svg.png" />
                     </image></ImageView>
                 <Region prefHeight="25.0" prefWidth="50.0" HBox.hgrow="ALWAYS" />
-                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                <ImageView fx:id="co2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                     <image>
                         <Image url="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Leaf_Simple_Green_L.svg/1280px-Leaf_Simple_Green_L.svg.png" />
                     </image></ImageView>
                 <Region prefHeight="25.0" prefWidth="50.0" HBox.hgrow="ALWAYS" />
-                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                <ImageView fx:id="vegMeal" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                     <image>
                         <Image url="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Leaf_Simple_Green_L.svg/1280px-Leaf_Simple_Green_L.svg.png" />
                     </image></ImageView>
@@ -88,17 +88,17 @@
                         <Insets />
                     </HBox.margin>
                 </Region>
-                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                <ImageView fx:id="bike" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                     <image>
                         <Image url="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Leaf_Simple_Green_L.svg/1280px-Leaf_Simple_Green_L.svg.png" />
                     </image></ImageView>
                 <Region prefHeight="25.0" prefWidth="50.0" HBox.hgrow="ALWAYS" />
-                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                <ImageView fx:id="noCar" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                 <image>
                     <Image url="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Leaf_Simple_Green_L.svg/1280px-Leaf_Simple_Green_L.svg.png" />
                 </image></ImageView>
                 <Region prefHeight="25.0" prefWidth="50.0" HBox.hgrow="ALWAYS" />
-                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                <ImageView fx:id="pubTrans" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                     <image>
                         <Image url="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Leaf_Simple_Green_L.svg/1280px-Leaf_Simple_Green_L.svg.png" />
                     </image></ImageView>
