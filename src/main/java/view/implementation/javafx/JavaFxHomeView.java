@@ -59,6 +59,11 @@ public class JavaFxHomeView extends JavaFxView implements IHomeView {
         this.switchScene(food.getScene(), "friends");
     }
 
+    @FXML
+    public void goToBadges() throws IOException {
+        this.switchScene(food.getScene(), "badges");
+    }
+
     @Override
     public void initView(HomescreenController controller) {
         this.controller = controller;

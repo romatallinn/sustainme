@@ -171,7 +171,7 @@ public class TransportModel {
     public void checkBadgeBike() {
         if (badgeBike) {
             return;
-        } else if (getBikeDistance() >= 100) {
+        } else if (bikeDistance >= 100) {
             System.out.println("jaja");
             new BadgeModel().updateBadge("distanceByBikeBadge");
             try {
@@ -195,7 +195,7 @@ public class TransportModel {
     public void checkBadgeNoCar() {
         if (badgeNoCar) {
             return;
-        } else if (getBikeDistance() + getPublicDistance() >= 500) {
+        } else if (bikeDistance + publicDistance >= 500) {
             new BadgeModel().updateBadge("kmNoCarUsedBadge");
             try {
                 new WindowsNotifications().notification(
@@ -216,7 +216,7 @@ public class TransportModel {
     public void checkBadgePublic() {
         if (badgePublic) {
             return;
-        } else if (getPublicDistance() >= 600) {
+        } else if (publicDistance >= 600) {
 
             new BadgeModel().updateBadge("distancePublicBadge");
             try {
