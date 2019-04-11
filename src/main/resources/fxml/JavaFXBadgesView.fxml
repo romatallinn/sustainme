@@ -109,26 +109,8 @@
                 </Region>
             </children>
          <VBox.margin>
-            <Insets bottom="50.0" />
+            <Insets bottom="50.0" top="50.0" />
          </VBox.margin>
         </HBox>
-      <HBox prefHeight="133.0" prefWidth="716.0">
-         <children>
-            <Region prefHeight="133.0" prefWidth="133.0" HBox.hgrow="ALWAYS">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </Region>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
-               <image>
-                  <Image url="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Leaf_Simple_Green_L.svg/1280px-Leaf_Simple_Green_L.svg.png" />
-               </image></ImageView>
-            <Region prefHeight="133.0" prefWidth="133.0" HBox.hgrow="ALWAYS">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </Region>
-         </children>
-      </HBox>
     </children>
 </VBox>
