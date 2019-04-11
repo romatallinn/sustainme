@@ -20,8 +20,8 @@ public class UserProfile {
 
     private static UserProfile instance = new UserProfile();
 
-    public Boolean badgeLevel = new BadgeModel().receiveBadge("levelHundredBadge");
-    public Boolean badgeCo2 = new BadgeModel().receiveBadge("co2ReducedBadge");
+    public Boolean badgeLevel = false;
+    public Boolean badgeCo2 = false;
     public String authToken = "";
     private UserData data;
 
@@ -76,6 +76,8 @@ public class UserProfile {
 
         try {
             data = restTemplate.postForObject(uri, uid, UserData.class);
+            badgeLevel = new BadgeModel().receiveBadge("levelHundredBadge");
+            badgeCo2 = new BadgeModel().receiveBadge("co2ReducedBadge");
         } catch (RestClientException e) {
             System.out.println("Exception: " + e.getLocalizedMessage());
             data = new UserData();
@@ -170,7 +172,7 @@ public class UserProfile {
      */
     public void checkBadgeCo2Reduction() {
 
-        if (badgeCo2 = true) {
+        if (badgeCo2) {
             return;
         } else if (getCo2Reduction() >= 100) {
 
@@ -193,7 +195,7 @@ public class UserProfile {
      */
     public void checkBadgeLevelHundred() {
 
-        if (badgeLevel = true) {
+        if (badgeLevel) {
             return;
         } else if (getLevel() >= 100) {
 

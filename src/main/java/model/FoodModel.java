@@ -13,7 +13,7 @@ import java.net.MalformedURLException;
 
 public class FoodModel {
 
-    public Boolean badgeVeggie = new BadgeModel().receiveBadge("vegetarianMealBadge");
+    public Boolean badgeVeggie = false;
     private int vegMealsCount = -1;
     private float localProduceCount = -1;
 
@@ -33,6 +33,7 @@ public class FoodModel {
 
         addEatenVegMeal(0);
         addEatenLocalProduce(0);
+        badgeVeggie = new BadgeModel().receiveBadge("vegetarianMealBadge");
 
     }
 
@@ -125,8 +126,7 @@ public class FoodModel {
      * a notification.
      */
     public void checkBadges() {
-
-        if (badgeVeggie = true) {
+        if (badgeVeggie) {
             return;
         } else if (vegMealsCount >= 10) {
 

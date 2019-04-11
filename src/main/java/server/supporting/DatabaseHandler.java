@@ -83,6 +83,7 @@ public class DatabaseHandler {
         data.put("experience", 0);
         data.put("co2red", 0);
         data.put("features", features);
+        data.put("badges", badges);
 
 
         ref.setValueAsync(data);

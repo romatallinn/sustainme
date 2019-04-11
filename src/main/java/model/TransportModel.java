@@ -14,9 +14,9 @@ import java.net.MalformedURLException;
 public class TransportModel {
 
 
-    public Boolean badgeBike = new BadgeModel().receiveBadge("distanceByBikeBadge");
-    public Boolean badgeNoCar = new BadgeModel().receiveBadge("kmNoCarUsedBadge");
-    public Boolean badgePublic = new BadgeModel().receiveBadge("distancePublicBadge");
+    public Boolean badgeBike = false;
+    public Boolean badgeNoCar = false;
+    public Boolean badgePublic = false;
     private int bikeDistance = -1;
     private int publicDistance = -1;
 
@@ -63,6 +63,9 @@ public class TransportModel {
 
         addDistanceCycled(0);
         addBusDistanceTraveled(0);
+        badgeBike = new BadgeModel().receiveBadge("distanceByBikeBadge");
+        badgeNoCar = new BadgeModel().receiveBadge("kmNoCarUsedBadge");
+        badgePublic = new BadgeModel().receiveBadge("distancePublicBadge");
     }
 
 
@@ -93,6 +96,7 @@ public class TransportModel {
         bikeDistance = result.getDistance();
 
         checkBadgeBike();
+        checkBadgeNoCar();
     }
 
 
@@ -165,10 +169,10 @@ public class TransportModel {
      * a notification.
      */
     public void checkBadgeBike() {
-        if (badgeBike = true) {
+        if (badgeBike) {
             return;
         } else if (getBikeDistance() >= 100) {
-
+            System.out.println("jaja");
             new BadgeModel().updateBadge("distanceByBikeBadge");
             try {
                 new WindowsNotifications().notification(
@@ -189,10 +193,9 @@ public class TransportModel {
      * a notification.
      */
     public void checkBadgeNoCar() {
-        if (badgeNoCar = true) {
+        if (badgeNoCar) {
             return;
         } else if (getBikeDistance() + getPublicDistance() >= 500) {
-
             new BadgeModel().updateBadge("kmNoCarUsedBadge");
             try {
                 new WindowsNotifications().notification(
@@ -211,7 +214,7 @@ public class TransportModel {
      * a notification.
      */
     public void checkBadgePublic() {
-        if (badgePublic = true) {
+        if (badgePublic) {
             return;
         } else if (getPublicDistance() >= 600) {
 

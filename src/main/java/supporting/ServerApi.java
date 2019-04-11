@@ -18,6 +18,6 @@ public class ServerApi {
     public static final String PUBLIC_TRANSPORT = "publictransport";
 
     public static final String BADGES = "badges";
-    public static final String UPDATE_BADGES = "badges";
+    public static final String UPDATE_BADGES = "updatebadge";
 
 }
