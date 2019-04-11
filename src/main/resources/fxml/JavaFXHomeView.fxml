@@ -119,13 +119,13 @@
                   <Insets />
                </HBox.margin>
             </Region>
-             <Button fx:id="paperrecycling" mnemonicParsing="false" onAction="#goToPaperRecycling" prefHeight="133.0" prefWidth="133.0" text="Paper &#10;recycling" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+             <Button fx:id="paperrecycling" mnemonicParsing="false" onAction="#goToPaperRecycling" prefHeight="133.0" prefWidth="133.0" text="Recycling" textAlignment="CENTER" HBox.hgrow="ALWAYS">
                  <cursor>
                      <Cursor fx:constant="HAND" />
                  </cursor>
              </Button>
             <Region prefHeight="25.0" prefWidth="50.0" HBox.hgrow="ALWAYS" />
-            <Button fx:id="tree" mnemonicParsing="false" onAction="#goToTree" prefHeight="133.0" prefWidth="133.0" text="Tree" HBox.hgrow="ALWAYS">
+            <Button fx:id="tree" mnemonicParsing="false" onAction="#goToTree" prefHeight="133.0" prefWidth="133.0" text="Tree/ &#10;Badges" textAlignment="CENTER" HBox.hgrow="ALWAYS">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
