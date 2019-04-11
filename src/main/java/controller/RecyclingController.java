@@ -1,21 +1,21 @@
 package controller;
 
-import model.PaperRecyclingModel;
-import view.interfaces.IPaperRecyclingView;
+import model.RecyclingModel;
+import view.interfaces.IRecyclingView;
 
-public class PaperRecyclingController {
+public class RecyclingController {
 
-    private IPaperRecyclingView view;
-    private PaperRecyclingModel model;
+    private IRecyclingView view;
+    private RecyclingModel model;
 
     /**
      * Constructor for the class.
      *
      * @param view - represented by the controller
      */
-    public PaperRecyclingController(IPaperRecyclingView view) {
+    public RecyclingController(IRecyclingView view) {
         this.view = view;
-        this.model = new PaperRecyclingModel();
+        this.model = new RecyclingModel();
 
     }
 
@@ -26,6 +26,9 @@ public class PaperRecyclingController {
 
         double paperRecycling = model.getPaperRecyclingCount();
         view.updatePaperRecyclingCounter(paperRecycling);
+
+        double plasticRecycling = model.getPlasticRecyclingCount();
+        view.updatePlasticRecyclingCounter(plasticRecycling);
     }
 
     /**
@@ -49,5 +52,25 @@ public class PaperRecyclingController {
         }
     }
 
+    /**
+     * The method acts upon the fact of the add recycled plastic.
+     *
+     * @param amountString - amount of the produced recycled plastic
+     */
+    public void addPlasticRecycling(String amountString) {
+        float kg = 0;
+        try {
+            kg = Float.parseFloat(amountString);
+            if (kg < 0) {
+                view.displayStatus("Please enter the weight above 0 kg");
+                return;
+            }
+            model.addAmountPlasticRecycling(kg);
+            view.displayStatus("The stat of recycled plastic is updated!");
+            updateViewWithDate();
+        } catch (NumberFormatException e) {
+            view.displayStatus("Please enter a number.");
+        }
+    }
 
 }

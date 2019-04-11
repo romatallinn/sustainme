@@ -110,7 +110,7 @@
                   <Insets />
                </HBox.margin>
             </Region>
-             <Button fx:id="paperrecycling" mnemonicParsing="false" onAction="#goToPaperRecycling" prefHeight="133.0" prefWidth="133.0" text="Paper &#10;recycling" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+             <Button fx:id="recycling" mnemonicParsing="false" onAction="#goToRecycling" prefHeight="133.0" prefWidth="133.0" text="Recycling" textAlignment="CENTER" HBox.hgrow="ALWAYS">
                  <cursor>
                      <Cursor fx:constant="HAND" />
                  </cursor>
