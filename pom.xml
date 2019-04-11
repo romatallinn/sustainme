@@ -190,7 +190,6 @@
             </plugin>
 
 
-
             <!-- Bla, bla, some mvn compiler/site/checkstyle (helper) libraries -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
