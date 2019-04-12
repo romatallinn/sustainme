@@ -37,3 +37,19 @@
     -fx-font-size: 20;
     -fx-font-weight: bold;
 }
+
+.header {
+    -fx-fill: #212121;
+    -fx-font-size: 50;
+    -fx-font-weight: bold;
+}
+
+.description {
+    -fx-fill: #757575;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+}
+
+.separator {
+    -fx-fill: #BDBDBD;
+}
