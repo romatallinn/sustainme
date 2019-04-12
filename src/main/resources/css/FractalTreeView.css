@@ -24,12 +24,20 @@
     -fx-border-style: none;
 }
 
+#login:hover {
+    -fx-opacity: 0.8;
+}
+
 #homeBtn {
     -fx-text-fill: #FFFFFF;
     -fx-font-size: 30;
     -fx-background-color: none;
     -fx-font-weight: bold;
     -fx-border-style: none;
+}
+
+#homeBtn:hover {
+    -fx-opacity: 0.8;
 }
 
 #locationtab {
