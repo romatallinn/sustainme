@@ -237,6 +237,8 @@ public class ServerController {
         double amount = DatabaseHandler.increaseFeatureCounter(paperRecyclingRequest.getUid(),
             "paperrecycling",
             paperRecyclingRequest.getAmount());
+        double paperrecyclingCO2 = DatabaseHandler.increaseFeatureCounter(paperRecyclingRequest.getUid(),
+            "paperrecyclingCO2", paperRecyclingRequest.getAmount() * 1.21);
 
         return new PaperRecyclingResponse(exp, co2, amount);
 
@@ -261,6 +263,8 @@ public class ServerController {
         double amount = DatabaseHandler.increaseFeatureCounter(plasticRecyclingRequest.getUid(),
                 "plasticrecycling",
                 plasticRecyclingRequest.getAmount());
+        double plasticrecyclingCO2 = DatabaseHandler.increaseFeatureCounter(plasticRecyclingRequest.getUid(),
+            "plasticrecyclingCO2", plasticRecyclingRequest.getAmount() * 40);
 
         return new PlasticRecyclingResponse(exp, co2, amount);
 

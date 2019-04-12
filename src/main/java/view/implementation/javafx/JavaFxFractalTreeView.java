@@ -47,14 +47,16 @@ public class JavaFxFractalTreeView extends JavaFxView {
         double vegmealsCO2 = result.getVegmealsCO2();
         double localproduceCO2 = result.getLocalproduceCO2();
         double publicCO2 = result.getPublicCO2();
-        // TODO: temp, sol, paper, plastic
+        double plasticrecyclingCO2 = result.getPlasticrecyclingCO2();
+        double paperrecyclingCO2 = result.getPaperrecyclingCO2();
+        // TODO: temp, sol
 
 
         // Scores: bike-fuchsia, localProduce-blueviolet, publicTransport-azure,
         // veggie-lime, temperature-darkorange, solarPanels-red, paper-yellow, plastic-gray
         FractalTree ft = new FractalTree(
                 firstName,
-                new double[]{bikeCO2, localproduceCO2, publicCO2, vegmealsCO2, 450, 500, 889, 909},
+                new double[]{bikeCO2, localproduceCO2, publicCO2, vegmealsCO2, 450, 500, paperrecyclingCO2, plasticrecyclingCO2},
                 new Color[]{
                     Color.FUCHSIA,
                     Color.BLUEVIOLET,
