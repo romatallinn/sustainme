@@ -17,6 +17,9 @@ public class EnergyController {
         this.model = new EnergyModel();
     }
 
+    /**
+     * Retrieves current solar panel area and temperature, and displays it.
+     */
     public void updateViewWithData() {
 
         int solarArea = model.getSolarArea();
@@ -27,6 +30,10 @@ public class EnergyController {
 
     }
 
+    /**
+     * Client side of updating the solar panel area.
+     * @param areaString - value by which the solar panel area should be increased.
+     */
     public void addSolarArea(String areaString) {
         int area = 0;
         try {
@@ -43,7 +50,10 @@ public class EnergyController {
         }
     }
 
-
+    /**
+     * Client side of updating the temperature.
+     * @param temperatureString - the value to which the current temperature should be changed.
+     */
     public void changeTemperature(String temperatureString) {
         float temperature = 0;
         try {
