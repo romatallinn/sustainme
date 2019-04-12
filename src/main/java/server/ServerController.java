@@ -30,7 +30,13 @@ public class ServerController {
         DatabaseHandler.increaseExpBy(uid,
                 (int) Math.round((0.782644*0.355*update)/0.15)
                         * DatabaseHandler.retrieveFeatureCounter(uid, "solararea"));
-        DatabaseHandler.increaseCO2RedBy(uid, 0.782644*0.355*update);
+        DatabaseHandler.increaseExpBy(uid,
+                (int) Math.round(((0.308*update)/0.15)
+                        * (21 - DatabaseHandler.retrieveDoubleFeatureCounter(uid, "temperature"))));
+        DatabaseHandler.increaseCO2RedBy(uid,0.782644*0.355*update
+                * DatabaseHandler.retrieveFeatureCounter(uid, "solararea"));
+        DatabaseHandler.increaseCO2RedBy(uid,0.308*update
+                * (21 - DatabaseHandler.retrieveDoubleFeatureCounter(uid, "temperature")));
         UserData user = DatabaseHandler.getUserData(uid);
         return user;
 

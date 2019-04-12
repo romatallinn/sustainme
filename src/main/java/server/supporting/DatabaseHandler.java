@@ -70,7 +70,7 @@ public class DatabaseHandler {
         features.put("bike", 0);
         features.put("public", 0);
         features.put("solararea", 0);
-        features.put("temperature", 20);
+        features.put("temperature", 21);
         features.put("lastupdate", LocalDate.now().toString());
 
         Map<String, Object> data = new HashMap<>();
