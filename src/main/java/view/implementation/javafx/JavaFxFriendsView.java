@@ -47,7 +47,7 @@ public class JavaFxFriendsView extends JavaFxView implements IFriendView {
     public void updateFriendsList(List<UserData> friends) {
         this.friends = friends;
         vboxButtons.getChildren().clear();
-        for(int i = 0; i < friends.size(); i++) {
+        for (int i = 0; i < friends.size(); i++) {
             Button btnNumber = new Button();
             btnNumber.setCursor(Cursor.HAND);
             btnNumber.setText(friends.get(i).fname + " " + friends.get(i).lname);
