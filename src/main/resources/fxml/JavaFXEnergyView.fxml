@@ -59,11 +59,7 @@
                                 <TextField fx:id="solarArea" maxHeight="1.7976931348623157E308" promptText="Area (in m&#0178;):" HBox.hgrow="NEVER" />
                                 <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                                     <children>
-                                        <Button fx:id="add" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Add" VBox.vgrow="ALWAYS">
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor></Button>
-                                        <Button fx:id="remove" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Remove" VBox.vgrow="ALWAYS">
+                                        <Button fx:id="add" onAction="#addSolarArea" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Add" VBox.vgrow="ALWAYS">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor></Button>
@@ -73,7 +69,7 @@
                         </HBox>
                         <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Total area of solar panels:" />
-                        <Text fx:id="vegCounter" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="21 m&#0178;" />
+                        <Text fx:id="currentArea" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="21 m&#0178;" />
                         <Region layoutX="10.0" layoutY="82.0" prefHeight="200.0" prefWidth="200.0" />
                     </children>
                     <HBox.margin>
@@ -88,11 +84,11 @@
                     </children>
                     <Separator maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="2.0" />
                     <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-                    <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Increase the area of solar panels on your house:" />
+                    <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Update the temperature in your house:" />
                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                         <children>
                             <TextField fx:id="temperature" maxHeight="1.7976931348623157E308" promptText="Temperature (in &#8451;):" HBox.hgrow="NEVER" />
-                            <Button fx:id="update" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Update" VBox.vgrow="ALWAYS">
+                            <Button fx:id="update" onAction="#changeTemperature" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Update" VBox.vgrow="ALWAYS">
                                 <cursor>
                                     <Cursor fx:constant="HAND" />
                                 </cursor></Button>

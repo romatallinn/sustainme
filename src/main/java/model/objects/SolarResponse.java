@@ -5,6 +5,9 @@ public class SolarResponse {
     private int experience;
     private int area;
 
+    public SolarResponse() {
+
+    }
 
     public SolarResponse(int experience, int area) {
         this.experience = experience;
