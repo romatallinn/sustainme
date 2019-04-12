@@ -14,7 +14,7 @@
 <VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
     <children>
     <HBox fx:id="top">
-        <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#goToHome" text="Home   " HBox.hgrow="ALWAYS">
+        <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#goToHome" text=" Home  " HBox.hgrow="ALWAYS">
             <HBox.margin>
                 <Insets left="10.0" />
             </HBox.margin>
@@ -48,49 +48,31 @@
     </HBox>
         <HBox fx:id="tabFriends" prefHeight="30.0">
             <children>
+            <Text fx:id="statusMsg" strokeType="OUTSIDE" strokeWidth="0.0">
+               <HBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </HBox.margin></Text>
                 <Region prefHeight="100.0" prefWidth="716.0" HBox.hgrow="ALWAYS" />
-                <TextField fx:id="addFriendEmail" promptText="Add Friend (email)" HBox.hgrow="ALWAYS">
+                <TextField fx:id="addFriendEmail" minHeight="-Infinity" minWidth="-Infinity" promptText="Add Friend (email)" HBox.hgrow="ALWAYS">
                     <HBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                     </HBox.margin></TextField>
-                <Button fx:id="updateFriends" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addFriendsAction" prefHeight="25.0" prefWidth="100.0" text="Add" VBox.vgrow="ALWAYS">
+                <Button fx:id="updateFriends" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addFriendsAction" prefHeight="25.0" prefWidth="100.0" text="Add" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor></Button>
                 <Region prefHeight="187.0" prefWidth="716.0" HBox.hgrow="ALWAYS" />
+            <Text fx:id="counterStatus" strokeType="OUTSIDE" strokeWidth="0.0" />
             </children>
+         <padding>
+            <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+         </padding>
         </HBox>
       <ScrollPane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
          <content>
-            <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="600.0">
+            <VBox fx:id="vboxButtons" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="600.0">
                <children>
-                  <Button fx:id="friend1" mnemonicParsing="false">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="friend2" mnemonicParsing="false">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="friend3" mnemonicParsing="false">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor></Button>
-                  <Button fx:id="friend4" mnemonicParsing="false">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor></Button>
-                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
                </children>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
             </VBox>
          </content>
       </ScrollPane>

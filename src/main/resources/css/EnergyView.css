@@ -48,6 +48,10 @@
     -fx-border-style: none;
 }
 
+#homeBtn:hover {
+    -fx-opacity: 0.8;
+}
+
 #locationtab {
     -fx-fill: #C8E6C9;
     -fx-font-size: 20;

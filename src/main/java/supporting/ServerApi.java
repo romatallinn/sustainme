@@ -18,5 +18,8 @@ public class ServerApi {
     public static final String PUBLIC_TRANSPORT = "publictransport";
     public static final String SOLAR_PANEL = "solarpanel";
     public static final String HOUSE_TEMPERATURE = "housetemp";
+    public static final String FRACTAL_TREE = "fractalTree";
+    public static final String PAPER_RECYCLING = "paperrecycling";
+    public static final String PLASTIC_RECYCLING = "plasticrecycling";
 
 }

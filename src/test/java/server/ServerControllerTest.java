@@ -127,4 +127,28 @@ public class ServerControllerTest {
         assertEquals(2, featAft - featBef,0.0);
     }
 
+    @Test
+    public void paperRecyclingTest() throws Exception {
+        UserData before = serve.retrieve_user_data("dynamicTestUser");
+        double featBef = DatabaseHandler.retrieveDoubleFeatureCounter("dynamicTestUser","paperrecycling");
+        PaperRecyclingRequest lpr = new PaperRecyclingRequest("dynamicTestUser", 2);
+        serve.paperRecycling(lpr);
+        UserData after = serve.retrieve_user_data("dynamicTestUser");
+        double featAft = DatabaseHandler.retrieveFeatureCounter("dynamicTestUser","paperrecycling");
+        assertEquals(16, after.experience - before.experience);
+        assertEquals(2, featAft - featBef,0.0);
+    }
+
+    @Test
+    public void plasticRecyclingTest() throws Exception {
+        UserData before = serve.retrieve_user_data("dynamicTestUser");
+        double featBef = DatabaseHandler.retrieveDoubleFeatureCounter("dynamicTestUser","plasticrecycling");
+        PlasticRecyclingRequest lpr = new PlasticRecyclingRequest("dynamicTestUser", 2);
+        serve.plasticRecycling(lpr);
+        UserData after = serve.retrieve_user_data("dynamicTestUser");
+        double featAft = DatabaseHandler.retrieveFeatureCounter("dynamicTestUser","plasticrecycling");
+        assertEquals(80, after.experience - before.experience);
+        assertEquals(2, featAft - featBef,0.0);
+    }
+
 }

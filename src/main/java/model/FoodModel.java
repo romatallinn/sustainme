@@ -10,7 +10,7 @@ import supporting.ServerApi;
 public class FoodModel {
 
     private int vegMealsCount = -1;
-    private float localProduceCount = -1;
+    private double localProduceCount = -1;
 
 
     /**
@@ -46,7 +46,7 @@ public class FoodModel {
      * Returns the total amount of local produce bought.
      * @return the amount of local produce bought.
      */
-    public float getLocalProduceCount() {
+    public double getLocalProduceCount() {
 
         if (localProduceCount < 0) {
             this.init();

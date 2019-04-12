@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <HBox fx:id="top">
+            <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#goToHome" text="Home  " HBox.hgrow="ALWAYS">
+                <HBox.margin>
+                    <Insets left="10.0" />
+                </HBox.margin>
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor></Button>
+            <Region HBox.hgrow="ALWAYS" />
+            <Text fx:id="title" layoutX="14.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SustainMe" textAlignment="CENTER" wrappingWidth="521.35546875" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0" HBox.hgrow="ALWAYS">
+                <HBox.margin>
+                    <Insets top="50.0" />
+                </HBox.margin></Text>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="login" layoutX="650.0" layoutY="14.0" mnemonicParsing="false" text="Badges" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="17.0" HBox.hgrow="ALWAYS">
+                <HBox.margin>
+                    <Insets right="10.0" />
+                </HBox.margin>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+            </Button>
+            <padding>
+                <Insets bottom="40.0" />
+            </padding>
+        </HBox>
+        <HBox fx:id="tab" prefHeight="30.0">
+            <children>
+                <Region prefHeight="187.0" prefWidth="716.0" HBox.hgrow="ALWAYS" />
+                <Text fx:id="locationtab" strokeType="OUTSIDE" strokeWidth="0.0" text="Tree" textAlignment="CENTER" wrappingWidth="220.13671875" HBox.hgrow="ALWAYS">
+                    <HBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                    </HBox.margin></Text>
+                <Region prefHeight="187.0" prefWidth="716.0" HBox.hgrow="ALWAYS" />
+            </children>
+        </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+            <Canvas fx:id="canvas" height="600.0" width="600.0" HBox.hgrow="ALWAYS" />
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Legend:" />
+                  <Separator prefHeight="2.0" prefWidth="200.0" />
+                  <HBox prefWidth="200.0" spacing="5.0">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="FUCHSIA" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description" text="Bike" />
+                     </children>
+                  </HBox>
+                   <HBox prefWidth="200.0" spacing="5.0">
+                       <VBox.margin>
+                           <Insets />
+                       </VBox.margin>
+                       <children>
+                           <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLUEVIOLET" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+                           <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description" text="Local Produce" />
+                       </children>
+                   </HBox>
+                   <HBox prefWidth="200.0" spacing="5.0">
+                       <VBox.margin>
+                           <Insets />
+                       </VBox.margin>
+                       <children>
+                           <Rectangle arcHeight="5.0" arcWidth="5.0" fill="AZURE" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+                           <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description" text="Public transport" />
+                       </children>
+                   </HBox>
+                   <HBox prefWidth="200.0" spacing="5.0">
+                       <VBox.margin>
+                           <Insets />
+                       </VBox.margin>
+                       <children>
+                           <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIME" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+                           <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description" text="Vegetarian meal" />
+                       </children>
+                   </HBox>
+                   <HBox prefWidth="200.0" spacing="5.0">
+                       <VBox.margin>
+                           <Insets />
+                       </VBox.margin>
+                       <children>
+                           <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DARKORANGE" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+                           <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description" text="Temperature" />
+                       </children>
+                   </HBox>
+                   <HBox prefWidth="200.0" spacing="5.0">
+                       <VBox.margin>
+                           <Insets />
+                       </VBox.margin>
+                       <children>
+                           <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+                           <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description" text="Solar panels" />
+                       </children>
+                   </HBox>
+                   <HBox prefWidth="200.0" spacing="5.0">
+                       <VBox.margin>
+                           <Insets />
+                       </VBox.margin>
+                       <children>
+                           <Rectangle arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+                           <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description" text="Paper recycling" />
+                       </children>
+                   </HBox>
+                   <HBox prefWidth="200.0" spacing="5.0">
+                       <VBox.margin>
+                           <Insets />
+                       </VBox.margin>
+                       <children>
+                           <Rectangle arcHeight="5.0" arcWidth="5.0" fill="GRAY" height="20.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+                           <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description" text="Plastic recycling" />
+                       </children>
+                   </HBox>
+               </children>
+               <padding>
+                  <Insets right="30.0" top="50.0" />
+               </padding>
+            </VBox>
+            <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+    </children>
+</VBox>

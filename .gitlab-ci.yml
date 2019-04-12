@@ -1,4 +1,4 @@
-image: kaiwinter/docker-java8-maven
+image: maven:3.6.0-jdk-11
 
 stages:
   - compile
@@ -8,14 +8,19 @@ stages:
 build:
   stage: compile
   script:
-    - mvn compile
+    - mvn compiler:compile
 
 test:
   stage: test
   script:
-    - mvn test
+    - mvn test -Dcheckstyle.skip
+  after_script:
+    - mvn jacoco:report
+    - cat target/site/jacoco/index.html
+
 
 checkstyle:
   stage: checkstyle
   script:
-    - mvn validate
+    - mvn checkstyle:check
+  allow_failure: true

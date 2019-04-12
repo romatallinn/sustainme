@@ -4,6 +4,9 @@ import controller.FriendsComparisonController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.image.Image;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import model.UserProfile;
 import model.objects.UserData;
@@ -24,6 +27,9 @@ public class JavaFxFriendsComparisonView extends JavaFxView implements IFriendsC
     // Left: local user
 
     @FXML
+    private Circle profilePic;
+
+    @FXML
     private Text name;
 
     @FXML
@@ -37,6 +43,9 @@ public class JavaFxFriendsComparisonView extends JavaFxView implements IFriendsC
 
 
     // Right: friends
+
+    @FXML
+    private Circle friendProfilePic;
 
     @FXML
     private Text friendName;
@@ -60,6 +69,13 @@ public class JavaFxFriendsComparisonView extends JavaFxView implements IFriendsC
     @FXML
     private void goToBack() throws IOException {
         switchScene(homeBtn.getScene(), "friends");
+    }
+
+    @Override
+    protected void updateLabels() {
+        Image im = new Image("https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png", false);
+        profilePic.setFill(new ImagePattern(im));
+        friendProfilePic.setFill(new ImagePattern(im));
     }
 
 
