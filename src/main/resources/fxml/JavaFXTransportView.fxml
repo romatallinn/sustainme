@@ -55,6 +55,7 @@
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Bike" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description" text="Travel by bike instead of your car" />
                         <Separator maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="2.0" />
+                    <Text fx:id="statusBike" styleClass="status"/>
                         <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Add distance in kilometers:" />
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
@@ -87,6 +88,7 @@
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Public Transport" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description" text="Travel by public transport instead of your car" />
                         <Separator maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="2.0" />
+                        <Text fx:id="statusPub" styleClass="status"/>
                         <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Type of public transport:" />
                         <ChoiceBox fx:id="publicType" prefWidth="150.0" value="Bus">
@@ -124,9 +126,5 @@
                     </HBox.margin></VBox>
             </children>
         </HBox>
-        <Text fx:id="statusMsg">
-            <VBox.margin>
-                <Insets bottom="10.0" left="10.0" />
-            </VBox.margin></Text>
     </children>
 </VBox>

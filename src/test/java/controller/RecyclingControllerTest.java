@@ -33,37 +33,37 @@ public class RecyclingControllerTest {
     @Test
     public void testAddPaperRecyclingFailureParse() {
         controller.addPaperRecycling("fff");
-        Mockito.verify(view).displayStatus(Mockito.anyString());
+        Mockito.verify(view).displayStatusPaper(Mockito.anyString());
     }
 
     @Test
     public void testAddPaperRecyclingFailureRange() {
         controller.addPaperRecycling("10000");
-        Mockito.verify(view).displayStatus(Mockito.anyString());
+        Mockito.verify(view).displayStatusPaper(Mockito.anyString());
     }
 
     @Test
     public void testAddPaperRecyclingSuccess() {
         controller.addPaperRecycling("1");
-        Mockito.verify(view).displayStatus(Mockito.anyString());
+        Mockito.verify(view).displayStatusPaper(Mockito.anyString());
     }
 
     @Test
     public void testAddPlasticRecyclingFailureParse() {
         controller.addPlasticRecycling("fff");
-        Mockito.verify(view).displayStatus(Mockito.anyString());
+        Mockito.verify(view).displayStatusPlastic(Mockito.anyString());
     }
 
     @Test
     public void testAddPlasticRecyclingFailureRange() {
         controller.addPlasticRecycling("10000");
-        Mockito.verify(view).displayStatus(Mockito.anyString());
+        Mockito.verify(view).displayStatusPlastic(Mockito.anyString());
     }
 
     @Test
     public void testAddPlasticRecyclingSuccess() {
         controller.addPlasticRecycling("1");
-        Mockito.verify(view).displayStatus(Mockito.anyString());
+        Mockito.verify(view).displayStatusPlastic(Mockito.anyString());
     }
 
 }

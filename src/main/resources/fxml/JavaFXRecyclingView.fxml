@@ -54,6 +54,7 @@
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Recycled paper" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description" text="Recycle paper instead of throwing it away" />
                   <Separator maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="2.0" />
+                  <Text fx:id="statusPaper" styleClass="status"/>
                   <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Add or remove weight of paper:" />
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
@@ -87,6 +88,7 @@
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Recycled plastic" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description" text="Recycle plastic instead of throwing it away" />
                   <Separator maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="2.0" />
+                  <Text fx:id="statusPlastic" styleClass="status"/>
                   <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Add or remove weight of plastic:" />
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
@@ -116,9 +118,5 @@
             </VBox>
          </children>
       </HBox>
-        <Text fx:id="statusMsg">
-            <VBox.margin>
-                <Insets bottom="10.0" left="10.0" />
-            </VBox.margin></Text>
     </children>
 </VBox>

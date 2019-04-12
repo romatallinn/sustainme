@@ -41,14 +41,14 @@ public class RecyclingController {
         try {
             kg = Double.parseDouble(amountString);
             if (kg < 0) {
-                view.displayStatus("Please enter the weight above 0 kg");
+                view.displayStatusPaper("Please enter the weight above 0 kg");
                 return;
             }
             model.addAmountPaperRecycling(kg);
-            view.displayStatus("The stat of recycled paper is updated!");
+            view.displayStatusPaper("The stat of recycled paper is updated!");
             updateViewWithDate();
         } catch (NumberFormatException e) {
-            view.displayStatus("Please enter a number.");
+            view.displayStatusPaper("Please enter a number.");
         }
     }
 
@@ -62,14 +62,14 @@ public class RecyclingController {
         try {
             kg = Float.parseFloat(amountString);
             if (kg < 0) {
-                view.displayStatus("Please enter the weight above 0 kg");
+                view.displayStatusPlastic("Please enter the weight above 0 kg");
                 return;
             }
             model.addAmountPlasticRecycling(kg);
-            view.displayStatus("The stat of recycled plastic is updated!");
+            view.displayStatusPlastic("The stat of recycled plastic is updated!");
             updateViewWithDate();
         } catch (NumberFormatException e) {
-            view.displayStatus("Please enter a number.");
+            view.displayStatusPlastic("Please enter a number.");
         }
     }
 

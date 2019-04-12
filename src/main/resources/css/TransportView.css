@@ -144,7 +144,7 @@
     -fx-font-weight: bold;
 }
 
-#statusMsg {
+.status {
     -fx-font-size: 20;
     -fx-font-weight: bold;
     -fx-fill: #03A9F4;

@@ -34,7 +34,10 @@ public class JavaFxTransportView extends JavaFxView implements ITransportView {
     private Text distancePublicCounter;
 
     @FXML
-    private Text statusMsg;
+    private Text statusBike;
+
+    @FXML
+    private Text statusPub;
 
     @Override
     public void initView(TransportController controller) {
@@ -61,8 +64,14 @@ public class JavaFxTransportView extends JavaFxView implements ITransportView {
     }
 
     @Override
-    public void displayStatus(String msg) {
-        statusMsg.setText(msg);
+    public void displayStatusBike(String msg) {
+        statusBike.setText(msg);
+        System.out.println(msg);
+    }
+
+    @Override
+    public void displayStatusPublic(String msg) {
+        statusPub.setText(msg);
         System.out.println(msg);
     }
 
