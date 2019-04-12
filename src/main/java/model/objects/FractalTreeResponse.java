@@ -6,6 +6,8 @@ public class FractalTreeResponse {
     private double vegmealsCO2;
     private double localproduceCO2;
     private double publicCO2;
+    private double plasticrecyclingCO2;
+    private double paperrecyclingCO2;
 
     public FractalTreeResponse(){
         
@@ -23,11 +25,15 @@ public class FractalTreeResponse {
         double bikeCo2,
         double vegmealsCO2,
         double localproduceCO2,
-        double publicCO2) {
+        double publicCO2,
+        double plasticrecyclingCO2,
+        double paperrecyclingCO2) {
         this.bikeCo2 = bikeCo2;
         this.localproduceCO2 = localproduceCO2;
         this.vegmealsCO2 = vegmealsCO2;
         this.publicCO2 = publicCO2;
+        this.plasticrecyclingCO2 = plasticrecyclingCO2;
+        this.paperrecyclingCO2 = paperrecyclingCO2;
     }
 
     public double getBikeCo2() {
@@ -45,4 +51,8 @@ public class FractalTreeResponse {
     public double getPublicCO2() {
         return publicCO2;
     }
+
+    public double getPlasticrecyclingCO2() { return plasticrecyclingCO2; }
+
+    public double getPaperrecyclingCO2() { return paperrecyclingCO2; }
 }
