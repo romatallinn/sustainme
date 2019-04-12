@@ -52,7 +52,7 @@
             <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="100.0" spacing="10.0" HBox.hgrow="ALWAYS">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Recycled paper" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description" text="Recyle paper instead of throwing it away" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description" text="Recycle paper instead of throwing it away" />
                   <Separator maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="2.0" />
                   <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Add or remove weight of paper:" />
@@ -61,16 +61,13 @@
                         <TextField fx:id="paperRecyclingCountInput" maxHeight="1.7976931348623157E308" promptText="Weight (in kg):" HBox.hgrow="NEVER" />
                         <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                            <children>
-                              <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addPaperRecycling" text="Add" VBox.vgrow="ALWAYS">
+                               <Region prefHeight="200.0" prefWidth="200.0" />
+                               <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addPaperRecycling" text="Add" VBox.vgrow="ALWAYS">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Remove" VBox.vgrow="ALWAYS">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
+                               <Region prefHeight="200.0" prefWidth="200.0" />
                            </children>
                         </VBox>
                      </children>
@@ -87,7 +84,7 @@
             <Separator orientation="VERTICAL" prefHeight="200.0" prefWidth="2.0" />
             <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="100.0" spacing="10.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Recycling plastic" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Recycled plastic" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description" text="Recycle plastic instead of throwing it away" />
                   <Separator maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="2.0" />
                   <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
@@ -97,16 +94,13 @@
                         <TextField fx:id="plasticRecyclingCountInput" maxHeight="1.7976931348623157E308" promptText="Weight (in kg):" HBox.hgrow="NEVER" />
                         <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                            <children>
-                              <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addPlasticRecycling" text="Add" VBox.vgrow="ALWAYS">
+                               <Region prefHeight="200.0" prefWidth="200.0" />
+                               <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addPlasticRecycling" text="Add" VBox.vgrow="ALWAYS">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Remove" VBox.vgrow="ALWAYS">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
+                               <Region prefHeight="200.0" prefWidth="200.0" />
                            </children>
                         </VBox>
                      </children>
@@ -122,5 +116,9 @@
             </VBox>
          </children>
       </HBox>
+        <Text fx:id="statusMsg">
+            <VBox.margin>
+                <Insets bottom="10.0" left="10.0" />
+            </VBox.margin></Text>
     </children>
 </VBox>
