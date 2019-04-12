@@ -108,14 +108,14 @@ public class JavaFxHomeView extends JavaFxView implements IHomeView {
                 firstName,
                 new double[]{bikeCO2, localproduceCO2, publicCO2, vegmealsCO2, 450, 500, 889, 909},
                 new Color[]{
-                        Color.FUCHSIA,
-                        Color.BLUEVIOLET,
-                        Color.AZURE,
-                        Color.LIME,
-                        Color.DARKORANGE,
-                        Color.RED,
-                        Color.YELLOW,
-                        Color.GRAY
+                    Color.FUCHSIA,
+                    Color.BLUEVIOLET,
+                    Color.AZURE,
+                    Color.LIME,
+                    Color.DARKORANGE,
+                    Color.RED,
+                    Color.YELLOW,
+                    Color.GRAY
                 }
         );
         ft.drawTree(canvas);
