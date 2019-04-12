@@ -65,7 +65,7 @@
             <Text fx:id="counterStatus" strokeType="OUTSIDE" strokeWidth="0.0" />
             </children>
          <padding>
-            <Insets bottom="5.0" top="5.0" />
+            <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
          </padding>
         </HBox>
       <ScrollPane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
