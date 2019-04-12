@@ -73,9 +73,15 @@ public class DatabaseHandler {
 
         Map<String, Object> features = new HashMap<>();
         features.put("vegmeals", 0);
+        features.put("vegmealsCO2", 0);
         features.put("localproduce", 0);
+        features.put("localproduceCO2", 0);
         features.put("bike", 0);
+        features.put("bikeCO2", 0);
         features.put("public", 0);
+        features.put("publicCO2", 0);
+        features.put("paperrecycling", 0);
+        features.put("plasticrecycling", 0);
 
         Map<String, Object> data = new HashMap<>();
         data.put("fname", fname);
@@ -147,12 +153,12 @@ public class DatabaseHandler {
      * @param uid - user id
      * @param amount - increasing amount.
      */
-    public static float increaseFeatureCounter(String uid, String feature, float amount)
+    public static double increaseFeatureCounter(String uid, String feature, double amount)
             throws InterruptedException {
 
         DatabaseReference ref = db.getReference("users").child(uid).child("features/" + feature);
 
-        float newVal = retrieveValueAt(ref, Float.class) + amount;
+        double newVal = retrieveValueAt(ref, Double.class) + amount;
         ref.setValueAsync(newVal);
 
         return newVal;

@@ -30,8 +30,12 @@ public class FriendsController {
      * @param email address of the friend to be added.
      */
     public void addFriendByEmail(String email) {
-        model.addFriendByEmail(email);
-        view.displayStatus("Friend was added!");
+        if (model.addFriendByEmail(email)) {
+            view.displayStatus("Friend was added!");
+        } else {
+            view.displayStatus("Friend not found");
+        }
+
     }
 
 }

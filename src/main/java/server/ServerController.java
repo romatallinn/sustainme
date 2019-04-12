@@ -6,10 +6,15 @@ package server;
 import model.objects.BadgeRequest;
 import model.objects.BikeRequest;
 import model.objects.BikeResponse;
+import model.objects.FractalTreeResponse;
 import model.objects.FriendRequest;
 import model.objects.InitRequest;
 import model.objects.LocalProduceRequest;
 import model.objects.LocalProduceResponse;
+import model.objects.PaperRecyclingRequest;
+import model.objects.PaperRecyclingResponse;
+import model.objects.PlasticRecyclingRequest;
+import model.objects.PlasticRecyclingResponse;
 import model.objects.PublicTransportRequest;
 import model.objects.PublicTransportResponse;
 import model.objects.ShowFriendResponse;
@@ -44,6 +49,31 @@ public class ServerController {
     }
 
     /**
+     * Receives request of returning the co2 reduction per feature.
+     * @return FractalTreeResponse  - for user with updated stats
+     * @throws InterruptedException - expetion could be thrown by database handler
+     */
+    @RequestMapping(value = "/fractalTree", method = RequestMethod.POST)
+    public FractalTreeResponse retrieve_tree_data(
+        @RequestBody String uid) throws InterruptedException {
+        double bikeCo2 =
+            DatabaseHandler.retrieveDoubleFeatureCounter(
+                uid, "bikeCO2");
+        double vegmealsCO2 =
+            DatabaseHandler.retrieveDoubleFeatureCounter(
+                uid, "vegmealsCO2");
+        double localproduceCO2 =
+            DatabaseHandler.retrieveDoubleFeatureCounter(
+                uid, "localproduceCO2");
+        double publicCO2 =
+            DatabaseHandler.retrieveDoubleFeatureCounter(
+                uid, "publicCO2");
+
+        return new FractalTreeResponse(bikeCo2, vegmealsCO2, localproduceCO2, publicCO2);
+
+    }
+
+    /**
      * Receives request to update the stats for vegetarian meal.
      *
      * @param vegetarianRequest request received by client
@@ -63,6 +93,8 @@ public class ServerController {
             upAmount * 3.0);
         int amount = DatabaseHandler.increaseFeatureCounter(vegetarianRequest.getUid(),
             "vegmeals", upAmount);
+        double vegCo2 = DatabaseHandler.increaseFeatureCounter(vegetarianRequest.getUid(),
+            "vegmealsCO2", upAmount * 3.0);
         return new VegetarianResponse(exp, co2, amount);
 
     }
@@ -82,9 +114,10 @@ public class ServerController {
             (int) Math.round(localProduceRequest.getWeight()));
         double co2 = DatabaseHandler.increaseCO2RedBy(localProduceRequest.getUid(),
             localProduceRequest.getWeight() * 0.14);
-        float amount = DatabaseHandler.increaseFeatureCounter(localProduceRequest.getUid(),
+        double amount = DatabaseHandler.increaseFeatureCounter(localProduceRequest.getUid(),
             "localproduce", localProduceRequest.getWeight());
-
+        double localCO2 = DatabaseHandler.increaseFeatureCounter(localProduceRequest.getUid(),
+            "localproduceCO2", localProduceRequest.getWeight() * 0.14);
         return new LocalProduceResponse(exp, co2, amount);
 
     }
@@ -146,7 +179,8 @@ public class ServerController {
             bikeRequest.getDistance() * 0.15);
         int distance = DatabaseHandler.increaseFeatureCounter(bikeRequest.getUid(), "bike",
             bikeRequest.getDistance());
-
+        double bikeCo2 = DatabaseHandler.increaseFeatureCounter(bikeRequest.getUid(),
+            "bikeCO2", bikeRequest.getDistance() * 0.15);
         return new BikeResponse(exp, co2, distance);
 
     }
@@ -172,7 +206,8 @@ public class ServerController {
         int distance = DatabaseHandler.increaseFeatureCounter(
             publicTransportRequest.getUid(), "public",
             publicTransportRequest.getDistance());
-
+        double publicCo2 = DatabaseHandler.increaseFeatureCounter(publicTransportRequest.getUid(),
+                "publicCO2", publicTransportRequest.getDistance() * 0.15);
         return new PublicTransportResponse(exp, co2, distance);
 
     }
@@ -198,7 +233,52 @@ public class ServerController {
     @RequestMapping(value = "/updatebadge", method = RequestMethod.POST)
     public void updateBadge(@RequestBody BadgeRequest badgeRequest) {
         DatabaseHandler.updateBadges(badgeRequest.getUid(), badgeRequest.getBadges());
-
     }
 
+    /**
+     * Receives request of initializing the user's data.
+     * Sends a request to the database handler for updating the recycled paper stats.
+     *
+     * @param paperRecyclingRequest - request send by client
+     * @return PaperRecyclingResponse   - for user with updated stats
+     * @throws InterruptedException - exception
+     */
+    @RequestMapping(value = "/paperrecycling", method = RequestMethod.POST)
+    public PaperRecyclingResponse paperRecycling(
+        @RequestBody PaperRecyclingRequest paperRecyclingRequest)
+        throws InterruptedException {
+        int exp = DatabaseHandler.increaseExpBy(paperRecyclingRequest.getUid(),
+            (int) Math.round(paperRecyclingRequest.getAmount() * 8));
+        double co2 = DatabaseHandler.increaseCO2RedBy(paperRecyclingRequest.getUid(),
+            paperRecyclingRequest.getAmount() * 1.21);
+        double amount = DatabaseHandler.increaseFeatureCounter(paperRecyclingRequest.getUid(),
+            "paperrecycling",
+            paperRecyclingRequest.getAmount());
+
+        return new PaperRecyclingResponse(exp, co2, amount);
+    }
+
+    /**
+     * Receives request of initializing the user's data.
+     * Sends a request to the database handler for updating the recycled plastic stats.
+     *
+     * @param plasticRecyclingRequest - request send by client
+     * @return PlasticRecyclingResponse   - for user with updated stats
+     * @throws InterruptedException - exception
+     */
+    @RequestMapping(value = "/plasticrecycling", method = RequestMethod.POST)
+    public PlasticRecyclingResponse plasticRecycling(
+            @RequestBody PlasticRecyclingRequest plasticRecyclingRequest)
+            throws InterruptedException {
+        int exp = DatabaseHandler.increaseExpBy(plasticRecyclingRequest.getUid(),
+                (int) Math.round(plasticRecyclingRequest.getAmount() * 40));
+        double co2 = DatabaseHandler.increaseCO2RedBy(plasticRecyclingRequest.getUid(),
+                plasticRecyclingRequest.getAmount() * 6.0);
+        double amount = DatabaseHandler.increaseFeatureCounter(plasticRecyclingRequest.getUid(),
+                "plasticrecycling",
+                plasticRecyclingRequest.getAmount());
+
+        return new PlasticRecyclingResponse(exp, co2, amount);
+
+    }
 }

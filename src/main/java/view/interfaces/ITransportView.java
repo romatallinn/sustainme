@@ -6,7 +6,9 @@ public interface ITransportView {
 
     void initView(TransportController controller);
 
-    void displayStatus(String msg);
+    void displayStatusBike(String msg);
+
+    void displayStatusPublic(String msg);
 
     void updateBikeDistance(int distance);
 

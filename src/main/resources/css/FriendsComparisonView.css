@@ -48,6 +48,10 @@
     -fx-border-style: none;
 }
 
+#homeBtn:hover {
+    -fx-opacity: 0.8;
+}
+
 #locationtab {
     -fx-fill: #C8E6C9;
     -fx-font-size: 20;
@@ -80,4 +84,14 @@
      -fx-fill: #757575;
      -fx-font-size: 25;
      -fx-font-weight: bold;
+}
+
+#profilePic {
+    -fx-border-radius: 50;
+    -fx-background-radius: 50;
+}
+
+#friendProfilePic {
+    -fx-border-radius: 50;
+    -fx-background-radius: 50;
 }
