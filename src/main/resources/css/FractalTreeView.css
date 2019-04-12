@@ -24,6 +24,10 @@
     -fx-border-style: none;
 }
 
+#login:hover {
+    -fx-opacity: 0.8;
+}
+
 #homeBtn {
     -fx-text-fill: #FFFFFF;
     -fx-font-size: 30;
@@ -32,8 +36,28 @@
     -fx-border-style: none;
 }
 
+#homeBtn:hover {
+    -fx-opacity: 0.8;
+}
+
 #locationtab {
     -fx-fill: #C8E6C9;
     -fx-font-size: 20;
     -fx-font-weight: bold;
+}
+
+.header {
+    -fx-fill: #212121;
+    -fx-font-size: 50;
+    -fx-font-weight: bold;
+}
+
+.description {
+    -fx-fill: #757575;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+}
+
+.separator {
+    -fx-fill: #BDBDBD;
 }

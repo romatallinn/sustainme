@@ -40,14 +40,14 @@ public class FoodController {
         try {
             count = Integer.parseInt(countString);
             if (count < 0 || count > 3) {
-                view.displayStatus("Please enter a  number in the range 0-3 meals.");
+                view.displayStatusVegetarian("Please enter a  number in the range 0-3 meals.");
                 return;
             }
             model.addEatenVegMeal(count);
-            view.displayStatus("The stat of the vegetarian meals is updated!");
+            view.displayStatusVegetarian("The stat of the vegetarian meals is updated!");
             updateViewWithData();
         } catch (NumberFormatException e) {
-            view.displayStatus("Please enter an integer number.");
+            view.displayStatusVegetarian("Please enter an integer number.");
         }
     }
 
@@ -61,14 +61,14 @@ public class FoodController {
         try {
             kg = Float.parseFloat(weightString);
             if (kg < 0 || kg > 10) {
-                view.displayStatus("Please enter the weight in the range 0-10kg.");
+                view.displayStatusLocal("Please enter the weight in the range 0-10kg.");
                 return;
             }
             model.addEatenLocalProduce(kg);
-            view.displayStatus("The stat of the local produce is updated!");
+            view.displayStatusLocal("The stat of the local produce is updated!");
             updateViewWithData();
         } catch (NumberFormatException e) {
-            view.displayStatus("Please enter a number.");
+            view.displayStatusLocal("Please enter a number.");
         }
 
     }
