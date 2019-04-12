@@ -1,12 +1,11 @@
 package view.element;
 
-import javax.swing.*;
 import java.awt.AWTException;
 import java.awt.Image;
 import java.awt.SystemTray;
-import java.awt.Toolkit;
 import java.awt.TrayIcon;
 import java.net.MalformedURLException;
+import javax.swing.ImageIcon;
 
 public class WindowsNotifications {
 

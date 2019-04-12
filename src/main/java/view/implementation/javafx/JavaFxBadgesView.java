@@ -43,7 +43,7 @@ public class JavaFxBadgesView extends JavaFxView implements IBadgesView {
     }
 
     @Override
-    public void updateLabels(){
+    public void updateLabels() {
         if (controller.getBadge("levelHundredBadge")) {
             level.setImage(new Image("/badges/6.png"));
         }
