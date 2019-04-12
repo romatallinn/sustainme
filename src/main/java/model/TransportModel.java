@@ -176,7 +176,7 @@ public class TransportModel {
             new BadgeModel().updateBadge("distanceByBikeBadge");
             try {
                 new WindowsNotifications().notification(
-                    "3.png",
+                    "/badges/3.png",
                     "Congrats! You have cycled 100 km!");
             } catch (AWTException e) {
                 e.printStackTrace();
@@ -199,7 +199,7 @@ public class TransportModel {
             new BadgeModel().updateBadge("kmNoCarUsedBadge");
             try {
                 new WindowsNotifications().notification(
-                    "2.png",
+                    "/badges/2.png",
                     "Congrats! You did not use your car for already 500km!");
             } catch (AWTException e) {
                 e.printStackTrace();
@@ -221,7 +221,7 @@ public class TransportModel {
             new BadgeModel().updateBadge("distancePublicBadge");
             try {
                 new WindowsNotifications().notification(
-                    "7.png",
+                    "/badges/7.png",
                     "Congrats! You did use public transportation for already 600km!");
             } catch (AWTException e) {
                 e.printStackTrace();

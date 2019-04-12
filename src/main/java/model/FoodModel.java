@@ -31,10 +31,9 @@ public class FoodModel {
             return;
         }
 
+        badgeVeggie = new BadgeModel().receiveBadge("vegetarianMealBadge");
         addEatenVegMeal(0);
         addEatenLocalProduce(0);
-        badgeVeggie = new BadgeModel().receiveBadge("vegetarianMealBadge");
-
     }
 
     /**
@@ -133,7 +132,7 @@ public class FoodModel {
             new BadgeModel().updateBadge("vegetarianMealBadge");
             try {
                 new WindowsNotifications().notification(
-                    "5.png",
+                    "/badges/5.png",
                     "Congrats! You have eaten 10 vegetarian meals!");
             } catch (AWTException e) {
                 e.printStackTrace();

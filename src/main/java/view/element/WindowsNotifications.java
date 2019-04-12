@@ -1,5 +1,6 @@
 package view.element;
 
+import javax.swing.*;
 import java.awt.AWTException;
 import java.awt.Image;
 import java.awt.SystemTray;
@@ -46,18 +47,14 @@ public class WindowsNotifications {
 
             //Obtain only one instance of the SystemTray object
             SystemTray tray = SystemTray.getSystemTray();
+            
+            Image img = new ImageIcon(this.getClass().getResource(image)).getImage();
 
-            //If the icon is a file
-            Image picture = Toolkit.getDefaultToolkit().createImage(image);
-
-            TrayIcon trayIcon = new TrayIcon(picture, "Tray Demo");
+            TrayIcon trayIcon = new TrayIcon(img);
             //Let the system resize the image if needed
             trayIcon.setImageAutoSize(true);
-            //Set tooltip text for the tray icon
-            trayIcon.setToolTip("System tray icon demo");
             tray.add(trayIcon);
-
-            trayIcon.displayMessage("SustainMe", message, TrayIcon.MessageType.INFO);
+            trayIcon.displayMessage("SustainMe", message, TrayIcon.MessageType.NONE);
         } catch (AWTException e) {
             e.printStackTrace();
         }

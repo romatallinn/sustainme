@@ -179,7 +179,7 @@ public class UserProfile {
             new BadgeModel().updateBadge("co2ReducedBadge");
             try {
                 new WindowsNotifications().notification(
-                    "4.png",
+                    "/badges/4.png",
                     "Congrats! You have reduced 100kg of CO2!");
             } catch (AWTException e) {
                 e.printStackTrace();
@@ -202,7 +202,7 @@ public class UserProfile {
             new BadgeModel().updateBadge("levelHundredBadge");
             try {
                 new WindowsNotifications().notification(
-                    "6.png",
+                    "/badges/6.png",
                     "Congrats! You are at level 100!");
             } catch (AWTException e) {
                 e.printStackTrace();
