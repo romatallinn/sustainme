@@ -143,7 +143,7 @@ public class JavaFxApplication extends Application {
         FriendsController friendsController = new FriendsController(friendsView);
         friendsView.initView(friendsController);
 
-        dummy = new SceneFx<IFriendView>("SustainMe", "/fxml/JavaFXFriendsView.fxml",
+        dummy = new SceneFx<IFriendView>("SustainMe - Friends", "/fxml/JavaFXFriendsView.fxml",
             "/css/FriendsView.css");
         dummy.setView(friendsView);
         scenes.put("friends", dummy);
@@ -172,7 +172,7 @@ public class JavaFxApplication extends Application {
 
         friendsCompareView.initView(friendController);
 
-        dummy = new SceneFx<IFriendsComparisonView>("SustainMe",
+        dummy = new SceneFx<IFriendsComparisonView>("SustainMe - Friends",
             "/fxml/JavaFXFriendsComparisonView.fxml",
             "/css/FriendsComparisonView.css");
 
@@ -194,7 +194,7 @@ public class JavaFxApplication extends Application {
 
         JavaFxFractalTreeView fractalTreeView = new JavaFxFractalTreeView();
 
-        dummy = new SceneFx<JavaFxFractalTreeView>("SustainMe",
+        dummy = new SceneFx<JavaFxFractalTreeView>("SustainMe - Tree",
                 "/fxml/JavaFxFractalTreeView.fxml",
                 "/css/FractalTreeView.css");
 

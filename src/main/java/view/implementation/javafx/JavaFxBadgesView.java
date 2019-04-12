@@ -71,6 +71,6 @@ public class JavaFxBadgesView extends JavaFxView implements IBadgesView {
 
     @FXML
     private void goToTree() throws IOException {
-        switchScene(treeBtn.getScene(), "tree");
+        switchScene(homeBtn.getScene(), "fractalTree");
     }
 }
