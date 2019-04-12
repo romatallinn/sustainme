@@ -53,7 +53,7 @@ public class JavaFxTransportView extends JavaFxView implements ITransportView {
 
     @FXML
     private void addPublicKilometers() {
-        if (publicType.getValue().equals("bus")) {
+        if (publicType.getValue().equals("Bus")) {
             controller.addBusKms(publicDistance.getText());
         } else {
             controller.addTrainKms(publicDistance.getText());
