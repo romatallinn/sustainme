@@ -175,10 +175,10 @@ public class JavaFxApplication extends Application {
             "/fxml/JavaFXFriendsComparisonView.fxml",
             "/css/FriendsComparisonView.css");
 
-        //-----
-
         dummy.setView(friendsCompareView);
         scenes.put("friendsComparison", dummy);
+
+        //-----
 
         JavaFxFractalTreeView fractalTreeView = new JavaFxFractalTreeView();
 

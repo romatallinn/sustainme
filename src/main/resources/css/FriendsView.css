@@ -98,3 +98,16 @@
     -fx-background-radius: 50;
     -fx-font-weight: bold;
 }
+
+#statusMsg {
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-fill: #b70000;
+}
+
+#counterStatus {
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-fill: #b70000;
+    -fx-opacity: 0.0;
+}
