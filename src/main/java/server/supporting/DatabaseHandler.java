@@ -9,6 +9,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import model.objects.UserData;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -82,6 +84,9 @@ public class DatabaseHandler {
         features.put("publicCO2", 0);
         features.put("paperrecycling", 0);
         features.put("plasticrecycling", 0);
+        features.put("solararea", 0);
+        features.put("temperature", 21);
+        features.put("lastupdate", LocalDate.now().toString());
 
         Map<String, Object> data = new HashMap<>();
         data.put("fname", fname);
@@ -341,6 +346,43 @@ public class DatabaseHandler {
 
         return (DataSnapshot)valueObj;
 
+    }
+
+    /**
+     * Updates the home temperature in the database.
+     * @param uid user id of the user
+     * @param temperature new temperature
+     * @return the updated temperature
+     * @throws InterruptedException - database exception
+     */
+    public static double setTemperature(String uid, double temperature)
+            throws InterruptedException {
+
+        DatabaseReference ref = db.getReference("users").child(uid).child("features/"
+                + "temperature");
+
+        ref.setValueAsync(temperature);
+        double newVal = retrieveValueAt(ref, Double.class);
+
+        return newVal;
+
+    }
+
+    /**
+     * Updates the last visited time of the user.
+     * @param uid user id of the user
+     * @return the difference in time between now and last visited
+     * @throws InterruptedException - database exception
+     */
+    public static int updateTime(String uid) throws InterruptedException {
+        DatabaseReference ref = db.getReference("users").child(uid).child("features/"
+                + "lastupdate");
+
+        LocalDate oldTime = LocalDate.parse(retrieveValueAt(ref, String.class));
+        LocalDate newTime = LocalDate.now();
+        ref.setValueAsync(newTime.toString());
+
+        return (int) ChronoUnit.DAYS.between(oldTime, newTime);
     }
 
 

@@ -1,6 +1,7 @@
 package view.implementation.javafx;
 
 import controller.BadgesController;
+import controller.EnergyController;
 import controller.FoodController;
 import controller.FriendsComparisonController;
 import controller.FriendsController;
@@ -16,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import view.interfaces.IBadgesView;
+import view.interfaces.IEnergyView;
 import view.interfaces.IFoodView;
 import view.interfaces.IFriendView;
 import view.interfaces.IFriendsComparisonView;
@@ -128,14 +130,14 @@ public class JavaFxApplication extends Application {
 
         //-----
 
-        //    IEnergyView energyView = new JavaFxEnergyView();
-        //    EnergyController energyController = new EnergyController(energyView);
-        //    energyView.initView(energyController);
-        //
-        //    dummy = new SceneFx<IEnergyView>("SustainMe - Energy", "/fxml/JavaFXEnergyView.fxml",
-        //            "/css/EnergyView.css");
-        //    dummy.setView(energyView);
-        //    scenes.put("energy", dummy);
+        IEnergyView energyView = new JavaFxEnergyView();
+        EnergyController energyController = new EnergyController(energyView);
+        energyView.initView(energyController);
+
+        dummy = new SceneFx<IEnergyView>("SustainMe - Energy", "/fxml/JavaFXEnergyView.fxml",
+                 "/css/EnergyView.css");
+        dummy.setView(energyView);
+        scenes.put("energy", dummy);
 
         //-----
 
