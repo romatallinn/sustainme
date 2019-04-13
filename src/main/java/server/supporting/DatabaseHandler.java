@@ -87,7 +87,9 @@ public class DatabaseHandler {
         features.put("plasticrecycling", 0);
         features.put("plasticrecyclingCO2", 0);
         features.put("solararea", 0);
+        features.put("solarareaCO2", 0);
         features.put("temperature", 21);
+        features.put("temperatureCO2", 0);
         features.put("lastupdate", LocalDate.now().toString());
 
         Map<String, Object> data = new HashMap<>();

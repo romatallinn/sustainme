@@ -55,7 +55,11 @@ public class ServerController {
                         * (21 - DatabaseHandler.retrieveDoubleFeatureCounter(uid, "temperature"))));
         DatabaseHandler.increaseCO2RedBy(uid,0.782644 * 0.355 * update
                 * DatabaseHandler.retrieveFeatureCounter(uid, "solararea"));
+        DatabaseHandler.increaseFeatureCounter(uid, "solarareaCO2", 0.782644 * 0.355 * update
+                * DatabaseHandler.retrieveFeatureCounter(uid, "solararea"));
         DatabaseHandler.increaseCO2RedBy(uid,0.308 * update
+                * (21 - DatabaseHandler.retrieveDoubleFeatureCounter(uid, "temperature")));
+        DatabaseHandler.increaseFeatureCounter(uid, "temperatureCO2", 0.308 * update
                 * (21 - DatabaseHandler.retrieveDoubleFeatureCounter(uid, "temperature")));
         UserData user = DatabaseHandler.getUserData(uid);
         return user;
@@ -88,8 +92,13 @@ public class ServerController {
         double plasticrecyclingCO2 =
             DatabaseHandler.retrieveDoubleFeatureCounter(
                 uid, "plasticrecyclingCO2");
-
-        return new FractalTreeResponse(bikeCo2, vegmealsCO2, localproduceCO2, publicCO2, paperrecyclingCO2, plasticrecyclingCO2);
+        double solarareaCO2 =
+                DatabaseHandler.retrieveDoubleFeatureCounter(
+                        uid, "solarareaCO2");
+        double temperatureCO2 =
+                DatabaseHandler.retrieveDoubleFeatureCounter(
+                        uid, "temperatureCO2");
+        return new FractalTreeResponse(bikeCo2, vegmealsCO2, localproduceCO2, publicCO2, paperrecyclingCO2, plasticrecyclingCO2, solarareaCO2, temperatureCO2);
 
     }
 
