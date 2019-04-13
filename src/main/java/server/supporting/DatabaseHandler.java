@@ -62,6 +62,15 @@ public class DatabaseHandler {
 
         final DatabaseReference ref = db.getReference("users").child(uid);
 
+        Map<String, Boolean> badges = new HashMap<>();
+        badges.put("distanceByBikeBadge", false);
+        badges.put("vegetarianMealBadge", false);
+        badges.put("kmNoCarUsedBadge", false);
+        badges.put("co2ReducedBadge", false);
+        badges.put("levelHundredBadge", false);
+        badges.put("distancePublicBadge", false);
+
+
         Map<String, Object> features = new HashMap<>();
         features.put("vegmeals", 0);
         features.put("vegmealsCO2", 0);
@@ -80,11 +89,13 @@ public class DatabaseHandler {
         data.put("experience", 0);
         data.put("co2red", 0);
         data.put("features", features);
+        data.put("badges", badges);
 
 
         ref.setValueAsync(data);
 
     }
+
 
     /**
      * Increases experience of the user with the given id by the given amount.
@@ -169,6 +180,36 @@ public class DatabaseHandler {
         return val;
 
     }
+
+    /**
+     * Retrieves badges out of database.
+     * @param uid                   - user id
+     * @param badges                - badges
+     * @return val                  - badge
+     * @throws InterruptedException - exception
+     */
+    public static Boolean retrieveBadges(String uid, String badges)
+        throws InterruptedException {
+
+        DatabaseReference ref = db.getReference("users").child(uid).child("badges/" + badges);
+        Boolean val = retrieveValueAt(ref, Boolean.class);
+
+        return val;
+
+    }
+
+    /**
+     * Updates the badges in the database to true.
+     * @param uid       - user id
+     * @param badges    - badges
+     */
+    public static void updateBadges(String uid, String badges) {
+        DatabaseReference ref = db.getReference("users/" + uid + "/badges/" + badges);
+
+        ref.setValueAsync(true);
+
+    }
+
 
     /**
      * Adds a new friend with given email to the user of the given user id.

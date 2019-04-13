@@ -20,4 +20,7 @@ public class ServerApi {
     public static final String PAPER_RECYCLING = "paperrecycling";
     public static final String PLASTIC_RECYCLING = "plasticrecycling";
 
+    public static final String BADGES = "badges";
+    public static final String UPDATE_BADGES = "updatebadge";
+
 }

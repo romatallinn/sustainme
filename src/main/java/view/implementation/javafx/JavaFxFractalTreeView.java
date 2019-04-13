@@ -28,6 +28,11 @@ public class JavaFxFractalTreeView extends JavaFxView {
         switchScene(homeBtn.getScene(), "home");
     }
 
+    @FXML
+    private void goToBadges() throws IOException {
+        switchScene(homeBtn.getScene(), "badges");
+    }
+
     @Override
     public void updateLabels() {
         GraphicsContext gc = canvas.getGraphicsContext2D();

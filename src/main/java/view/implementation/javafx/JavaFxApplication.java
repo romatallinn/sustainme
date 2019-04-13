@@ -1,6 +1,6 @@
 package view.implementation.javafx;
 
-
+import controller.BadgesController;
 import controller.FoodController;
 import controller.FriendsComparisonController;
 import controller.FriendsController;
@@ -15,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import view.interfaces.IBadgesView;
 import view.interfaces.IFoodView;
 import view.interfaces.IFriendView;
 import view.interfaces.IFriendsComparisonView;
@@ -142,7 +143,7 @@ public class JavaFxApplication extends Application {
         FriendsController friendsController = new FriendsController(friendsView);
         friendsView.initView(friendsController);
 
-        dummy = new SceneFx<IFriendView>("SustainMe", "/fxml/JavaFXFriendsView.fxml",
+        dummy = new SceneFx<IFriendView>("SustainMe - Friends", "/fxml/JavaFXFriendsView.fxml",
             "/css/FriendsView.css");
         dummy.setView(friendsView);
         scenes.put("friends", dummy);
@@ -171,7 +172,7 @@ public class JavaFxApplication extends Application {
 
         friendsCompareView.initView(friendController);
 
-        dummy = new SceneFx<IFriendsComparisonView>("SustainMe",
+        dummy = new SceneFx<IFriendsComparisonView>("SustainMe - Friends",
             "/fxml/JavaFXFriendsComparisonView.fxml",
             "/css/FriendsComparisonView.css");
 
@@ -180,9 +181,20 @@ public class JavaFxApplication extends Application {
 
         //-----
 
+        IBadgesView badgesView = new JavaFxBadgesView();
+        BadgesController badgesController = new BadgesController(badgesView);
+        badgesView.initView(badgesController);
+
+        dummy = new SceneFx<IBadgesView>("SustainMe - Badges", "/fxml/JavaFXBadgesView.fxml",
+                "/css/BadgesView.css");
+        dummy.setView(badgesView);
+        scenes.put("badges", dummy);
+
+        //-----
+
         JavaFxFractalTreeView fractalTreeView = new JavaFxFractalTreeView();
 
-        dummy = new SceneFx<JavaFxFractalTreeView>("SustainMe",
+        dummy = new SceneFx<JavaFxFractalTreeView>("SustainMe - Tree",
                 "/fxml/JavaFxFractalTreeView.fxml",
                 "/css/FractalTreeView.css");
 
