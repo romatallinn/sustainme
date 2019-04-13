@@ -48,6 +48,18 @@
     -fx-border-style: none;
 }
 
+#homeBtn:hover {
+    -fx-opacity: 0.8;
+}
+
+.button:hover {
+    -fx-background-color: #0b7dda;
+}
+
+#publicType:hover {
+    -fx-background-color: #0b7dda;
+}
+
 #locationtab {
     -fx-fill: #C8E6C9;
     -fx-font-size: 20;
@@ -132,3 +144,8 @@
     -fx-font-weight: bold;
 }
 
+.status {
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-fill: #03A9F4;
+}

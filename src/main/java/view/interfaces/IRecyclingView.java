@@ -6,7 +6,9 @@ public interface IRecyclingView {
 
     void initView(RecyclingController controller);
 
-    void displayStatus(String msg);
+    void displayStatusPaper(String msg);
+
+    void displayStatusPlastic(String msg);
 
     void updatePaperRecyclingCounter(double counter);
 

@@ -37,10 +37,10 @@ public class FriendsModel {
      * Add new friend by email address.
      * @param email address of the friend to be added.
      */
-    public void addFriendByEmail(String email) {
+    public boolean addFriendByEmail(String email) {
 
         if (UserProfile.getInstance().authToken.isEmpty()) {
-            return;
+            return false;
         }
 
         final String uri = ServerApi.HOST + ServerApi.ADD_FRIEND;
@@ -51,11 +51,7 @@ public class FriendsModel {
         RestTemplate restTemplate = new RestTemplate();
         boolean result =
                 restTemplate.postForObject(uri, friendRequest, boolean.class);
-        if (!result) {
-            // TODO: Show on screen.
-        }
-
-
+        return result;
     }
 
     /**

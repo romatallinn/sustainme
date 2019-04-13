@@ -28,17 +28,14 @@ public class JavaFxFractalTreeView extends JavaFxView {
         switchScene(homeBtn.getScene(), "home");
     }
 
+    @FXML
+    private void goToBadges() throws IOException {
+        switchScene(homeBtn.getScene(), "badges");
+    }
+
     @Override
     public void updateLabels() {
         GraphicsContext gc = canvas.getGraphicsContext2D();
-        gc.setFill(Color.BEIGE);
-        gc.fillRect(0, 0, 200, 800);
-        gc.setFill(Color.BLACK);
-        gc.fillRect(200, 0, 200, 800);
-        gc.setFill(Color.BEIGE);
-        gc.fillRect(400, 0, 200, 800);
-        gc.setFill(Color.BLACK);
-        gc.fillRect(600, 0, 200, 800);
 
         // Co2 data per feature out of the database
         String firstName = UserProfile.getInstance().getFirstName();

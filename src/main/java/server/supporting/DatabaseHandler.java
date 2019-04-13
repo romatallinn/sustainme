@@ -9,6 +9,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import model.objects.UserData;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -62,6 +64,15 @@ public class DatabaseHandler {
 
         final DatabaseReference ref = db.getReference("users").child(uid);
 
+        Map<String, Boolean> badges = new HashMap<>();
+        badges.put("distanceByBikeBadge", false);
+        badges.put("vegetarianMealBadge", false);
+        badges.put("kmNoCarUsedBadge", false);
+        badges.put("co2ReducedBadge", false);
+        badges.put("levelHundredBadge", false);
+        badges.put("distancePublicBadge", false);
+
+
         Map<String, Object> features = new HashMap<>();
         features.put("vegmeals", 0);
         features.put("vegmealsCO2", 0);
@@ -75,6 +86,9 @@ public class DatabaseHandler {
         features.put("paperrecyclingCO2", 0);
         features.put("plasticrecycling", 0);
         features.put("plasticrecyclingCO2", 0);
+        features.put("solararea", 0);
+        features.put("temperature", 21);
+        features.put("lastupdate", LocalDate.now().toString());
 
         Map<String, Object> data = new HashMap<>();
         data.put("fname", fname);
@@ -82,11 +96,13 @@ public class DatabaseHandler {
         data.put("experience", 0);
         data.put("co2red", 0);
         data.put("features", features);
+        data.put("badges", badges);
 
 
         ref.setValueAsync(data);
 
     }
+
 
     /**
      * Increases experience of the user with the given id by the given amount.
@@ -171,6 +187,36 @@ public class DatabaseHandler {
         return val;
 
     }
+
+    /**
+     * Retrieves badges out of database.
+     * @param uid                   - user id
+     * @param badges                - badges
+     * @return val                  - badge
+     * @throws InterruptedException - exception
+     */
+    public static Boolean retrieveBadges(String uid, String badges)
+        throws InterruptedException {
+
+        DatabaseReference ref = db.getReference("users").child(uid).child("badges/" + badges);
+        Boolean val = retrieveValueAt(ref, Boolean.class);
+
+        return val;
+
+    }
+
+    /**
+     * Updates the badges in the database to true.
+     * @param uid       - user id
+     * @param badges    - badges
+     */
+    public static void updateBadges(String uid, String badges) {
+        DatabaseReference ref = db.getReference("users/" + uid + "/badges/" + badges);
+
+        ref.setValueAsync(true);
+
+    }
+
 
     /**
      * Adds a new friend with given email to the user of the given user id.
@@ -302,6 +348,43 @@ public class DatabaseHandler {
 
         return (DataSnapshot)valueObj;
 
+    }
+
+    /**
+     * Updates the home temperature in the database.
+     * @param uid user id of the user
+     * @param temperature new temperature
+     * @return the updated temperature
+     * @throws InterruptedException - database exception
+     */
+    public static double setTemperature(String uid, double temperature)
+            throws InterruptedException {
+
+        DatabaseReference ref = db.getReference("users").child(uid).child("features/"
+                + "temperature");
+
+        ref.setValueAsync(temperature);
+        double newVal = retrieveValueAt(ref, Double.class);
+
+        return newVal;
+
+    }
+
+    /**
+     * Updates the last visited time of the user.
+     * @param uid user id of the user
+     * @return the difference in time between now and last visited
+     * @throws InterruptedException - database exception
+     */
+    public static int updateTime(String uid) throws InterruptedException {
+        DatabaseReference ref = db.getReference("users").child(uid).child("features/"
+                + "lastupdate");
+
+        LocalDate oldTime = LocalDate.parse(retrieveValueAt(ref, String.class));
+        LocalDate newTime = LocalDate.now();
+        ref.setValueAsync(newTime.toString());
+
+        return (int) ChronoUnit.DAYS.between(oldTime, newTime);
     }
 
 

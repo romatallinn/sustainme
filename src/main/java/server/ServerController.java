@@ -3,7 +3,7 @@ package server;
 
 //import api.ApiRequest;
 
-
+import model.objects.BadgeRequest;
 import model.objects.BikeRequest;
 import model.objects.BikeResponse;
 import model.objects.FractalTreeResponse;
@@ -18,6 +18,9 @@ import model.objects.PlasticRecyclingResponse;
 import model.objects.PublicTransportRequest;
 import model.objects.PublicTransportResponse;
 import model.objects.ShowFriendResponse;
+import model.objects.SolarRequest;
+import model.objects.SolarResponse;
+import model.objects.TemperatureRequest;
 import model.objects.UserData;
 import model.objects.VegetarianRequest;
 import model.objects.VegetarianResponse;
@@ -43,6 +46,17 @@ public class ServerController {
      */
     @RequestMapping(value = "/retrieve", method = RequestMethod.POST)
     public UserData retrieve_user_data(@RequestBody String uid) throws InterruptedException {
+        int update = DatabaseHandler.updateTime(uid);
+        DatabaseHandler.increaseExpBy(uid,
+                (int) Math.round((0.782644 * 0.355 * update) / 0.15)
+                        * DatabaseHandler.retrieveFeatureCounter(uid, "solararea"));
+        DatabaseHandler.increaseExpBy(uid,
+                (int) Math.round(((0.308 * update) / 0.15)
+                        * (21 - DatabaseHandler.retrieveDoubleFeatureCounter(uid, "temperature"))));
+        DatabaseHandler.increaseCO2RedBy(uid,0.782644 * 0.355 * update
+                * DatabaseHandler.retrieveFeatureCounter(uid, "solararea"));
+        DatabaseHandler.increaseCO2RedBy(uid,0.308 * update
+                * (21 - DatabaseHandler.retrieveDoubleFeatureCounter(uid, "temperature")));
         UserData user = DatabaseHandler.getUserData(uid);
         return user;
 
@@ -205,17 +219,39 @@ public class ServerController {
         //        .toString(publicTransportRequest.getDistance() * 0.621371192),
         //         publicTransportRequest.getType()); //Should be
         // result from api request
-        int exp = DatabaseHandler.increaseExpBy(
-            publicTransportRequest.getUid(), publicTransportRequest.getDistance());
+        int exp = DatabaseHandler.increaseExpBy(publicTransportRequest.getUid(),
+            publicTransportRequest.getDistance());
         double co2 = DatabaseHandler.increaseCO2RedBy(publicTransportRequest.getUid(),
             publicTransportRequest.getDistance() * 0.15);
         int distance = DatabaseHandler.increaseFeatureCounter(
             publicTransportRequest.getUid(), "public",
             publicTransportRequest.getDistance());
         double publicCo2 = DatabaseHandler.increaseFeatureCounter(publicTransportRequest.getUid(),
-            "publicCO2", publicTransportRequest.getDistance() * 0.15);
+                "publicCO2", publicTransportRequest.getDistance() * 0.15);
         return new PublicTransportResponse(exp, co2, distance);
+    }
 
+    /**
+     * Sends a request to the database handler for updating the badges stats.
+     *
+     * @param badgeRequest - request sent by client
+     * @return badgecheck  - returns boolean value if the badge is already in the database
+     * @throws Exception - exception could be thrown by database handler
+     */
+    @RequestMapping(value = "/badges", method = RequestMethod.POST)
+    public Boolean retrieveBadge(
+        @RequestBody BadgeRequest badgeRequest) throws Exception {
+
+        Boolean badgeCheck = DatabaseHandler.retrieveBadges(
+            badgeRequest.getUid(), badgeRequest.getBadges());
+
+        return badgeCheck;
+
+    }
+
+    @RequestMapping(value = "/updatebadge", method = RequestMethod.POST)
+    public void updateBadge(@RequestBody BadgeRequest badgeRequest) {
+        DatabaseHandler.updateBadges(badgeRequest.getUid(), badgeRequest.getBadges());
     }
 
     /**
@@ -231,18 +267,52 @@ public class ServerController {
         @RequestBody PaperRecyclingRequest paperRecyclingRequest)
         throws InterruptedException {
         int exp = DatabaseHandler.increaseExpBy(paperRecyclingRequest.getUid(),
-            (int) Math.round(paperRecyclingRequest.getAmount() * 8));
+                (int) Math.round(paperRecyclingRequest.getAmount() * 8));
         double co2 = DatabaseHandler.increaseCO2RedBy(paperRecyclingRequest.getUid(),
-            paperRecyclingRequest.getAmount() * 1.21);
+                paperRecyclingRequest.getAmount() * 1.21);
         double amount = DatabaseHandler.increaseFeatureCounter(paperRecyclingRequest.getUid(),
             "paperrecycling",
             paperRecyclingRequest.getAmount());
         double paperrecyclingCO2 = DatabaseHandler.increaseFeatureCounter(paperRecyclingRequest.getUid(),
             "paperrecyclingCO2", paperRecyclingRequest.getAmount() * 1.21);
-
         return new PaperRecyclingResponse(exp, co2, amount);
-
     }
+
+    /**
+     * Receives request for adding solar panel area.
+     * Sends request to database handler to update solar panel area.
+     *
+     * @param solarRequest the request that was sent by the client
+     * @return new experience and new area
+     * @throws InterruptedException - database exception
+     */
+    @RequestMapping(value = "/solarpanel", method = RequestMethod.POST)
+    public SolarResponse increaseArea(@RequestBody SolarRequest solarRequest)
+            throws InterruptedException {
+        int exp  = DatabaseHandler.increaseExpBy(solarRequest.getUid(),
+                solarRequest.getAddArea() * 2);
+        int area = DatabaseHandler.increaseFeatureCounter(solarRequest.getUid(),
+                "solararea", solarRequest.getAddArea());
+        return new SolarResponse(exp, area);
+    }
+
+    /**
+     * Receives request for updating the temperature.
+     * Sends request to database handler to update solar panel area.
+     *
+     * @param tempRequest the request that was sent by the client
+     * @return new temperature
+     * @throws InterruptedException - database exception
+     */
+    @RequestMapping(value = "/temperature", method = RequestMethod.POST)
+    public double lowerTemperature(@RequestBody TemperatureRequest tempRequest)
+            throws InterruptedException {
+        double currentTemp = DatabaseHandler.setTemperature(tempRequest.getUid(),
+                tempRequest.getTemperature());
+
+        return currentTemp;
+    }
+
 
     /**
      * Receives request of initializing the user's data.
@@ -267,6 +337,5 @@ public class ServerController {
             "plasticrecyclingCO2", plasticRecyclingRequest.getAmount() * 40);
 
         return new PlasticRecyclingResponse(exp, co2, amount);
-
     }
 }

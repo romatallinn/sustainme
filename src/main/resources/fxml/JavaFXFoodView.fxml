@@ -15,7 +15,7 @@
     <children>
         <HBox fx:id="top">
 
-            <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#goToHome" text="Home   " HBox.hgrow="ALWAYS">
+            <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#goToHome" text=" Home  " HBox.hgrow="ALWAYS">
                 <HBox.margin>
                     <Insets left="10.0" />
                 </HBox.margin>
@@ -54,21 +54,20 @@
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Vegetarian meals" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description" text="Eat a vegetarian meal for lunch or dinner" />
                   <Separator maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="2.0" />
+                  <Text fx:id="statusVeg" styleClass="status"/>
                   <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Add or remove meals:" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Add meals:" />
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                      <children>
                         <TextField fx:id="vegMealsCountInput" maxHeight="1.7976931348623157E308" promptText="Amount:" HBox.hgrow="NEVER" />
                         <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                            <children>
+                              <Region prefHeight="200.0" prefWidth="200.0" />
                               <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addEatenVegMeals" text="Add" VBox.vgrow="ALWAYS">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></Button>
-                              <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Remove" VBox.vgrow="ALWAYS">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor></Button>
+                              <Region prefHeight="200.0" prefWidth="200.0" />
                            </children>
                         </VBox>
                      </children>
@@ -88,21 +87,20 @@
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Local produce" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="description" text="Buy local produce instead of imported produce" />
                         <Separator maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="2.0" />
+                        <Text fx:id="statusLoc" styleClass="status" />
                         <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Add or remove local produce:" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Add local produce:" />
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                             <children>
                                 <TextField fx:id="localCountInput" maxHeight="1.7976931348623157E308" promptText="Weight (in kg):" HBox.hgrow="NEVER" />
                                 <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                                     <children>
+                              <Region prefHeight="200.0" prefWidth="200.0" />
                                         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addEatenLocalProduce" text="Add" VBox.vgrow="ALWAYS">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor></Button>
-                                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Remove" VBox.vgrow="ALWAYS">
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor></Button>
+                              <Region prefHeight="200.0" prefWidth="200.0" />
                                     </children>
                                 </VBox>
                             </children>

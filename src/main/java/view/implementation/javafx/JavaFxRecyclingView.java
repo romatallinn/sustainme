@@ -29,6 +29,12 @@ public class JavaFxRecyclingView extends JavaFxView implements IRecyclingView {
     @FXML
     private Text plasticRecyclingCounter;
 
+    @FXML
+    private Text statusPaper;
+
+    @FXML
+    private Text statusPlastic;
+
     @Override
     public void initView(RecyclingController controller) {
         this.controller = controller;
@@ -52,7 +58,14 @@ public class JavaFxRecyclingView extends JavaFxView implements IRecyclingView {
     }
 
     @Override
-    public void displayStatus(String msg) {
+    public void displayStatusPaper(String msg) {
+        statusPaper.setText(msg);
+        System.out.println(msg);
+    }
+
+    @Override
+    public void displayStatusPlastic(String msg) {
+        statusPlastic.setText(msg);
         System.out.println(msg);
     }
 
