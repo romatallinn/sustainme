@@ -1,6 +1,7 @@
 package controller;
 
 import model.TransportModel;
+import model.UserProfile;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -26,6 +27,8 @@ public class TransportControllerTest {
 
     @Before
     public void setup() throws Exception {
+        UserProfile.getInstance().clean();
+
 //        TransportModel model = Mockito.mock(TransportModel.class);
 //        PowerMockito.whenNew(TransportModel.class).withAnyArguments().thenReturn(model);
 //        Mockito.doNothing().when(model).addDistanceCycled(Mockito.anyInt());

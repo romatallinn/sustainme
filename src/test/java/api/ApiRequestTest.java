@@ -32,26 +32,14 @@ public class ApiRequestTest {
     }
 
     @Test
-    public void classInitializeTest() {
-        ApiRequest api = new ApiRequest();
-        assertNotNull(api);
-    }
-
-    @Test
-    public void apiRequestTest() throws Exception {
-        String result = new ApiRequest().apiRequest("5", "10", "15");
-        assertEquals(result, string);
-    }
-
-    @Test
     public void requestBikeTest() throws Exception {
-        double result = new ApiRequest().requestBike("5");
+        double result = ApiRequest.requestBike("5");
         assertEquals(result, 2.5, 0.0001);
     }
 
     @Test
     public void requestPublicTransTest() throws Exception {
-        double result = new ApiRequest().requestPublicTrans("2", true);
+        double result = ApiRequest.requestPublicTrans("2", true);
         assertEquals(result, 1.15, 0.0001);
     }
 }

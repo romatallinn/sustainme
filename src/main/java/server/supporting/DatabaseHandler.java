@@ -395,7 +395,7 @@ public class DatabaseHandler {
     public static double setTemperature(String uid, double temperature)
             throws InterruptedException {
 
-        DatabaseReference ref = db.getReference("users").child(uid).child("features/"
+        DatabaseReference ref = db.getReference("users/").child(uid).child("/features/"
                 + "temperature");
 
         ref.setValueAsync(temperature);
@@ -412,8 +412,8 @@ public class DatabaseHandler {
      * @throws InterruptedException - database exception
      */
     public static int updateTime(String uid) throws InterruptedException {
-        DatabaseReference ref = db.getReference("users").child(uid).child("features/"
-                + "lastupdate");
+
+        DatabaseReference ref = db.getReference("users").child(uid).child("features/lastupdate");
 
         LocalDate oldTime = LocalDate.parse(retrieveValueAt(ref, String.class));
         LocalDate newTime = LocalDate.now();

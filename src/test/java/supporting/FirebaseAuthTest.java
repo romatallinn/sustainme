@@ -3,7 +3,6 @@ package supporting;
 import com.google.gson.JsonObject;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.platform.commons.util.StringUtils;
 
 public class FirebaseAuthTest {
 

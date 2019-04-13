@@ -198,7 +198,7 @@ public class ServerController {
      */
     @RequestMapping(value = "/bike", method = RequestMethod.POST)
     public BikeResponse useBike(@RequestBody BikeRequest bikeRequest) throws Exception {
-        double result = new ApiRequest().requestBike(Double
+        double result = ApiRequest.requestBike(Double
               .toString(bikeRequest.getDistance() * 0.621371192)) * 1000; //Should be
         // result from api request
         int exp = DatabaseHandler.increaseExpBy(bikeRequest.getUid(),
@@ -223,7 +223,7 @@ public class ServerController {
     @RequestMapping(value = "/publictransport", method = RequestMethod.POST)
     public PublicTransportResponse usePublicTransport(
         @RequestBody PublicTransportRequest publicTransportRequest) throws Exception {
-        double result = new ApiRequest().requestPublicTrans(Double
+        double result = ApiRequest.requestPublicTrans(Double
                 .toString(publicTransportRequest.getDistance() * 0.621371192),
                  publicTransportRequest.getType()) * 1000; //Should be
         // result from api request

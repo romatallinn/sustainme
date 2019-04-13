@@ -13,6 +13,10 @@ public class BadgeModel {
      */
     public Boolean receiveBadge(String badges) {
 
+        if (UserProfile.getInstance().authToken.isEmpty()) {
+            return false;
+        }
+
         final String uri = ServerApi.HOST + ServerApi.BADGES;
 
         BadgeRequest badgeRequest =
@@ -31,6 +35,10 @@ public class BadgeModel {
      * @param badges - badges
      */
     public void updateBadge(String badges) {
+
+        if (UserProfile.getInstance().authToken.isEmpty()) {
+            return;
+        }
 
         final String uri = ServerApi.HOST + ServerApi.UPDATE_BADGES;
 

@@ -1,5 +1,6 @@
 package controller;
 
+import model.UserProfile;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -25,6 +26,7 @@ public class FoodControllerTest {
 
     @Before
     public void setup() {
+        UserProfile.getInstance().clean();
         controller = new FoodController(view);
     }
 
