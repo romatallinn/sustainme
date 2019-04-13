@@ -56,7 +56,7 @@
                   <Separator maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="2.0" />
                   <Text fx:id="statusPaper" styleClass="status"/>
                   <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Add or remove weight of paper:" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Add weight of paper:" />
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                      <children>
                         <TextField fx:id="paperRecyclingCountInput" maxHeight="1.7976931348623157E308" promptText="Weight (in kg):" HBox.hgrow="NEVER" />
@@ -74,7 +74,7 @@
                      </children>
                   </HBox>
                   <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Total recycled paper:" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Total recycled paper (in kg):" />
                   <Text fx:id="paperRecyclingCounter" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="21" />
                   <Region layoutX="10.0" layoutY="82.0" prefHeight="200.0" prefWidth="200.0" />
                </children>
@@ -90,7 +90,7 @@
                   <Separator maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="2.0" />
                   <Text fx:id="statusPlastic" styleClass="status"/>
                   <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Add or remove weight of plastic:" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Add weight of plastic:" />
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                      <children>
                         <TextField fx:id="plasticRecyclingCountInput" maxHeight="1.7976931348623157E308" promptText="Weight (in kg):" HBox.hgrow="NEVER" />
@@ -108,7 +108,7 @@
                      </children>
                   </HBox>
                   <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Total recycled plastic:" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Total recycled plastic (in kg):" />
                   <Text fx:id="plasticRecyclingCounter" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="21" />
                   <Region layoutX="10.0" layoutY="82.0" prefHeight="200.0" prefWidth="200.0" />
                </children>
