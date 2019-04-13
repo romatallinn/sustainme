@@ -58,9 +58,9 @@ public class EnergyController {
         float temperature = 0;
         try {
             temperature = Float.parseFloat(temperatureString);
-            if (temperature < 0 || temperature > 40) {
+            if (temperature < 16 || temperature > 24) {
                 view.displayStatusTemperature("Please enter the temperature "
-                        + "in the range 0-40 degrees Celsius.");
+                        + "in the range 16-24 degrees Celsius.");
                 return;
             }
             model.lowerTemperature(temperature);
