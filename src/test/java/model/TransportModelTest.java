@@ -46,10 +46,10 @@ public class TransportModelTest {
     public void testAddDistanceCycled() {
         int before = model.getBikeDistance();
         int expBef = UserProfile.getInstance().getExperience()
-                + (int) (10 * Math.pow(2,(UserProfile.getInstance().getLevel() - 1)));
+                + (int) (10 * (Math.pow(2,(UserProfile.getInstance().getLevel()))-1));
         model.addDistanceCycled(20);
         int expAft = UserProfile.getInstance().getExperience()
-                + (int) (10 * Math.pow(2,(UserProfile.getInstance().getLevel() - 1)));
+                + (int) (10 * (Math.pow(2,(UserProfile.getInstance().getLevel()))-1));
         int after = model.getBikeDistance();
         assertEquals(20,after - before);
         assertEquals(20, expAft - expBef);
@@ -66,13 +66,15 @@ public class TransportModelTest {
     public void testAddTrainDistanceTraveled() {
         int before = model.getPublicDistance();
         int expBef = UserProfile.getInstance().getExperience()
-                + (int) (10 * Math.pow(2,(UserProfile.getInstance().getLevel() - 1)));
+                + (int) (10 * (Math.pow(2,(UserProfile.getInstance().getLevel()))-1));
+        System.out.println(expBef);
         model.addTrainDistanceTraveled(20);
         int expAft = UserProfile.getInstance().getExperience()
-                + (int) (10 * Math.pow(2,(UserProfile.getInstance().getLevel() - 1)));
+                + (int) (10 * (Math.pow(2,(UserProfile.getInstance().getLevel()))-1));
+        System.out.println(expAft);
         int after = model.getPublicDistance();
         assertEquals(20,after - before);
-        assertEquals(20, expAft - expBef);
+        assertEquals(7, expAft - expBef);
 
     }
 
@@ -87,11 +89,11 @@ public class TransportModelTest {
     public void testAddBusDistanceTraveled() {
         int before = model.getPublicDistance();
         int expBef = UserProfile.getInstance().getExperience()
-                + (int) (10 * Math.pow(2,(UserProfile.getInstance().getLevel() - 1)));
+                + (int) (10 * (Math.pow(2,(UserProfile.getInstance().getLevel()))-1));
         model.addBusDistanceTraveled(10);
         int after = model.getPublicDistance();
         int expAft = UserProfile.getInstance().getExperience()
-                + (int) (10 * Math.pow(2,(UserProfile.getInstance().getLevel() - 1)));
+                + (int) (10 * (Math.pow(2,(UserProfile.getInstance().getLevel()))-1));
         assertEquals(10,after - before);
         assertEquals(10, expAft - expBef);
     }

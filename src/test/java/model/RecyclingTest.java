@@ -65,11 +65,11 @@ public class RecyclingTest {
     public void testAddAmountPaperRecycling() {
         double before = model.getPaperRecyclingCount();
         int expBef = UserProfile.getInstance().getExperience()
-            + (int) (10 * Math.pow(2,(UserProfile.getInstance().getLevel() - 1)));
+            + (int) (10 * (Math.pow(2,(UserProfile.getInstance().getLevel()))-1));
         model.addAmountPaperRecycling(5);
         double after = model.getPaperRecyclingCount();
         int expAft = UserProfile.getInstance().getExperience()
-            + (int) (10 * Math.pow(2,(UserProfile.getInstance().getLevel() - 1)));
+            + (int) (10 * (Math.pow(2,(UserProfile.getInstance().getLevel()))-1));
         assertEquals(5,after - before,0.0);
         assertEquals(40, expAft - expBef);
     }
@@ -78,11 +78,11 @@ public class RecyclingTest {
     public void testAddAmountPlasticRecycling() {
         double before = model.getPlasticRecyclingCount();
         int expBef = UserProfile.getInstance().getExperience()
-            + (int) (10 * Math.pow(2,(UserProfile.getInstance().getLevel() - 1)));
+            + (int) (10 * (Math.pow(2,(UserProfile.getInstance().getLevel()))-1));
         model.addAmountPlasticRecycling(5);
         double after = model.getPlasticRecyclingCount();
         int expAft = UserProfile.getInstance().getExperience()
-            + (int) (10 * Math.pow(2,(UserProfile.getInstance().getLevel() - 1)));
+            + (int) (10 * (Math.pow(2,(UserProfile.getInstance().getLevel()))-1));
         assertEquals(5,after - before,0.0);
         assertEquals(200, expAft - expBef);
     }
