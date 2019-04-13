@@ -33,37 +33,37 @@ public class RecyclingControllerTest {
     @Test
     public void testAddPaperRecyclingFailureParse() {
         controller.addPaperRecycling("fff");
-        Mockito.verify(view).displayStatusPaper(Mockito.anyString());
+        Mockito.verify(view).displayStatusPaper("Please enter a number.");
     }
 
     @Test
-    public void testAddPaperRecyclingFailureRange() {
-        controller.addPaperRecycling("10000");
-        Mockito.verify(view).displayStatusPaper(Mockito.anyString());
+    public void testAddPaperRecyclingFailureRangeBelow() {
+        controller.addPaperRecycling("-1");
+        Mockito.verify(view).displayStatusPaper("Please enter the weight above 0 kg");
     }
 
     @Test
     public void testAddPaperRecyclingSuccess() {
         controller.addPaperRecycling("1");
-        Mockito.verify(view).displayStatusPaper(Mockito.anyString());
+        Mockito.verify(view).displayStatusPaper("The stat of recycled paper is updated!");
     }
 
     @Test
     public void testAddPlasticRecyclingFailureParse() {
         controller.addPlasticRecycling("fff");
-        Mockito.verify(view).displayStatusPlastic(Mockito.anyString());
+        Mockito.verify(view).displayStatusPlastic("Please enter a number.");
     }
 
     @Test
-    public void testAddPlasticRecyclingFailureRange() {
-        controller.addPlasticRecycling("10000");
-        Mockito.verify(view).displayStatusPlastic(Mockito.anyString());
+    public void testAddPlasticRecyclingFailureRangeBelow() {
+        controller.addPlasticRecycling("-1");
+        Mockito.verify(view).displayStatusPlastic("Please enter the weight above 0 kg");
     }
 
     @Test
     public void testAddPlasticRecyclingSuccess() {
         controller.addPlasticRecycling("1");
-        Mockito.verify(view).displayStatusPlastic(Mockito.anyString());
+        Mockito.verify(view).displayStatusPlastic("The stat of recycled plastic is updated!");
     }
 
 }
