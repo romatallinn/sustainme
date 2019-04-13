@@ -35,12 +35,21 @@ public class FirebaseAuthTest {
     }
 
     @Test
-    public void testRegFailure() {
+    public void testRegSmallPassFailure() {
+
+        JsonObject response = FirebaseAuth.getInstance().register("awdw@awd.ru", "123");
+        Assert.assertNotNull(FirebaseAuth.parseError(response));
+
+    }
+
+    @Test
+    public void testRegWrongPassFailure() {
 
         JsonObject response = FirebaseAuth.getInstance().register(testEmail, testPass);
         Assert.assertNotNull(FirebaseAuth.parseError(response));
 
     }
+
 
     @Test
     public void testRegDeleteSuccess() {
@@ -51,6 +60,7 @@ public class FirebaseAuthTest {
         Assert.assertNull(FirebaseAuth.parseError(response));
 
         response = FirebaseAuth.getInstance().delete(uid);
+        Assert.assertNull(FirebaseAuth.parseError(response));
 
         response = FirebaseAuth.getInstance().auth(regEmail, testPass);
         Assert.assertEquals("EMAIL_NOT_FOUND", response.get("error").getAsJsonObject().get("message").getAsString());
