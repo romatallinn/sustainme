@@ -1,5 +1,6 @@
 package controller;
 
+import model.UserProfile;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -10,9 +11,15 @@ import org.mockito.junit.MockitoRule;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import server.Application;
+import server.supporting.DatabaseHandler;
+import server.supporting.FirebaseConnection;
+import supporting.FirebaseAuth;
+import supporting.ServerApi;
 import view.interfaces.ISignUpView;
 
 import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
@@ -31,6 +38,7 @@ public class SignUpControllerTest {
 
     @Before
     public void setup() {
+        FirebaseConnection.initApp();
         controller = new SignUpController(view);
     }
 
@@ -63,6 +71,9 @@ public class SignUpControllerTest {
     public void testSignUpCallback() throws IOException {
         controller.signUpCallback("delete@user.com", "123456Aa", "123456Aa", "Delete", "User");
         verify(view).goToHome();
+        String uid = UserProfile.getInstance().getUid();
+        FirebaseAuth.getInstance().delete(UserProfile.getInstance().authToken);
+        DatabaseHandler.updateChildren("users/" + uid, null);
     }
 
 }
