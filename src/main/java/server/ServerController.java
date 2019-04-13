@@ -3,6 +3,7 @@ package server;
 
 //import api.ApiRequest;
 
+import model.objects.BadgeRequest;
 import model.objects.BikeRequest;
 import model.objects.BikeResponse;
 import model.objects.FractalTreeResponse;
@@ -212,16 +213,39 @@ public class ServerController {
         //        .toString(publicTransportRequest.getDistance() * 0.621371192),
         //         publicTransportRequest.getType()); //Should be
         // result from api request
-        int exp = DatabaseHandler.increaseExpBy(
-            publicTransportRequest.getUid(), publicTransportRequest.getDistance());
+        int exp = DatabaseHandler.increaseExpBy(publicTransportRequest.getUid(),
+            publicTransportRequest.getDistance());
         double co2 = DatabaseHandler.increaseCO2RedBy(publicTransportRequest.getUid(),
             publicTransportRequest.getDistance() * 0.15);
         int distance = DatabaseHandler.increaseFeatureCounter(
             publicTransportRequest.getUid(), "public",
             publicTransportRequest.getDistance());
         double publicCo2 = DatabaseHandler.increaseFeatureCounter(publicTransportRequest.getUid(),
-            "publicCO2", publicTransportRequest.getDistance() * 0.15);
+                "publicCO2", publicTransportRequest.getDistance() * 0.15);
         return new PublicTransportResponse(exp, co2, distance);
+    }
+
+    /**
+     * Sends a request to the database handler for updating the badges stats.
+     *
+     * @param badgeRequest - request sent by client
+     * @return badgecheck  - returns boolean value if the badge is already in the database
+     * @throws Exception - exception could be thrown by database handler
+     */
+    @RequestMapping(value = "/badges", method = RequestMethod.POST)
+    public Boolean retrieveBadge(
+        @RequestBody BadgeRequest badgeRequest) throws Exception {
+
+        Boolean badgeCheck = DatabaseHandler.retrieveBadges(
+            badgeRequest.getUid(), badgeRequest.getBadges());
+
+        return badgeCheck;
+
+    }
+
+    @RequestMapping(value = "/updatebadge", method = RequestMethod.POST)
+    public void updateBadge(@RequestBody BadgeRequest badgeRequest) {
+        DatabaseHandler.updateBadges(badgeRequest.getUid(), badgeRequest.getBadges());
     }
 
     /**
