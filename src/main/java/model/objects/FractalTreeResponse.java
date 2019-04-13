@@ -9,8 +9,8 @@ public class FractalTreeResponse {
     private double plasticrecyclingCO2;
     private double paperrecyclingCO2;
 
-    public FractalTreeResponse(){
-        
+    public FractalTreeResponse() {
+
     }
 
     /**
@@ -52,7 +52,11 @@ public class FractalTreeResponse {
         return publicCO2;
     }
 
-    public double getPlasticrecyclingCO2() { return plasticrecyclingCO2; }
+    public double getPlasticrecyclingCO2() {
+        return plasticrecyclingCO2;
+    }
 
-    public double getPaperrecyclingCO2() { return paperrecyclingCO2; }
+    public double getPaperrecyclingCO2() {
+        return paperrecyclingCO2;
+    }
 }
