@@ -57,11 +57,11 @@ public class EnergyModelTest {
     public void testAddSolarArea() {
         int before = model.getSolarArea();
         int expBef = UserProfile.getInstance().getExperience()
-                + (int) (10 * Math.pow(2,(UserProfile.getInstance().getLevel() - 1)));
+                + (int) (10 * (Math.pow(2,(UserProfile.getInstance().getLevel()))-1));
         model.addSolarArea(2);
         int after = model.getSolarArea();
         int expAft = UserProfile.getInstance().getExperience()
-                + (int) (10 * Math.pow(2,(UserProfile.getInstance().getLevel() - 1)));
+                + (int) (10 * (Math.pow(2,(UserProfile.getInstance().getLevel()))-1));
         assertEquals(2,after - before);
         assertEquals(20, expAft - expBef);
     }
@@ -78,11 +78,11 @@ public class EnergyModelTest {
         model.lowerTemperature(21);
         double before = model.getHomeTemperature();
         int expBef = UserProfile.getInstance().getExperience()
-                + (int) (10 * Math.pow(2,(UserProfile.getInstance().getLevel() - 1)));
+                + (int) (10 * (Math.pow(2,(UserProfile.getInstance().getLevel()))-1));
         model.lowerTemperature(18);
         double after = model.getHomeTemperature();
         int expAft = UserProfile.getInstance().getExperience()
-                + (int) (10 * Math.pow(2,(UserProfile.getInstance().getLevel() - 1)));
+                + (int) (10 * (Math.pow(2,(UserProfile.getInstance().getLevel()))-1));
         assertEquals(3,before - after,0.0);
         assertEquals(0, expAft - expBef);
     }
