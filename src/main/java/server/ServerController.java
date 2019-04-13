@@ -283,7 +283,7 @@ public class ServerController {
     public SolarResponse increaseArea(@RequestBody SolarRequest solarRequest)
             throws InterruptedException {
         int exp  = DatabaseHandler.increaseExpBy(solarRequest.getUid(),
-                solarRequest.getAddArea() * 2);
+                solarRequest.getAddArea() * 10);
         int area = DatabaseHandler.increaseFeatureCounter(solarRequest.getUid(),
                 "solararea", solarRequest.getAddArea());
         return new SolarResponse(exp, area);

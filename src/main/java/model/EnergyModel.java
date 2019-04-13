@@ -19,7 +19,7 @@ public class EnergyModel {
 
         if (UserProfile.getInstance().authToken.isEmpty()) {
             solarArea = 0;
-            homeTemperature = 0;
+            homeTemperature = 21;
             return;
         }
 
