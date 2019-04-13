@@ -11,8 +11,8 @@ public class FractalTreeResponse {
     private double solarareaCO2;
     private double temperatureCO2;
 
-    public FractalTreeResponse(){
-        
+    public FractalTreeResponse() {
+
     }
 
     /**
