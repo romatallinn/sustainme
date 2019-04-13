@@ -26,9 +26,9 @@ public class TransportControllerTest {
 
     @Before
     public void setup() throws Exception {
-        TransportModel model = Mockito.mock(TransportModel.class);
-        PowerMockito.whenNew(TransportModel.class).withAnyArguments().thenReturn(model);
-        Mockito.doNothing().when(model).addDistanceCycled(Mockito.anyInt());
+//        TransportModel model = Mockito.mock(TransportModel.class);
+//        PowerMockito.whenNew(TransportModel.class).withAnyArguments().thenReturn(model);
+//        Mockito.doNothing().when(model).addDistanceCycled(Mockito.anyInt());
         controller = new TransportController(view);
     }
 
@@ -42,25 +42,25 @@ public class TransportControllerTest {
     @Test
     public void testBikeFailureParse() {
         controller.addBikeKms("fff");
-        Mockito.verify(view).displayStatusBike(Mockito.anyString());
+        Mockito.verify(view).displayStatusBike("Please enter an integer number.");
     }
 
     @Test
     public void testBikeFailureRange() {
         controller.addBikeKms("10000");
-        Mockito.verify(view).displayStatusBike(Mockito.anyString());
+        Mockito.verify(view).displayStatusBike("Please enter a number in the range 0-200km.");
     }
 
     @Test
     public void testBikeFailureRangeBelow() {
         controller.addBikeKms("-1");
-        Mockito.verify(view).displayStatusBike(Mockito.anyString());
+        Mockito.verify(view).displayStatusBike("Please enter a number in the range 0-200km.");
     }
 
     @Test
     public void testBikeSuccess() {
         controller.addBikeKms("1");
-        Mockito.verify(view).displayStatusBike(Mockito.anyString());
+        Mockito.verify(view).displayStatusBike("The stat of the cycled distance is updated!");
         Mockito.verify(view).updateBikeDistance(Mockito.anyInt());
         Mockito.verify(view).updatePublicDistance(Mockito.anyInt());
     }
@@ -68,25 +68,25 @@ public class TransportControllerTest {
     @Test
     public void testTrainFailureParse() {
         controller.addTrainKms("fff");
-        Mockito.verify(view).displayStatusPublic(Mockito.anyString());
+        Mockito.verify(view).displayStatusPublic("Please enter an integer number.");
     }
 
     @Test
     public void testTrainFailureRange() {
         controller.addTrainKms("10000");
-        Mockito.verify(view).displayStatusPublic(Mockito.anyString());
+        Mockito.verify(view).displayStatusPublic("Please enter a number in the range 0-1000km.");
     }
 
     @Test
     public void testTrainFailureRangeBelow() {
         controller.addTrainKms("-1");
-        Mockito.verify(view).displayStatusPublic(Mockito.anyString());
+        Mockito.verify(view).displayStatusPublic("Please enter a number in the range 0-1000km.");
     }
 
     @Test
     public void testTrainSuccess() {
         controller.addTrainKms("1");
-        Mockito.verify(view).displayStatusPublic(Mockito.anyString());
+        Mockito.verify(view).displayStatusPublic("The stat of the distance traveled by train is updated!");
         Mockito.verify(view).updateBikeDistance(Mockito.anyInt());
         Mockito.verify(view).updatePublicDistance(Mockito.anyInt());
     }
@@ -94,25 +94,25 @@ public class TransportControllerTest {
     @Test
     public void testBusFailureParse() {
         controller.addBusKms("fff");
-        Mockito.verify(view).displayStatusPublic(Mockito.anyString());
+        Mockito.verify(view).displayStatusPublic("Please enter an integer number.");
     }
 
     @Test
     public void testBusFailureRange() {
         controller.addBusKms("10000");
-        Mockito.verify(view).displayStatusPublic(Mockito.anyString());
+        Mockito.verify(view).displayStatusPublic("Please enter a number in the range 0-500km.");
     }
 
     @Test
     public void testBusFailureRangeBelow() {
         controller.addBusKms("-1");
-        Mockito.verify(view).displayStatusPublic(Mockito.anyString());
+        Mockito.verify(view).displayStatusPublic("Please enter a number in the range 0-500km.");
     }
 
     @Test
     public void testBusSuccess() {
         controller.addBusKms("1");
-        Mockito.verify(view).displayStatusPublic(Mockito.anyString());
+        Mockito.verify(view).displayStatusPublic("The stat of the distance traveled by bus is updated!");
         Mockito.verify(view).updateBikeDistance(Mockito.anyInt());
         Mockito.verify(view).updatePublicDistance(Mockito.anyInt());
     }

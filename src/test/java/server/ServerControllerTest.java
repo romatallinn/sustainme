@@ -78,7 +78,6 @@ public class ServerControllerTest {
 
     @Test
     public void useBikeTest() throws Exception {
-        TimeUnit.SECONDS.sleep(5);
         UserData before = serve.retrieve_user_data("dynamicTestUser");
         int featBef = DatabaseHandler.retrieveFeatureCounter("dynamicTestUser","bike");
         BikeRequest bikeRequest = new BikeRequest("dynamicTestUser", 20);
@@ -91,7 +90,6 @@ public class ServerControllerTest {
 
     @Test
     public void usePublicTransportTestBus() throws Exception {
-        TimeUnit.SECONDS.sleep(5);
         UserData before = serve.retrieve_user_data("dynamicTestUser");
         int featBef = DatabaseHandler.retrieveFeatureCounter("dynamicTestUser","public");
         PublicTransportRequest ptr = new PublicTransportRequest("dynamicTestUser",20,true);
