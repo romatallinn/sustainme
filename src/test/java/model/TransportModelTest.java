@@ -63,8 +63,7 @@ public class TransportModelTest {
     }
 
     @Test
-    public void testAddTrainDistanceTraveled() throws InterruptedException {
-        TimeUnit.SECONDS.sleep(5);
+    public void testAddTrainDistanceTraveled() {
         int before = model.getPublicDistance();
         int expBef = UserProfile.getInstance().getExperience()
                 + (int) (10 * Math.pow(2,(UserProfile.getInstance().getLevel() - 1)));
@@ -85,8 +84,7 @@ public class TransportModelTest {
     }
 
     @Test
-    public void testAddBusDistanceTraveled() throws InterruptedException {
-        TimeUnit.SECONDS.sleep(5);
+    public void testAddBusDistanceTraveled() {
         int before = model.getPublicDistance();
         int expBef = UserProfile.getInstance().getExperience()
                 + (int) (10 * Math.pow(2,(UserProfile.getInstance().getLevel() - 1)));
