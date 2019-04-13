@@ -60,10 +60,12 @@
                                 <TextField fx:id="solarArea" maxHeight="1.7976931348623157E308" promptText="Area (in m&#0178;):" HBox.hgrow="NEVER" />
                                 <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                                     <children>
+                                        <Region prefHeight="200.0" prefWidth="200.0" />
                                         <Button fx:id="add" onAction="#addSolarArea" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Add" VBox.vgrow="ALWAYS">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor></Button>
+                                        <Region prefHeight="200.0" prefWidth="200.0" />
                                     </children>
                                 </VBox>
                             </children>
@@ -89,10 +91,16 @@
                     <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                         <children>
                             <TextField fx:id="temperature" maxHeight="1.7976931348623157E308" promptText="Temperature (in &#8451;):" HBox.hgrow="NEVER" />
-                            <Button fx:id="update" onAction="#changeTemperature" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Update" VBox.vgrow="ALWAYS">
-                                <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                </cursor></Button>
+                            <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                                <children>
+                                    <Region prefHeight="200.0" prefWidth="200.0" />
+                                    <Button onAction="#changeTemperature" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Update" VBox.vgrow="ALWAYS">
+                                        <cursor>
+                                            <Cursor fx:constant="HAND" />
+                                        </cursor></Button>
+                                    <Region prefHeight="200.0" prefWidth="200.0" />
+                                </children>
+                            </VBox>
                         </children>
                     </HBox>
                     <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />

@@ -82,6 +82,10 @@
     -fx-font-weight: bold;
 }
 
+.button:hover {
+    -fx-background-color: #0b7dda;
+}
+
 .primaryText {
     -fx-fill: #212121;
     -fx-font-size: 20;
