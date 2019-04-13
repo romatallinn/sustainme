@@ -172,7 +172,6 @@ public class TransportModel {
         if (badgeBike) {
             return;
         } else if (bikeDistance >= 100) {
-            System.out.println("jaja");
             new BadgeModel().updateBadge("distanceByBikeBadge");
             try {
                 new WindowsNotifications().notification(
