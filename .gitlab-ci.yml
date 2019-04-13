@@ -8,12 +8,12 @@ stages:
 build:
   stage: compile
   script:
-    - mvn compiler:compile
+    - mvn --batch-mode compiler:compile
 
 test:
   stage: test
   script:
-    - mvn test -Dcheckstyle.skip
+    - mvn test --batch-mode -Dcheckstyle.skip
   after_script:
     - mvn jacoco:report
     - cat target/site/jacoco/index.html
@@ -22,5 +22,5 @@ test:
 checkstyle:
   stage: checkstyle
   script:
-    - mvn checkstyle:check
+    - mvn --batch-mode checkstyle:check
   allow_failure: true
