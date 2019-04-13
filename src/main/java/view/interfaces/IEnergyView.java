@@ -6,7 +6,9 @@ public interface IEnergyView {
 
     void initView(EnergyController controller);
 
-    void displayStatus(String msg);
+    void displayStatusSolar(String msg);
+
+    void displayStatusTemperature(String msg);
 
     void updateTemperature (double temp);
 

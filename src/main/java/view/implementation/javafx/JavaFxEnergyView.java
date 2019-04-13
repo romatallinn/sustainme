@@ -28,6 +28,12 @@ public class JavaFxEnergyView extends JavaFxView implements IEnergyView {
     @FXML
     private Text currentTemp;
 
+    @FXML
+    private Text statusTemp;
+
+    @FXML
+    private Text statusSol;
+
     @Override
     public void initView(EnergyController controller) {
         this.controller = controller;
@@ -36,6 +42,16 @@ public class JavaFxEnergyView extends JavaFxView implements IEnergyView {
     @Override
     public void updateLabels() {
         controller.updateViewWithData();
+    }
+
+    @Override
+    public void displayStatusSolar(String msg) {
+        statusSol.setText(msg);
+    }
+
+    @Override
+    public void displayStatusTemperature(String msg) {
+        statusTemp.setText(msg);
     }
 
     @FXML
@@ -51,11 +67,6 @@ public class JavaFxEnergyView extends JavaFxView implements IEnergyView {
     @FXML
     private void changeTemperature() {
         controller.changeTemperature(temperature.getText());
-    }
-
-    @Override
-    public void displayStatus(String msg) {
-        System.out.println(msg);
     }
 
     @Override

@@ -87,3 +87,17 @@
     -fx-font-size: 20;
     -fx-font-weight: bold;
 }
+
+#currentArea {
+    -fx-fill: #757575;
+}
+
+#currentTemp {
+    -fx-fill: #757575;
+}
+
+.status {
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-fill: #03A9F4;
+}

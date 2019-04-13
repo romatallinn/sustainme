@@ -39,14 +39,14 @@ public class EnergyController {
         try {
             area = Integer.parseInt(areaString);
             if (area < 0 || area > 100) {
-                view.displayStatus("Please enter a  number in the range 0-100 square meters.");
+                view.displayStatusSolar("Please enter a  number in the range 0-100 square meters.");
                 return;
             }
             model.addSolarArea(area);
-            view.displayStatus("The stat of the solar panels is updated!");
+            view.displayStatusSolar("The stat of the solar panels is updated!");
             updateViewWithData();
         } catch (NumberFormatException e) {
-            view.displayStatus("Please enter an integer number.");
+            view.displayStatusSolar("Please enter an integer number.");
         }
     }
 
@@ -59,14 +59,14 @@ public class EnergyController {
         try {
             temperature = Float.parseFloat(temperatureString);
             if (temperature < 0 || temperature > 40) {
-                view.displayStatus("Please enter the temperature in the range 0-40 degrees Celsius.");
+                view.displayStatusTemperature("Please enter the temperature in the range 0-40 degrees Celsius.");
                 return;
             }
             model.lowerTemperature(temperature);
-            view.displayStatus("The stat of the temperature is updated!");
+            view.displayStatusTemperature("The stat of the temperature is updated!");
             updateViewWithData();
         } catch (NumberFormatException e) {
-            view.displayStatus("Please enter a number.");
+            view.displayStatusTemperature("Please enter a number.");
         }
 
     }
