@@ -5,7 +5,10 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.ExecutionException;
 
 public class DatabaseHandlerTest {
@@ -110,6 +113,26 @@ public class DatabaseHandlerTest {
         Assert.assertEquals(uid, data.uid);
         Assert.assertEquals(fname, data.fname);
         Assert.assertEquals(lname, data.lname);
+
+    }
+
+    @Test
+    public void testUpdateChildren() throws InterruptedException {
+
+        Assert.assertNull(DatabaseHandler.retrieveValueAt("test/updateChildrenTest", boolean.class));
+
+        Map<String, Object> data = new HashMap<>();
+        data.put("updateChildrenTest", true);
+        DatabaseHandler.updateChildren("test", data);
+
+        boolean createResult = DatabaseHandler.retrieveValueAt("test/updateChildrenTest", boolean.class);
+        Assert.assertTrue(createResult);
+
+
+        DatabaseHandler.updateChildren("test/updateChildrenTest", null);
+
+        Assert.assertNull(DatabaseHandler.retrieveValueAt("test/updateChildrenTest", boolean.class));
+
 
     }
 

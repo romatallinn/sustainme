@@ -3,12 +3,15 @@ package supporting;
 import com.google.gson.JsonObject;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.platform.commons.util.StringUtils;
 
 public class FirebaseAuthTest {
 
     private final String uid = "5An25iOCs5bisQ2ORzaaoUD9nNo2";
 
     private final String testEmail = "test@test.com";
+    private final String regEmail = "reg@test.com";
+
     private final String testPass = "123456Aa";
 
     @Test
@@ -39,4 +42,18 @@ public class FirebaseAuthTest {
 
     }
 
+    @Test
+    public void testRegDeleteSuccess() {
+
+        JsonObject response = FirebaseAuth.getInstance().register(regEmail, testPass);
+        String uid = response.get("idToken").getAsString();
+
+        Assert.assertNull(FirebaseAuth.parseError(response));
+
+        response = FirebaseAuth.getInstance().delete(uid);
+
+        response = FirebaseAuth.getInstance().auth(regEmail, testPass);
+        Assert.assertEquals("EMAIL_NOT_FOUND", response.get("error").getAsJsonObject().get("message").getAsString());
+
+    }
 }

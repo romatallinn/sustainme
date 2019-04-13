@@ -20,6 +20,7 @@ public class FirebaseAuth {
     private static final String BASE_URL = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/";
     private static final String OPERATION_SIGNIN = "verifyPassword";
     private static final String OPERATION_SIGNUP = "signupNewUser";
+    private static final String OPERATION_DELETE = "deleteAccount";
 
     private static FirebaseAuth instance = null;
 
@@ -91,6 +92,10 @@ public class FirebaseAuth {
     }
 
 
+    public JsonObject delete(String uid) {
+        String jsonRequest = String.format("{\"idToken\":\"%s\"}", uid);
+        return httpRequest(OPERATION_DELETE, jsonRequest);
+    }
 
     private JsonObject httpRequest(String operation, String jsonRequest) {
 

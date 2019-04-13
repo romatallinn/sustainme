@@ -305,6 +305,23 @@ public class DatabaseHandler {
     }
 
     /**
+     * Updates children at the given path with the given data.
+     * @param path - path to the children in the database.
+     * @param data - data that should be uploaded instead.
+     */
+    public static void updateChildren(String path, Map<String, Object> data) {
+
+        DatabaseReference ref = db.getReference(path);
+
+        if (data == null) {
+            ref.removeValueAsync();
+            return;
+        }
+
+        ref.updateChildrenAsync(data);
+    }
+
+    /**
      * Retrieve value at the specific reference from the database.
      * @param ref - reference to the value.
      * @param retClass - the class that the value represents.
@@ -317,6 +334,22 @@ public class DatabaseHandler {
 
         DataSnapshot snapshot = retrieveDataSnapshotAt(ref);
         return snapshot.getValue(retClass);
+
+    }
+
+    /**
+     * Retrieve value at the specific reference from the database using the string path.
+     * @param path - path to the value.
+     * @param retClass - the class that the value represents.
+     * @param <T> - the class that the value represents.
+     * @return the value of the given type from the given reference.
+     * @throws InterruptedException - exception.
+     */
+    public static <T> T retrieveValueAt(String path, Class<T> retClass)
+            throws InterruptedException {
+
+        DatabaseReference ref = db.getReference(path);
+        return retrieveValueAt(ref, retClass);
 
     }
 
