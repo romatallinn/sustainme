@@ -38,49 +38,49 @@ public class FoodControllerTest {
     @Test
     public void testVegMealsAddFailureParse() {
         controller.addEatenVegMeals("fff");
-        Mockito.verify(view).displayStatusVegetarian(Mockito.anyString());
+        Mockito.verify(view).displayStatusVegetarian("Please enter an integer number.");
     }
 
     @Test
     public void testVegMealsAddFailureRange() {
         controller.addEatenVegMeals("10000");
-        Mockito.verify(view).displayStatusVegetarian(Mockito.anyString());
+        Mockito.verify(view).displayStatusVegetarian("Please enter a  number in the range 0-3 meals.");
     }
 
     @Test
     public void testVegMealsAddFailureRangeBelow() {
         controller.addEatenVegMeals("-1");
-        Mockito.verify(view).displayStatus(Mockito.anyString());
+        Mockito.verify(view).displayStatusVegetarian("Please enter a  number in the range 0-3 meals.");
     }
 
     @Test
     public void testVegMealsAddSuccess() {
         controller.addEatenVegMeals("1");
-        Mockito.verify(view).displayStatusVegetarian(Mockito.anyString());
+        Mockito.verify(view).displayStatusVegetarian("The stat of the vegetarian meals is updated!");
     }
 
     @Test
     public void testLocalProduceAddFailureParse() {
         controller.addEatenLocalProduce("fff");
-        Mockito.verify(view).displayStatusLocal(Mockito.anyString());
+        Mockito.verify(view).displayStatusLocal("Please enter a number.");
     }
 
     @Test
     public void testLocalProduceAddFailureRange() {
         controller.addEatenLocalProduce("10000");
-        Mockito.verify(view).displayStatusLocal(Mockito.anyString());
+        Mockito.verify(view).displayStatusLocal("Please enter the weight in the range 0-10kg.");
     }
 
     @Test
     public void testLocalProduceAddFailureRangeBelow() {
         controller.addEatenLocalProduce("-1");
-        Mockito.verify(view).displayStatus(Mockito.anyString());
+        Mockito.verify(view).displayStatusLocal("Please enter the weight in the range 0-10kg.");
     }
 
     @Test
     public void testLocalProduceAddSuccess() {
         controller.addEatenLocalProduce("1");
-        Mockito.verify(view).displayStatusLocal(Mockito.anyString());
+        Mockito.verify(view).displayStatusLocal("The stat of the local produce is updated!");
     }
 
 }
