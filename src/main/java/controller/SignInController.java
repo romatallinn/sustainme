@@ -39,10 +39,6 @@ public class SignInController {
             }
 
             String token = jsonObj.get("idToken").getAsString();
-            if (token.isEmpty()) {
-                view.displayStatus("Could not sign in for unknown reason!");
-                return;
-            }
 
             String uid = jsonObj.get("localId").getAsString();
 
@@ -62,11 +58,14 @@ public class SignInController {
      */
     private String getErrorMessage(String error) {
 
-        String res = "";
+        String res;
+
+        if (error.equals("EMAIL_NOT_FOUND")) {
+            error = "Invalid email address";
+        }
 
         switch (error) {
 
-            case "EMAIL_NOT_FOUND":
             case "INVALID_EMAIL":
                 res = "Invalid email address";
                 break;

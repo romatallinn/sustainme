@@ -57,7 +57,7 @@ public class SignUpControllerTest {
     @Test
     public void testSignUpCallbackMissingEmail() {
         controller.signUpCallback("", "123456Aa", "123456Aa", "John", "Smith");
-        verify(view).displayStatus("MISSING_EMAIL");
+        verify(view).displayStatus("Email missing from input field");
     }
 
     @Test
