@@ -12,9 +12,12 @@ public class EnergyModel {
     private double homeTemperature = -1;
 
 
+    /**
+     * Initializes the energy features of the user profile.
+     */
     public void init() {
 
-        if(UserProfile.getInstance().authToken.isEmpty()) {
+        if (UserProfile.getInstance().authToken.isEmpty()) {
             solarArea = 0;
             homeTemperature = 0;
             return;
@@ -36,6 +39,10 @@ public class EnergyModel {
         return solarArea;
     }
 
+    /**
+     * Returns the current temperature in the house.
+     * @return the current temperature.
+     */
     public double getHomeTemperature() {
         if (homeTemperature < 0) {
             this.init();
@@ -44,7 +51,10 @@ public class EnergyModel {
         return homeTemperature;
     }
 
-
+    /**
+     * Invokes request to server, notifying it about the action of adding solar panels.
+     * @param area - The area of solar panels added
+     */
     public void addSolarArea(int area) {
 
         if (UserProfile.getInstance().authToken.isEmpty()) {
@@ -64,6 +74,10 @@ public class EnergyModel {
         solarArea = result.getArea();
     }
 
+    /**
+     * Invokes request to server, notifying it about the action of updating the temperature.
+     * @param temp - the new temperature
+     */
     public void lowerTemperature(double temp) {
 
         if (UserProfile.getInstance().authToken.isEmpty()) {
@@ -73,7 +87,8 @@ public class EnergyModel {
 
         final String uri = ServerApi.HOST + ServerApi.HOUSE_TEMPERATURE;
 
-        TemperatureRequest tempRequest = new TemperatureRequest(UserProfile.getInstance().getUid(), temp);
+        TemperatureRequest tempRequest =
+                new TemperatureRequest(UserProfile.getInstance().getUid(), temp);
 
         RestTemplate restTemplate = new RestTemplate();
         double result = restTemplate.postForObject(uri, tempRequest, Double.class);

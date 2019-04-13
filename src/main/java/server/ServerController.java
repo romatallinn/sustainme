@@ -47,14 +47,14 @@ public class ServerController {
     public UserData retrieve_user_data(@RequestBody String uid) throws InterruptedException {
         int update = DatabaseHandler.updateTime(uid);
         DatabaseHandler.increaseExpBy(uid,
-                (int) Math.round((0.782644*0.355*update)/0.15)
+                (int) Math.round((0.782644 * 0.355 * update) / 0.15)
                         * DatabaseHandler.retrieveFeatureCounter(uid, "solararea"));
         DatabaseHandler.increaseExpBy(uid,
-                (int) Math.round(((0.308*update)/0.15)
+                (int) Math.round(((0.308 * update) / 0.15)
                         * (21 - DatabaseHandler.retrieveDoubleFeatureCounter(uid, "temperature"))));
-        DatabaseHandler.increaseCO2RedBy(uid,0.782644*0.355*update
+        DatabaseHandler.increaseCO2RedBy(uid,0.782644 * 0.355 * update
                 * DatabaseHandler.retrieveFeatureCounter(uid, "solararea"));
-        DatabaseHandler.increaseCO2RedBy(uid,0.308*update
+        DatabaseHandler.increaseCO2RedBy(uid,0.308 * update
                 * (21 - DatabaseHandler.retrieveDoubleFeatureCounter(uid, "temperature")));
         UserData user = DatabaseHandler.getUserData(uid);
         return user;
@@ -247,19 +247,37 @@ public class ServerController {
         return new PaperRecyclingResponse(exp, co2, amount);
     }
 
-
+    /**
+     * Receives request for adding solar panel area.
+     * Sends request to database handler to update solar panel area.
+     *
+     * @param solarRequest the request that was sent by the client
+     * @return new experience and new area
+     * @throws InterruptedException - database exception
+     */
     @RequestMapping(value = "/solarpanel", method = RequestMethod.POST)
-    public SolarResponse increaseArea(@RequestBody SolarRequest solarRequest) throws InterruptedException {
-        int exp  = DatabaseHandler.increaseExpBy(solarRequest.getUid(), solarRequest.getAddArea()*2);
+    public SolarResponse increaseArea(@RequestBody SolarRequest solarRequest)
+            throws InterruptedException {
+        int exp  = DatabaseHandler.increaseExpBy(solarRequest.getUid(),
+                solarRequest.getAddArea() * 2);
         int area = DatabaseHandler.increaseFeatureCounter(solarRequest.getUid(),
                 "solararea", solarRequest.getAddArea());
         return new SolarResponse(exp, area);
     }
 
-
+    /**
+     * Receives request for updating the temperature.
+     * Sends request to database handler to update solar panel area.
+     *
+     * @param tempRequest the request that was sent by the client
+     * @return new temperature
+     * @throws InterruptedException - database exception
+     */
     @RequestMapping(value = "/temperature", method = RequestMethod.POST)
-    public double lowerTemperature(@RequestBody TemperatureRequest tempRequest) throws InterruptedException {
-        double currentTemp = DatabaseHandler.setTemperature(tempRequest.getUid(),tempRequest.getTemperature());
+    public double lowerTemperature(@RequestBody TemperatureRequest tempRequest)
+            throws InterruptedException {
+        double currentTemp = DatabaseHandler.setTemperature(tempRequest.getUid(),
+                tempRequest.getTemperature());
 
         return currentTemp;
     }

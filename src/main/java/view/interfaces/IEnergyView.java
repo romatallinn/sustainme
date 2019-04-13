@@ -10,7 +10,7 @@ public interface IEnergyView {
 
     void displayStatusTemperature(String msg);
 
-    void updateTemperature (double temp);
+    void updateTemperature(double temp);
 
-    void updateSolarArea (int area);
+    void updateSolarArea(int area);
 }
