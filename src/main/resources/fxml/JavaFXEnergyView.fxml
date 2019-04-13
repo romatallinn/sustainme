@@ -68,7 +68,7 @@
                             </children>
                         </HBox>
                         <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Total area of solar panels:" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Total area of solar panels (in m&#0178;):" />
                         <Text fx:id="currentArea" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="21 m&#0178;" />
                         <Region layoutX="10.0" layoutY="82.0" prefHeight="200.0" prefWidth="200.0" />
                     </children>
@@ -95,7 +95,7 @@
                         </children>
                     </HBox>
                     <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-                    <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Current Temperature:" />
+                    <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="primaryText" text="Current Temperature (in &#8451;):" />
                     <Text fx:id="currentTemp" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="21 &#8451;" />
                     <Region layoutX="10.0" layoutY="82.0" prefHeight="200.0" prefWidth="200.0" />
                     <HBox.margin>

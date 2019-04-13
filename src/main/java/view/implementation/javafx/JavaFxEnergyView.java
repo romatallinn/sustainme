@@ -33,6 +33,11 @@ public class JavaFxEnergyView extends JavaFxView implements IEnergyView {
         this.controller = controller;
     }
 
+    @Override
+    public void updateLabels() {
+        controller.updateViewWithData();
+    }
+
     @FXML
     private void goToHome() throws IOException {
         switchScene(homeBtn.getScene(), "home");
@@ -60,6 +65,6 @@ public class JavaFxEnergyView extends JavaFxView implements IEnergyView {
 
     @Override
     public void updateSolarArea(int area) {
-        currentArea.setText(Double.toString(area));
+        currentArea.setText(Integer.toString(area));
     }
 }
