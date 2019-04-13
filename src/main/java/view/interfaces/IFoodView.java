@@ -6,10 +6,12 @@ public interface IFoodView {
 
     void initView(FoodController controller);
 
-    void displayStatus(String msg);
+    void displayStatusVegetarian(String msg);
+
+    void displayStatusLocal(String msg);
 
     void updateVegCounter(int counter);
 
-    void updateLocalProduceCounter(float kg);
+    void updateLocalProduceCounter(double kg);
 
 }

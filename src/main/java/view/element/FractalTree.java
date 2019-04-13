@@ -23,20 +23,20 @@ public class FractalTree {
     private static final double blendSpeed = 0.15;
     private static final Color startColor = Color.BROWN;
 
-    private int[] scores;
+    private double[] scores;
     private String seed;
     private Color[] colors;
 
     public FractalTree(String seed) {
-        this(seed, new int[] {}, new Color[] {});
+        this(seed, new double[] {}, new Color[] {});
     }
 
-    public FractalTree(String seed, int[] scores, Color[] colors) {
+    public FractalTree(String seed, double [] scores, Color[] colors) {
         setScores(scores, colors);
         this.seed = seed;
     }
 
-    public int[] getScores() {
+    public double[] getScores() {
         return scores;
     }
 
@@ -45,7 +45,7 @@ public class FractalTree {
      * @param scores - sets depth of the tree with the scores
      * @param colors - gives every category a specified color
      */
-    public void setScores(int[] scores, Color[] colors) {
+    public void setScores(double[] scores, Color[] colors) {
         if (scores.length > colors.length) {
             throw new IllegalArgumentException("FractalTree colors cannot be smaller than scores");
         }
@@ -92,7 +92,7 @@ public class FractalTree {
         GraphicsContext gc,
         Point3D vec,
         double length,
-        int[] scores,
+        double[] scores,
         Color color,
         Color[] colors,
         long randomSeed,
@@ -117,9 +117,9 @@ public class FractalTree {
         double nextLength = length * lengthFactor;
 
         // Split scores into two sets
-        int[] scoresLeft;
+        double[] scoresLeft;
         Color[] colorsLeft;
-        int[] scoresRight;
+        double[] scoresRight;
         Color[] colorsRight;
 
         if (scores.length > 1) {
@@ -128,9 +128,9 @@ public class FractalTree {
             scoresRight = copyOfRange(scores, scores.length / 2, scores.length);
             colorsRight = copyOfRange(colors, scores.length / 2, scores.length);
         } else {
-            scoresLeft = new int[] {(scores[0] - 1) / 2};
+            scoresLeft = new double[] {(scores[0] - 1) / 2};
             colorsLeft = new Color[] {colors[0]};
-            scoresRight = new int[] {(scores[0] - 1) / 2};
+            scoresRight = new double[] {(scores[0] - 1) / 2};
             colorsRight = new Color[] {colors[0]};
         }
 

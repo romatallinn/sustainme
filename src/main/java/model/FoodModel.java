@@ -6,11 +6,18 @@ import model.objects.VegetarianRequest;
 import model.objects.VegetarianResponse;
 import org.springframework.web.client.RestTemplate;
 import supporting.ServerApi;
+import view.element.WindowsNotifications;
+
+import java.awt.AWTException;
+import java.net.MalformedURLException;
 
 public class FoodModel {
 
+    public Boolean badgeVeggie = false;
     private int vegMealsCount = -1;
-    private float localProduceCount = -1;
+    private double localProduceCount = -1;
+
+
 
 
     /**
@@ -24,9 +31,9 @@ public class FoodModel {
             return;
         }
 
+        badgeVeggie = new BadgeModel().receiveBadge("vegetarianMealBadge");
         addEatenVegMeal(0);
         addEatenLocalProduce(0);
-
     }
 
     /**
@@ -46,7 +53,7 @@ public class FoodModel {
      * Returns the total amount of local produce bought.
      * @return the amount of local produce bought.
      */
-    public float getLocalProduceCount() {
+    public double getLocalProduceCount() {
 
         if (localProduceCount < 0) {
             this.init();
@@ -82,6 +89,8 @@ public class FoodModel {
 
         vegMealsCount = result.getAmount();
 
+        checkBadges();
+
     }
 
     /**
@@ -111,5 +120,29 @@ public class FoodModel {
 
     }
 
+    /**
+     * Checks if the badge is visible otherwise it makes the badge visible and initiates
+     * a notification.
+     */
+    public void checkBadges() {
+        if (badgeVeggie) {
+            return;
+        } else if (vegMealsCount >= 10) {
+
+            new BadgeModel().updateBadge("vegetarianMealBadge");
+            try {
+                new WindowsNotifications().notification(
+                    "/badges/5.png",
+                    "Congrats! You have eaten 10 vegetarian meals!");
+            } catch (AWTException e) {
+                e.printStackTrace();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+
+    }
 
 }

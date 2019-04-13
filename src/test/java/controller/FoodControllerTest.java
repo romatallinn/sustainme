@@ -31,20 +31,20 @@ public class FoodControllerTest {
     @Test
     public void testUpdate() {
         controller.updateViewWithData();
-        Mockito.verify(view).updateLocalProduceCounter(Mockito.anyFloat());
+        Mockito.verify(view).updateLocalProduceCounter(Mockito.anyDouble());
         Mockito.verify(view).updateVegCounter(Mockito.anyInt());
     }
 
     @Test
     public void testVegMealsAddFailureParse() {
         controller.addEatenVegMeals("fff");
-        Mockito.verify(view).displayStatus(Mockito.anyString());
+        Mockito.verify(view).displayStatusVegetarian(Mockito.anyString());
     }
 
     @Test
     public void testVegMealsAddFailureRange() {
         controller.addEatenVegMeals("10000");
-        Mockito.verify(view).displayStatus(Mockito.anyString());
+        Mockito.verify(view).displayStatusVegetarian(Mockito.anyString());
     }
 
     @Test
@@ -56,19 +56,19 @@ public class FoodControllerTest {
     @Test
     public void testVegMealsAddSuccess() {
         controller.addEatenVegMeals("1");
-        Mockito.verify(view).displayStatus(Mockito.anyString());
+        Mockito.verify(view).displayStatusVegetarian(Mockito.anyString());
     }
 
     @Test
     public void testLocalProduceAddFailureParse() {
         controller.addEatenLocalProduce("fff");
-        Mockito.verify(view).displayStatus(Mockito.anyString());
+        Mockito.verify(view).displayStatusLocal(Mockito.anyString());
     }
 
     @Test
     public void testLocalProduceAddFailureRange() {
         controller.addEatenLocalProduce("10000");
-        Mockito.verify(view).displayStatus(Mockito.anyString());
+        Mockito.verify(view).displayStatusLocal(Mockito.anyString());
     }
 
     @Test
@@ -80,7 +80,7 @@ public class FoodControllerTest {
     @Test
     public void testLocalProduceAddSuccess() {
         controller.addEatenLocalProduce("1");
-        Mockito.verify(view).displayStatus(Mockito.anyString());
+        Mockito.verify(view).displayStatusLocal(Mockito.anyString());
     }
 
 }

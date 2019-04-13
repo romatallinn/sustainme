@@ -42,13 +42,13 @@ public class TransportControllerTest {
     @Test
     public void testBikeFailureParse() {
         controller.addBikeKms("fff");
-        Mockito.verify(view).displayStatus(Mockito.anyString());
+        Mockito.verify(view).displayStatusBike(Mockito.anyString());
     }
 
     @Test
     public void testBikeFailureRange() {
         controller.addBikeKms("10000");
-        Mockito.verify(view).displayStatus(Mockito.anyString());
+        Mockito.verify(view).displayStatusBike(Mockito.anyString());
     }
 
     @Test
@@ -68,13 +68,13 @@ public class TransportControllerTest {
     @Test
     public void testTrainFailureParse() {
         controller.addTrainKms("fff");
-        Mockito.verify(view).displayStatus(Mockito.anyString());
+        Mockito.verify(view).displayStatusPublic(Mockito.anyString());
     }
 
     @Test
     public void testTrainFailureRange() {
         controller.addTrainKms("10000");
-        Mockito.verify(view).displayStatus(Mockito.anyString());
+        Mockito.verify(view).displayStatusPublic(Mockito.anyString());
     }
 
     @Test
@@ -94,13 +94,13 @@ public class TransportControllerTest {
     @Test
     public void testBusFailureParse() {
         controller.addBusKms("fff");
-        Mockito.verify(view).displayStatus(Mockito.anyString());
+        Mockito.verify(view).displayStatusPublic(Mockito.anyString());
     }
 
     @Test
     public void testBusFailureRange() {
         controller.addBusKms("10000");
-        Mockito.verify(view).displayStatus(Mockito.anyString());
+        Mockito.verify(view).displayStatusPublic(Mockito.anyString());
     }
 
     @Test

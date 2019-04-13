@@ -48,6 +48,14 @@
     -fx-border-style: none;
 }
 
+#homeBtn:hover {
+    -fx-opacity: 0.8;
+}
+
+#updateFriends:hover {
+    -fx-background-color: #0b7dda;
+}
+
 #locationtab {
     -fx-fill: #C8E6C9;
     -fx-font-size: 20;
@@ -89,4 +97,17 @@
     -fx-border-radius: 50;
     -fx-background-radius: 50;
     -fx-font-weight: bold;
+}
+
+#statusMsg {
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-fill: #03A9F4;
+}
+
+#counterStatus {
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-fill: #03A9F4;
+    -fx-opacity: 0.0;
 }

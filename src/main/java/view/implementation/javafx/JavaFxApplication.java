@@ -1,11 +1,12 @@
 package view.implementation.javafx;
 
-
+import controller.BadgesController;
+import controller.EnergyController;
 import controller.FoodController;
 import controller.FriendsComparisonController;
 import controller.FriendsController;
 import controller.HomescreenController;
-import controller.PaperRecyclingController;
+import controller.RecyclingController;
 import controller.SignInController;
 import controller.SignUpController;
 import controller.TransportController;
@@ -15,11 +16,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import view.interfaces.IBadgesView;
+import view.interfaces.IEnergyView;
 import view.interfaces.IFoodView;
 import view.interfaces.IFriendView;
 import view.interfaces.IFriendsComparisonView;
 import view.interfaces.IHomeView;
-import view.interfaces.IPaperRecyclingView;
+import view.interfaces.IRecyclingView;
 import view.interfaces.ISignInView;
 import view.interfaces.ISignUpView;
 import view.interfaces.ITransportView;
@@ -127,14 +130,14 @@ public class JavaFxApplication extends Application {
 
         //-----
 
-        //    IEnergyView energyView = new JavaFxEnergyView();
-        //    EnergyController energyController = new EnergyController(energyView);
-        //    energyView.initView(energyController);
-        //
-        //    dummy = new SceneFx<IEnergyView>("SustainMe - Energy", "/fxml/JavaFXEnergyView.fxml",
-        //            "/css/EnergyView.css");
-        //    dummy.setView(energyView);
-        //    scenes.put("energy", dummy);
+        IEnergyView energyView = new JavaFxEnergyView();
+        EnergyController energyController = new EnergyController(energyView);
+        energyView.initView(energyController);
+
+        dummy = new SceneFx<IEnergyView>("SustainMe - Energy", "/fxml/JavaFXEnergyView.fxml",
+                 "/css/EnergyView.css");
+        dummy.setView(energyView);
+        scenes.put("energy", dummy);
 
         //-----
 
@@ -142,24 +145,24 @@ public class JavaFxApplication extends Application {
         FriendsController friendsController = new FriendsController(friendsView);
         friendsView.initView(friendsController);
 
-        dummy = new SceneFx<IFriendView>("SustainMe", "/fxml/JavaFXFriendsView.fxml",
+        dummy = new SceneFx<IFriendView>("SustainMe - Friends", "/fxml/JavaFXFriendsView.fxml",
             "/css/FriendsView.css");
         dummy.setView(friendsView);
         scenes.put("friends", dummy);
 
         //-----
 
-        IPaperRecyclingView paperRecyclingView = new JavaFxPaperRecyclingView();
-        PaperRecyclingController paperRecyclingController =
-            new PaperRecyclingController(paperRecyclingView);
-        paperRecyclingView.initView(paperRecyclingController);
+        IRecyclingView paperRecyclingView = new JavaFxRecyclingView();
+        RecyclingController recyclingController =
+            new RecyclingController(paperRecyclingView);
+        paperRecyclingView.initView(recyclingController);
 
-        dummy = new SceneFx<IPaperRecyclingView>(
-            "SustainMe - Recycled Paper",
-            "/fxml/JavaFXPaperRecyclingView.fxml",
-            "/css/FoodView.css");
+        dummy = new SceneFx<IRecyclingView>(
+            "SustainMe - Recycling",
+                "/fxml/JavaFXRecyclingView.fxml",
+            "/css/RecyclingView.css");
         dummy.setView(paperRecyclingView);
-        scenes.put("paperrecycling", dummy);
+        scenes.put("recycling", dummy);
 
         //----
 
@@ -171,12 +174,34 @@ public class JavaFxApplication extends Application {
 
         friendsCompareView.initView(friendController);
 
-        dummy = new SceneFx<IFriendsComparisonView>("SustainMe",
+        dummy = new SceneFx<IFriendsComparisonView>("SustainMe - Friends",
             "/fxml/JavaFXFriendsComparisonView.fxml",
             "/css/FriendsComparisonView.css");
 
         dummy.setView(friendsCompareView);
         scenes.put("friendsComparison", dummy);
+
+        //-----
+
+        IBadgesView badgesView = new JavaFxBadgesView();
+        BadgesController badgesController = new BadgesController(badgesView);
+        badgesView.initView(badgesController);
+
+        dummy = new SceneFx<IBadgesView>("SustainMe - Badges", "/fxml/JavaFXBadgesView.fxml",
+                "/css/BadgesView.css");
+        dummy.setView(badgesView);
+        scenes.put("badges", dummy);
+
+        //-----
+
+        JavaFxFractalTreeView fractalTreeView = new JavaFxFractalTreeView();
+
+        dummy = new SceneFx<JavaFxFractalTreeView>("SustainMe - Tree",
+                "/fxml/JavaFxFractalTreeView.fxml",
+                "/css/FractalTreeView.css");
+
+        dummy.setView(fractalTreeView);
+        scenes.put("fractalTree", dummy);
 
     }
 

@@ -37,15 +37,15 @@ public class TransportController {
         try {
             distance = Integer.parseInt(distanceString);
             if (distance < 0 || distance > 200) {
-                view.displayStatus("Please enter a number in the range 0-200km.");
+                view.displayStatusBike("Please enter a number in the range 0-200km.");
                 return;
             }
             model.addDistanceCycled(distance);
-            view.displayStatus("The stat of the cycled distance is updated!");
+            view.displayStatusBike("The stat of the cycled distance is updated!");
             view.clearInputFields();
             updateViewWithData();
         } catch (NumberFormatException e) {
-            view.displayStatus("Please enter an integer number.");
+            view.displayStatusBike("Please enter an integer number.");
         }
 
     }
@@ -60,15 +60,15 @@ public class TransportController {
         try {
             distance = Integer.parseInt(distanceString);
             if (distance < 0 || distance > 1000) {
-                view.displayStatus("Please enter a number in the range 0-1000km.");
+                view.displayStatusPublic("Please enter a number in the range 0-1000km.");
                 return;
             }
             model.addTrainDistanceTraveled(distance);
-            view.displayStatus("The stat of the distance traveled by train is updated!");
+            view.displayStatusPublic("The stat of the distance traveled by train is updated!");
             view.clearInputFields();
             updateViewWithData();
         } catch (NumberFormatException e) {
-            view.displayStatus("Please enter an integer number.");
+            view.displayStatusPublic("Please enter an integer number.");
         }
 
     }
@@ -83,15 +83,15 @@ public class TransportController {
         try {
             distance = Integer.parseInt(distanceString);
             if (distance < 0 || distance > 500) {
-                view.displayStatus("Please enter a number in the range 0-500km.");
+                view.displayStatusPublic("Please enter a number in the range 0-500km.");
                 return;
             }
             model.addBusDistanceTraveled(distance);
-            view.displayStatus("The stat of the distance traveled by bus is updated!");
+            view.displayStatusPublic("The stat of the distance traveled by bus is updated!");
             view.clearInputFields();
             updateViewWithData();
         } catch (NumberFormatException e) {
-            view.displayStatus("Please enter an integer number.");
+            view.displayStatusPublic("Please enter an integer number.");
         }
 
     }
