@@ -97,7 +97,7 @@ public class ServerController {
                 DatabaseHandler.retrieveDoubleFeatureCounter(
                         uid, "temperatureCO2");
         return new FractalTreeResponse(bikeCo2, vegmealsCO2, localproduceCO2, publicCO2,
-                paperrecyclingCO2, plasticrecyclingCO2, solarareaCO2, temperatureCO2);
+                plasticrecyclingCO2, paperrecyclingCO2, solarareaCO2, temperatureCO2);
 
     }
 
@@ -344,7 +344,7 @@ public class ServerController {
                 plasticRecyclingRequest.getAmount());
         double plasticrecyclingCO2 =
                 DatabaseHandler.increaseFeatureCounter(plasticRecyclingRequest.getUid(),
-            "plasticrecyclingCO2", plasticRecyclingRequest.getAmount() * 40);
+            "plasticrecyclingCO2", plasticRecyclingRequest.getAmount() * 6.0);
 
         return new PlasticRecyclingResponse(exp, co2, amount);
     }
