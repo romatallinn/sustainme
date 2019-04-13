@@ -39,19 +39,19 @@ public class ApiRequestTest {
 
     @Test
     public void apiRequestTest() throws Exception {
-        String result = ApiRequest.apiRequest("5", "10", "15");
+        String result = new ApiRequest().apiRequest("5", "10", "15");
         assertEquals(result, string);
     }
 
     @Test
     public void requestBikeTest() throws Exception {
-        double result = ApiRequest.requestBike("5");
+        double result = new ApiRequest().requestBike("5");
         assertEquals(result, 2.5, 0.0001);
     }
 
     @Test
     public void requestPublicTransTest() throws Exception {
-        double result = ApiRequest.requestPublicTrans("2", true);
+        double result = new ApiRequest().requestPublicTrans("2", true);
         assertEquals(result, 1.15, 0.0001);
     }
 }

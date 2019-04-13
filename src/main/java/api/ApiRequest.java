@@ -15,7 +15,7 @@ public class ApiRequest {
      * @return co2 reduction.
      * @throws Exception when the connection fails
      */
-    public static String apiRequest(String distance, String bus, String rail) throws Exception {
+    public String apiRequest(String distance, String bus, String rail) throws Exception {
         StringBuilder result = new StringBuilder();
         URL url = new URL("https://apis.berkeley.edu/coolclimate/footprint?"
                 + "input_footprint_transportation_miles2=0&"
@@ -104,8 +104,8 @@ public class ApiRequest {
      * @return co2 reduction of using a bike instead of a car
      * @throws Exception when the connection fails
      */
-    public static double requestBike(String distance) throws Exception {
-        String result = ApiRequest.apiRequest(distance,"0","0");
+    public double requestBike(String distance) throws Exception {
+        String result = apiRequest(distance,"0","0");
         double test = Double.parseDouble(result
                 .split("result_motor_vehicles_direct>")[1].split("<")[0]);
         System.out.println();
@@ -120,12 +120,12 @@ public class ApiRequest {
      * @return Difference between co2 emission by car and either bus or rail.
      * @throws Exception when the connection fails.
      */
-    public static double requestPublicTrans(String distance, boolean type) throws Exception {
+    public double requestPublicTrans(String distance, boolean type) throws Exception {
         String result;
         if (type) {
-            result = ApiRequest.apiRequest(distance,distance,"0");
+            result = apiRequest(distance,distance,"0");
         } else {
-            result = ApiRequest.apiRequest(distance,"0",distance);
+            result = apiRequest(distance,"0",distance);
         }
         double avgCar = Double.parseDouble(result
                 .split("result_motor_vehicles_direct>")[1].split("<")[0]);

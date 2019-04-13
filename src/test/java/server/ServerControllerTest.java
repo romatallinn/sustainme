@@ -1,22 +1,36 @@
 package server;
 
+import api.ApiRequest;
 import model.objects.*;
+import org.junit.runner.RunWith;
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
 import org.springframework.http.ResponseEntity;
 import server.supporting.DatabaseHandler;
 import server.supporting.FirebaseConnection;
 
 import org.junit.*;
 
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.*;
+import static org.mockito.ArgumentMatchers.anyBoolean;
+import static org.mockito.ArgumentMatchers.anyString;
 
 
-
+@RunWith(PowerMockRunner.class)
+@PrepareForTest({ ApiRequest.class})
 public class ServerControllerTest {
 
     @Before
-    public void setup() {
+    public void setup() throws Exception {
+        ApiRequest apiRequest = PowerMockito.mock(ApiRequest.class);
+        PowerMockito.whenNew(ApiRequest.class).withAnyArguments().thenReturn(apiRequest);
+        PowerMockito.when(apiRequest.requestBike(anyString())).thenReturn(10.5);
+        PowerMockito.when(apiRequest.requestPublicTrans(anyString(), anyBoolean())).thenReturn(1.5);
         FirebaseConnection.initApp();
     }
     ServerController serve = new ServerController();
@@ -96,7 +110,7 @@ public class ServerControllerTest {
         serve.usePublicTransport(ptr);
         UserData after = serve.retrieve_user_data("dynamicTestUser");
         int featAft = DatabaseHandler.retrieveFeatureCounter("dynamicTestUser","public");
-        assertEquals(20, after.experience - before.experience);
+        assertEquals(10, after.experience - before.experience);
         assertEquals(20, featAft - featBef);
     }
 
@@ -109,7 +123,7 @@ public class ServerControllerTest {
         serve.usePublicTransport(ptr);
         UserData after = serve.retrieve_user_data("dynamicTestUser");
         int featAft = DatabaseHandler.retrieveFeatureCounter("dynamicTestUser","public");
-        assertEquals(20, after.experience - before.experience);
+        assertEquals(10, after.experience - before.experience);
         assertEquals(20, featAft - featBef);
     }
 
