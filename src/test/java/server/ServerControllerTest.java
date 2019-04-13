@@ -42,8 +42,14 @@ public class ServerControllerTest {
         assertEquals("Static", userData.fname);
         assertEquals("Testuser", userData.lname);
         assertEquals(0, userData.level);
-        assertEquals(34,userData.experience);
-        assertEquals(13,userData.co2red,0.0);
+        assertEquals(74,userData.experience);
+        assertEquals(19,userData.co2red,0.0);
+    }
+
+    @Test
+    public void retrieveTreeDataTest() throws InterruptedException {
+        FractalTreeResponse response = serve.retrieve_tree_data("staticTestUser");
+        Assert.assertEquals(4.0, response.getBikeCo2(), 0.1);
     }
 
     @Test
@@ -66,8 +72,8 @@ public class ServerControllerTest {
         serve.vegetarianMeal(vegetarianRequest);
         int featAft = DatabaseHandler.retrieveFeatureCounter("dynamicTestUser","vegmeals");
         UserData after =  serve.retrieve_user_data("dynamicTestUser");
-        assertEquals(0,after.experience - userData.experience);
-        assertEquals(0,featAft - featBef);
+        assertEquals(-20,after.experience - userData.experience);
+        assertEquals(-1,featAft - featBef);
     }
 
     @Test

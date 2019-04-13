@@ -112,7 +112,7 @@ public class ServerController {
     public VegetarianResponse vegetarianMeal(@RequestBody VegetarianRequest vegetarianRequest)
         throws InterruptedException {
         int upAmount = vegetarianRequest.getAmount();
-        if (upAmount <= 0 || upAmount > 3) {
+        if (upAmount <= -3 || upAmount > 3) {
             upAmount = 0;
         }
         int exp = DatabaseHandler.increaseExpBy(vegetarianRequest.getUid(),

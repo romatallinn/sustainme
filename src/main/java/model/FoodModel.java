@@ -13,7 +13,7 @@ import java.net.MalformedURLException;
 
 public class FoodModel {
 
-    public Boolean badgeVeggie = false;
+    private Boolean badgeVeggie = false;
     private int vegMealsCount = -1;
     private double localProduceCount = -1;
 
@@ -124,9 +124,9 @@ public class FoodModel {
      * Checks if the badge is visible otherwise it makes the badge visible and initiates
      * a notification.
      */
-    public void checkBadges() {
+    public boolean checkBadges() {
         if (badgeVeggie) {
-            return;
+            return true;
         } else if (vegMealsCount >= 10) {
 
             new BadgeModel().updateBadge("vegetarianMealBadge");
@@ -134,15 +134,15 @@ public class FoodModel {
                 new WindowsNotifications().notification(
                     "/badges/5.png",
                     "Congrats! You have eaten 10 vegetarian meals!");
-            } catch (AWTException e) {
-                e.printStackTrace();
-            } catch (MalformedURLException e) {
+            } catch (AWTException | MalformedURLException e) {
                 e.printStackTrace();
             }
 
+            return true;
 
         }
 
+        return false;
     }
 
 }

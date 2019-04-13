@@ -79,5 +79,23 @@ public class FoodModelTest {
         assertEquals(5, expAft - expBef);
     }
 
+    @Test
+    public void testVegMealsBadge() {
+
+        UserProfile.getInstance().clean();
+        UserProfile.getInstance().init("none", "staticTestUser", "1");
+        FoodModel mod = new FoodModel();
+
+        Assert.assertFalse(mod.checkBadges());
+
+        mod.addEatenVegMeal(1);
+
+        Assert.assertTrue(mod.checkBadges());
+
+        mod.addEatenVegMeal(-1);
+
+        Assert.assertFalse(mod.checkBadges());
+    }
+
 
 }

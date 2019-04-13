@@ -177,9 +177,7 @@ public class TransportModel {
                 new WindowsNotifications().notification(
                     "/badges/3.png",
                     "Congrats! You have cycled 100 km!");
-            } catch (AWTException e) {
-                e.printStackTrace();
-            } catch (MalformedURLException e) {
+            } catch (AWTException | MalformedURLException e) {
                 e.printStackTrace();
             }
 
@@ -200,9 +198,7 @@ public class TransportModel {
                 new WindowsNotifications().notification(
                     "/badges/2.png",
                     "Congrats! You did not use your car for already 500km!");
-            } catch (AWTException e) {
-                e.printStackTrace();
-            } catch (MalformedURLException e) {
+            } catch (AWTException | MalformedURLException e) {
                 e.printStackTrace();
             }
         }
@@ -222,9 +218,7 @@ public class TransportModel {
                 new WindowsNotifications().notification(
                     "/badges/7.png",
                     "Congrats! You did use public transportation for already 600km!");
-            } catch (AWTException e) {
-                e.printStackTrace();
-            } catch (MalformedURLException e) {
+            } catch (AWTException | MalformedURLException e) {
                 e.printStackTrace();
             }
         }

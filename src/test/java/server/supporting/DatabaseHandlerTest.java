@@ -58,7 +58,7 @@ public class DatabaseHandlerTest {
     @Test
     public void testRetrieveVegMealsCount() throws InterruptedException {
 
-        int count = 4;
+        int count = 9;
 
         int testCount = DatabaseHandler.retrieveFeatureCounter(staticUid, "vegmeals");
 
