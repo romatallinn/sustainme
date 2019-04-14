@@ -50,11 +50,11 @@ public class FoodModelTest {
     public void testAddEatenVegMeal() {
         int before = model.getVegMealsCount();
         int expBef = UserProfile.getInstance().getExperience()
-                + (int) (10 * Math.pow(2,(UserProfile.getInstance().getLevel() - 1)));
+                + (int) (10 * (Math.pow(2,(UserProfile.getInstance().getLevel()))-1));
         model.addEatenVegMeal(2);
         int after = model.getVegMealsCount();
         int expAft = UserProfile.getInstance().getExperience()
-                + (int) (10 * Math.pow(2,(UserProfile.getInstance().getLevel() - 1)));
+                + (int) (10 * (Math.pow(2,(UserProfile.getInstance().getLevel()))-1));
         assertEquals(2,after - before);
         assertEquals(40, expAft - expBef);
     }
@@ -70,13 +70,31 @@ public class FoodModelTest {
     public void testAddEatenLocalProduce() {
         double before = model.getLocalProduceCount();
         int expBef = UserProfile.getInstance().getExperience()
-                + (int) (10 * Math.pow(2,(UserProfile.getInstance().getLevel() - 1)));
+                + (int) (10 * (Math.pow(2,(UserProfile.getInstance().getLevel()))-1));
         model.addEatenLocalProduce(5);
         double after = model.getLocalProduceCount();
         int expAft = UserProfile.getInstance().getExperience()
-                + (int) (10 * Math.pow(2,(UserProfile.getInstance().getLevel() - 1)));
+                + (int) (10 * (Math.pow(2,(UserProfile.getInstance().getLevel()))-1));
         assertEquals(5,after - before,0.0);
         assertEquals(5, expAft - expBef);
+    }
+
+    @Test
+    public void testVegMealsBadge() {
+
+        UserProfile.getInstance().clean();
+        UserProfile.getInstance().init("none", "staticTestUser", "1");
+        FoodModel mod = new FoodModel();
+
+        Assert.assertFalse(mod.checkBadges());
+
+        mod.addEatenVegMeal(1);
+
+        Assert.assertTrue(mod.checkBadges());
+
+        mod.addEatenVegMeal(-1);
+
+        Assert.assertFalse(mod.checkBadges());
     }
 
 

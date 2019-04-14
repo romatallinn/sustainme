@@ -97,6 +97,27 @@ public class UserProfileTest {
     }
 
     @Test
+    public void checkCO2RedBadge() {
+        UserProfile user = new UserProfile();
+
+        Assert.assertFalse(user.checkBadgeCo2Reduction());
+        user.setLocalCo2Stats(101);
+        Assert.assertTrue(user.checkBadgeCo2Reduction());
+
+    }
+
+    @Test
+    public void checkLvlHundredBadge() {
+        UserProfile user = new UserProfile();
+
+        Assert.assertFalse(user.checkBadgeLevelHundred());
+        user.setLocalExp(1000000000);
+        System.out.println(user.getLevel());
+        Assert.assertTrue(user.checkBadgeLevelHundred());
+
+    }
+
+    @Test
     public void logoutTest() {
         UserProfile user = new UserProfile();
 

@@ -72,6 +72,10 @@ public class RecyclingModel {
      */
     public double getPlasticRecyclingCount() {
 
+        if (UserProfile.getInstance().authToken.isEmpty()) {
+            return 0;
+        }
+
         if (plasticRecyclingCount < 0) {
             this.init();
         }

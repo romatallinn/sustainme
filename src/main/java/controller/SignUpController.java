@@ -73,10 +73,6 @@ public class SignUpController {
             }
 
             String token = jsonObj.get("idToken").getAsString();
-            if (token.isEmpty()) {
-                view.displayStatus("Could not sign in for unknown reason!");
-                return;
-            }
 
             UserProfile.getInstance().init(email, uid, token);
 
@@ -96,7 +92,11 @@ public class SignUpController {
      */
     private String getErrorMessage(String error) {
 
-        String res = "";
+        String res;
+
+        if (error.equals("MISSING_EMAIL")) {
+            error = "Email missing from input field";
+        }
 
         switch (error) {
             case "INVALID_EMAIL":

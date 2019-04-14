@@ -1,5 +1,8 @@
 image: maven:3.6.0-jdk-11
 
+variables:
+  LOGGING_CONFIG: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn --batch-mode"
+
 stages:
   - compile
   - test
@@ -8,12 +11,12 @@ stages:
 build:
   stage: compile
   script:
-    - mvn compiler:compile
+    - mvn $LOGGING_CONFIG compiler:compile
 
 test:
   stage: test
   script:
-    - mvn test -Dcheckstyle.skip
+    - mvn test $LOGGING_CONFIG -Dcheckstyle.skip
   after_script:
     - mvn jacoco:report
     - cat target/site/jacoco/index.html
@@ -22,5 +25,5 @@ test:
 checkstyle:
   stage: checkstyle
   script:
-    - mvn checkstyle:check
+    - mvn $LOGGING_CONFIG checkstyle:check
   allow_failure: true

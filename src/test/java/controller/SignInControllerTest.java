@@ -37,13 +37,19 @@ public class SignInControllerTest {
     @Test
     public void testSignInPasswordFailure() {
         controller.signInCallback("test@test.com", "123");
-        verify(view).displayStatus(any());
+        verify(view).displayStatus("Invalid password");
     }
 
     @Test
     public void testSignInEmailFailure() {
         controller.signInCallback("invalid@email.com", "123");
-        verify(view).displayStatus(any());
+        verify(view).displayStatus("Invalid email address");
+    }
+
+    @Test
+    public void testSignInEmailEmpty() {
+        controller.signInCallback("", "123");
+        verify(view).displayStatus("Invalid email address");
     }
 
 
