@@ -32,14 +32,14 @@
 
 ```
 // Clone this repository with SSH
-$ git clone git@gitlab.ewi.tudelft.nl:cse1105/2018-2019/oopp-group-70/template.git
+$ git clone git@github.com:romatallinn/sustainme.git
 ```
 
 ##### HTTPS
 
 ```
 // Clone this repository with HTTPS
-$ git clone https://gitlab.ewi.tudelft.nl/cse1105/2018-2019/oopp-group-70/template.git
+$ git clone https://github.com/romatallinn/sustainme.git
 ```
 
 ### Run
