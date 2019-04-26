@@ -2,7 +2,16 @@ package supporting;
 
 public class ServerApi {
 
-    public static final String appKey = "AIzaSyDNyxX9eJvYEB2NVbVpffIhhzSmEbxLEfM";
+    // Firebase Service, app key
+    public static final String APP_KEY = "";
+
+    // CoolClimate API keys
+    public static final String COOLCLIMATE_ID = "";
+    public static final String COOLCLIMATE_KEY = "";
+
+
+
+    // Spring Boot Server Configurations
 
     public static final String HOST = "http://localhost:8080/";
 
@@ -10,7 +19,6 @@ public class ServerApi {
     public static final String USER_DB_INIT = "init";
     public static final String SHOW_FRIENDS = "showfriends";
     public static final String ADD_FRIEND = "addfriend";
-
 
     public static final String VEGMEAL_EATEN = "vegmeal";
     public static final String LOCAL_PRODUCE_EATEN = "localproduce";

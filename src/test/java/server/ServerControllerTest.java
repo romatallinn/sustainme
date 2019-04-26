@@ -1,23 +1,13 @@
 package server;
 
-import api.ApiRequest;
 import model.objects.*;
-import org.junit.runner.RunWith;
-import org.powermock.api.mockito.PowerMockito;
-import org.powermock.core.classloader.annotations.PowerMockIgnore;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
 import org.springframework.http.ResponseEntity;
 import server.supporting.DatabaseHandler;
 import server.supporting.FirebaseConnection;
 
 import org.junit.*;
 
-import java.util.concurrent.TimeUnit;
-
 import static org.junit.Assert.*;
-import static org.mockito.ArgumentMatchers.anyBoolean;
-import static org.mockito.ArgumentMatchers.anyString;
 
 //@PowerMockIgnore({"com.sun.org.apache.xerces.*", "javax.xml.*", "org.xml.*", "org.w3c.*", "io.netty.*"})
 //@PrepareForTest({ ApiRequest.class})
