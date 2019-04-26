@@ -1,6 +1,6 @@
 package server;
 
-import api.ApiRequest;
+import supporting.ApiRequest;
 import model.objects.BadgeRequest;
 import model.objects.BikeRequest;
 import model.objects.BikeResponse;
