@@ -78,7 +78,7 @@ public class JavaFxApplication extends Application {
         SignUpController signUpController = new SignUpController(signUpView);
         signUpView.initView(signUpController);
 
-        dummy = new SceneFx<ISignUpView>("SustainMe - Sign Up", "/fxml/JavaFXSignUpView.fxml",
+        dummy = new SceneFx<ISignUpView>("/fxml/JavaFXSignUpView.fxml",
             "/css/SignUpInView.css");
         dummy.setView(signUpView);
         scenes.put("signup", dummy);
@@ -90,7 +90,7 @@ public class JavaFxApplication extends Application {
         SignInController signIncontroller = new SignInController(signInView);
         signInView.initView(signIncontroller);
 
-        dummy = new SceneFx<ISignInView>("SustainMe - Sign In", "/fxml/JavaFXSignInView.fxml",
+        dummy = new SceneFx<ISignInView>("/fxml/JavaFXSignInView.fxml",
             "/css/SignUpInView.css");
         dummy.setView(signInView);
         scenes.put("signin", dummy);
@@ -101,7 +101,7 @@ public class JavaFxApplication extends Application {
         HomescreenController homescreenController = new HomescreenController(homeView);
         homeView.initView(homescreenController);
 
-        dummy = new SceneFx<IHomeView>("SustainMe - Home", "/fxml/JavaFXHomeView.fxml",
+        dummy = new SceneFx<IHomeView>( "/fxml/JavaFXHomeView.fxml",
             "/css/HomeView.css");
         dummy.setView(homeView);
         scenes.put("home", dummy);
@@ -112,7 +112,7 @@ public class JavaFxApplication extends Application {
         FoodController vegController = new FoodController(foodView);
         foodView.initView(vegController);
 
-        dummy = new SceneFx<IFoodView>("SustainMe - Food", "/fxml/JavaFXFoodView.fxml",
+        dummy = new SceneFx<IFoodView>("/fxml/JavaFXFoodView.fxml",
             "/css/FoodView.css");
         dummy.setView(foodView);
         scenes.put("food", dummy);
@@ -123,7 +123,7 @@ public class JavaFxApplication extends Application {
         TransportController transportController = new TransportController(transportView);
         transportView.initView(transportController);
 
-        dummy = new SceneFx<ITransportView>("SustainMe - Transport",
+        dummy = new SceneFx<ITransportView>(
             "/fxml/JavaFXTransportView.fxml", "/css/TransportView.css");
         dummy.setView(transportView);
         scenes.put("transport", dummy);
@@ -134,7 +134,7 @@ public class JavaFxApplication extends Application {
         EnergyController energyController = new EnergyController(energyView);
         energyView.initView(energyController);
 
-        dummy = new SceneFx<IEnergyView>("SustainMe - Energy", "/fxml/JavaFXEnergyView.fxml",
+        dummy = new SceneFx<IEnergyView>("/fxml/JavaFXEnergyView.fxml",
                  "/css/EnergyView.css");
         dummy.setView(energyView);
         scenes.put("energy", dummy);
@@ -145,7 +145,7 @@ public class JavaFxApplication extends Application {
         FriendsController friendsController = new FriendsController(friendsView);
         friendsView.initView(friendsController);
 
-        dummy = new SceneFx<IFriendView>("SustainMe - Friends", "/fxml/JavaFXFriendsView.fxml",
+        dummy = new SceneFx<IFriendView>("/fxml/JavaFXFriendsView.fxml",
             "/css/FriendsView.css");
         dummy.setView(friendsView);
         scenes.put("friends", dummy);
@@ -158,7 +158,6 @@ public class JavaFxApplication extends Application {
         paperRecyclingView.initView(recyclingController);
 
         dummy = new SceneFx<IRecyclingView>(
-            "SustainMe - Recycling",
                 "/fxml/JavaFXRecyclingView.fxml",
             "/css/RecyclingView.css");
         dummy.setView(paperRecyclingView);
@@ -174,7 +173,7 @@ public class JavaFxApplication extends Application {
 
         friendsCompareView.initView(friendController);
 
-        dummy = new SceneFx<IFriendsComparisonView>("SustainMe - Friends",
+        dummy = new SceneFx<IFriendsComparisonView>(
             "/fxml/JavaFXFriendsComparisonView.fxml",
             "/css/FriendsComparisonView.css");
 
@@ -187,7 +186,7 @@ public class JavaFxApplication extends Application {
         BadgesController badgesController = new BadgesController(badgesView);
         badgesView.initView(badgesController);
 
-        dummy = new SceneFx<IBadgesView>("SustainMe - Badges", "/fxml/JavaFXBadgesView.fxml",
+        dummy = new SceneFx<IBadgesView>("/fxml/JavaFXBadgesView.fxml",
                 "/css/BadgesView.css");
         dummy.setView(badgesView);
         scenes.put("badges", dummy);
@@ -196,7 +195,7 @@ public class JavaFxApplication extends Application {
 
         JavaFxFractalTreeView fractalTreeView = new JavaFxFractalTreeView();
 
-        dummy = new SceneFx<JavaFxFractalTreeView>("SustainMe - Tree",
+        dummy = new SceneFx<JavaFxFractalTreeView>(
                 "/fxml/JavaFxFractalTreeView.fxml",
                 "/css/FractalTreeView.css");
 

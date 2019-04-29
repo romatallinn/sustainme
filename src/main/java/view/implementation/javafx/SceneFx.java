@@ -6,7 +6,6 @@ package view.implementation.javafx;
  */
 public class SceneFx<T> {
 
-    private String title;
     private String fxmlPath;
     private String cssPath;
 
@@ -15,12 +14,10 @@ public class SceneFx<T> {
 
     /**
      * Constructor for the scene
-     * @param title - title of the scene displayed in the upper-left corner (window title).
      * @param fxmlPath - path to the file that stores the view markup.
      * @param cssPath - css file that will be connected to the view.
      */
-    public SceneFx(String title, String fxmlPath, String cssPath) {
-        this.title = title;
+    public SceneFx(String fxmlPath, String cssPath) {
         this.fxmlPath = fxmlPath;
         this.cssPath = cssPath;
     }
@@ -32,13 +29,6 @@ public class SceneFx<T> {
      */
     public void setView(T view) {
         this.view = view;
-    }
-
-    /**
-     * @return title of the window.
-     */
-    public String getTitle() {
-        return this.title;
     }
 
     /**
